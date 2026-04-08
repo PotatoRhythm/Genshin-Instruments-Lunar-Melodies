@@ -6,7 +6,7 @@
       "item": "minecraft:potato"
     },
     "#": {
-      "item": "minecraft:planks"
+      "tag": "minecraft:planks"
     }
   },
 

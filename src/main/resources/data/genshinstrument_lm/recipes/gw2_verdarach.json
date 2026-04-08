@@ -5,18 +5,18 @@
     "P": {
       "item": "minecraft:potato"
     },
-    "N": {
+    "G": {
       "item": "minecraft:gold_ingot"
     }
   },
 
   "pattern": [
-    " N ",
-    "NPN",
-    " N "
+    " G ",
+    "GPG",
+    " G "
   ],
 
   "result": {
-    "item": "genshinstrument_lm:gw2_nautilus_shell"
+    "item": "genshinstrument_lm:gw2_verdarach"
   }
 }
