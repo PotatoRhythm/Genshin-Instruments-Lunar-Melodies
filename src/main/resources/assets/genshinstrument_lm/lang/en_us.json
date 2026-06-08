@@ -111,6 +111,8 @@
     "button.genshinstrument_lm.particle_color_type.pastel": "Pastel",
     "button.genshinstrument_lm.particle_color_type.monochrome": "Monochrome",
 
+    "button.genshinstrument_lm.particle_color_editor": "Particle Color Editor",
+
     "button.genshinstrument_lm.keyboard.soundType": "Sound Type",
     "button.genshinstrument_lm.keyboard.soundType.emi": "Even More Instruments",
     "button.genshinstrument_lm.keyboard.soundType.gw2": "Guild Wars 2",

@@ -61,20 +61,6 @@ public class GridInstrumentOptionsScreen extends InstrumentOptionsScreen {
                 Component.translatable("button.genshinstrument_lm.render_background"), this::onRenderBackgroundChanged
             );
         rowHelper.addChild(renderBackground);
-
-        final CycleButton<ParticleColorType> particleColorButton = CycleButton.<ParticleColorType>builder(color ->
-                        Component.translatable("button.genshinstrument_lm.particle_color_type." + color.name().toLowerCase())
-                )
-                .withValues(ParticleColorType.values())
-                .withInitialValue(ModClientConfigs.PARTICLE_COLOR_TYPE.get())
-                .withTooltip(color -> Tooltip.create(Component.translatable("button.genshinstrument_lm.particle_color_type.tooltip")))
-                .create(0, 0,
-                        getSmallButtonWidth(), getButtonHeight(),
-                        Component.translatable("button.genshinstrument_lm.particle_color_type"),
-                        this::onParticleColorTypeChanged
-                );
-        rowHelper.addChild(particleColorButton);
-
         super.initVisualsSection(grid, rowHelper);
     }
 
@@ -117,11 +103,6 @@ public class GridInstrumentOptionsScreen extends InstrumentOptionsScreen {
     }
     protected void onControlModeChanged(final CycleButton<ControlModeType> button, final ControlModeType value) {
         ModClientConfigs.CONTROL_MODE.set(value);
-    }
-
-    protected void onParticleColorTypeChanged(final CycleButton<ParticleColorType> button, final ParticleColorType value) {
-        ModClientConfigs.PARTICLE_COLOR_TYPE.set(value);
-        GIPacketHandler.sendToServer(new C2SParticleColorChangedPacket(value.ordinal()));
     }
 
     // Register this options type as the main configs

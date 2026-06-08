@@ -14,6 +14,7 @@ import com.stump.genshinstrument_lm.client.keyMaps.InstrumentKeyMappings;
 import com.stump.genshinstrument_lm.client.midi.InstrumentMidiReceiver;
 import com.stump.genshinstrument_lm.event.InstrumentPlayedEvent;
 import com.stump.genshinstrument_lm.event.NoteSoundPlayedEvent;
+import com.stump.genshinstrument_lm.item.ModItemTags;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteButtonIdentifier;
 import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.CloseInstrumentPacket;
@@ -31,8 +32,10 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -691,5 +694,11 @@ public abstract class InstrumentScreen extends Screen {
 
     public void setSoundOption(SoundOption option) {
         this.soundOption = option;
+    }
+
+    public boolean isGuildWarsInstrument() {
+        return ForgeRegistries.ITEMS.tags()
+                .getTag(ModItemTags.GUILD_WARS_INSTRUMENTS)
+                .contains(ForgeRegistries.ITEMS.getValue(getInstrumentId()));
     }
 }

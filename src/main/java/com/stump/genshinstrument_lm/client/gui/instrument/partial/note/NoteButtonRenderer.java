@@ -32,6 +32,10 @@ public class NoteButtonRenderer {
 
     protected Supplier<ResourceLocation> labelTextureProvider;
 
+    private static final ResourceLocation GW2_NOTE_ROOT = new ResourceLocation(
+            "genshinstrument_lm", "textures/gui/genshinstrument_lm/instrument/gw2"
+    );
+
     // Animations
     public final NoteAnimationController noteAnimation;
     public boolean foreignPlaying = false;
@@ -41,7 +45,6 @@ public class NoteButtonRenderer {
         return new NoteAnimationController(NOTE_DUR, NOTE_TARGET_VAL, noteButton);
     }
 
-
     public NoteButtonRenderer(NoteButton noteButton, Supplier<ResourceLocation> labelTextureProvider) {
         this.noteButton = noteButton;
         this.labelTextureProvider = labelTextureProvider;
@@ -49,13 +52,33 @@ public class NoteButtonRenderer {
 
         noteAnimation = initNoteAnimation();
 
-        
-        rootLocation = instrumentScreen.getResourceFromRoot("note");
-        accidentalsLocation = getResourceFromRoot("accidentals.png");
+        rootLocation = instrumentScreen.getResourceFromRoot("note"); // only for genshin instruments
 
-        notePressedLocation = getResourceFromRoot("note/pressed.png");
-        noteReleasedLocation = getResourceFromRoot("note/released.png");
-        noteHoverLocation = getResourceFromRoot("note/hovered.png");
+        if (instrumentScreen.isGuildWarsInstrument()) {
+            int index = noteButton.soundIndex();
+            String[] notes = {"C", "D", "E", "F", "G", "A", "B"};
+            String noteLetter = notes[index % 7];
+
+            accidentalsLocation = CommonUtil.getResourceFrom(
+                    GW2_NOTE_ROOT,
+                    "accidentals_" + noteLetter + ".png"
+            );
+        } else {
+            accidentalsLocation = getResourceFromRoot("accidentals.png");
+        }
+
+        if (instrumentScreen.isGuildWarsInstrument()) {
+            int index = noteButton.soundIndex();
+            String[] notes = {"C", "D", "E", "F", "G", "A", "B"};
+            String noteLetter = notes[index % 7];
+            noteReleasedLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "released_" + noteLetter + ".png");
+            notePressedLocation  = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "pressed_"  + noteLetter + ".png");
+            noteHoverLocation    = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "hovered_"    + noteLetter + ".png");
+        } else {
+            noteReleasedLocation = getResourceFromRoot("note/released.png");
+            notePressedLocation  = getResourceFromRoot("note/pressed.png");
+            noteHoverLocation    = getResourceFromRoot("note/hovered.png");
+        }
     }
 
 
@@ -114,6 +137,9 @@ public class NoteButtonRenderer {
 
     // "Note" here refers to those symbols in the middle of a note button
     protected void renderNote(final GuiGraphics gui, final InstrumentThemeLoader themeLoader) {
+        if (instrumentScreen.isGuildWarsInstrument())
+            return;
+
         final int noteWidth = noteButton.getWidth()/2, noteHeight = noteButton.getHeight()/2;
         
         ClientUtil.setShaderColor((noteButton.isPlaying() && !foreignPlaying)

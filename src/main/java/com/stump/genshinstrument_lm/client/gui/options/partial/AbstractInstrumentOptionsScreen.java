@@ -67,7 +67,6 @@ public abstract class AbstractInstrumentOptionsScreen extends Screen {
     public void render(GuiGraphics gui, int pMouseX, int pMouseY, float pPartialTick) {
         renderBackground(gui);
         super.render(gui, pMouseX, pMouseY, pPartialTick);
-
         gui.drawCenteredString(font, title, width/2, 15, Color.WHITE.getRGB());
     }
 
