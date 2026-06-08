@@ -66,4 +66,14 @@ public class RecordingCapabilityProvider implements ICapabilityProvider, INBTSer
             ? ifExists.apply(lazyOpen.resolve().get())
             : elseVal;
     }
+
+    public static int getParticleSet(Player player) {
+        return getProp(player, RecordingCapability::getParticleSet, 0);
+    }
+
+    public static void setParticleSet(Player player, int particleSet) {
+        player.getCapability(CAPABILITY).ifPresent(cap ->
+                cap.setParticleSet(particleSet)
+        );
+    }
 }

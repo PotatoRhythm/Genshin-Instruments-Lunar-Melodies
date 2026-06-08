@@ -20,6 +20,7 @@ import com.stump.genshinstrument_lm.sound.held.HeldNoteSound;
 import com.mojang.blaze3d.platform.InputConstants.Key;
 import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.layouts.AbstractLayout;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -67,7 +68,7 @@ public abstract class GridInstrumentScreen extends InstrumentScreen implements I
         this.clearWidgets();
         this.grid = noteGrid.initNoteGridLayout(.9f, width, height);
         grid.visitWidgets(this::addRenderableWidget);
-        initOptionsButton(grid.getY() - 15);
+        initControlBar(grid.getY() - 15);
     }
 
     @Override

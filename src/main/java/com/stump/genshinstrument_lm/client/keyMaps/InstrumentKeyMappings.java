@@ -40,7 +40,21 @@ public class InstrumentKeyMappings {
 
     };
 
-    
+    public static final Lazy<KeyMapping> VOLUME_UP = Lazy.of(
+            () -> new KeyMapping(CATEGORY+".volume_up",
+                    INSTRUMENT_KEY_CONFLICT_CONTEXT,
+                    InputConstants.Type.KEYSYM,
+                    GLFW.GLFW_KEY_RIGHT_BRACKET
+                    , CATEGORY)
+    );
+    public static final Lazy<KeyMapping> VOLUME_DOWN = Lazy.of(
+            () -> new KeyMapping(CATEGORY+".volume_down",
+                    INSTRUMENT_KEY_CONFLICT_CONTEXT,
+                    InputConstants.Type.KEYSYM,
+                    GLFW.GLFW_KEY_LEFT_BRACKET
+                    , CATEGORY)
+    );
+
     public static final Lazy<KeyMapping> TRANSPOSE_UP_MODIFIER = Lazy.of(
         () -> new KeyMapping(CATEGORY+".transpose_up_modifier",
             INSTRUMENT_KEY_CONFLICT_CONTEXT,
@@ -130,6 +144,8 @@ public class InstrumentKeyMappings {
 
     @SubscribeEvent
     public static void registerKeybinds(final RegisterKeyMappingsEvent event) {
+        event.register(VOLUME_UP.get());
+        event.register(VOLUME_DOWN.get());
         event.register(TRANSPOSE_UP_MODIFIER.get());
         event.register(TRANSPOSE_DOWN_MODIFIER.get());
         event.register(INSTRUMENT_TYPE_MODIFIER.get());

@@ -10,7 +10,6 @@ import com.stump.genshinstrument_lm.item.InstrumentItem;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -34,7 +33,6 @@ import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.level.redstone.Redstone;
 import net.minecraft.world.phys.BlockHitResult;
 import org.jetbrains.annotations.Nullable;
-
 import java.util.List;
 import java.util.function.Function;
 
@@ -325,26 +323,4 @@ public class LooperBlock extends Block implements EntityBlock {
     }
 
     //#endregion
-
-
-    @Override
-    public boolean triggerEvent(BlockState pState, Level pLevel, BlockPos pPos, int pId, int pParam) {
-        switch (pId) {
-            case 42:
-                return emitNoteParticle(pLevel, pPos, pParam);
-        }
-
-        return false;
-    }
-
-    protected boolean emitNoteParticle(Level level, BlockPos pos, int noteIndex) {
-        // Copied from note block
-        level.addParticle(ParticleTypes.NOTE,
-            (double)pos.getX() + 0.5D, (double)pos.getY() + 1.2D, (double)pos.getZ() + 0.5D,
-            (double)noteIndex / 24.0D, 0.0D, 0.0D
-        );
-
-        return true;
-    }
-
 }

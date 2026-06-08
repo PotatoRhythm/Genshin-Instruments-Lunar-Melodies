@@ -44,12 +44,20 @@ public class GISounds {
         KEYBOARD = nsr(loc("keyboard")).stereo().registerGrid(),
         KEYBOARD_GW2 = nsr(loc("keyboard_gw2")).stereo().registerGrid(),
         KEYBOARD_YAMAHA_C5 = nsr(loc("keyboard_yamaha_c5")).stereo().registerGrid(),
+        HEARTOPIA = nsr(loc("keyboard_heartopia")).stereo().registerGrid(),
+        KEYBOARD_ELECTRIC = nsr(loc("keyboard_electric")).stereo().registerGrid(),
+        KEYBOARD_HARPSICHORD = nsr(loc("keyboard_harpsichord")).stereo().registerGrid(),
 
 
         TROMBONE = nsr(loc("trombone")).registerGrid(),
         SAXOPHONE = nsr(loc("saxophone")).registerGrid(),
 
         GUITAR = nsr(loc("guitar")).registerGrid(),
+        GUITAR_JAZZ = nsr(loc("guitar_jazz")).stereo().registerGrid(),
+        BASS_ACOUSTIC = nsr(loc("bass_acoustic")).stereo().registerGrid(),
+        BASS_FINGER = nsr(loc("bass_finger")).stereo().registerGrid(),
+        BASS_SLAP = nsr(loc("bass_slap")).stereo().registerGrid(),
+
         SHAMISEN = nsr(loc("shamisen")).stereo().registerGrid(),
         KOTO = nsr(loc("koto")).registerGrid(),
 

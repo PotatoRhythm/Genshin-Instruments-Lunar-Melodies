@@ -55,15 +55,6 @@ public abstract class InstrumentOptionsScreen extends AbstractInstrumentOptionsS
     protected final @Nullable INoteLabel[] labels;
     protected @Nullable INoteLabel currLabel;
 
-    /**
-     * Override to {@code false} tp disable the pitch slider from the options.
-     * @apiNote SSTI-type instruments do not want a pitch slider. They tend to max out from beginning to end.
-     */
-    public boolean isPitchSliderEnabled() {
-        return true;
-    }
-
-
     public InstrumentOptionsScreen(@Nullable InstrumentScreen screen) {
         super(Component.translatable("button.genshinstrument_lm.instrumentOptions"), screen);
         labels = getLabels();
@@ -132,23 +123,6 @@ public abstract class InstrumentOptionsScreen extends AbstractInstrumentOptionsS
             .create(0, 0,
                 getBigButtonWidth(), 20, Component.translatable(SOUND_CHANNEL_KEY), this::onChannelTypeChanged);
         rowHelper.addChild(instrumentChannel, 2);
-
-        final SliderButton volumeSlider = new SliderButton(getSmallButtonWidth(), getVolume(), 0, 1) {
-
-            @Override
-            public Component getMessage() {
-                return Component.translatable("button.genshinstrument_lm.volume").append(": "
-                    + ((int)(value * 100))+"%"
-                );
-            }
-            
-            @Override
-            protected void applyValue() {
-                onVolumeChanged(this, value);
-            }
-        };
-        rowHelper.addChild(volumeSlider);
-
     }
 
     protected void initVisualsSection(final GridLayout grid, final RowHelper rowHelper) {
@@ -218,22 +192,6 @@ public abstract class InstrumentOptionsScreen extends AbstractInstrumentOptionsS
         
         initVisualsSection(grid, rowHelper);
         initControlSection(grid, rowHelper);
-    }
-
-    private double getVolume() {
-        return instrumentScreen.map(screen -> (double) screen.volume()).orElseGet(ModClientConfigs.VOLUME);
-    }
-
-
-    // Change handlers
-    protected void onVolumeChanged(final AbstractSliderButton slider, final double volume) {
-        final int newVolume = (int)(volume * 100);
-        instrumentScreen.ifPresent((screen) -> screen.volume = newVolume);
-
-        queueToSave("volume", () -> saveVolume(newVolume / 100d));
-    }
-    protected void saveVolume(final double newVolume) {
-        ModClientConfigs.VOLUME.set(CommonUtil.round(newVolume, 4));
     }
 
     // The label enum is not cached anywhere; just save it.

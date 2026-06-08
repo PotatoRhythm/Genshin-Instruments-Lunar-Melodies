@@ -4,9 +4,12 @@ import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
 import com.stump.genshinstrument_lm.client.config.enumType.ControlModeType;
 import com.stump.genshinstrument_lm.client.config.enumType.NoteGridLabel;
+import com.stump.genshinstrument_lm.client.config.enumType.ParticleColorType;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.grid.GridInstrumentScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.label.INoteLabel;
 import com.stump.genshinstrument_lm.client.gui.options.partial.InstrumentOptionsScreen;
+import com.stump.genshinstrument_lm.networking.GIPacketHandler;
+import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SParticleColorChangedPacket;
 import net.minecraft.client.gui.components.CycleButton;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.layouts.GridLayout;
@@ -50,14 +53,6 @@ public class GridInstrumentOptionsScreen extends InstrumentOptionsScreen {
     }
 
     @Override
-    public boolean isPitchSliderEnabled() {
-        return !instrumentScreen
-            .map((screen) -> (GridInstrumentScreen) screen)
-            .map(GridInstrumentScreen::isSSTI)
-            .orElse(false);
-    }
-
-    @Override
     protected void initVisualsSection(GridLayout grid, RowHelper rowHelper) {
         final CycleButton<Boolean> renderBackground = CycleButton.booleanBuilder(CommonComponents.OPTION_ON, CommonComponents.OPTION_OFF)
             .withInitialValue(ModClientConfigs.RENDER_BACKGROUND.get())
@@ -66,6 +61,19 @@ public class GridInstrumentOptionsScreen extends InstrumentOptionsScreen {
                 Component.translatable("button.genshinstrument_lm.render_background"), this::onRenderBackgroundChanged
             );
         rowHelper.addChild(renderBackground);
+
+        final CycleButton<ParticleColorType> particleColorButton = CycleButton.<ParticleColorType>builder(color ->
+                        Component.translatable("button.genshinstrument_lm.particle_color_type." + color.name().toLowerCase())
+                )
+                .withValues(ParticleColorType.values())
+                .withInitialValue(ModClientConfigs.PARTICLE_COLOR_TYPE.get())
+                .withTooltip(color -> Tooltip.create(Component.translatable("button.genshinstrument_lm.particle_color_type.tooltip")))
+                .create(0, 0,
+                        getSmallButtonWidth(), getButtonHeight(),
+                        Component.translatable("button.genshinstrument_lm.particle_color_type"),
+                        this::onParticleColorTypeChanged
+                );
+        rowHelper.addChild(particleColorButton);
 
         super.initVisualsSection(grid, rowHelper);
     }
@@ -109,6 +117,11 @@ public class GridInstrumentOptionsScreen extends InstrumentOptionsScreen {
     }
     protected void onControlModeChanged(final CycleButton<ControlModeType> button, final ControlModeType value) {
         ModClientConfigs.CONTROL_MODE.set(value);
+    }
+
+    protected void onParticleColorTypeChanged(final CycleButton<ParticleColorType> button, final ParticleColorType value) {
+        ModClientConfigs.PARTICLE_COLOR_TYPE.set(value);
+        GIPacketHandler.sendToServer(new C2SParticleColorChangedPacket(value.ordinal()));
     }
 
     // Register this options type as the main configs

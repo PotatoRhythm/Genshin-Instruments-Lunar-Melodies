@@ -6,6 +6,7 @@ import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentThem
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
 import com.stump.genshinstrument_lm.client.gui.options.partial.InstrumentOptionsScreen;
 import com.mojang.blaze3d.platform.InputConstants.Key;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.layouts.LinearLayout;
 import net.minecraft.client.gui.layouts.LinearLayout.Orientation;
 import net.minecraft.resources.ResourceLocation;
@@ -46,7 +47,7 @@ public class DjemDjemDrumScreen extends InstrumentScreen {
 
     @Override
     protected void init() {
-        initOptionsButton(height/2 + 25);
+        initControlBar(height/2 + 10);
 
         final LinearLayout layout1 = createRow(0),
             layout2 = createRow(1);
@@ -74,7 +75,7 @@ public class DjemDjemDrumScreen extends InstrumentScreen {
     private LinearLayout createRow(int row) {
         final LinearLayout generalLayout = new LinearLayout(
             0, 0,
-            (int)(width/2f), getNoteSize(),
+            (int)(width/2.5f), getNoteSize(),
             Orientation.HORIZONTAL
         );
 

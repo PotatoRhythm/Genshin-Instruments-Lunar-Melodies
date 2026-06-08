@@ -9,6 +9,7 @@ import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.label.Not
 import com.stump.genshinstrument_lm.client.gui.options.partial.AbstractInstrumentOptionsScreen;
 import com.stump.genshinstrument_lm.client.gui.options.partial.InstrumentOptionsScreen;
 import com.stump.genshinstrument_lm.client.gui.widget.IconToggleButton;
+import com.stump.genshinstrument_lm.client.gui.widget.SliderButton;
 import com.stump.genshinstrument_lm.client.keyMaps.InstrumentKeyMappings;
 import com.stump.genshinstrument_lm.client.midi.InstrumentMidiReceiver;
 import com.stump.genshinstrument_lm.event.InstrumentPlayedEvent;
@@ -21,6 +22,7 @@ import com.mojang.blaze3d.platform.InputConstants.Key;
 import com.mojang.blaze3d.platform.InputConstants.Type;
 import com.mojang.logging.LogUtils;
 import com.stump.genshinstrument_lm.sound.SoundOption;
+import com.stump.genshinstrument_lm.util.CommonUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractWidget;
@@ -333,6 +335,51 @@ public abstract class InstrumentScreen extends Screen {
             minecraft.setScreen(new GenshinConsentScreen(this));
     }
 
+    protected Button initControlBar(int vertOffset) {
+        Button btn = initOptionsButton(vertOffset);
+        initVolumeSlider(btn);
+        return btn;
+    }
+
+    protected SliderButton volumeSlider;
+
+    protected SliderButton initVolumeSlider(Button optionsButton) {
+        volumeSlider = new SliderButton(100, volume(), 0, 1) {
+
+            @Override
+            public Component getMessage() {
+                return Component.translatable("button.genshinstrument_lm.volume")
+                        .append(": " + ((int)(value * 100)) + "%");
+            }
+
+            @Override
+            protected void applyValue() {
+                setVolume((float)value);
+
+                optionsScreen.queueToSave("volume", () ->
+                        ModClientConfigs.VOLUME.set(CommonUtil.round(value, 4))
+                );
+            }
+        };
+
+        volumeSlider.setPosition(
+                optionsButton.getX() - volumeSlider.getWidth() - 6,
+                optionsButton.getY()
+        );
+
+        addRenderableWidget(volumeSlider);
+        return volumeSlider;
+    }
+
+    protected void changeVolume(float delta) {
+        float newVolume = Math.max(0f, Math.min(1f, volume() + delta));
+        setVolume(newVolume);
+        volumeSlider.updateValue(newVolume);
+        optionsScreen.queueToSave("volume", () ->
+                ModClientConfigs.VOLUME.set(CommonUtil.round(newVolume, 4))
+        );
+    }
+
     /**
      * Initializes a new button responsible for popping up the options menu for this instrument.
      * Called during {@link Screen#init}.
@@ -424,19 +471,28 @@ public abstract class InstrumentScreen extends Screen {
     }
 
     @Override
-    public boolean keyPressed(int pKeyCode, int pScanCode, int pModifiers) {
-        if (checkPitchTransposeUp(pKeyCode, pScanCode))
+    public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
+        if (InstrumentKeyMappings.VOLUME_UP.get().matches(keyCode, scanCode)) {
+            changeVolume(0.1f);
+            return true;
+        }
+        if (InstrumentKeyMappings.VOLUME_DOWN.get().matches(keyCode, scanCode)) {
+            changeVolume(-0.1f);
+            return true;
+        }
+
+        if (checkPitchTransposeUp(keyCode, scanCode))
             return true;
 
-        final NoteButton note = getNoteByKey(pKeyCode);
-
+        final NoteButton note = getNoteByKey(keyCode);
         if (note != null) {
             note.play();
             return true;
         }
 
-        return super.keyPressed(pKeyCode, pScanCode, pModifiers);
+        return super.keyPressed(keyCode, scanCode, modifiers);
     }
+
     @Override
     public boolean keyReleased(int pKeyCode, int pScanCode, int pModifiers) {
         if (checkTransposeDown(pKeyCode, pScanCode))
@@ -580,6 +636,7 @@ public abstract class InstrumentScreen extends Screen {
             if (isOptionsScreenActive)
                 optionsScreen.onClose();
 
+            optionsScreen.saveOptions();
             closed = true;
         }
 
@@ -591,10 +648,7 @@ public abstract class InstrumentScreen extends Screen {
         // For when the screen was forcibly replaced
         if (!closed) {
             notifyClosed();
-
-            if (isOptionsScreenActive)
-                optionsScreen.saveOptions();
-
+            optionsScreen.saveOptions();
             closed = true;
         }
 

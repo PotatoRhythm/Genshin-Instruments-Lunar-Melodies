@@ -1,6 +1,7 @@
 package com.stump.genshinstrument_lm.block.blockentity;
 
 import com.stump.genshinstrument_lm.GInstrumentMod;
+import com.stump.genshinstrument_lm.capability.recording.RecordingCapabilityProvider;
 import com.stump.genshinstrument_lm.util.LooperUtil;
 import com.stump.genshinstrument_lm.event.HeldNoteSoundPlayedEvent;
 import com.stump.genshinstrument_lm.event.InstrumentPlayedEvent;
@@ -24,16 +25,31 @@ public class LooperNoteListener {
 
     @SubscribeEvent
     public static void onNoteSoundPlayed(final NoteSoundPlayedEvent event) {
-        getMatchingLooper(event).ifPresent((looperBE) ->
-            looperBE.writeNote(event.sound(), event.soundMeta(), looperBE.getTicks())
-        );
+        getMatchingLooper(event).ifPresent(looperBE -> {
+            Player player = (Player) event.entityInfo().get().entity;
+            int particleSet = RecordingCapabilityProvider.getParticleSet(player);
+            looperBE.writeNote(
+                    event.sound(),
+                    event.soundMeta(),
+                    looperBE.getTicks(),
+                    particleSet
+            );
+        });
     }
 
     @SubscribeEvent
     public static void onHeldNoteSoundPlayed(final HeldNoteSoundPlayedEvent event) {
-        getMatchingLooper(event).ifPresent((looperBE) ->
-            looperBE.writeHeldNote(event.sound(), event.phase, event.soundMeta(), looperBE.getTicks())
-        );
+        getMatchingLooper(event).ifPresent(looperBE -> {
+            Player player = (Player) event.entityInfo().get().entity;
+            int particleSet = RecordingCapabilityProvider.getParticleSet(player);
+            looperBE.writeHeldNote(
+                    event.sound(),
+                    event.phase,
+                    event.soundMeta(),
+                    looperBE.getTicks(),
+                    particleSet
+            );
+        });
     }
 
 
@@ -73,5 +89,4 @@ public class LooperNoteListener {
 
         return Optional.of(looperBE);
     }
-
 }

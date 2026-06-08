@@ -126,7 +126,7 @@ public abstract class AbstractInstrumentOptionsScreen extends Screen {
      * exists, it will be overwritten.
      * @param saveRunnable The runnable for saving the option
      */
-    protected void queueToSave(String optionKey, final Runnable saveRunnable) {
+    public void queueToSave(String optionKey, final Runnable saveRunnable) {
         final String modId = modId();
         if (modId != null)
             optionKey = modId + ":" + optionKey;

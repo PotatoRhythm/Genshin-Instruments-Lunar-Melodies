@@ -9,7 +9,6 @@ import com.stump.genshinstrument_lm.client.gui.instrument.gw2_drum.Gw2DrumNoteLa
 import com.stump.genshinstrument_lm.client.gui.instrument.ukelele.Ukulele3rdOctaveType;
 import com.stump.genshinstrument_lm.client.gui.options.MidiOptionsScreen;
 import com.stump.genshinstrument_lm.client.util.ClientUtil;
-import com.stump.genshinstrument_lm.sound.NoteSound;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.ForgeConfigSpec;
@@ -42,6 +41,8 @@ public class ModClientConfigs {
         NORMALIZE_VINTAGE_LYRE, SERVER_AUDIO, EXTEND_RANGE
     ;
 
+    public static final EnumValue<ParticleColorType> PARTICLE_COLOR_TYPE;
+
     public static final EnumValue<ZitherSoundType> ZITHER_SOUND_TYPE;
     public static final EnumValue<GloriousDrumNoteLabel> GLORIOUS_DRUM_LABEL_TYPE;
     public static final EnumValue<DjemDjemDrumNoteLabel> DJEM_DJEM_DRUM_LABEL_TYPE;
@@ -51,6 +52,7 @@ public class ModClientConfigs {
 
     public static final EnumValue<PipaSoundType> PIPA_SOUND_TYPE;
     public static final EnumValue<KeyboardSoundType> KEYBOARD_SOUND_TYPE;
+    public static final EnumValue<GuitarSoundType> GUITAR_SOUND_TYPE;
     public static final EnumValue<ViolinSoundType> VIOLIN_SOUND_TYPE;
     public static final EnumValue<MicrophoneSoundType> MICROPHONE_SOUND_TYPE;
     public static final EnumValue<SaxophoneSoundType> SAXOPHONE_SOUND_TYPE;
@@ -83,12 +85,13 @@ public class ModClientConfigs {
 
         ACCEPTED_GENSHIN_CONSENT = configBuilder.define("accepted_genshin_consent", false);
 
-
+        PARTICLE_COLOR_TYPE = configBuilder.defineEnum("particle_color_type", ParticleColorType.DEFAULT);
         ZITHER_SOUND_TYPE = configBuilder.defineEnum("zither_sound_type", ZitherSoundType.NEW);
         GLORIOUS_DRUM_LABEL_TYPE = configBuilder.defineEnum("glorious_drum_label_type", GloriousDrumNoteLabel.KEYBOARD_LAYOUT);
         DJEM_DJEM_DRUM_LABEL_TYPE = configBuilder.defineEnum("djem_djem_drum_label_type", DjemDjemDrumNoteLabel.KEYBOARD_LAYOUT);
         GW2_DRUM_LABEL_TYPE = configBuilder.defineEnum("gw2_drum_label_type", Gw2DrumNoteLabel.KEYBOARD_LAYOUT);
         KEYBOARD_SOUND_TYPE = configBuilder.defineEnum("keyboard_sound_type", KeyboardSoundType.YAMAHA_C5);
+        GUITAR_SOUND_TYPE = configBuilder.defineEnum("guitar_sound_type", GuitarSoundType.EMI);
         VIOLIN_SOUND_TYPE = configBuilder.defineEnum("violin_sound_type", ViolinSoundType.FAST);
         PIPA_SOUND_TYPE = configBuilder.defineEnum("pipa_sound_type", PipaSoundType.REGULAR);
         MICROPHONE_SOUND_TYPE = configBuilder.defineEnum("microphone_sound_type", MicrophoneSoundType.MIKU);

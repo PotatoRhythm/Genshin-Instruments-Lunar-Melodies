@@ -1,7 +1,7 @@
 package com.stump.genshinstrument_lm.client.gui.instrument.guitar;
 
 import com.stump.genshinstrument_lm.GInstrumentMod;
-import com.stump.genshinstrument_lm.sound.GISounds;
+import com.stump.genshinstrument_lm.client.gui.options.partial.InstrumentOptionsScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentThemeLoader;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.grid.GridInstrumentScreen;
 import com.stump.genshinstrument_lm.sound.SoundOption;
@@ -15,7 +15,15 @@ public class GuitarScreen extends GridInstrumentScreen {
 
     @Override
     public SoundOption getSoundOption() {
-        return new SoundOption(GISounds.GUITAR);
+        return ((GuitarOptionsScreen) optionsScreen)
+                .getPreferredSoundType()
+                .getSoundArr()
+                .get();
+    }
+
+    @Override
+    protected InstrumentOptionsScreen initInstrumentOptionsScreen() {
+        return new GuitarOptionsScreen(this);
     }
 
     @Override

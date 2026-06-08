@@ -2,7 +2,6 @@ package com.stump.genshinstrument_lm.block.blockentity;
 
 import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.block.LooperBlock;
-import com.stump.genshinstrument_lm.block.ModBlocks;
 import com.stump.genshinstrument_lm.block.util.WritableNoteType;
 import com.stump.genshinstrument_lm.capability.recording.RecordingCapabilityProvider;
 import com.stump.genshinstrument_lm.gamerule.ModGameRules;
@@ -11,6 +10,7 @@ import com.stump.genshinstrument_lm.item.emirecord.EMIRecordItem;
 import com.stump.genshinstrument_lm.item.emirecord.RecordRepository;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.packet.LooperPlayStatePacket;
+import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CLooperParticlePacket;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 import com.stump.genshinstrument_lm.util.LooperUtil;
 import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
@@ -22,12 +22,13 @@ import com.stump.genshinstrument_lm.sound.held.HeldNoteSound;
 import com.stump.genshinstrument_lm.sound.held.InitiatorID;
 import com.stump.genshinstrument_lm.sound.registrar.HeldNoteSoundRegistrar;
 import com.stump.genshinstrument_lm.sound.registrar.NoteSoundRegistrar;
-import com.stump.genshinstrument_lm.util.BiValue;
 import com.mojang.logging.LogUtils;
+import com.stump.genshinstrument_lm.util.TriValue;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -56,24 +57,21 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
     public static final String
         RECORD_TAG = "Record",
         RECORDING_TAG = "Recording",
-    
         TICKS_TAG = "Ticks"
     ;
 
     private boolean locked = false;
     private Player lockedBy = null;
-
     private ItemStack recordIn = ItemStack.EMPTY;
-
     private CompoundTag channel;
-
     private final InitiatorID looperInitiatorID;
+    private int heldParticleTimer = 0;
 
     /**
      * A set of cached notes as to use them
      * for pausing and resuming the looper.
      */
-    protected final HashSet<BiValue<HeldNoteSound, NoteSoundMetadata>> cachedHeldNotes = new HashSet<>();
+    protected final HashSet<TriValue<HeldNoteSound, NoteSoundMetadata, Integer>> cachedHeldNotes = new HashSet<>();
     protected void stopAndClearHeldSounds() {
         notifyHeldNotesPhase(HeldSoundPhase.RELEASE);
         cachedHeldNotes.clear();
@@ -375,11 +373,11 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
     /**
      * Writes a new note to the writable record.
      */
-    public void writeNote(NoteSound sound, NoteSoundMetadata soundMeta, int timestamp) {
+    public void writeNote(NoteSound sound, NoteSoundMetadata soundMeta, int timestamp, int particleSet) {
         if (!isWritable())
             return;
 
-        final CompoundTag noteTag = serializeNoteMeta(soundMeta, timestamp);
+        final CompoundTag noteTag = serializeNoteMeta(soundMeta, timestamp, particleSet);
         noteTag.putString(NOTE_TYPE, WritableNoteType.REGULAR.name());
 
         noteTag.putInt(SOUND_INDEX_TAG, sound.index);
@@ -392,11 +390,12 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
      * Writes a new note to the writable record.
      */
     public void writeHeldNote(HeldNoteSound sound, HeldSoundPhase phase,
-                              NoteSoundMetadata soundMeta, int timestamp) {
+                              NoteSoundMetadata soundMeta, int timestamp,
+                              int particleSet) {
         if (!isWritable())
             return;
 
-        final CompoundTag noteTag = serializeNoteMeta(soundMeta, timestamp);
+        final CompoundTag noteTag = serializeNoteMeta(soundMeta, timestamp, particleSet);
         noteTag.putString(NOTE_TYPE, WritableNoteType.HELD.name());
 
         noteTag.putInt(SOUND_INDEX_TAG, sound.index());
@@ -407,12 +406,13 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         setChanged();
     }
 
-    protected CompoundTag serializeNoteMeta(NoteSoundMetadata soundMeta, int timestamp) {
+    public static final String PARTICLE_SET_TAG = "ParticleSet";
+    protected CompoundTag serializeNoteMeta(NoteSoundMetadata soundMeta, int timestamp, int particleSet) {
         final CompoundTag noteTag = new CompoundTag();
 
         noteTag.putInt(PITCH_TAG, soundMeta.pitch());
         noteTag.putFloat(VOLUME_TAG, soundMeta.volume() / 100f);
-
+        noteTag.putInt(PARTICLE_SET_TAG, particleSet);
         noteTag.putInt(TIMESTAMP_TAG, timestamp);
 
         return noteTag;
@@ -436,6 +436,8 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         final CompoundTag channel = lbe.getChannel();
         if (channel == null)
             return;
+
+        emitHeldParticles();
 
         final int ticks = getTicks();
         final ResourceLocation instrumentId = new ResourceLocation(channel.getString(INSTRUMENT_ID_TAG));
@@ -475,7 +477,6 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
 
     protected void playNoteSound(final CompoundTag noteTag, final ResourceLocation instrumentId) {
         final NoteSoundMetadata meta = metaFromNoteTag(noteTag, instrumentId);
-
         final ResourceLocation soundLocation = new ResourceLocation(noteTag.getString(SOUND_TYPE_TAG));
         final int soundIndex = noteTag.getInt(SOUND_INDEX_TAG);
 
@@ -485,8 +486,11 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
             meta
         );
 
-        triggerEmitNoteParticle(meta.pitch());
+        int noteIndex = soundIndex + meta.pitch();
+        int colorSet = noteTag.getInt(LooperBlockEntity.PARTICLE_SET_TAG);
+        triggerEmitNoteParticle(noteIndex, colorSet);
     }
+
     protected void playHeldSound(final CompoundTag noteTag, final ResourceLocation instrumentId) {
         final NoteSoundMetadata meta = metaFromNoteTag(noteTag, instrumentId);
 
@@ -502,11 +506,16 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         );
 
         if (phase == HeldSoundPhase.ATTACK) {
-            cachedHeldNotes.add(new BiValue<>(sound, meta));
-            // Also emit particle here
-            triggerEmitNoteParticle(meta.pitch());
+            int colorSet = noteTag.getInt(LooperBlockEntity.PARTICLE_SET_TAG);
+            cachedHeldNotes.add(new TriValue<>(sound, meta, colorSet));
+            int noteIndex = soundIndex + meta.pitch();
+            triggerEmitNoteParticle(noteIndex, colorSet);
+
         } else if (phase == HeldSoundPhase.RELEASE) {
-            cachedHeldNotes.remove(new BiValue<>(sound, meta));
+            cachedHeldNotes.removeIf(triple ->
+                    triple.obj1().equals(sound) &&
+                            triple.obj2().equals(meta)
+            );
         }
     }
 
@@ -519,10 +528,34 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         );
     }
 
-    public void triggerEmitNoteParticle(final int pitch) {
-        getLevel().blockEvent(getBlockPos(), ModBlocks.LOOPER.get(), 42, pitch);
+    public void triggerEmitNoteParticle(int noteIndex, final int colorSet) {
+        final double MIN_NOTE = -12;
+        final double MAX_NOTE = 30; // should be 32, but color sets of 6 align better with octaves this way
+        double particleColor = (noteIndex - MIN_NOTE) / (MAX_NOTE - MIN_NOTE);
+        particleColor = net.minecraft.util.Mth.clamp(particleColor, 0.0, 1.0);
+
+        GIPacketHandler.sendToTracking(
+                new S2CLooperParticlePacket(getBlockPos(), particleColor, colorSet),
+                (ServerLevel) getLevel(),
+                getBlockPos()
+        );
     }
 
+    private void emitHeldParticles() {
+        if (cachedHeldNotes.isEmpty())
+            return;
+        if (++heldParticleTimer < 10)
+            return;
+
+        heldParticleTimer = 0;
+
+        for (TriValue<HeldNoteSound, NoteSoundMetadata, Integer> heldNote : cachedHeldNotes) {
+            HeldNoteSound sound = heldNote.obj1();
+            NoteSoundMetadata meta = heldNote.obj2();
+            int noteIndex = sound.index() + meta.pitch();
+            triggerEmitNoteParticle(noteIndex, heldNote.obj3());
+        }
+    }
 
     public void popRecord() {
         final CompoundTag recordData = getRecordData();

@@ -1,6 +1,9 @@
 package com.stump.genshinstrument_lm.sound.held;
 
+import com.stump.genshinstrument_lm.client.ClientInstrumentData;
+import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
 import com.stump.genshinstrument_lm.client.util.ClientUtil;
+import com.stump.genshinstrument_lm.particle.ModParticles;
 import com.stump.genshinstrument_lm.sound.NoteSound;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSound.Phase;
 import net.minecraft.client.Minecraft;
@@ -21,6 +24,7 @@ import java.util.Optional;
 public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
     public final HeldNoteSound heldSoundContainer;
     public final HeldNoteSound.Phase phase;
+    private int particleTimer = 10;
 
     public final ResourceLocation instrumentId;
 
@@ -33,6 +37,7 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
      */
     public final Optional<BlockPos> soundOrigin;
     public final int notePitch;
+    private final float startVolume;
 
     private boolean released;
 
@@ -43,7 +48,7 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
      *                    Value must be present if {@code initiator} is empty.
      */
     protected HeldNoteSoundInstance(HeldNoteSound heldSoundContainer, HeldNoteSound.Phase phase,
-                                    int notePitch, float volume,
+                                    int notePitch, float startVolume, float volume,
                                     @Nullable Entity initiator, @Nullable BlockPos soundOrigin,
                                     InitiatorID initiatorId, ResourceLocation instrumentId,
                                     int timeAlive, boolean released) {
@@ -63,6 +68,7 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
         this.initiator = Optional.ofNullable(initiator);
         this.soundOrigin = Optional.ofNullable(soundOrigin);
 
+        this.startVolume = startVolume;
         this.volume = volume;
         this.notePitch = notePitch;
         this.pitch = NoteSound.getPitchByNoteOffset(notePitch);
@@ -99,12 +105,12 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
      *                    Value must be present if {@code initiator} is empty.
      */
     public HeldNoteSoundInstance(HeldNoteSound heldSoundContainer, HeldNoteSound.Phase phase,
-                                 int notePitch, float volume,
+                                 int notePitch, float startVolume, float volume,
                                  @Nullable Entity initiator, @Nullable BlockPos soundOrigin,
                                  InitiatorID initiatorId, ResourceLocation instrumentId) {
         this(
             heldSoundContainer,
-            phase, notePitch, volume,
+            phase, notePitch, startVolume, volume,
             initiator, soundOrigin, initiatorId, instrumentId,
             0, false
         );
@@ -197,6 +203,13 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
             volume -= heldSoundContainer.releaseFadeOut() * fadeOutMultiplier;
             if (volume <= 0)
                 stopHeld();
+        } else {
+            if (phase == Phase.HOLD) {
+                if (++particleTimer >= 10) {
+                    particleTimer = 0;
+                    spawnNoteParticle();
+                }
+            }
         }
 
         timeAlive++;
@@ -232,11 +245,13 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
     }
 
     protected void queueHoldPhase(final boolean decreaseVol) {
-        if (volume <= .2f)
+        float decay = decreaseVol ? (heldSoundContainer.decay() * startVolume) : 0;
+        float nextVolume = volume - decay;
+        if (nextVolume <= 0)
             return;
 
         new HeldNoteSoundInstance(
-            heldSoundContainer, Phase.HOLD, notePitch, volume - (decreaseVol ? heldSoundContainer.decay() : 0),
+            heldSoundContainer, Phase.HOLD, notePitch, startVolume, nextVolume,
             initiator.orElse(null), soundOrigin.orElse(null),
             initiatorId, instrumentId,
             overallTimeAlive, released
@@ -271,5 +286,41 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
     public void stopHeld() {
         stop();
         removeSoundInstance();
+    }
+
+    private void spawnNoteParticle() {
+        if (initiator.isEmpty())
+            return;
+        Entity entity = initiator.get();
+        var level = Minecraft.getInstance().level;
+        if (level == null)
+            return;
+
+        double noteIndex = heldSoundContainer.index() + notePitch;
+        final double MIN_NOTE = -12;
+        final double MAX_NOTE = 30; // should be 32, but color sets of 6 align better with octaves this way
+        double particleColor = (noteIndex - MIN_NOTE) / (MAX_NOTE - MIN_NOTE);
+        particleColor = net.minecraft.util.Mth.clamp(particleColor, 0.0, 1.0);
+
+        double xOffset = (level.random.nextDouble() - 0.5) * 0.30;
+        double yOffset = (level.random.nextDouble() - 0.5) * 0.30;
+        double zOffset = (level.random.nextDouble() - 0.5) * 0.30;
+
+        float bodyYaw = entity.getYRot(); // body rotation in degrees
+        double radians = Math.toRadians(bodyYaw);
+        double forwardX = -Math.sin(radians);
+        double forwardZ = Math.cos(radians);
+
+        int colorSet = ClientInstrumentData.getParticleSet(entity.getUUID());
+
+        level.addParticle(
+                ModParticles.CUSTOM_NOTE.get(),
+                entity.getX() + forwardX * 0.6 + xOffset,
+                entity.getY() + 1.3 + yOffset,
+                entity.getZ() + forwardZ * 0.6 + zOffset,
+                particleColor,
+                0.15,
+                colorSet
+        );
     }
 }

@@ -4,13 +4,13 @@ import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SHeldNoteSoundPacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SNoteSoundPacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.CloseInstrumentPacket;
-import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.NotifyInstrumentOpenPacket;
-import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.OpenInstrumentPacket;
-import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CHeldNoteSoundPacket;
-import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CNoteSoundPacket;
+import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SParticleColorChangedPacket;
+import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.*;
 import com.stump.genshinstrument_lm.networking.packet.*;
 import com.stump.genshinstrument_lm.util.ServerUtil;
+import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
@@ -29,6 +29,8 @@ public class GIPacketHandler {
         OpenInstrumentPacket.class, CloseInstrumentPacket.class,
         C2SHeldNoteSoundPacket.class, S2CHeldNoteSoundPacket.class,
         LooperRecordStatePacket.class, OpenNoteBlockInstrumentPacket.class,
+        S2CLooperParticlePacket.class, C2SParticleColorChangedPacket.class,
+        S2CParticleColorChangedPacket.class,
         // Sync stuff
         DoesLooperExistPacket.class, LooperUnplayablePacket.class, SyncModTagPacket.class,
         LooperPlayStatePacket.class
@@ -55,5 +57,8 @@ public class GIPacketHandler {
     }
     public static <T> void sendToClient(final T packet, final ServerPlayer player) {
         INSTANCE.send(PacketDistributor.PLAYER.with(() -> player), packet);
+    }
+    public static <T> void sendToTracking(T packet, ServerLevel level, BlockPos pos) {
+        INSTANCE.send(PacketDistributor.TRACKING_CHUNK.with(() -> level.getChunkAt(pos)), packet);
     }
 }

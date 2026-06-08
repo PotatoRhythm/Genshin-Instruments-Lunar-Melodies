@@ -1,10 +1,12 @@
 package com.stump.genshinstrument_lm.sound;
 
+import com.stump.genshinstrument_lm.client.ClientInstrumentData;
 import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
 import com.stump.genshinstrument_lm.client.config.enumType.InstrumentChannelType;
 import com.stump.genshinstrument_lm.client.util.ClientUtil;
 import com.stump.genshinstrument_lm.event.NoteSoundPlayedEvent;
 import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
+import com.stump.genshinstrument_lm.particle.ModParticles;
 import com.stump.genshinstrument_lm.sound.registrar.NoteSoundRegistrar;
 import com.stump.genshinstrument_lm.util.LabelUtil;
 import net.minecraft.client.Minecraft;
@@ -12,6 +14,7 @@ import net.minecraft.client.resources.sounds.SimpleSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance.Attenuation;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.sounds.SoundEvent;
@@ -20,6 +23,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
@@ -161,6 +165,40 @@ public class NoteSound {
             ? new NoteSoundPlayedEvent(level, this, meta)
             : new NoteSoundPlayedEvent(initiator, this, meta)
         );
+
+        MinecraftForge.EVENT_BUS.post(initiator == null
+                ? new NoteSoundPlayedEvent(level, this, meta)
+                : new NoteSoundPlayedEvent(initiator, this, meta)
+        );
+
+        if (initiator != null) {
+            double noteIndex = this.index + meta.pitch();
+            final double MIN_NOTE = -12;
+            final double MAX_NOTE = 30; // should be 32, but color sets of 6 align better with octaves this way
+            double particleColor = (noteIndex - MIN_NOTE) / (MAX_NOTE - MIN_NOTE);
+            particleColor = net.minecraft.util.Mth.clamp(particleColor, 0.0, 1.0);
+
+            double xOffset = (level.random.nextDouble() - 0.5) * 0.30;
+            double yOffset = (level.random.nextDouble() - 0.5) * 0.30;
+            double zOffset = (level.random.nextDouble() - 0.5) * 0.30;
+
+            float bodyYaw = initiator.getYRot(); // body rotation in degrees
+            double radians = Math.toRadians(bodyYaw);
+            double forwardX = -Math.sin(radians);
+            double forwardZ = Math.cos(radians);
+
+            int colorSet = ClientInstrumentData.getParticleSet(initiator.getUUID());
+
+            level.addParticle(
+                    ModParticles.CUSTOM_NOTE.get(),
+                    initiator.getX() + forwardX * 0.6 + xOffset,
+                    initiator.getY() + 1.3 + yOffset,
+                    initiator.getZ() + forwardZ * 0.6 + zOffset,
+                    particleColor,
+                    0.15,
+                    colorSet
+            );
+        }
 
         final boolean serverAudioEnabled = ModClientConfigs.SERVER_AUDIO.get();
         if (!serverAudioEnabled) {

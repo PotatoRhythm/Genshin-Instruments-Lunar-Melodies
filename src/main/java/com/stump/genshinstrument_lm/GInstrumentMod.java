@@ -6,6 +6,7 @@ import com.stump.genshinstrument_lm.networking.buttonidentifier.DjemDjemDrumNote
 import com.stump.genshinstrument_lm.networking.buttonidentifier.GloriousDrumNoteIdentifier;
 import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteButtonIdentifiers;
 import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteGridButtonIdentifier;
+import com.stump.genshinstrument_lm.particle.ModParticles;
 import com.stump.genshinstrument_lm.sound.GISounds;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 import com.stump.genshinstrument_lm.block.ModBlocks;
@@ -60,6 +61,7 @@ public class GInstrumentMod
         ModBlocks.register(bus);
         ModBlockEntities.register(bus);
         ModRecipeSerializers.register(bus);
+        ModParticles.register(bus);
 
         GISounds.register(bus);
         GICreativeModeTabs.regsiter(bus);

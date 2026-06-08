@@ -8,6 +8,7 @@ import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButto
 import com.stump.genshinstrument_lm.client.gui.options.partial.InstrumentOptionsScreen;
 import com.stump.genshinstrument_lm.client.midi.InstrumentMidiReceiver;
 import com.mojang.blaze3d.platform.InputConstants.Key;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.layouts.LinearLayout;
 import net.minecraft.client.gui.layouts.LinearLayout.Orientation;
 import net.minecraft.resources.ResourceLocation;
@@ -46,7 +47,7 @@ public class AratakisGreatAndGloriousDrumScreen extends InstrumentScreen {
 
     @Override
     protected void init() {
-        initOptionsButton(height/2 + 25);
+        initControlBar(height/2 + 20);
 
         final LinearLayout layout1 = createRow(GloriousDrumButtonType.DON, 2f),
             layout2 = createRow(GloriousDrumButtonType.KA, 1.3f);

@@ -1,5 +1,7 @@
 {
     "genshinstrument_lm.keymaps": "Instruments GUI",
+    "genshinstrument_lm.keymaps.volume_up": "Increase Volume",
+    "genshinstrument_lm.keymaps.volume_down": "Decrease Volume",
     "genshinstrument_lm.keymaps.transpose_up_modifier": "Transpose Instrument Up",
     "genshinstrument_lm.keymaps.transpose_down_modifier": "Transpose Instrument Down",
 
@@ -96,18 +98,34 @@
 
 
     "button.genshinstrument_lm.label": "Note Labels",
-    "button.genshinstrument_lm.pitch": "Pitch",
-    "button.genshinstrument_lm.volume": "Instrument Volume",
+    "button.genshinstrument_lm.volume": "Volume",
     "button.genshinstrument_lm.control_mode": "Control Mode",
 
     "button.genshinstrument_lm.zither.soundType": "Sound Type",
     "button.genshinstrument_lm.zither.soundType.old": "Old",
     "button.genshinstrument_lm.zither.soundType.new": "New",
 
+    "button.genshinstrument_lm.particle_color_type.tooltip": "Choose the particle color set for notes",
+    "button.genshinstrument_lm.particle_color_type": "Particle Color",
+    "button.genshinstrument_lm.particle_color_type.default": "Default",
+    "button.genshinstrument_lm.particle_color_type.pastel": "Pastel",
+    "button.genshinstrument_lm.particle_color_type.monochrome": "Monochrome",
+
     "button.genshinstrument_lm.keyboard.soundType": "Sound Type",
     "button.genshinstrument_lm.keyboard.soundType.emi": "Even More Instruments",
     "button.genshinstrument_lm.keyboard.soundType.gw2": "Guild Wars 2",
     "button.genshinstrument_lm.keyboard.soundType.yamaha_c5": "Yamaha_C5",
+    "button.genshinstrument_lm.keyboard.soundType.heartopia": "Heartopia",
+    "button.genshinstrument_lm.keyboard.soundType.electric": "Electric",
+    "button.genshinstrument_lm.keyboard.soundType.harpsichord": "Harpsichord",
+
+    "button.genshinstrument_lm.guitar.soundType": "Sound Type",
+    "button.genshinstrument_lm.guitar.soundType.emi": "Even More Instruments",
+    "button.genshinstrument_lm.guitar.soundType.steel": "Steel KRZ",
+    "button.genshinstrument_lm.guitar.soundType.jazz": "Jazz",
+    "button.genshinstrument_lm.guitar.soundType.acoustic": "Acoustic Bass",
+    "button.genshinstrument_lm.guitar.soundType.finger": "Finger Bass",
+    "button.genshinstrument_lm.guitar.soundType.slap": "Slap Bass",
 
     "button.genshinstrument_lm.violin.soundType": "Sound Type",
     "button.genshinstrument_lm.violin.soundType.slow": "Slow",

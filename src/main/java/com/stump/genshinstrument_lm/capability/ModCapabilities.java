@@ -2,10 +2,12 @@ package com.stump.genshinstrument_lm.capability;
 
 import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.capability.instrumentOpen.InstrumentOpenProvider;
+import com.stump.genshinstrument_lm.capability.playerCustomization.PlayerCustomizationProvider;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.NotifyInstrumentOpenPacket;
 import com.stump.genshinstrument_lm.capability.recording.RecordingCapabilityProvider;
 
+import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CParticleColorChangedPacket;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.entity.Entity;
@@ -33,6 +35,11 @@ public class ModCapabilities {
 
             if (!event.getObject().getCapability(RecordingCapabilityProvider.CAPABILITY).isPresent())
                 event.addCapability(new ResourceLocation(GInstrumentMod.MODID, "emi_caps"), new RecordingCapabilityProvider());
+
+            if (!player.getCapability(PlayerCustomizationProvider.CAPABILITY).isPresent()) {
+                event.addCapability(new ResourceLocation(GInstrumentMod.MODID, "instrument_data"),
+                        new PlayerCustomizationProvider());
+            }
         }
     }
 
@@ -41,6 +48,20 @@ public class ModCapabilities {
     @SubscribeEvent
     public static void onPlayerJoin(final PlayerEvent.PlayerLoggedInEvent event) {
         notifyOpenStateToPlayers((ServerPlayer) event.getEntity());
+    }
+
+    @SubscribeEvent
+    public static void onStartTracking(PlayerEvent.StartTracking event) {
+        if (!(event.getTarget() instanceof Player trackedPlayer))
+            return;
+        if (!(event.getEntity() instanceof ServerPlayer trackingPlayer))
+            return;
+
+        int particleSet = RecordingCapabilityProvider.getParticleSet(trackedPlayer);
+        GIPacketHandler.sendToClient(
+                new S2CParticleColorChangedPacket(trackedPlayer.getUUID(), particleSet),
+                trackingPlayer
+        );
     }
 
     // And on dimension traversal

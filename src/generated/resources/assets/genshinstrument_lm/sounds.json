@@ -1,4 +1,1033 @@
 {
+  "bass_acoustic_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/0"
+      }
+    ]
+  },
+  "bass_acoustic_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/0.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/1"
+      }
+    ]
+  },
+  "bass_acoustic_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/10"
+      }
+    ]
+  },
+  "bass_acoustic_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/10.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/11"
+      }
+    ]
+  },
+  "bass_acoustic_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/11.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/12"
+      }
+    ]
+  },
+  "bass_acoustic_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/12.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/13"
+      }
+    ]
+  },
+  "bass_acoustic_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/13.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/14"
+      }
+    ]
+  },
+  "bass_acoustic_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/14.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/15"
+      }
+    ]
+  },
+  "bass_acoustic_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/15.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/16"
+      }
+    ]
+  },
+  "bass_acoustic_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/16.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/17"
+      }
+    ]
+  },
+  "bass_acoustic_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/17.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/18"
+      }
+    ]
+  },
+  "bass_acoustic_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/18.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/19"
+      }
+    ]
+  },
+  "bass_acoustic_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/19.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/1.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/2"
+      }
+    ]
+  },
+  "bass_acoustic_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/20"
+      }
+    ]
+  },
+  "bass_acoustic_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/20.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/2.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/3"
+      }
+    ]
+  },
+  "bass_acoustic_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/3.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/4"
+      }
+    ]
+  },
+  "bass_acoustic_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/5"
+      }
+    ]
+  },
+  "bass_acoustic_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/5.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/6"
+      }
+    ]
+  },
+  "bass_acoustic_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/6.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/7"
+      }
+    ]
+  },
+  "bass_acoustic_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/7.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/8"
+      }
+    ]
+  },
+  "bass_acoustic_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/8.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_acoustic_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_acoustic/9"
+      }
+    ]
+  },
+  "bass_acoustic_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_acoustic/9.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/0"
+      }
+    ]
+  },
+  "bass_finger_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/0.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/1"
+      }
+    ]
+  },
+  "bass_finger_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/10"
+      }
+    ]
+  },
+  "bass_finger_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/10.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/11"
+      }
+    ]
+  },
+  "bass_finger_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/11.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/12"
+      }
+    ]
+  },
+  "bass_finger_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/12.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/13"
+      }
+    ]
+  },
+  "bass_finger_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/13.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/14"
+      }
+    ]
+  },
+  "bass_finger_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/14.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/15"
+      }
+    ]
+  },
+  "bass_finger_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/15.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/16"
+      }
+    ]
+  },
+  "bass_finger_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/16.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/17"
+      }
+    ]
+  },
+  "bass_finger_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/17.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/18"
+      }
+    ]
+  },
+  "bass_finger_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/18.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/19"
+      }
+    ]
+  },
+  "bass_finger_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/19.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/1.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/2"
+      }
+    ]
+  },
+  "bass_finger_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/20"
+      }
+    ]
+  },
+  "bass_finger_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/20.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/2.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/3"
+      }
+    ]
+  },
+  "bass_finger_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/3.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/4"
+      }
+    ]
+  },
+  "bass_finger_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/5"
+      }
+    ]
+  },
+  "bass_finger_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/5.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/6"
+      }
+    ]
+  },
+  "bass_finger_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/6.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/7"
+      }
+    ]
+  },
+  "bass_finger_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/7.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/8"
+      }
+    ]
+  },
+  "bass_finger_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/8.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_finger_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_finger/9"
+      }
+    ]
+  },
+  "bass_finger_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_finger/9.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "bass_slap_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/0",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/0.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/1",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/10",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/10.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/11",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/11.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/12",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/12.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/13",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/13.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/14",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/14.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/15",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/15.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/16",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/16.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/17",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/17.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/18",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/18.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/19",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/19.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/1.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/2",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/20",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/20.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/2.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/3",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/3.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/4",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/5",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/5.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/6",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/6.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/7",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/7.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/8",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/8.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "bass_slap_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:bass_slap/9",
+        "volume": 0.9
+      }
+    ]
+  },
+  "bass_slap_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:bass_slap/9.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
   "djem_djem_drum_note_0": {
     "sounds": [
       {
@@ -454,6 +1483,363 @@
   "glorious_drum_ka_stereo": {
     "sounds": [
       "genshinstrument_lm:glorious_drum/ka.stereo"
+    ]
+  },
+  "guitar_jazz_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/0",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/0.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/1",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/10",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/10.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/11",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/11.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/12",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/12.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/13",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/13.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/14",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/14.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/15",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/15.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/16",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/16.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/17",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/17.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/18",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/18.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/19",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/19.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/1.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/2",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/20",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/20.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/2.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/3",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/3.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/4",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/4.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/5",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/5.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/6",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/6.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/7",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/7.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/8",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/8.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "guitar_jazz_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:guitar_jazz/9",
+        "volume": 0.6
+      }
+    ]
+  },
+  "guitar_jazz_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:guitar_jazz/9.stereo",
+        "volume": 0.40000004
+      }
     ]
   },
   "guitar_note_0": {
@@ -6037,6 +7423,342 @@
       }
     ]
   },
+  "keyboard_electric_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/0"
+      }
+    ]
+  },
+  "keyboard_electric_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/0.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/1"
+      }
+    ]
+  },
+  "keyboard_electric_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/10"
+      }
+    ]
+  },
+  "keyboard_electric_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/10.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/11"
+      }
+    ]
+  },
+  "keyboard_electric_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/11.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/12"
+      }
+    ]
+  },
+  "keyboard_electric_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/12.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/13"
+      }
+    ]
+  },
+  "keyboard_electric_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/13.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/14"
+      }
+    ]
+  },
+  "keyboard_electric_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/14.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/15"
+      }
+    ]
+  },
+  "keyboard_electric_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/15.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/16"
+      }
+    ]
+  },
+  "keyboard_electric_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/16.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/17"
+      }
+    ]
+  },
+  "keyboard_electric_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/17.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/18"
+      }
+    ]
+  },
+  "keyboard_electric_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/18.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/19"
+      }
+    ]
+  },
+  "keyboard_electric_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/19.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/1.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/2"
+      }
+    ]
+  },
+  "keyboard_electric_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/20"
+      }
+    ]
+  },
+  "keyboard_electric_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/20.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/2.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/3"
+      }
+    ]
+  },
+  "keyboard_electric_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/3.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/4"
+      }
+    ]
+  },
+  "keyboard_electric_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/5"
+      }
+    ]
+  },
+  "keyboard_electric_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/5.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/6"
+      }
+    ]
+  },
+  "keyboard_electric_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/6.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/7"
+      }
+    ]
+  },
+  "keyboard_electric_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/7.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/8"
+      }
+    ]
+  },
+  "keyboard_electric_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/8.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "keyboard_electric_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_electric/9"
+      }
+    ]
+  },
+  "keyboard_electric_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_electric/9.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
   "keyboard_gw2_note_0": {
     "sounds": [
       {
@@ -6391,6 +8113,720 @@
       {
         "name": "genshinstrument_lm:keyboard_gw2/9.stereo",
         "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/0",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/0.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/1",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/10",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/10.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/11",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/11.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/12",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/12.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/13",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/13.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/14",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/14.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/15",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/15.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/16",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/16.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/17",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/17.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/18",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/18.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/19",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/19.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/1.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/2",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/20",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/20.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/2.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/3",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/3.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/4",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/4.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/5",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/5.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/6",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/6.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/7",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/7.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/8",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/8.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_harpsichord/9",
+        "volume": 0.6
+      }
+    ]
+  },
+  "keyboard_harpsichord_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_harpsichord/9.stereo",
+        "volume": 0.40000004
+      }
+    ]
+  },
+  "keyboard_heartopia_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/0",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/0.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/1",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/10",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/10.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/11",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/11.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/12",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/12.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/13",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/13.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/14",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/14.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/15",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/15.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/16",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/16.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/17",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/17.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/18",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/18.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/19",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/19.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/1.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/2",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/20",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/20.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/2.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/3",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/3.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/4.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/5",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/5.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/6",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/6.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/7",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/7.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/8",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/8.stereo",
+        "volume": 0.5
+      }
+    ]
+  },
+  "keyboard_heartopia_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:keyboard_heartopia/9",
+        "volume": 0.7
+      }
+    ]
+  },
+  "keyboard_heartopia_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:keyboard_heartopia/9.stereo",
+        "volume": 0.5
       }
     ]
   },
@@ -10256,7 +12692,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/0",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10264,7 +12700,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/0.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10273,7 +12709,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/1",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10282,7 +12718,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/10",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10290,7 +12726,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/10.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10299,7 +12735,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/11",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10307,7 +12743,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/11.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10316,7 +12752,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/12",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10324,7 +12760,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/12.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10333,7 +12769,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/13",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10341,7 +12777,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/13.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10350,7 +12786,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/14",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10358,7 +12794,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/14.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10367,7 +12803,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/15",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10375,7 +12811,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/15.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10384,7 +12820,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/16",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10392,7 +12828,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/16.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10401,7 +12837,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/17",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10409,7 +12845,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/17.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10418,7 +12854,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/18",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10426,7 +12862,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/18.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10435,7 +12871,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/19",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10443,7 +12879,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/19.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10451,7 +12887,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/1.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10460,7 +12896,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/2",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10469,7 +12905,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/20",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10477,7 +12913,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/20.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10485,7 +12921,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/2.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10494,7 +12930,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/3",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10502,7 +12938,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/3.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10511,7 +12947,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/4",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10519,7 +12955,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/4.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10528,7 +12964,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/5",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10536,7 +12972,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/5.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10545,7 +12981,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/6",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10553,7 +12989,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/6.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10562,7 +12998,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/7",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10570,7 +13006,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/7.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10579,7 +13015,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/8",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10587,7 +13023,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/8.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10596,7 +13032,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/attack/9",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10604,7 +13040,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/attack/9.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10613,7 +13049,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/0",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10621,7 +13057,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/0.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10630,7 +13066,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/1",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10639,7 +13075,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/10",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10647,7 +13083,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/10.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10656,7 +13092,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/11",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10664,7 +13100,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/11.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10673,7 +13109,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/12",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10681,7 +13117,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/12.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10690,7 +13126,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/13",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10698,7 +13134,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/13.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10707,7 +13143,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/14",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10715,7 +13151,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/14.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10724,7 +13160,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/15",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10732,7 +13168,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/15.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10741,7 +13177,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/16",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10749,7 +13185,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/16.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10758,7 +13194,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/17",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10766,7 +13202,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/17.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10775,7 +13211,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/18",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10783,7 +13219,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/18.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10792,7 +13228,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/19",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10800,7 +13236,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/19.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10808,7 +13244,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/1.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10817,7 +13253,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/2",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10826,7 +13262,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/20",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10834,7 +13270,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/20.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10842,7 +13278,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/2.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10851,7 +13287,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/3",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10859,7 +13295,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/3.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10868,7 +13304,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/4",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10876,7 +13312,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/4.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10885,7 +13321,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/5",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10893,7 +13329,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/5.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10902,7 +13338,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/6",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10910,7 +13346,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/6.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10919,7 +13355,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/7",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10927,7 +13363,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/7.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10936,7 +13372,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/8",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10944,7 +13380,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/8.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -10953,7 +13389,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_baritone/hold/9",
-        "volume": 0.65
+        "volume": 0.6
       }
     ]
   },
@@ -10961,7 +13397,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_baritone/hold/9.stereo",
-        "volume": 0.45
+        "volume": 0.40000004
       }
     ]
   },
@@ -11138,7 +13574,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/0",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11146,7 +13582,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/0.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11155,7 +13591,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/1",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11164,7 +13600,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/10",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11172,7 +13608,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/10.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11181,7 +13617,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/11",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11189,7 +13625,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/11.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11198,7 +13634,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/12",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11206,7 +13642,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/12.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11215,7 +13651,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/13",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11223,7 +13659,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/13.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11232,7 +13668,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/14",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11240,7 +13676,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/14.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11249,7 +13685,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/15",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11257,7 +13693,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/15.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11266,7 +13702,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/16",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11274,7 +13710,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/16.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11283,7 +13719,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/17",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11291,7 +13727,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/17.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11300,7 +13736,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/18",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11308,7 +13744,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/18.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11317,7 +13753,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/19",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11325,7 +13761,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/19.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11333,7 +13769,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/1.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11342,7 +13778,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/2",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11351,7 +13787,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/20",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11359,7 +13795,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/20.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11367,7 +13803,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/2.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11376,7 +13812,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/3",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11384,7 +13820,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/3.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11393,7 +13829,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/4",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11401,7 +13837,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/4.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11410,7 +13846,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/5",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11418,7 +13854,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/5.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11427,7 +13863,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/6",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11435,7 +13871,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/6.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11444,7 +13880,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/7",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11452,7 +13888,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/7.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11461,7 +13897,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/8",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11469,7 +13905,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/8.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11478,7 +13914,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/attack/9",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11486,7 +13922,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/attack/9.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11495,7 +13931,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/0",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11503,7 +13939,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/0.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11512,7 +13948,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/1",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11521,7 +13957,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/10",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11529,7 +13965,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/10.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11538,7 +13974,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/11",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11546,7 +13982,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/11.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11555,7 +13991,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/12",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11563,7 +13999,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/12.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11572,7 +14008,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/13",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11580,7 +14016,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/13.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11589,7 +14025,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/14",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11597,7 +14033,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/14.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11606,7 +14042,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/15",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11614,7 +14050,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/15.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11623,7 +14059,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/16",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11631,7 +14067,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/16.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11640,7 +14076,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/17",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11648,7 +14084,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/17.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11657,7 +14093,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/18",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11665,7 +14101,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/18.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11674,7 +14110,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/19",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11682,7 +14118,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/19.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11690,7 +14126,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/1.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11699,7 +14135,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/2",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11708,7 +14144,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/20",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11716,7 +14152,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/20.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11724,7 +14160,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/2.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11733,7 +14169,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/3",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11741,7 +14177,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/3.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11750,7 +14186,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/4",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11758,7 +14194,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/4.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11767,7 +14203,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/5",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11775,7 +14211,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/5.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11784,7 +14220,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/6",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11792,7 +14228,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/6.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11801,7 +14237,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/7",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11809,7 +14245,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/7.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11818,7 +14254,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/8",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11826,7 +14262,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/8.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },
@@ -11835,7 +14271,7 @@
       {
         "attenuation_distance": 64,
         "name": "genshinstrument_lm:saxophone_tenor/hold/9",
-        "volume": 0.35
+        "volume": 0.25
       }
     ]
   },
@@ -11843,7 +14279,7 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:saxophone_tenor/hold/9.stereo",
-        "volume": 0.14999999
+        "volume": 0.049999997
       }
     ]
   },

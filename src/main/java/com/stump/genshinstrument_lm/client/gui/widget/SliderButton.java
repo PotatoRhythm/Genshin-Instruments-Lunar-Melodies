@@ -39,9 +39,12 @@ public abstract class SliderButton extends AbstractSliderButton {
 
     public abstract Component getMessage();
 
-
     public double getValueClamped() {
         return Mth.clampedLerp(min, max, value);
     }
-    
+
+    public void updateValue(double newValue) {
+        this.value = Mth.clampedMap(newValue, min, max, 0f, 1f);
+        updateMessage();
+    }
 }

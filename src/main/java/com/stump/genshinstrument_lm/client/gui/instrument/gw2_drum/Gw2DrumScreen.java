@@ -6,6 +6,7 @@ import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentScre
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentThemeLoader;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
 import com.stump.genshinstrument_lm.client.gui.options.partial.InstrumentOptionsScreen;
+import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.layouts.LinearLayout;
 import net.minecraft.client.gui.layouts.LinearLayout.Orientation;
 import net.minecraft.resources.ResourceLocation;
@@ -46,7 +47,7 @@ public class Gw2DrumScreen extends InstrumentScreen {
 
     @Override
     protected void init() {
-        initOptionsButton(height / 2 + 5);
+        initControlBar(height / 2 + 5);
 
         final LinearLayout rowTop = createRow(1);
         final LinearLayout rowBottom = createRow(0);

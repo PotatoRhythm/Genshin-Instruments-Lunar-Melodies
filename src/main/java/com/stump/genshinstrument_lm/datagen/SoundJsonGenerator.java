@@ -35,16 +35,23 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         registerInstrument("keyboard", 20, 1f, false, true);
         registerInstrument("keyboard_gw2", 20, 0.60f, false, true);
         registerInstrument("keyboard_yamaha_c5", 20, 0.45f, false, true);
+        registerInstrument("keyboard_heartopia", 20, 0.7f, false, true);
+        registerInstrument("keyboard_electric", 20, 1f, false, true);
+        registerInstrument("keyboard_harpsichord", 20, 0.6f, false, true);
 
         registerInstrument("trombone", 20, 0.85f, false, false);
         registerInstrument("trumpet_westgate_studios", 20, 0.65f, true, true);
         registerInstrument("trombone_phgm", 20, 0.85f, true, true);
 
         registerInstrument("saxophone", 20, 1f, false, false);
-        registerInstrument("saxophone_baritone", 20, 0.65f, true, true);
-        registerInstrument("saxophone_tenor", 20, 0.35f, true, true);
+        registerInstrument("saxophone_baritone", 20, 0.60f, true, true);
+        registerInstrument("saxophone_tenor", 20, 0.25f, true, true);
 
         registerInstrument("guitar", 20, 0.9f, false, false);
+        registerInstrument("guitar_jazz", 20, 0.6f, false, true);
+        registerInstrument("bass_acoustic", 20, 1.0f, false, true);
+        registerInstrument("bass_finger", 20, 1.0f, false, true);
+        registerInstrument("bass_slap", 20, 0.9f, false, true);
 
         registerInstrument("violin_slow", 20, 0.8f, true, true);
         registerInstrument("violin_fast", 20, 0.5f, true, true);

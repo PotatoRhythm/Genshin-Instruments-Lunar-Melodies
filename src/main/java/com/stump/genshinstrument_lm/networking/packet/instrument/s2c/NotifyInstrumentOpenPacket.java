@@ -83,7 +83,6 @@ public class NotifyInstrumentOpenPacket implements IModPacket {
         final Player player = Minecraft.getInstance().level.getPlayerByUUID(playerUUID);
 
         if (isOpen) {
-
             if (pos.isPresent()) // is block instrument
                 InstrumentOpenProvider.setOpen(player, pos.get());
             else // is item instrument
