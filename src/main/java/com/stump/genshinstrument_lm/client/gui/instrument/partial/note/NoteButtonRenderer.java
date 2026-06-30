@@ -51,12 +51,11 @@ public class NoteButtonRenderer {
         this.instrumentScreen = noteButton.instrumentScreen;
 
         noteAnimation = initNoteAnimation();
-
         rootLocation = instrumentScreen.getResourceFromRoot("note"); // only for genshin instruments
 
+        String[] notes = {"c", "d", "e", "f", "g", "a", "b"};
         if (instrumentScreen.isGuildWarsInstrument()) {
             int index = noteButton.soundIndex();
-            String[] notes = {"C", "D", "E", "F", "G", "A", "B"};
             String noteLetter = notes[index % 7];
 
             accidentalsLocation = CommonUtil.getResourceFrom(
@@ -69,7 +68,6 @@ public class NoteButtonRenderer {
 
         if (instrumentScreen.isGuildWarsInstrument()) {
             int index = noteButton.soundIndex();
-            String[] notes = {"C", "D", "E", "F", "G", "A", "B"};
             String noteLetter = notes[index % 7];
             noteReleasedLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "released_" + noteLetter + ".png");
             notePressedLocation  = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "pressed_"  + noteLetter + ".png");

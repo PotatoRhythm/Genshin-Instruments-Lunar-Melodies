@@ -36,8 +36,6 @@ public class RecordingCapability {
 
         if (looperPos != null)
             nbt.put(REC_POS_TAG, NbtUtils.writeBlockPos(looperPos));
-
-        nbt.putInt(PARTICLE_SET_TAG, particleSet);
     }
 
     public void loadNBTData(final CompoundTag nbt) {
@@ -45,16 +43,5 @@ public class RecordingCapability {
 
         if (nbt.contains(REC_POS_TAG))
             looperPos = NbtUtils.readBlockPos(nbt.getCompound(REC_POS_TAG));
-
-        particleSet = nbt.getInt(PARTICLE_SET_TAG);
-    }
-
-    public static final String PARTICLE_SET_TAG = "ParticleSet";
-    private int particleSet = 0;
-    public int getParticleSet() {
-        return particleSet;
-    }
-    public void setParticleSet(int particleSet) {
-        this.particleSet = particleSet;
     }
 }

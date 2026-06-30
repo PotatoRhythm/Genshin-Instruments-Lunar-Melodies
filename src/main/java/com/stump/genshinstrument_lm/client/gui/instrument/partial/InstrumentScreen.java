@@ -32,7 +32,6 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -41,7 +40,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 /**
  * The abstract implementation of a Genshin Instrument screen.
@@ -49,7 +47,7 @@ import java.util.function.Consumer;
 @OnlyIn(Dist.CLIENT)
 public abstract class InstrumentScreen extends Screen {
     private static final int VISIBILITY_BUTTON_MARGIN = 6;
-    private static final String VISIBILITY_SPRITE_LOC = "textures/gui/sprites/icon/visibility/";
+    private static final String SPRITE_LOC = "textures/gui/sprites/";
 
     @SuppressWarnings("resource")
     public int getNoteSize() {
@@ -409,8 +407,8 @@ public abstract class InstrumentScreen extends Screen {
     protected IconToggleButton initVisibilityButton() {
         return new IconToggleButton(
             VISIBILITY_BUTTON_MARGIN, VISIBILITY_BUTTON_MARGIN,
-            new ResourceLocation(GInstrumentMod.MODID, VISIBILITY_SPRITE_LOC + "enabled.png"),
-            new ResourceLocation(GInstrumentMod.MODID, VISIBILITY_SPRITE_LOC + "disabled.png"),
+            new ResourceLocation(GInstrumentMod.MODID, SPRITE_LOC + "enabled.png"),
+            new ResourceLocation(GInstrumentMod.MODID, SPRITE_LOC + "disabled.png"),
             (btn) -> onInstrumentRenderStateChanged(instrumentRenders())
         );
     }

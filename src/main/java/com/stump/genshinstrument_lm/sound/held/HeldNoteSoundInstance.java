@@ -1,11 +1,12 @@
 package com.stump.genshinstrument_lm.sound.held;
 
-import com.stump.genshinstrument_lm.client.ClientInstrumentData;
-import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
+import com.stump.genshinstrument_lm.capability.playerCustomization.PlayerCustomizationProvider;
 import com.stump.genshinstrument_lm.client.util.ClientUtil;
+import com.stump.genshinstrument_lm.particle.ColorSet;
 import com.stump.genshinstrument_lm.particle.ModParticles;
 import com.stump.genshinstrument_lm.sound.NoteSound;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSound.Phase;
+import com.stump.genshinstrument_lm.util.ParticleColorUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
@@ -13,6 +14,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -291,36 +293,35 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
     private void spawnNoteParticle() {
         if (initiator.isEmpty())
             return;
+
         Entity entity = initiator.get();
         var level = Minecraft.getInstance().level;
         if (level == null)
             return;
 
-        double noteIndex = heldSoundContainer.index() + notePitch;
-        final double MIN_NOTE = -12;
-        final double MAX_NOTE = 30; // should be 32, but color sets of 6 align better with octaves this way
-        double particleColor = (noteIndex - MIN_NOTE) / (MAX_NOTE - MIN_NOTE);
-        particleColor = net.minecraft.util.Mth.clamp(particleColor, 0.0, 1.0);
-
         double xOffset = (level.random.nextDouble() - 0.5) * 0.30;
         double yOffset = (level.random.nextDouble() - 0.5) * 0.30;
         double zOffset = (level.random.nextDouble() - 0.5) * 0.30;
 
-        float bodyYaw = entity.getYRot(); // body rotation in degrees
+        float bodyYaw = entity.getYRot();
         double radians = Math.toRadians(bodyYaw);
         double forwardX = -Math.sin(radians);
         double forwardZ = Math.cos(radians);
 
-        int colorSet = ClientInstrumentData.getParticleSet(entity.getUUID());
+        int rgb = ParticleColorUtil.getNoteRGB(
+                (Player) entity,
+                heldSoundContainer.index(),
+                notePitch
+        );
 
         level.addParticle(
                 ModParticles.CUSTOM_NOTE.get(),
                 entity.getX() + forwardX * 0.6 + xOffset,
                 entity.getY() + 1.3 + yOffset,
                 entity.getZ() + forwardZ * 0.6 + zOffset,
-                particleColor,
-                0.15,
-                colorSet
+                rgb,        // dx = packed color
+                0.15,       // dy = size
+                0           // dz unused
         );
     }
 }

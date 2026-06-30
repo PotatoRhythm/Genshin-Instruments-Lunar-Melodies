@@ -8,33 +8,35 @@ import net.minecraftforge.network.NetworkDirection;
 import net.minecraftforge.network.NetworkEvent;
 
 public class S2CLooperParticlePacket implements IModPacket {
-    public static final NetworkDirection NETWORK_DIRECTION = NetworkDirection.PLAY_TO_CLIENT;
-    private final BlockPos pos;
-    private final double color;
-    private final int colorSet;
 
-    public S2CLooperParticlePacket(BlockPos pos, double color, int colorSet) {
+    public static final NetworkDirection NETWORK_DIRECTION = NetworkDirection.PLAY_TO_CLIENT;
+
+    private final BlockPos pos;
+    private final int rgb;
+    private final double size;
+
+    public S2CLooperParticlePacket(BlockPos pos, int rgb, double size) {
         this.pos = pos;
-        this.color = color;
-        this.colorSet = colorSet;
+        this.rgb = rgb;
+        this.size = size;
     }
 
     public S2CLooperParticlePacket(FriendlyByteBuf buf) {
         this.pos = buf.readBlockPos();
-        this.color = buf.readDouble();
-        this.colorSet = buf.readInt();
+        this.rgb = buf.readInt();
+        this.size = buf.readDouble();
     }
 
     @Override
     public void write(FriendlyByteBuf buf) {
         buf.writeBlockPos(pos);
-        buf.writeDouble(color);
-        buf.writeInt(colorSet);
+        buf.writeInt(rgb);
+        buf.writeDouble(size);
     }
 
     @Override
     public void handle(NetworkEvent.Context ctx) {
-        LooperParticlePacketUtil.spawnLooperParticle(pos, color, colorSet);
+        LooperParticlePacketUtil.spawnLooperParticle(pos, rgb, size);
         ctx.setPacketHandled(true);
     }
 }

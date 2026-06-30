@@ -1,5 +1,6 @@
 package com.stump.genshinstrument_lm.capability.playerCustomization;
 
+import com.stump.genshinstrument_lm.particle.ColorSet;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.world.entity.player.Player;
@@ -19,8 +20,10 @@ public class PlayerCustomizationProvider implements ICapabilityProvider, INBTSer
     private final LazyOptional<PlayerCustomization> optional = LazyOptional.of(this::getInstance);
 
     private PlayerCustomization getInstance() {
-        if (instance == null)
+        if (instance == null){
             instance = new PlayerCustomization();
+            instance.initDefaults();
+        }
         return instance;
     }
 
@@ -41,10 +44,29 @@ public class PlayerCustomizationProvider implements ICapabilityProvider, INBTSer
         getInstance().loadNBTData(nbt);
     }
 
-    public static int getParticleColorSet(Player player) {
-        return player.getCapability(CAPABILITY).map(PlayerCustomization::getParticleColorSet).orElse(0);
+    public static int getActiveSetIndex(Player player) {
+        return player.getCapability(CAPABILITY)
+                .map(PlayerCustomization::getActiveColorSet)
+                .orElse(0);
     }
-    public static void setParticleColorSet(Player player, int set) {
-        player.getCapability(CAPABILITY).ifPresent(data -> data.setParticleColorSet(set));
+
+    public static void setActiveSetIndex(Player player, int set) {
+        player.getCapability(CAPABILITY)
+                .ifPresent(data -> data.setActiveColorSet(set));
+    }
+
+    public static PlayerCustomization get(Player player) {
+        return player.getCapability(CAPABILITY).orElse(null);
+    }
+
+    public static ColorSet getActiveColorSet(Player player) {
+        return player.getCapability(CAPABILITY)
+                .map(data -> {
+                    int index = data.getActiveColorSet();
+                    if (index < 0 || index >= data.getColorSets().size())
+                        return null;
+                    return data.getColorSets().get(index);
+                })
+                .orElse(null);
     }
 }

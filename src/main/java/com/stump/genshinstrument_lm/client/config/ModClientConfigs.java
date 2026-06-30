@@ -41,8 +41,6 @@ public class ModClientConfigs {
         NORMALIZE_VINTAGE_LYRE, SERVER_AUDIO, EXTEND_RANGE
     ;
 
-    public static final EnumValue<ParticleColorType> PARTICLE_COLOR_TYPE;
-
     public static final EnumValue<ZitherSoundType> ZITHER_SOUND_TYPE;
     public static final EnumValue<GloriousDrumNoteLabel> GLORIOUS_DRUM_LABEL_TYPE;
     public static final EnumValue<DjemDjemDrumNoteLabel> DJEM_DJEM_DRUM_LABEL_TYPE;
@@ -85,7 +83,6 @@ public class ModClientConfigs {
 
         ACCEPTED_GENSHIN_CONSENT = configBuilder.define("accepted_genshin_consent", false);
 
-        PARTICLE_COLOR_TYPE = configBuilder.defineEnum("particle_color_type", ParticleColorType.DEFAULT);
         ZITHER_SOUND_TYPE = configBuilder.defineEnum("zither_sound_type", ZitherSoundType.NEW);
         GLORIOUS_DRUM_LABEL_TYPE = configBuilder.defineEnum("glorious_drum_label_type", GloriousDrumNoteLabel.KEYBOARD_LAYOUT);
         DJEM_DJEM_DRUM_LABEL_TYPE = configBuilder.defineEnum("djem_djem_drum_label_type", DjemDjemDrumNoteLabel.KEYBOARD_LAYOUT);

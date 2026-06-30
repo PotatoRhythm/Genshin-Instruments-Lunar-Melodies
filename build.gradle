@@ -260,7 +260,3 @@ tasks.withType(JavaCompile).configureEach {
 artifacts {
     archives sourcesJar
 }
-
-tasks.named("build") {
-    dependsOn("runData")
-}
