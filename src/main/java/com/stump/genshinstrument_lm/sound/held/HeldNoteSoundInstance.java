@@ -1,8 +1,6 @@
 package com.stump.genshinstrument_lm.sound.held;
 
-import com.stump.genshinstrument_lm.capability.playerCustomization.PlayerCustomizationProvider;
 import com.stump.genshinstrument_lm.client.util.ClientUtil;
-import com.stump.genshinstrument_lm.particle.ColorSet;
 import com.stump.genshinstrument_lm.particle.ModParticles;
 import com.stump.genshinstrument_lm.sound.NoteSound;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSound.Phase;
@@ -14,7 +12,6 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
-import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -309,7 +306,6 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
         double forwardZ = Math.cos(radians);
 
         int rgb = ParticleColorUtil.getNoteRGB(
-                (Player) entity,
                 heldSoundContainer.index(),
                 notePitch
         );

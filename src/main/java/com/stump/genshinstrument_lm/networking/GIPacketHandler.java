@@ -1,10 +1,7 @@
 package com.stump.genshinstrument_lm.networking;
 
 import com.stump.genshinstrument_lm.GInstrumentMod;
-import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SHeldNoteSoundPacket;
-import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SNoteSoundPacket;
-import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SPlayerCustomizationPacket;
-import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.CloseInstrumentPacket;
+import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.*;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.*;
 import com.stump.genshinstrument_lm.networking.packet.*;
 import com.stump.genshinstrument_lm.util.ServerUtil;
@@ -17,7 +14,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
-
 import java.util.List;
 
 @EventBusSubscriber(modid = GInstrumentMod.MODID, bus = Bus.MOD)
@@ -29,7 +25,8 @@ public class GIPacketHandler {
         OpenInstrumentPacket.class, CloseInstrumentPacket.class,
         C2SHeldNoteSoundPacket.class, S2CHeldNoteSoundPacket.class,
         LooperRecordStatePacket.class, OpenNoteBlockInstrumentPacket.class,
-        S2CLooperParticlePacket.class, C2SPlayerCustomizationPacket.class,
+        S2CLooperParticlePacket.class, C2SColorSetImportPacket.class,
+        S2CColorSetApplyPacket.class,
         // Sync stuff
         DoesLooperExistPacket.class, LooperUnplayablePacket.class, SyncModTagPacket.class,
         LooperPlayStatePacket.class

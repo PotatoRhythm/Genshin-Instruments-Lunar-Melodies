@@ -1,9 +1,8 @@
 package com.stump.genshinstrument_lm.util;
 
-import com.stump.genshinstrument_lm.capability.playerCustomization.PlayerCustomizationProvider;
-import com.stump.genshinstrument_lm.particle.ColorSet;
+import com.stump.genshinstrument_lm.client.colorSet.ColorSetManager;
+import com.stump.genshinstrument_lm.client.colorSet.ColorSet;
 import net.minecraft.util.Mth;
-import net.minecraft.world.entity.player.Player;
 
 public final class ParticleColorUtil {
 
@@ -45,8 +44,8 @@ public final class ParticleColorUtil {
         return (r << 16) | (g << 8) | b;
     }
 
-    public static int getNoteRGB(Player player, int buttonIndex, int transpose) {
-        ColorSet set = PlayerCustomizationProvider.getActiveColorSet(player);
+    public static int getNoteRGB(int buttonIndex, int transpose) {
+        ColorSet set = ColorSetManager.getActiveColorSet();
 
         if (set == null || set.getColors() == null) {
             return 0xFFFFFF;
@@ -66,8 +65,11 @@ public final class ParticleColorUtil {
         return 0xFF000000 | (rgb & 0xFFFFFF);
     }
 
-    public static Integer  parseHexColor(String text) {
-        if (text == null) { return null; }
+    public static Integer parseHexColor(String text) {
+        if (text == null) {
+            return null;
+        }
+
         text = text.trim();
 
         if (text.startsWith("#")) {
@@ -79,6 +81,7 @@ public final class ParticleColorUtil {
         if (!text.matches("[0-9A-Fa-f]{6}")) {
             return null;
         }
+
         return Integer.parseInt(text, 16);
     }
 
@@ -86,7 +89,7 @@ public final class ParticleColorUtil {
         return String.format("#%06X", color & 0xFFFFFF);
     }
 
-    private static final int[] SCALE_PATTERN = { 0, 2, 4, 5, 7, 9, 11};
+    private static final int[] SCALE_PATTERN = {0, 2, 4, 5, 7, 9, 11};
     private static int getSemitoneFromButton(int index) {
         int octave = index / 7;
         int step = index % 7;

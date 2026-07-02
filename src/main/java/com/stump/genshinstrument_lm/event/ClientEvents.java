@@ -7,6 +7,8 @@ import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.IHeldInstrumentScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentScreen;
 import com.stump.genshinstrument_lm.client.midi.MidiController;
+import com.stump.genshinstrument_lm.networking.GIPacketHandler;
+import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SColorSetImportPacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.util.HeldSoundPhase;
 import com.stump.genshinstrument_lm.sound.NoteSound;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSounds;
@@ -18,11 +20,13 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.block.Block;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.ClientChatEvent;
 import net.minecraftforge.client.event.RenderPlayerEvent;
 import net.minecraftforge.event.GameShuttingDownEvent;
 import net.minecraftforge.event.TickEvent.ClientTickEvent;
 import net.minecraftforge.event.level.LevelEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
@@ -150,5 +154,4 @@ public class ClientEvents {
     public static void onGameShutdown(final GameShuttingDownEvent event) {
         MidiController.unloadDevice();
     }
-
 }

@@ -2,7 +2,6 @@ package com.stump.genshinstrument_lm.capability;
 
 import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.capability.instrumentOpen.InstrumentOpenProvider;
-import com.stump.genshinstrument_lm.capability.playerCustomization.PlayerCustomizationProvider;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.NotifyInstrumentOpenPacket;
 import com.stump.genshinstrument_lm.capability.recording.RecordingCapabilityProvider;
@@ -34,11 +33,6 @@ public class ModCapabilities {
 
             if (!event.getObject().getCapability(RecordingCapabilityProvider.CAPABILITY).isPresent())
                 event.addCapability(new ResourceLocation(GInstrumentMod.MODID, "emi_caps"), new RecordingCapabilityProvider());
-
-            if (!player.getCapability(PlayerCustomizationProvider.CAPABILITY).isPresent()) {
-                event.addCapability(new ResourceLocation(GInstrumentMod.MODID, "instrument_data"),
-                        new PlayerCustomizationProvider());
-            }
         }
     }
 

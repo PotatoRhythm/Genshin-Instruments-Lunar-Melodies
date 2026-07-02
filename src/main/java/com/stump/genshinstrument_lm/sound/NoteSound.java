@@ -162,11 +162,6 @@ public class NoteSound {
         ClientUtil.stopMusicIfClose(playDistSqr);
 
         MinecraftForge.EVENT_BUS.post(initiator == null
-            ? new NoteSoundPlayedEvent(level, this, meta)
-            : new NoteSoundPlayedEvent(initiator, this, meta)
-        );
-
-        MinecraftForge.EVENT_BUS.post(initiator == null
                 ? new NoteSoundPlayedEvent(level, this, meta)
                 : new NoteSoundPlayedEvent(initiator, this, meta)
         );
@@ -183,7 +178,6 @@ public class NoteSound {
             double forwardZ = Math.cos(radians);
 
             int rgb = ParticleColorUtil.getNoteRGB(
-                    (Player) initiator,
                     this.index,
                     meta.pitch()
             );

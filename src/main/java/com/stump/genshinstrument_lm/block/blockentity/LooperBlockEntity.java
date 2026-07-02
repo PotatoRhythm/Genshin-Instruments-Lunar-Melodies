@@ -3,7 +3,6 @@ package com.stump.genshinstrument_lm.block.blockentity;
 import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.block.LooperBlock;
 import com.stump.genshinstrument_lm.block.util.WritableNoteType;
-import com.stump.genshinstrument_lm.capability.playerCustomization.PlayerCustomizationProvider;
 import com.stump.genshinstrument_lm.capability.recording.RecordingCapabilityProvider;
 import com.stump.genshinstrument_lm.gamerule.ModGameRules;
 import com.stump.genshinstrument_lm.item.ModItems;
@@ -12,7 +11,6 @@ import com.stump.genshinstrument_lm.item.emirecord.RecordRepository;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.packet.LooperPlayStatePacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CLooperParticlePacket;
-import com.stump.genshinstrument_lm.particle.ColorSet;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 import com.stump.genshinstrument_lm.util.LooperUtil;
 import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
@@ -25,7 +23,6 @@ import com.stump.genshinstrument_lm.sound.held.InitiatorID;
 import com.stump.genshinstrument_lm.sound.registrar.HeldNoteSoundRegistrar;
 import com.stump.genshinstrument_lm.sound.registrar.NoteSoundRegistrar;
 import com.mojang.logging.LogUtils;
-import com.stump.genshinstrument_lm.util.ParticleColorUtil;
 import com.stump.genshinstrument_lm.util.TriValue;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -489,7 +486,6 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
             meta
         );
 
-        int noteIndex = soundIndex + meta.pitch();
         int rgb = noteTag.getInt(PARTICLE_COLOR_TAG);
 
         triggerEmitNoteParticle(rgb);
@@ -510,7 +506,6 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         );
 
         if (phase == HeldSoundPhase.ATTACK) {
-            int noteIndex = soundIndex + meta.pitch();
             int rgb = noteTag.getInt(PARTICLE_COLOR_TAG);
 
             cachedHeldNotes.add(new TriValue<>(sound, meta, rgb));

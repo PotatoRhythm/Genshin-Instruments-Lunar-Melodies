@@ -28,9 +28,7 @@ public class LooperNoteListener {
     @SubscribeEvent
     public static void onNoteSoundPlayed(final NoteSoundPlayedEvent event) {
         getMatchingLooper(event).ifPresent(looperBE -> {
-            Player player = (Player) event.entityInfo().get().entity;
             int rgb = getNoteRGB(
-                    player,
                     event.soundMeta(),
                     event.sound().index
             );
@@ -46,9 +44,7 @@ public class LooperNoteListener {
     @SubscribeEvent
     public static void onHeldNoteSoundPlayed(final HeldNoteSoundPlayedEvent event) {
         getMatchingLooper(event).ifPresent(looperBE -> {
-            Player player = (Player) event.entityInfo().get().entity;
             int rgb = getNoteRGB(
-                    player,
                     event.soundMeta(),
                     event.sound().index()
             );
@@ -100,14 +96,8 @@ public class LooperNoteListener {
         return Optional.of(looperBE);
     }
 
-    private static int getNoteRGB(Player player,
-                                  NoteSoundMetadata meta,
-                                  int soundIndex) {
-
-        int noteIndex = soundIndex + meta.pitch();
-
+    private static int getNoteRGB(NoteSoundMetadata meta, int soundIndex) {
         return ParticleColorUtil.getNoteRGB(
-                player,
                 soundIndex,
                 meta.pitch()
         );

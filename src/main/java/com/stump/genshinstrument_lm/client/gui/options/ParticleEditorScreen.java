@@ -1,11 +1,8 @@
 package com.stump.genshinstrument_lm.client.gui.options;
 
-import com.stump.genshinstrument_lm.capability.playerCustomization.PlayerCustomization;
-import com.stump.genshinstrument_lm.capability.playerCustomization.PlayerCustomizationProvider;
-import com.stump.genshinstrument_lm.networking.GIPacketHandler;
-import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SPlayerCustomizationPacket;
-import com.stump.genshinstrument_lm.particle.ColorSet;
+import com.stump.genshinstrument_lm.client.colorSet.ColorSet;
 import com.stump.genshinstrument_lm.util.ParticleColorUtil;
+import com.stump.genshinstrument_lm.util.ParticleShareUtil;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.EditBox;
@@ -18,6 +15,8 @@ import net.minecraft.util.Mth;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.NotNull;
+import com.stump.genshinstrument_lm.client.colorSet.ColorSetManager;
+import java.util.List;
 
 @OnlyIn(Dist.CLIENT)
 public class ParticleEditorScreen extends Screen {
@@ -51,19 +50,19 @@ public class ParticleEditorScreen extends Screen {
     private int rightPanelWidth;
     private int rightPanelHeight;
 
-    private int selectedSetIndex = -1;
-    private net.minecraft.client.gui.components.EditBox nameField;
+    private EditBox nameField;
     private final InvisibleButton[] colorButtons = new InvisibleButton[6];
-    private final net.minecraft.client.gui.components.EditBox[] colorFields = new net.minecraft.client.gui.components.EditBox[6];
+    private final EditBox[] colorFields = new EditBox[6];
     private final int[] colorValues = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF};
 
     // Bottom Panel
-    private net.minecraft.client.gui.components.Button newSetButton;
-    private net.minecraft.client.gui.components.Button deleteSetButton;
+    private Button newSetButton;
+    private Button deleteSetButton;
 
-    private net.minecraft.client.gui.components.Button resetButton;
-    private net.minecraft.client.gui.components.Button saveButton;
-    private net.minecraft.client.gui.components.Button doneButton;
+    private Button shareButton;
+    private int clipboardMessageTicks = 0;
+    private Button saveButton;
+    private Button doneButton;
 
     public ParticleEditorScreen(Screen lastScreen) {
         super(TITLE);
@@ -72,14 +71,29 @@ public class ParticleEditorScreen extends Screen {
 
     @Override
     protected void init() {
-        if (minecraft == null || minecraft.player == null) { return; }
+        if (minecraft == null || minecraft.player == null) return;
+
         clearWidgets();
+
         initBackgroundPanel();
         initLeftPanel();
         initRightPanel();
         initBottomPanel();
-        if (selectedSetIndex == -1)
-            loadColorSet(PlayerCustomizationProvider.getActiveSetIndex(minecraft.player));
+
+        List<ColorSet> sets = ColorSetManager.getSets();
+        if (sets.isEmpty()) {
+            loadEmptyState();
+            return;
+        }
+
+        int active = ColorSetManager.getActiveSet();
+
+        if (active < 0 || active >= sets.size()) {
+            active = 0;
+            ColorSetManager.setActiveSet(active);
+        }
+
+        loadColorSet(active);
     }
 
     @Override
@@ -194,7 +208,7 @@ public class ParticleEditorScreen extends Screen {
         int deleteWidth = 15;
         int doneWidth = 42;
         int saveWidth = 42;
-        int resetWidth = 45;
+        int shareWidth = 45;
         int padding = 5;
 
         int buttonY = bottomPanelY + (bottomPanelHeight - buttonHeight) / 2 + 2;
@@ -202,14 +216,14 @@ public class ParticleEditorScreen extends Screen {
         int deleteX = newSetX + newSetWidth + 5;
         int doneX = bottomPanelX + bottomPanelWidth - doneWidth - 4;
         int saveX = doneX - saveWidth - padding;
-        int resetX = saveX - resetWidth - padding;
+        int shareX = saveX - shareWidth - padding;
 
         newSetButton = createButton(newSetButton, Component.literal("New Set"), newSetX, buttonY,
                 newSetWidth, buttonHeight, btn -> onNewSet());
         deleteSetButton = createButton(deleteSetButton, Component.literal(""), deleteX, buttonY,
                 deleteWidth, buttonHeight, btn -> onDelete());
-        resetButton = createButton(resetButton, Component.literal("Reset"), resetX, buttonY,
-                resetWidth, buttonHeight, btn -> onReset());
+        shareButton = createButton(shareButton,Component.literal("Share"),shareX,buttonY,
+                shareWidth, buttonHeight, btn -> onShare());
         saveButton = createButton(saveButton, Component.literal("Save"), saveX, buttonY,
                 saveWidth, buttonHeight, btn -> onSave());
         doneButton = createButton(doneButton, Component.literal("Done"), doneX, buttonY,
@@ -217,7 +231,7 @@ public class ParticleEditorScreen extends Screen {
 
         addRenderableWidget(newSetButton);
         addRenderableWidget(deleteSetButton);
-        addRenderableWidget(resetButton);
+        addRenderableWidget(shareButton);
         addRenderableWidget(saveButton);
         addRenderableWidget(doneButton);
     }
@@ -228,11 +242,11 @@ public class ParticleEditorScreen extends Screen {
         renderBackgroundPanel(g);
         renderLeftPanel(g);
         renderRightPanel(g);
+
         super.render(g, mouseX, mouseY, pt);
 
-        int trashX = deleteSetButton.getX() + (deleteSetButton.getWidth() - 11) / 2;
-        int trashY = deleteSetButton.getY() + (deleteSetButton.getHeight() - 10) / 2;
-        g.blit(TRASH_TEXTURE, trashX, trashY, 0, 0, 11, 10, 11, 10);
+        renderTrash(g);
+        renderSharePopup(g);
     }
 
     private void renderBackgroundPanel(GuiGraphics g) {
@@ -260,8 +274,6 @@ public class ParticleEditorScreen extends Screen {
                 leftPanelX + leftPanelWidth - 1, leftPanelY + leftPanelHeight - 1,
                 backgroundColor);
 
-        PlayerCustomization data = PlayerCustomizationProvider.get(minecraft.player);
-
         int titleY = leftPanelY + 6;
 
         g.drawString(minecraft.font, "Saved Sets", leftPanelX + 14, titleY, 0xFFFFFF);
@@ -275,7 +287,7 @@ public class ParticleEditorScreen extends Screen {
 
         g.enableScissor(leftPanelX + 1, leftPanelY + 19,
                 leftPanelX + leftPanelWidth - 7, leftPanelY + leftPanelHeight - 1);
-        for (int i = 0; i < data.getColorSets().size(); i++) {
+        for (int i = 0; i < ColorSetManager.getSets().size(); i++) {
             if (entryY + entryHeight < leftPanelY + 12) {
                 entryY += entryHeight + entrySpacing;
                 continue;
@@ -285,9 +297,9 @@ public class ParticleEditorScreen extends Screen {
                 break;
             }
 
-            ColorSet set = data.getColorSets().get(i);
+            ColorSet set = ColorSetManager.getSets().get(i);
 
-            boolean selected = i == selectedSetIndex;
+            boolean selected = i == ColorSetManager.getActiveSet();
             int border = selected ? 0xFFF5A300 : 0xFF606060;
             int background = selected ? 0xFF242424 : 0xFF1D1D1F;
 
@@ -346,7 +358,6 @@ public class ParticleEditorScreen extends Screen {
         g.fill(trackX - 1, thumbY, trackX - 1 + 3, thumbY + thumbHeight, 0xFF616161);
         g.fill(trackX, thumbY + 1, trackX + 1, thumbY + thumbHeight - 1, 0xFF6F6F6F);
 
-        // Triangles
         int upY = trackY - 7;
         int downY = trackY + trackHeight + 5;
 
@@ -429,26 +440,51 @@ public class ParticleEditorScreen extends Screen {
         }
     }
 
+    private void renderTrash(GuiGraphics g) {
+        int trashX = deleteSetButton.getX() + (deleteSetButton.getWidth() - 11) / 2;
+        int trashY = deleteSetButton.getY() + (deleteSetButton.getHeight() - 10) / 2;
+        g.blit(TRASH_TEXTURE, trashX, trashY, 0, 0,
+                11, 10, 11, 10);
+    }
+
+    private void renderSharePopup(GuiGraphics g) {
+        if (clipboardMessageTicks > 0) {
+            String text = "Color set copied to clipboard!";
+
+            int w = font.width(text) + 10;
+            int h = 14;
+            int x = rightPanelX + 15;
+            int y = rightPanelY + rightPanelHeight - h;
+
+            g.fill(x, y, x + w, y + h, 0xCC000000);
+            g.drawString(font, text, x + 5, y + 3, 0xFFFFFF);
+        }
+    }
+
     private void onNewSet() {
-        PlayerCustomization data = PlayerCustomizationProvider.get(minecraft.player);
+        List<ColorSet> sets = ColorSetManager.getSets();
+
         int[] colors = {0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF, 0xFFFFFFFF};
-
         ColorSet newSet = new ColorSet("Custom Set", colors);
-        data.getColorSets().add(newSet);
-        selectedSetIndex = data.getColorSets().size() - 1;
 
-        GIPacketHandler.sendToServer( new C2SPlayerCustomizationPacket(selectedSetIndex,data.getColorSets()));
-        loadColorSet(selectedSetIndex);
+        sets.add(newSet);
+
+        int newIndex = sets.size() - 1;
+
+        ColorSetManager.setActiveSet(newIndex);
+        ColorSetManager.save();
+
+        loadColorSet(newIndex);
     }
 
     private void onDelete() {
-        PlayerCustomization data = PlayerCustomizationProvider.get(minecraft.player);
+        int selectedSetIndex = ColorSetManager.getActiveSet();
 
-        if (selectedSetIndex < 0 || selectedSetIndex >= data.getColorSets().size()) {
+        if (selectedSetIndex < 0 || selectedSetIndex >= ColorSetManager.getSets().size()) {
             return;
         }
 
-        String rawName = data.getColorSets().get(selectedSetIndex).getName();
+        String rawName = ColorSetManager.getSets().get(selectedSetIndex).getName();
         String truncatedName = getTruncatedSetName(rawName);
 
         minecraft.pushGuiLayer(
@@ -460,79 +496,68 @@ public class ParticleEditorScreen extends Screen {
     }
 
     private void deleteSelectedSet() {
-        PlayerCustomization data = PlayerCustomizationProvider.get(minecraft.player);
+        List<ColorSet> sets = ColorSetManager.getSets();
 
-        if (selectedSetIndex < 0 || selectedSetIndex >= data.getColorSets().size()) {
+        int index = ColorSetManager.getActiveSet();
+        sets.remove(index);
+
+        if (sets.isEmpty()) {
+            ColorSetManager.setActiveSet(-1);
+            loadEmptyState();
+            ColorSetManager.save();
             return;
         }
 
-        data.getColorSets().remove(selectedSetIndex);
+        int newIndex = Math.min(index, sets.size() - 1);
+        ColorSetManager.setActiveSet(newIndex);
+        loadColorSet(newIndex);
+        ColorSetManager.save();
 
-        if (data.getColorSets().isEmpty()) {
-            selectedSetIndex = -1;
-        } else {
-            selectedSetIndex = Math.max(0, selectedSetIndex - 1);
-        }
+        nameField.setValue("Custom Set");
 
-        leftPanelScroll = Mth.clamp(leftPanelScroll, 0, getMaxLeftScroll());
-
-        GIPacketHandler.sendToServer(new C2SPlayerCustomizationPacket(selectedSetIndex, data.getColorSets()));
-
-        if (selectedSetIndex >= 0) {
-            loadColorSet(selectedSetIndex);
-        } else {
-            nameField.setValue("Custom Set");
-
-            for (int i = 0; i < colorValues.length; i++) {
-                colorValues[i] = 0xFFFFFFFF;
-                if (colorFields[i] != null) {
-                    colorFields[i].setValue("#FFFFFF");
-                }
+        for (int i = 0; i < colorValues.length; i++) {
+            colorValues[i] = 0xFFFFFFFF;
+            if (colorFields[i] != null) {
+                colorFields[i].setValue("#FFFFFF");
             }
         }
     }
 
-    private void onReset() {
-        for (int i = 0; i < colorValues.length; i++) {
-            colorValues[i] = 0xFFFFFFFF;
+    private void onShare() {
+        int active = ColorSetManager.getActiveSet();
 
-            if (colorFields[i] != null) {
-                colorFields[i].setValue("#FFFFFF");
-                colorFields[i].setCursorPosition(0);
-                colorFields[i].setHighlightPos(0);
-            }
+        if (active < 0) {
+            return;
         }
+
+        ColorSet set = ColorSetManager.getSets().get(active);
+        String share = ParticleShareUtil.encode(set);
+
+        minecraft.keyboardHandler.setClipboard(share);
+
+        clipboardMessageTicks = 60;
     }
 
     private void onSave() {
-        PlayerCustomization data = PlayerCustomizationProvider.get(minecraft.player);
+        List<ColorSet> sets = ColorSetManager.getSets();
+        int selectedSetIndex = ColorSetManager.getActiveSet();
+
         int[] colors = colorValues.clone();
         ColorSet newSet = new ColorSet(nameField.getValue().trim(), colors);
 
-        if (selectedSetIndex >= 0 && selectedSetIndex < data.getColorSets().size()) {
-            data.getColorSets().set(selectedSetIndex, newSet);
-        }
-        else {
-            data.getColorSets().add(newSet);
-            selectedSetIndex = data.getColorSets().size() - 1;
+        if (selectedSetIndex >= 0 && selectedSetIndex < sets.size()) {
+            sets.set(selectedSetIndex, newSet);
+        } else {
+            sets.add(newSet);
+            selectedSetIndex = sets.size() - 1;
         }
 
-        GIPacketHandler.sendToServer(new C2SPlayerCustomizationPacket(selectedSetIndex,data.getColorSets()));
+        ColorSetManager.setActiveSet(selectedSetIndex);
+        ColorSetManager.save();
     }
 
     private void onDone() {
-        PlayerCustomization data = PlayerCustomizationProvider.get(minecraft.player);
-
-        int[] colors = colorValues.clone();
-        ColorSet newSet = new ColorSet(nameField.getValue().trim(), colors);
-
-        if (selectedSetIndex >= 0 && selectedSetIndex < data.getColorSets().size()) {
-            GIPacketHandler.sendToServer(new C2SPlayerCustomizationPacket(selectedSetIndex, data.getColorSets()));
-        } else {
-            data.getColorSets().add(newSet);
-            selectedSetIndex = data.getColorSets().size() - 1;
-        }
-
+        onSave();
         onClose();
     }
 
@@ -567,16 +592,19 @@ public class ParticleEditorScreen extends Screen {
                 }
             }
         }
+
+        if (clipboardMessageTicks > 0) {
+            clipboardMessageTicks--;
+        }
     }
 
     @Override
     public boolean mouseClicked(double mouseX, double mouseY, int button) {
-        PlayerCustomization data =PlayerCustomizationProvider.get(minecraft.player);
         int y = leftPanelY + 21 - leftPanelScroll;
         int visibleTop = leftPanelY + 18;
         int visibleBottom = leftPanelY + leftPanelHeight - 1;
 
-        for (int i = 0; i < data.getColorSets().size(); i++) {
+        for (int i = 0; i < ColorSetManager.getSets().size(); i++) {
             // above visible area
             if (y + 20 < visibleTop) {
                 y += 23;
@@ -724,8 +752,7 @@ public class ParticleEditorScreen extends Screen {
                  - getScrollbarThumbHeight()) * leftPanelScroll / maxScroll);
     }
     private int getLeftContentHeight() {
-        PlayerCustomization data = PlayerCustomizationProvider.get(minecraft.player);
-        int count = data.getColorSets().size();
+        int count = ColorSetManager.getSets().size();
         return count * 23 + 3;
     }
     private int getMaxLeftScroll() {
@@ -776,25 +803,35 @@ public class ParticleEditorScreen extends Screen {
     }
 
     private void loadColorSet(int index) {
-        if (minecraft.player == null) { return; }
+        List<ColorSet> sets = ColorSetManager.getSets();
 
-        PlayerCustomization data = PlayerCustomizationProvider.get(minecraft.player);
+        if (index < 0 || index >= sets.size()) return;
 
-        if (index < 0 || index >= data.getColorSets().size()) {
-            return;
-        }
+        ColorSet set = sets.get(index);
 
-        ColorSet set = data.getColorSets().get(index);
-        selectedSetIndex = index;
-        PlayerCustomizationProvider.setActiveSetIndex(minecraft.player, selectedSetIndex);
+        // single source of truth
+        ColorSetManager.setActiveSet(index);
         nameField.setValue(set.getName());
-        int[] colors = set.getColors();
 
+        int[] colors = set.getColors();
         for (int i = 0; i < colorValues.length; i++) {
             colorValues[i] = i < colors.length ? colors[i] : 0xFFFFFFFF;
 
             if (colorFields[i] != null) {
                 colorFields[i].setValue(ParticleColorUtil.colorToHex(colorValues[i]));
+            }
+        }
+    }
+
+    private void loadEmptyState() {
+        ColorSetManager.setActiveSet(-1);
+
+        nameField.setValue("Custom Set");
+
+        for (int i = 0; i < colorValues.length; i++) {
+            colorValues[i] = 0xFFFFFFFF;
+            if (colorFields[i] != null) {
+                colorFields[i].setValue("#FFFFFF");
             }
         }
     }
