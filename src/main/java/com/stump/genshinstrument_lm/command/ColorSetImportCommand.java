@@ -2,10 +2,9 @@ package com.stump.genshinstrument_lm.command;
 
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.stump.genshinstrument_lm.GInstrumentMod;
-import com.stump.genshinstrument_lm.client.gui.options.ColorImportConfirmationScreen;
-import com.stump.genshinstrument_lm.client.colorSet.ColorSet;
+import com.stump.genshinstrument_lm.networking.GIPacketHandler;
+import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CColorSetConfirmationPacket;
 import com.stump.genshinstrument_lm.util.ParticleShareUtil;
-import net.minecraft.client.Minecraft;
 import net.minecraft.commands.Commands;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.server.level.ServerPlayer;
@@ -29,8 +28,7 @@ public class ColorSetImportCommand {
                                 String encoded = StringArgumentType.getString(ctx, "encoded");
                                 if (!encoded.startsWith(ParticleShareUtil.PREFIX + ":")) { return 0; }
 
-                                ColorSet set = ParticleShareUtil.decode(encoded);
-                                Minecraft.getInstance().pushGuiLayer(new ColorImportConfirmationScreen(encoded, set));
+                                GIPacketHandler.sendToClient(new S2CColorSetConfirmationPacket(encoded), player);
 
                                 return 1;
                             })

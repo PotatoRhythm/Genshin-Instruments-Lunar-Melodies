@@ -25,8 +25,8 @@ public class GIPacketHandler {
         OpenInstrumentPacket.class, CloseInstrumentPacket.class,
         C2SHeldNoteSoundPacket.class, S2CHeldNoteSoundPacket.class,
         LooperRecordStatePacket.class, OpenNoteBlockInstrumentPacket.class,
-        S2CLooperParticlePacket.class, C2SColorSetImportPacket.class,
-        S2CColorSetApplyPacket.class,
+        S2CLooperParticlePacket.class, C2SColorSetAcceptPacket.class,
+        S2CColorSetAddPacket.class, S2CColorSetConfirmationPacket.class,
         // Sync stuff
         DoesLooperExistPacket.class, LooperUnplayablePacket.class, SyncModTagPacket.class,
         LooperPlayStatePacket.class

@@ -35,8 +35,8 @@ public class S2CLooperParticlePacket implements IModPacket {
     }
 
     @Override
-    public void handle(NetworkEvent.Context ctx) {
+    public void handle(NetworkEvent.Context context) {
         LooperParticlePacketUtil.spawnLooperParticle(pos, rgb, size);
-        ctx.setPacketHandled(true);
+        context.setPacketHandled(true);
     }
 }

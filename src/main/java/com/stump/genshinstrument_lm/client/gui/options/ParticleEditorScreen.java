@@ -497,12 +497,12 @@ public class ParticleEditorScreen extends Screen {
 
     private void deleteSelectedSet() {
         List<ColorSet> sets = ColorSetManager.getSets();
-
         int index = ColorSetManager.getActiveSet();
         sets.remove(index);
 
         if (sets.isEmpty()) {
             ColorSetManager.setActiveSet(-1);
+            leftPanelScroll = 0;
             loadEmptyState();
             ColorSetManager.save();
             return;
@@ -510,31 +510,19 @@ public class ParticleEditorScreen extends Screen {
 
         int newIndex = Math.min(index, sets.size() - 1);
         ColorSetManager.setActiveSet(newIndex);
+        leftPanelScroll = Mth.clamp(leftPanelScroll, 0, getMaxLeftScroll());
         loadColorSet(newIndex);
         ColorSetManager.save();
-
-        nameField.setValue("Custom Set");
-
-        for (int i = 0; i < colorValues.length; i++) {
-            colorValues[i] = 0xFFFFFFFF;
-            if (colorFields[i] != null) {
-                colorFields[i].setValue("#FFFFFF");
-            }
-        }
     }
 
     private void onShare() {
         int active = ColorSetManager.getActiveSet();
-
-        if (active < 0) {
-            return;
-        }
+        if (active < 0) { return; }
 
         ColorSet set = ColorSetManager.getSets().get(active);
         String share = ParticleShareUtil.encode(set);
 
         minecraft.keyboardHandler.setClipboard(share);
-
         clipboardMessageTicks = 60;
     }
 

@@ -1,7 +1,7 @@
 package com.stump.genshinstrument_lm.client.gui.options;
 
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
-import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SColorSetImportPacket;
+import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SColorSetAcceptPacket;
 import com.stump.genshinstrument_lm.client.colorSet.ColorSet;
 import com.stump.genshinstrument_lm.util.ParticleColorUtil;
 import net.minecraft.client.gui.GuiGraphics;
@@ -43,7 +43,7 @@ public class ColorImportConfirmationScreen extends Screen {
         addRenderableWidget(
                 Button.builder(Component.literal("Yes"),
                                 b -> {
-                                    GIPacketHandler.sendToServer(new C2SColorSetImportPacket(encoded));
+                                    GIPacketHandler.sendToServer(new C2SColorSetAcceptPacket(encoded));
                                     onClose();
                                 })
                         .bounds(panelX + 10, buttonY, buttonWidth, buttonHeight)
@@ -87,25 +87,13 @@ public class ColorImportConfirmationScreen extends Screen {
         currentY += 11;
 
         int previewX = panelX + 10;
-        int previewY = currentY;
         int previewWidth = PANEL_WIDTH - 20;
-        int previewHeight = 10;
 
-        g.fill(previewX - 1, previewY - 1,
-                previewX + previewWidth + 1, previewY + previewHeight + 1, 0xFF909090);
-
-        for (int x = 0; x < previewWidth; x++) {
-            float t = (float) x / (previewWidth - 1);
-            int color = ParticleColorUtil.getGradientColor(t, previewSet.getColors());
-            color = ParticleColorUtil.rgbToARGB(color);
-
-            g.fill(previewX + x,  previewY,
-                    previewX + x + 1, previewY + previewHeight, color);
-        }
+        int noteBaseY = currentY;
 
         for (int i = 0; i < 6; i++) {
             int noteX = previewX - 3 + (previewWidth - 16) * i / 5;
-            int noteY = previewY + previewHeight + 6;
+            int noteY = noteBaseY;
 
             int color = ParticleColorUtil.rgbToARGB(previewSet.getColors()[i]);
 
@@ -116,12 +104,27 @@ public class ColorImportConfirmationScreen extends Screen {
                     1.0F
             );
 
-            g.blit(NOTE_TEXTURE, noteX + 5, noteY, 0, 0,
-                    16, 8, 8, 8);
-            g.blit(NOTE_TEXTURE, noteX, noteY + 8, 0, 0,
-                    16, 8, 8, 8);
+            g.blit(NOTE_TEXTURE, noteX + 5, noteY, 0, 0, 16, 8, 8, 8);
+            g.blit(NOTE_TEXTURE, noteX, noteY + 8, 0, 0, 16, 8, 8, 8);
 
             g.setColor(1F, 1F, 1F, 1F);
+        }
+
+        currentY += 20;
+
+        int previewY = currentY;
+        int previewHeight = 10;
+
+        g.fill(previewX - 1, previewY - 1,
+                previewX + previewWidth + 1, previewY + previewHeight + 1, 0xFF909090);
+
+        for (int x = 0; x < previewWidth; x++) {
+            float t = (float) x / (previewWidth - 1);
+            int color = ParticleColorUtil.getGradientColor(t, previewSet.getColors());
+            color = ParticleColorUtil.rgbToARGB(color);
+
+            g.fill(previewX + x, previewY,
+                    previewX + x + 1, previewY + previewHeight, color);
         }
 
         for (int i = 1; i <= 4; i++) {
@@ -143,7 +146,7 @@ public class ColorImportConfirmationScreen extends Screen {
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (keyCode == org.lwjgl.glfw.GLFW.GLFW_KEY_ENTER || keyCode == org.lwjgl.glfw.GLFW.GLFW_KEY_KP_ENTER) {
-            GIPacketHandler.sendToServer(new C2SColorSetImportPacket(encoded));
+            GIPacketHandler.sendToServer(new C2SColorSetAcceptPacket(encoded));
             onClose();
             return true;
         }
