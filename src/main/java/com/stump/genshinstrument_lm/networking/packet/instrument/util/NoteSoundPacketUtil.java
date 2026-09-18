@@ -25,10 +25,10 @@ public class NoteSoundPacketUtil {
      * @param volume The volume of the sound to initiate
      */
     public static void sendPlayerPlayNotePackets(Entity initiator,
-                                           NoteSound sound, ResourceLocation instrumentId, int pitch, int volume) {
+                                           NoteSound sound, ResourceLocation instrumentId, int pitch, int volume, int particleColor) {
         firePlayerEvent(initiator,
             InstrumentPacketUtil.sendPlayerPlayNotePackets(
-                initiator, sound, instrumentId, pitch, volume, INIT
+                initiator, sound, instrumentId, pitch, volume, particleColor, INIT
             )
         );
     }
@@ -56,10 +56,10 @@ public class NoteSoundPacketUtil {
      * @param pitch The pitch of the sound to initiate
      */
     public static void sendPlayNotePackets(Level level, BlockPos pos, NoteSound sound, ResourceLocation instrumentId,
-                                           int pitch, int volume) {
+                                           int pitch, int volume, int particleColor) {
         fireGenericEvent(level,
             InstrumentPacketUtil.sendPlayNotePackets(
-                level, pos, sound, instrumentId, pitch, volume, INIT
+                level, pos, sound, instrumentId, pitch, volume, particleColor, INIT
             )
         );
     }

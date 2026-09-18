@@ -21,15 +21,39 @@ public class ModBlockEntities {
             LooperBlockEntity::new, ModBlocks.LOOPER.get()
         ).build(null)
     );
+    // hmm
+    public static final RegistryObject<BlockEntityType<ModInstrumentBlockEntity>> INSTRUMENT =
+        BLOCK_ENTITIES.register(GInstrumentMod.MODID + "_instrument", () ->
+                BlockEntityType.Builder.of(ModInstrumentBlockEntity::new,
+                        ModBlocks.KOTO.get(), ModBlocks.MICROPHONE_STAND.get() ).build(null)
+        );
 
-    public static final RegistryObject<BlockEntityType<ModInstrumentBlockEntity>> INSTRUMENT = BLOCK_ENTITIES.register(GInstrumentMod.MODID+"_instrument", () ->
-        BlockEntityType.Builder.of(
-            ModInstrumentBlockEntity::new,
-            ModBlocks.KEYBOARD.get(),
-            ModBlocks.KEYBOARD_STAND.get(),
-            ModBlocks.KOTO.get(),
-            ModBlocks.MICROPHONE_STAND.get()
-        ).build(null)
-    );
-    
+    public static final RegistryObject<BlockEntityType<KeyboardStandBlockEntity>> KEYBOARD_STAND =
+            BLOCK_ENTITIES.register("keyboard_stand", () ->
+                    BlockEntityType.Builder.of(KeyboardStandBlockEntity::new,
+                            ModBlocks.KEYBOARD_STAND.get()).build(null)
+            );
+
+    public static final RegistryObject<BlockEntityType<DrumsetBlockEntity>> DRUMSET =
+            BLOCK_ENTITIES.register("drumset",
+                    () -> BlockEntityType.Builder.of(DrumsetBlockEntity::new,
+                            ModBlocks.DRUMSET.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<KeyboardBlockEntity>> KEYBOARD =
+            BLOCK_ENTITIES.register("keyboard",
+                    () -> BlockEntityType.Builder.of(KeyboardBlockEntity::new,
+                            ModBlocks.KEYBOARD.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<MicrophoneStandBlockEntity>> MICROPHONE_STAND =
+            BLOCK_ENTITIES.register("microphone_stand",
+                    () -> BlockEntityType.Builder.of(MicrophoneStandBlockEntity::new,
+                            ModBlocks.MICROPHONE_STAND.get()).build(null));
+
+    public static final RegistryObject<BlockEntityType<DummyBlockEntity>> DUMMY =
+            BLOCK_ENTITIES.register("dummy",
+                    () -> BlockEntityType.Builder.of(
+                            DummyBlockEntity::new,
+                            ModBlocks.DRUMSET.get(),
+                            ModBlocks.KEYBOARD.get()
+                    ).build(null));
 }

@@ -474,11 +474,11 @@ public abstract class InstrumentScreen extends Screen {
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (InstrumentKeyMappings.VOLUME_UP.get().matches(keyCode, scanCode)) {
-            changeVolume(0.1f);
+            changeVolume(0.05f);
             return true;
         }
         if (InstrumentKeyMappings.VOLUME_DOWN.get().matches(keyCode, scanCode)) {
-            changeVolume(-0.1f);
+            changeVolume(-0.05f);
             return true;
         }
 

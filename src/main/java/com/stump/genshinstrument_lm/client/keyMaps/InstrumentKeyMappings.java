@@ -170,6 +170,25 @@ public class InstrumentKeyMappings {
     
 
     /* --------------- Builtin Keys --------------- */
+    public static final KeyMapping[] DRUMSET_MAPPINGS = {
+            NOTE_C.get(),
+            NOTE_E.get(),
+            NOTE_G.get(),
+            NOTE_A.get(),
+            NOTE_HIGH_C.get(),
+            OCTAVE_UP.get(),
+
+            NOTE_D.get(),
+            NOTE_F.get(),
+            NOTE_B.get(),
+            OCTAVE_DOWN.get(),
+
+            NOTE_CS.get(),
+            NOTE_DS.get(),
+            NOTE_FS.get(),
+            NOTE_GS.get(),
+            NOTE_AS.get()
+    };
 
     public static final Key[][] GRID_INSTRUMENT_MAPPINGS = createInstrumentMaps(new int[][] {
         {81, 87, 69, 82, 84, 89, 85, 73},

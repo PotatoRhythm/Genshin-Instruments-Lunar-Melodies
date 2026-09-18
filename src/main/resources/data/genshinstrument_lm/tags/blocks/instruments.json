@@ -3,6 +3,7 @@
         "genshinstrument_lm:keyboard",
         "genshinstrument_lm:keyboard_stand",
         "genshinstrument_lm:microphone_stand",
-        "genshinstrument_lm:koto"
+        "genshinstrument_lm:koto",
+        "genshinstrument_lm:drumset"
     ]
 }

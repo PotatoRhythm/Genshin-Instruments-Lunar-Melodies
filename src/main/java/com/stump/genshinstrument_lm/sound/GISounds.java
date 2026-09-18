@@ -33,11 +33,6 @@ public class GISounds {
         ZITHER_NEW_NOTE_SOUNDS = nsr(loc("floral_zither_new")).registerGrid(),
         ZITHER_OLD_NOTE_SOUNDS = nsr(loc("floral_zither_old")).registerGrid(),
 
-        GLORIOUS_DRUM = nsr(loc("glorious_drum"))
-            .chain(loc("glorious_drum_don")).add()
-            .chain(loc("glorious_drum_ka")).stereo().add()
-        .registerAll(),
-
         UKULELE = nsr(loc("ukulele")).registerGrid(),
         DJEM_DJEM_DRUM = nsr(loc("djem_djem_drum")).registerGrid(2, 4),
 
@@ -48,12 +43,13 @@ public class GISounds {
         KEYBOARD_ELECTRIC = nsr(loc("keyboard_electric")).stereo().registerGrid(),
         KEYBOARD_HARPSICHORD = nsr(loc("keyboard_harpsichord")).stereo().registerGrid(),
 
-
         TROMBONE = nsr(loc("trombone")).registerGrid(),
         SAXOPHONE = nsr(loc("saxophone")).registerGrid(),
 
         GUITAR = nsr(loc("guitar")).registerGrid(),
-        GUITAR_JAZZ = nsr(loc("guitar_jazz")).stereo().registerGrid(),
+
+        GUITAR_CLEAN = nsr(loc("guitar_clean")).stereo().registerGrid(),
+
         BASS_ACOUSTIC = nsr(loc("bass_acoustic")).stereo().registerGrid(),
         BASS_FINGER = nsr(loc("bass_finger")).stereo().registerGrid(),
         BASS_SLAP = nsr(loc("bass_slap")).stereo().registerGrid(),
@@ -72,7 +68,32 @@ public class GISounds {
         GW2_LUTE = nsr(loc("gw2_lute")).stereo().registerGrid(),
         GW2_MINSTREL = nsr(loc("gw2_minstrel")).stereo().registerGrid(),
         GW2_PELL = nsr(loc("gw2_pell")).stereo().registerGrid(),
-        GW2_DRUM = nsr(loc("gw2_drum")).stereo().registerGrid(2, 5)
+        GW2_FRAME_DRUM = nsr(loc("gw2_frame_drum")).stereo().registerGrid(2, 5),
+
+        GLORIOUS_DRUM = nsr(loc("glorious_drum"))
+                .chain(loc("glorious_drum_don")).add()
+                .chain(loc("glorious_drum_ka")).stereo().add()
+                .registerAll(),
+
+        DRUMSET_GW2 = nsr(loc("drumset_gw2"))
+                .chain(loc("drumset_bass")).stereo().add()
+                .chain(loc("drumset_snare")).stereo().add()
+                .chain(loc("drumset_cross_stick")).stereo().add()
+                .chain(loc("drumset_ghost")).stereo().add()
+                .chain(loc("drumset_high_tom")).stereo().add()
+                .chain(loc("drumset_low_tom")).stereo().add()
+
+                .chain(loc("drumset_bass2")).stereo().add()
+                .chain(loc("drumset_snare2")).stereo().add()
+                .chain(loc("drumset_ghost2")).stereo().add()
+                .chain(loc("drumset_mid_tom")).stereo().add()
+
+                .chain(loc("drumset_crash_cymbal")).stereo().add()
+                .chain(loc("drumset_ride_cymbal")).stereo().add()
+                .chain(loc("drumset_hi-hat_closed")).stereo().add()
+                .chain(loc("drumset_hi-hat_open")).stereo().add()
+                .chain(loc("drumset_hi-hat_foot")).stereo().add()
+            .registerAll()
     ;
     
     private static final float
@@ -146,6 +167,24 @@ public class GISounds {
             .fullHoldFadeoutTime(2)
             .decays(7)
             .register(HOLD_DURATION),
+        NOT_TETO = hnsr(loc("microphone_not_teto"))
+                .holdBuilder(GISounds::threeOctaveSoundBuilder)
+                .attackBuilder(GISounds::threeOctaveSoundBuilder)
+                .holdDelay(.03f)
+                .chainedHoldDelay(-FADE_TIME * 2)
+                .releaseFadeOut(FADE_TIME / 6)
+                .fullHoldFadeoutTime(2)
+                .decays(7)
+                .register(HOLD_DURATION),
+        NOT_TETO_SNEAKY = hnsr(loc("microphone_not_teto_sneaky"))
+                .holdBuilder(GISounds::threeOctaveSoundBuilder)
+                .attackBuilder(GISounds::threeOctaveSoundBuilder)
+                .holdDelay(.03f)
+                .chainedHoldDelay(-FADE_TIME * 2)
+                .releaseFadeOut(FADE_TIME / 6)
+                .fullHoldFadeoutTime(2)
+                .decays(7)
+                .register(HOLD_DURATION),
         SAXOPHONE_BARITONE = hnsr(loc("saxophone_baritone"))
             .holdBuilder(GISounds::threeOctaveSoundBuilder)
             .attackBuilder(GISounds::threeOctaveSoundBuilder)

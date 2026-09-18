@@ -4,6 +4,7 @@ import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.client.gui.options.partial.InstrumentOptionsScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentThemeLoader;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.grid.GridInstrumentScreen;
+import com.stump.genshinstrument_lm.sound.GISounds;
 import com.stump.genshinstrument_lm.sound.SoundOption;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -15,15 +16,7 @@ public class GuitarScreen extends GridInstrumentScreen {
 
     @Override
     public SoundOption getSoundOption() {
-        return ((GuitarOptionsScreen) optionsScreen)
-                .getPreferredSoundType()
-                .getSoundArr()
-                .get();
-    }
-
-    @Override
-    protected InstrumentOptionsScreen initInstrumentOptionsScreen() {
-        return new GuitarOptionsScreen(this);
+        return new SoundOption(GISounds.GUITAR);
     }
 
     @Override
@@ -41,5 +34,4 @@ public class GuitarScreen extends GridInstrumentScreen {
     public InstrumentThemeLoader getThemeLoader() {
         return THEME_LOADER;
     }
-    
 }

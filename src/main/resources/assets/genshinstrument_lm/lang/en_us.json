@@ -26,10 +26,14 @@
     "label.genshinstrument_lm.vintage_lyre_options": "Vintage Lyre Options",
     "label.genshinstrument_lm.ukulele_options": "Ukulele Options",
     "label.genshinstrument_lm.keyboard_options": "Keyboard Options",
+    "label.genshinstrument_lm.drumset_options": "Drumset Options",
+    "label.genshinstrument_lm.electric_guitar_options": "Electric Guitar Options",
+    "label.genshinstrument_lm.bass_guitar_options": "Bass Guitar Options",
     "label.genshinstrument_lm.violin_options": "Violin Options",
     "label.genshinstrument_lm.microphone_options": "Microphone Options",
     "label.genshinstrument_lm.saxophone_options": "Saxophone Options",
-    "label.genshinstrument_lm.trombone_options": "trombone Options",
+    "label.genshinstrument_lm.trombone_options": "Trombone Options",
+
 
 
     "genshinstrument_lm.genshin_disclaimer.title": "Disclaimer!",
@@ -115,13 +119,16 @@
     "button.genshinstrument_lm.keyboard.soundType.electric": "Electric",
     "button.genshinstrument_lm.keyboard.soundType.harpsichord": "Harpsichord",
 
-    "button.genshinstrument_lm.guitar.soundType": "Sound Type",
-    "button.genshinstrument_lm.guitar.soundType.emi": "Even More Instruments",
-    "button.genshinstrument_lm.guitar.soundType.steel": "Steel KRZ",
-    "button.genshinstrument_lm.guitar.soundType.jazz": "Jazz",
-    "button.genshinstrument_lm.guitar.soundType.acoustic": "Acoustic Bass",
-    "button.genshinstrument_lm.guitar.soundType.finger": "Finger Bass",
-    "button.genshinstrument_lm.guitar.soundType.slap": "Slap Bass",
+    "button.genshinstrument_lm.drumset.soundType": "Sound Type",
+    "button.genshinstrument_lm.drumset.soundType.gw2": "Guild Wars 2",
+
+    "button.genshinstrument_lm.electric_guitar.soundType": "Sound Type",
+    "button.genshinstrument_lm.electric_guitar.soundType.clean": "Clean",
+
+    "button.genshinstrument_lm.bass_guitar.soundType": "Sound Type",
+    "button.genshinstrument_lm.bass_guitar.soundType.acoustic": "Acoustic Bass",
+    "button.genshinstrument_lm.bass_guitar.soundType.finger": "Finger Bass",
+    "button.genshinstrument_lm.bass_guitar.soundType.slap": "Slap Bass",
 
     "button.genshinstrument_lm.violin.soundType": "Sound Type",
     "button.genshinstrument_lm.violin.soundType.slow": "Slow",
@@ -132,6 +139,8 @@
     "button.genshinstrument_lm.microphone.soundType.irina": "Irina Brochin",
     "button.genshinstrument_lm.microphone.soundType.bass": "Bass Choir",
     "button.genshinstrument_lm.microphone.soundType.miku": "Not Miku",
+    "button.genshinstrument_lm.microphone.soundType.teto": "Not Teto",
+    "button.genshinstrument_lm.microphone.soundType.teto_sneaky": "Not Teto (Whisper)",
 
     "button.genshinstrument_lm.saxophone.soundType": "Sound Type",
     "button.genshinstrument_lm.saxophone.soundType.emi": "Even More Instruments",
@@ -226,6 +235,8 @@
 
     "item.genshinstrument_lm.violin": "Violin",
     "item.genshinstrument_lm.guitar": "Guitar",
+    "item.genshinstrument_lm.electric_guitar": "Electric Guitar",
+    "item.genshinstrument_lm.bass_guitar": "Bass Guitar",
     "item.genshinstrument_lm.trombone": "Trombone",
     "item.genshinstrument_lm.saxophone": "Saxophone",
     "item.genshinstrument_lm.pipa": "Pipa",
@@ -244,11 +255,13 @@
     "item.genshinstrument_lm.gw2_piano": "GW2 Piano",
     "item.genshinstrument_lm.gw2_quaggan_organ": "GW2 Quaggan Organ",
     "item.genshinstrument_lm.gw2_verdarach": "GW2 Verdarach",
-    "item.genshinstrument_lm.gw2_drum": "GW2 Frame Drum",
+    "item.genshinstrument_lm.gw2_frame_drum": "GW2 Frame Drum",
+    "item.genshinstrument_lm.gw2_drumset": "GW2 Drumset",
 
     "block.genshinstrument_lm.keyboard": "Keyboard",
     "block.genshinstrument_lm.koto": "Koto",
     "block.genshinstrument_lm.microphone_stand": "Microphone Stand",
+    "block.genshinstrument_lm.drumset": "Drumset",
 
     "block.genshinstrument_lm.keyboard_stand": "Keyboard Stand",
     "item.genshinstrument_lm.violin_bow": "Violin Bow",

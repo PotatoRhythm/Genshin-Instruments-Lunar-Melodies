@@ -3,6 +3,7 @@ package com.stump.genshinstrument_lm.networking.packet.instrument.c2s;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
 import com.stump.genshinstrument_lm.networking.IModPacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
+import com.stump.genshinstrument_lm.util.ParticleColorUtil;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.api.distmarker.Dist;
@@ -33,6 +34,7 @@ public abstract class C2SNotePacket<T> implements IModPacket {
         this(sound, new NoteSoundMetadata(
             noteButton.getSoundSourcePos(),
             pitch, noteButton.instrumentScreen.volume,
+            ParticleColorUtil.getNoteRGB(noteButton.soundIndex(), pitch),
             noteButton.instrumentScreen.getInstrumentId(),
             Optional.ofNullable(noteButton.getIdentifier())
         ));

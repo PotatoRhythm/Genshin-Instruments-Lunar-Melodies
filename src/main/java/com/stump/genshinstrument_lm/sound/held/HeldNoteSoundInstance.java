@@ -36,6 +36,7 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
      */
     public final Optional<BlockPos> soundOrigin;
     public final int notePitch;
+    public final int particleColor;
     private final float startVolume;
 
     private boolean released;
@@ -47,7 +48,7 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
      *                    Value must be present if {@code initiator} is empty.
      */
     protected HeldNoteSoundInstance(HeldNoteSound heldSoundContainer, HeldNoteSound.Phase phase,
-                                    int notePitch, float startVolume, float volume,
+                                    int notePitch, int particleColor, float startVolume, float volume,
                                     @Nullable Entity initiator, @Nullable BlockPos soundOrigin,
                                     InitiatorID initiatorId, ResourceLocation instrumentId,
                                     int timeAlive, boolean released) {
@@ -70,6 +71,7 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
         this.startVolume = startVolume;
         this.volume = volume;
         this.notePitch = notePitch;
+        this.particleColor = particleColor;
         this.pitch = NoteSound.getPitchByNoteOffset(notePitch);
 
         this.released = released;
@@ -104,12 +106,12 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
      *                    Value must be present if {@code initiator} is empty.
      */
     public HeldNoteSoundInstance(HeldNoteSound heldSoundContainer, HeldNoteSound.Phase phase,
-                                 int notePitch, float startVolume, float volume,
+                                 int notePitch, int particleColor, float startVolume, float volume,
                                  @Nullable Entity initiator, @Nullable BlockPos soundOrigin,
                                  InitiatorID initiatorId, ResourceLocation instrumentId) {
         this(
             heldSoundContainer,
-            phase, notePitch, startVolume, volume,
+            phase, notePitch, particleColor, startVolume, volume,
             initiator, soundOrigin, initiatorId, instrumentId,
             0, false
         );
@@ -250,7 +252,7 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
             return;
 
         new HeldNoteSoundInstance(
-            heldSoundContainer, Phase.HOLD, notePitch, startVolume, nextVolume,
+            heldSoundContainer, Phase.HOLD, notePitch, particleColor, startVolume, nextVolume,
             initiator.orElse(null), soundOrigin.orElse(null),
             initiatorId, instrumentId,
             overallTimeAlive, released
@@ -305,10 +307,7 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
         double forwardX = -Math.sin(radians);
         double forwardZ = Math.cos(radians);
 
-        int rgb = ParticleColorUtil.getNoteRGB(
-                heldSoundContainer.index(),
-                notePitch
-        );
+        int rgb = particleColor;
 
         level.addParticle(
                 ModParticles.CUSTOM_NOTE.get(),

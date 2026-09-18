@@ -87,24 +87,6 @@ public class NoteSound {
         return NoteSoundRegistrar.getSounds(baseSoundLocation);
     }
 
-    public NoteSoundReuslt transpose(final int amount) {
-        final NoteSound[] sounds = getSoundsArr();
-        int newIndex = amount + index;
-
-        final int delta = newIndex / sounds.length;
-
-        if (delta != 0) {
-            // We can only go up/down 1 octave
-            if ((delta < -1) || (delta > 1))
-                return new NoteSoundReuslt(null, delta);
-
-            newIndex += sounds.length * delta;
-        }
-
-        return new NoteSoundReuslt(sounds[newIndex], delta);
-    }
-
-
     /**
      * Determines which sound type should play based on this player's distance from the instrument player.
      * <p>This method is fired from the server.</p>
@@ -177,10 +159,7 @@ public class NoteSound {
             double forwardX = -Math.sin(radians);
             double forwardZ = Math.cos(radians);
 
-            int rgb = ParticleColorUtil.getNoteRGB(
-                    this.index,
-                    meta.pitch()
-            );
+            int rgb = meta.particleColor();
 
             level.addParticle(
                     ModParticles.CUSTOM_NOTE.get(),

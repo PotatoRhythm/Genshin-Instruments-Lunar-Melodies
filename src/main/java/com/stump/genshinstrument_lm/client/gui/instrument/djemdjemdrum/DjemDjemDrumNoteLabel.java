@@ -17,15 +17,6 @@ public enum DjemDjemDrumNoteLabel implements INoteLabel {
 	QWERTY((note) ->
 		INoteLabel.getQwerty(ddd(note).getKey())
 	),
-	GENSHIN_NOTATION((note) ->
-		ddd(note).getGenshinNotation()
-	),
-	NOTE_NAME((note) -> Component.literal(
-		note.getFormattedNoteName()
-	)),
-	DO_RE_MI((note) ->
-        LabelUtil.toDoReMi(note.getFormattedNoteName())
-    ),
 
     NONE(NoteLabelSupplier.EMPTY);
 

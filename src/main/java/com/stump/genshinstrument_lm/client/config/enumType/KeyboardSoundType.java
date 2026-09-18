@@ -11,7 +11,6 @@ import java.util.function.Supplier;
 @OnlyIn(Dist.CLIENT)
 public enum KeyboardSoundType implements SoundType {
     EMI(() -> new SoundOption(GISounds.KEYBOARD)),
-    GW2(() -> new SoundOption(GISounds.KEYBOARD_GW2)),
     YAMAHA_C5(() -> new SoundOption(GISounds.KEYBOARD_YAMAHA_C5)),
     HEARTOPIA(() -> new SoundOption(GISounds.HEARTOPIA)),
     ELECTRIC(() -> new SoundOption(GISounds.KEYBOARD_ELECTRIC)),

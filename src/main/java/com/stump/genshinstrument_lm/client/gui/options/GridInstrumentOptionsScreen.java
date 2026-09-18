@@ -39,7 +39,7 @@ public class GridInstrumentOptionsScreen extends InstrumentOptionsScreen {
         return NoteGridLabel.availableVals();
     }
     @Override
-    public NoteGridLabel getCurrentLabel() {
+    public INoteLabel getCurrentLabel() {
         return ModClientConfigs.GRID_LABEL_TYPE.get();
     }
 

@@ -3,7 +3,7 @@ package com.stump.genshinstrument_lm.client.gui.instrument.djemdjemdrum;
 import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
-import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButtonRenderer;
+import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.NoteButtonRenderer;
 import com.stump.genshinstrument_lm.client.keyMaps.InstrumentKeyMappings;
 import com.stump.genshinstrument_lm.sound.GISounds;
 import com.mojang.blaze3d.platform.InputConstants.Key;

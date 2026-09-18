@@ -524,6 +524,7 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
             getBlockPos(),
             noteTag.getInt(PITCH_TAG),
             (int)(noteTag.getFloat(VOLUME_TAG) * 100),
+            noteTag.getInt(PARTICLE_COLOR_TAG),
             instrumentId, Optional.empty()
         );
     }

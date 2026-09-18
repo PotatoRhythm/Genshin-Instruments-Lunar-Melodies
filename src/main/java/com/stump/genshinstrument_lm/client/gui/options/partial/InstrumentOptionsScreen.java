@@ -2,14 +2,12 @@ package com.stump.genshinstrument_lm.client.gui.options.partial;
 
 import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
 import com.stump.genshinstrument_lm.client.config.enumType.InstrumentChannelType;
-import com.stump.genshinstrument_lm.client.config.enumType.ParticleColorType;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.label.INoteLabel;
 import com.stump.genshinstrument_lm.client.gui.options.MidiOptionsScreen;
 import com.stump.genshinstrument_lm.client.gui.options.ParticleEditorScreen;
 import com.stump.genshinstrument_lm.client.util.ClientUtil;
-import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.sound.NoteSound;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.CycleButton;
