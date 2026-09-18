@@ -105,50 +105,50 @@
     "button.genshinstrument_lm.volume": "Volume",
     "button.genshinstrument_lm.control_mode": "Control Mode",
 
-    "button.genshinstrument_lm.zither.soundType": "Sound Type",
+    "button.genshinstrument_lm.zither.soundType": "Sound",
     "button.genshinstrument_lm.zither.soundType.old": "Old",
     "button.genshinstrument_lm.zither.soundType.new": "New",
 
     "button.genshinstrument_lm.particle_color_editor": "Particle Color Editor",
 
-    "button.genshinstrument_lm.keyboard.soundType": "Sound Type",
-    "button.genshinstrument_lm.keyboard.soundType.emi": "Even More Instruments",
+    "button.genshinstrument_lm.keyboard.soundType": "Sound",
+    "button.genshinstrument_lm.keyboard.soundType.emi": "EMI",
     "button.genshinstrument_lm.keyboard.soundType.gw2": "Guild Wars 2",
     "button.genshinstrument_lm.keyboard.soundType.yamaha_c5": "Yamaha_C5",
     "button.genshinstrument_lm.keyboard.soundType.heartopia": "Heartopia",
     "button.genshinstrument_lm.keyboard.soundType.electric": "Electric",
     "button.genshinstrument_lm.keyboard.soundType.harpsichord": "Harpsichord",
 
-    "button.genshinstrument_lm.drumset.soundType": "Sound Type",
+    "button.genshinstrument_lm.drumset.soundType": "Sound",
     "button.genshinstrument_lm.drumset.soundType.gw2": "Guild Wars 2",
 
-    "button.genshinstrument_lm.electric_guitar.soundType": "Sound Type",
+    "button.genshinstrument_lm.electric_guitar.soundType": "Sound",
     "button.genshinstrument_lm.electric_guitar.soundType.clean": "Clean",
 
-    "button.genshinstrument_lm.bass_guitar.soundType": "Sound Type",
+    "button.genshinstrument_lm.bass_guitar.soundType": "Sound",
     "button.genshinstrument_lm.bass_guitar.soundType.acoustic": "Acoustic Bass",
     "button.genshinstrument_lm.bass_guitar.soundType.finger": "Finger Bass",
     "button.genshinstrument_lm.bass_guitar.soundType.slap": "Slap Bass",
 
-    "button.genshinstrument_lm.violin.soundType": "Sound Type",
+    "button.genshinstrument_lm.violin.soundType": "Sound",
     "button.genshinstrument_lm.violin.soundType.slow": "Slow",
     "button.genshinstrument_lm.violin.soundType.fast": "Fast",
     "button.genshinstrument_lm.violin.soundType.pizz": "Pizzicato",
 
-    "button.genshinstrument_lm.microphone.soundType": "Sound Type",
+    "button.genshinstrument_lm.microphone.soundType": "Sound",
     "button.genshinstrument_lm.microphone.soundType.irina": "Irina Brochin",
     "button.genshinstrument_lm.microphone.soundType.bass": "Bass Choir",
     "button.genshinstrument_lm.microphone.soundType.miku": "Not Miku",
     "button.genshinstrument_lm.microphone.soundType.teto": "Not Teto",
     "button.genshinstrument_lm.microphone.soundType.teto_sneaky": "Not Teto (Whisper)",
 
-    "button.genshinstrument_lm.saxophone.soundType": "Sound Type",
-    "button.genshinstrument_lm.saxophone.soundType.emi": "Even More Instruments",
+    "button.genshinstrument_lm.saxophone.soundType": "Sound",
+    "button.genshinstrument_lm.saxophone.soundType.emi": "EMI",
     "button.genshinstrument_lm.saxophone.soundType.baritone": "Baritone",
     "button.genshinstrument_lm.saxophone.soundType.tenor": "Tenor",
 
-    "button.genshinstrument_lm.trombone.soundType": "Sound Type",
-    "button.genshinstrument_lm.trombone.soundType.emi": "Even More Instruments",
+    "button.genshinstrument_lm.trombone.soundType": "Sound",
+    "button.genshinstrument_lm.trombone.soundType.emi": "EMI",
     "button.genshinstrument_lm.trombone.soundType.phgm": "Trombone",
     "button.genshinstrument_lm.trombone.soundType.westgate": "Trumpet",
 
@@ -290,7 +290,7 @@
     "item.genshinstrument_lm.record.arranger": "Arranger: %s",
 
     "label.genshinstrument_lm.pipa_options": "Pipa Options",
-    "button.genshinstrument_lm.pipa.soundType": "Pipa Sound Type",
+    "button.genshinstrument_lm.pipa.soundType": "Pipa Sound",
     "button.genshinstrument_lm.pipa.soundType.regular": "Regular",
     "button.genshinstrument_lm.pipa.soundType.tremolo": "Tremolo",
 

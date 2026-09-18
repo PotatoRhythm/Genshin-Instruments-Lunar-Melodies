@@ -8,6 +8,7 @@ import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButto
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.label.NoteLabelSupplier;
 import com.stump.genshinstrument_lm.client.gui.options.partial.AbstractInstrumentOptionsScreen;
 import com.stump.genshinstrument_lm.client.gui.options.partial.InstrumentOptionsScreen;
+import com.stump.genshinstrument_lm.client.gui.options.partial.SoundTypeOptionsScreen;
 import com.stump.genshinstrument_lm.client.gui.widget.IconToggleButton;
 import com.stump.genshinstrument_lm.client.gui.widget.SliderButton;
 import com.stump.genshinstrument_lm.client.keyMaps.InstrumentKeyMappings;
@@ -26,6 +27,7 @@ import com.stump.genshinstrument_lm.sound.SoundOption;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
@@ -339,6 +341,12 @@ public abstract class InstrumentScreen extends Screen {
     protected Button initControlBar(int vertOffset) {
         Button btn = initOptionsButton(vertOffset);
         initVolumeSlider(btn);
+        if (optionsScreen instanceof SoundTypeOptionsScreen<?> soundTypeOptionsScreen) {
+            AbstractButton soundTypeButton = soundTypeOptionsScreen.createSoundTypeButton(100);
+            soundTypeButton.setPosition(btn.getX() + btn.getWidth() + 6, btn.getY());
+            addRenderableWidget(soundTypeButton);
+        }
+
         return btn;
     }
 

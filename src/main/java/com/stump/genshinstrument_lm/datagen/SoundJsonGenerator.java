@@ -39,10 +39,10 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         registerInstrument("pipa_regular", 20, 0.9f, false, false);
         registerInstrument("pipa_tremolo", 20, 1f, false, false);
 
-        registerInstrument("keyboard", 20, 1f, false, true);
+        registerInstrument("keyboard", 20, 0.8f, false, true);
         registerInstrument("keyboard_gw2", 20, 0.60f, false, true);
-        registerInstrument("keyboard_yamaha_c5", 20, 0.45f, false, true);
-        registerInstrument("keyboard_heartopia", 20, 0.7f, false, true);
+        registerInstrument("keyboard_yamaha_c5", 20, 0.55f, false, true);
+        registerInstrument("keyboard_heartopia", 20, 0.85f, false, true);
         registerInstrument("keyboard_electric", 20, 1f, false, true);
         registerInstrument("keyboard_harpsichord", 20, 0.6f, false, true);
 
