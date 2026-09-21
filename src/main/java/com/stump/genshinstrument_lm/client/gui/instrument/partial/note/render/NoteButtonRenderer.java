@@ -28,8 +28,11 @@ public class NoteButtonRenderer {
 
     // Resources
     protected ResourceLocation rootLocation, accidentalsLocation;
-
     protected ResourceLocation notePressedLocation, noteReleasedLocation, noteHoverLocation;
+    protected static final ResourceLocation GW2_NOTE_ROOT = new ResourceLocation(
+            "genshinstrument_lm",
+            "textures/gui/genshinstrument_lm/instrument/gw2"
+    );
 
     protected Supplier<ResourceLocation> labelTextureProvider;
 
@@ -48,13 +51,24 @@ public class NoteButtonRenderer {
         this.instrumentScreen = noteButton.instrumentScreen;
 
         noteAnimation = initNoteAnimation();
-        rootLocation = instrumentScreen.getResourceFromRoot("note"); // only for genshin instruments
+        rootLocation = instrumentScreen.getResourceFromRoot("note");
 
-        accidentalsLocation = getResourceFromRoot("accidentals.png");
-        noteReleasedLocation = getResourceFromRoot("note/released.png");
-        notePressedLocation  = getResourceFromRoot("note/pressed.png");
-        noteHoverLocation    = getResourceFromRoot("note/hovered.png");
+        String[] notes = {"c", "d", "e", "f", "g", "a", "b"};
 
+        if (instrumentScreen.isGuildWarsInstrument()) {
+            int index = noteButton.soundIndex();
+            String noteLetter = notes[index % 7];
+
+            accidentalsLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "accidentals_" + noteLetter + ".png");
+            noteReleasedLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "released_" + noteLetter + ".png");
+            notePressedLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "pressed_" + noteLetter + ".png");
+            noteHoverLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "hovered_" + noteLetter + ".png");
+        } else {
+            accidentalsLocation = getResourceFromRoot("accidentals.png");
+            noteReleasedLocation = getResourceFromRoot("note/released.png");
+            notePressedLocation = getResourceFromRoot("note/pressed.png");
+            noteHoverLocation = getResourceFromRoot("note/hovered.png");
+        }
     }
 
     protected ResourceLocation getNotePressedLocation() {
@@ -110,6 +124,9 @@ public class NoteButtonRenderer {
     }
 
     protected void renderNoteSymbol(final GuiGraphics gui, final InstrumentThemeLoader themeLoader) {
+        if (instrumentScreen.isGuildWarsInstrument())
+            return;
+
         final int noteWidth = noteButton.getWidth()/2, noteHeight = noteButton.getHeight()/2;
         
         ClientUtil.setShaderColor((noteButton.isPlaying() && !foreignPlaying)

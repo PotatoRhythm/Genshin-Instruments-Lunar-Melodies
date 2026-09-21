@@ -226,4 +226,20 @@ public abstract class HeldNoteSounds {
 
         return List.of(soundInstance);
     }
+
+    public static void dampenAll(final InitiatorID initiatorId) {
+        final Map<HeldNoteSound, Map<Integer, List<HeldNoteSoundInstance>>> sounds =
+                SOUND_INSTANCES.get(initiatorId);
+
+        if (sounds == null)
+            return;
+
+        for (Map<Integer, List<HeldNoteSoundInstance>> pitches : sounds.values()) {
+            for (List<HeldNoteSoundInstance> instances : pitches.values()) {
+                for (HeldNoteSoundInstance instance : new ArrayList<>(instances)) {
+                    instance.dampen();
+                }
+            }
+        }
+    }
 }

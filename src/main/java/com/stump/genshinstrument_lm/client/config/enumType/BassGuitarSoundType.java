@@ -9,9 +9,9 @@ import java.util.function.Supplier;
 
 @OnlyIn(Dist.CLIENT)
 public enum BassGuitarSoundType implements SoundType {
-    ACOUSTIC(() -> new SoundOption(GISounds.BASS_ACOUSTIC)),
-    FINGER(() -> new SoundOption(GISounds.BASS_FINGER)),
-    SLAP(() -> new SoundOption(GISounds.BASS_SLAP));
+    ACOUSTIC(() -> new SoundOption(GISounds.BASS_ACOUSTIC, true)),
+    FINGER(() -> new SoundOption(GISounds.BASS_FINGER, true)),
+    SLAP(() -> new SoundOption(GISounds.BASS_SLAP, true));
 
     private final Supplier<SoundOption> soundArr;
     private BassGuitarSoundType(final Supplier<SoundOption> soundType) {

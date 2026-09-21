@@ -3,7 +3,7 @@ package com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render;
 import com.stump.genshinstrument_lm.client.gui.instrument.gw2_drumset.Gw2DrumsetNoteButton;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 
-public class Gw2DrumsetNoteButtonRenderer extends Gw2NoteButtonRenderer {
+public class Gw2DrumsetNoteButtonRenderer extends NoteButtonRenderer {
 
     private static final String[] NOTE_LETTERS = {
             "c", "d", "e", "f", "g", "b", "c", "d",
@@ -11,14 +11,14 @@ public class Gw2DrumsetNoteButtonRenderer extends Gw2NoteButtonRenderer {
     };
 
     public Gw2DrumsetNoteButtonRenderer(Gw2DrumsetNoteButton noteButton) {
-        super(noteButton);
+        super(noteButton, null);
 
         int index = noteButton.index;
         String noteLetter = NOTE_LETTERS[index];
 
-        accidentalsLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT,  "accidentals_" + noteLetter + ".png");
-        noteReleasedLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT,  "released_" + noteLetter + ".png");
-        notePressedLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT,  "pressed_" + noteLetter + ".png");
-        noteHoverLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT,  "hovered_" + noteLetter + ".png");
+        accidentalsLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "accidentals_" + noteLetter + ".png");
+        noteReleasedLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "released_" + noteLetter + ".png");
+        notePressedLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "pressed_" + noteLetter + ".png");
+        noteHoverLocation = CommonUtil.getResourceFrom(GW2_NOTE_ROOT, "hovered_" + noteLetter + ".png");
     }
 }

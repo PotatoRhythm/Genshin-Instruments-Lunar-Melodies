@@ -71,7 +71,7 @@ public class InstrumentKeyMappings {
     );
 
     public static final Lazy<KeyMapping>
-            INSTRUMENT_TYPE_MODIFIER = Lazy.of(
+        INSTRUMENT_TYPE_MODIFIER = Lazy.of(
             () -> new KeyMapping(
                     CATEGORY+".instrument_type_modifier",
                     InstrumentKeyMappings.INSTRUMENT_KEY_CONFLICT_CONTEXT,
@@ -79,18 +79,26 @@ public class InstrumentKeyMappings {
                     GLFW.GLFW_KEY_RIGHT_ALT,
                     CATEGORY
             )
-    ),
-            RECORD = Lazy.of(
-                    () -> new KeyMapping(
-                            CATEGORY+".record",
-                            InstrumentKeyMappings.INSTRUMENT_KEY_CONFLICT_CONTEXT,
-                            InputConstants.Type.KEYSYM,
-                            GLFW.GLFW_KEY_GRAVE_ACCENT,
-                            CATEGORY
-                    )
+        ),
+        RECORD = Lazy.of(
+            () -> new KeyMapping(
+                    CATEGORY+".record",
+                    InstrumentKeyMappings.INSTRUMENT_KEY_CONFLICT_CONTEXT,
+                    InputConstants.Type.KEYSYM,
+                    GLFW.GLFW_KEY_GRAVE_ACCENT,
+                    CATEGORY
             )
-    ;
+        ),
 
+        DAMPEN = Lazy.of(
+                () -> new KeyMapping(
+                CATEGORY + ".dampen",
+                INSTRUMENT_KEY_CONFLICT_CONTEXT,
+                InputConstants.Type.KEYSYM,
+                GLFW.GLFW_KEY_SPACE,
+                CATEGORY
+                )
+        );
 
     // Key mappings for octave mode
     private static final String OCTAVE_CATEGORY = "genshinstrument_lm.keymaps.octave_mode";
@@ -166,6 +174,8 @@ public class InstrumentKeyMappings {
         event.register(NOTE_AS.get());
         event.register(NOTE_B.get());
         event.register(NOTE_HIGH_C.get());
+
+        event.register(DAMPEN.get());
     }
     
 

@@ -5,7 +5,6 @@ import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentScre
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.grid.GridInstrumentScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.grid.NoteGrid;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
-import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.Gw2NoteButtonRenderer;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.NoteButtonRenderer;
 import com.stump.genshinstrument_lm.client.keyMaps.InstrumentKeyMappings;
 import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteGridButtonIdentifier;
@@ -95,9 +94,6 @@ public class NoteGridButton extends NoteButton {
 
     @Override
     protected NoteButtonRenderer initNoteRenderer() {
-        if (instrumentScreen.isGuildWarsInstrument())
-            return new Gw2NoteButtonRenderer(this);
-
         return new NoteButtonRenderer(this, this::getLabelTexture);
     }
 

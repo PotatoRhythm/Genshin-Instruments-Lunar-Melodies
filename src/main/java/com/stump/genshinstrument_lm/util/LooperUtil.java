@@ -244,6 +244,8 @@ public class LooperUtil {
         return Optional.of(channel);
     }
 
-    //#endregion
+    public static BlockPos getRecordingLooperPos(final Player player) {
+        return RecordingCapabilityProvider.getLooperPos(player);
+    }
     
 }

@@ -18,12 +18,16 @@ import com.stump.genshinstrument_lm.event.NoteSoundPlayedEvent;
 import com.stump.genshinstrument_lm.item.ModItemTags;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteButtonIdentifier;
+import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SDampenNotesPacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.CloseInstrumentPacket;
 import com.stump.genshinstrument_lm.sound.NoteSound;
 import com.mojang.blaze3d.platform.InputConstants.Key;
 import com.mojang.blaze3d.platform.InputConstants.Type;
 import com.mojang.logging.LogUtils;
+import com.stump.genshinstrument_lm.sound.NoteSoundInstances;
 import com.stump.genshinstrument_lm.sound.SoundOption;
+import com.stump.genshinstrument_lm.sound.held.HeldNoteSounds;
+import com.stump.genshinstrument_lm.sound.held.InitiatorID;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
@@ -34,6 +38,7 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -490,6 +495,11 @@ public abstract class InstrumentScreen extends Screen {
             return true;
         }
 
+        if (InstrumentKeyMappings.DAMPEN.get().matches(keyCode, scanCode)) {
+            dampenNotes();
+            return true;
+        }
+
         if (checkPitchTransposeUp(keyCode, scanCode))
             return true;
 
@@ -706,5 +716,20 @@ public abstract class InstrumentScreen extends Screen {
         return ForgeRegistries.ITEMS.tags()
                 .getTag(ModItemTags.GUILD_WARS_INSTRUMENTS)
                 .contains(ForgeRegistries.ITEMS.getValue(getInstrumentId()));
+    }
+
+    public void dampenNotes() {
+        final Minecraft minecraft = Minecraft.getInstance();
+        final Player player = minecraft.player;
+
+        if (player == null)
+            return;
+
+        NoteSoundInstances.dampenAll(player.getId());
+        HeldNoteSounds.dampenAll(InitiatorID.fromEntity(player));
+
+        GIPacketHandler.sendToServer(
+                new C2SDampenNotesPacket(player.getId())
+        );
     }
 }

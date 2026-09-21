@@ -22,11 +22,13 @@ public class GIPacketHandler {
     public static final List<Class<IModPacket>> ACCEPTABLE_PACKETS = List.of(new Class[] {
         NotifyInstrumentOpenPacket.class,
         C2SNoteSoundPacket.class, S2CNoteSoundPacket.class,
+        C2SDampenNotesPacket.class, S2CDampenNotesPacket.class,
         OpenInstrumentPacket.class, CloseInstrumentPacket.class,
         C2SHeldNoteSoundPacket.class, S2CHeldNoteSoundPacket.class,
         LooperRecordStatePacket.class, OpenNoteBlockInstrumentPacket.class,
         S2CLooperParticlePacket.class, C2SColorSetAcceptPacket.class,
         S2CColorSetAddPacket.class, S2CColorSetConfirmationPacket.class,
+        S2CLooperDampenPacket.class,
         // Sync stuff
         DoesLooperExistPacket.class, LooperUnplayablePacket.class, SyncModTagPacket.class,
         LooperPlayStatePacket.class
@@ -56,5 +58,8 @@ public class GIPacketHandler {
     }
     public static <T> void sendToTracking(T packet, ServerLevel level, BlockPos pos) {
         INSTANCE.send(PacketDistributor.TRACKING_CHUNK.with(() -> level.getChunkAt(pos)), packet);
+    }
+    public static <T> void sendToTrackingEntity(final T packet, final ServerPlayer player) {
+        INSTANCE.send(PacketDistributor.TRACKING_ENTITY.with(() -> player), packet);
     }
 }

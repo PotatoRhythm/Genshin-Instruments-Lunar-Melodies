@@ -10,6 +10,7 @@ import com.stump.genshinstrument_lm.item.emirecord.EMIRecordItem;
 import com.stump.genshinstrument_lm.item.emirecord.RecordRepository;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.packet.LooperPlayStatePacket;
+import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CLooperDampenPacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CLooperParticlePacket;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 import com.stump.genshinstrument_lm.util.LooperUtil;
@@ -466,8 +467,13 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
                 case REGULAR:
                     playNoteSound(note, instrumentId);
                     break;
+
                 case HELD:
                     playHeldSound(note, instrumentId);
+                    break;
+
+                case DAMPEN:
+                    dampenSounds();
                     break;
             }
         } catch (Exception e) {
@@ -481,9 +487,10 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         final int soundIndex = noteTag.getInt(SOUND_INDEX_TAG);
 
         NoteSoundPacketUtil.sendPlayNotePackets(
-            level,
-            NoteSoundRegistrar.getSounds(soundLocation)[soundIndex],
-            meta
+                level,
+                NoteSoundRegistrar.getSounds(soundLocation)[soundIndex],
+                meta,
+                looperInitiatorID
         );
 
         int rgb = noteTag.getInt(PARTICLE_COLOR_TAG);
@@ -517,6 +524,14 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
                             triple.obj2().equals(meta)
             );
         }
+    }
+
+    protected void dampenSounds() {
+        cachedHeldNotes.clear();
+
+        GIPacketHandler.sendToTracking(
+                new S2CLooperDampenPacket(looperInitiatorID), (ServerLevel) level, getBlockPos()
+        );
     }
 
     protected NoteSoundMetadata metaFromNoteTag(final CompoundTag noteTag, final ResourceLocation instrumentId) {
@@ -621,4 +636,17 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         LooperUtil.setNotRecording(player);
     }
 
+    public void writeDampen(int timestamp) {
+        if (!isWritable())
+            return;
+
+        final CompoundTag noteTag = new CompoundTag();
+
+        noteTag.putString(NOTE_TYPE, WritableNoteType.DAMPEN.name());
+        noteTag.putInt(TIMESTAMP_TAG, timestamp);
+
+        CommonUtil.getOrCreateListTag(getChannel(), NOTES_TAG).add(noteTag);
+
+        setChanged();
+    }
 }

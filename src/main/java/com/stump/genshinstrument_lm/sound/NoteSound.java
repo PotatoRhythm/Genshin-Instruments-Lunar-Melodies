@@ -4,15 +4,14 @@ import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
 import com.stump.genshinstrument_lm.client.config.enumType.InstrumentChannelType;
 import com.stump.genshinstrument_lm.client.util.ClientUtil;
 import com.stump.genshinstrument_lm.event.NoteSoundPlayedEvent;
+import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteButtonIdentifier;
 import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
 import com.stump.genshinstrument_lm.particle.ModParticles;
+import com.stump.genshinstrument_lm.sound.held.InitiatorID;
 import com.stump.genshinstrument_lm.sound.registrar.NoteSoundRegistrar;
 import com.stump.genshinstrument_lm.util.LabelUtil;
 import com.stump.genshinstrument_lm.util.ParticleColorUtil;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.resources.sounds.SimpleSoundInstance;
-import net.minecraft.client.resources.sounds.SoundInstance;
-import net.minecraft.client.resources.sounds.SoundInstance.Attenuation;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
@@ -29,8 +28,6 @@ import org.jetbrains.annotations.ApiStatus.Internal;
 
 import javax.annotation.Nullable;
 import java.util.Optional;
-
-import static com.mojang.text2speech.Narrator.LOGGER;
 
 /**
  * A class holding sound information for an instrument's note
@@ -133,7 +130,8 @@ public class NoteSound {
      * @param meta Additional metadata of the Note Sound being played
      */
     @OnlyIn(Dist.CLIENT)
-    public void playFromServer(Optional<Integer> initiatorId, NoteSoundMetadata meta) {
+    public void playFromServer(Optional<Integer> initiatorId, Optional<InitiatorID> oInitiatorId,
+                               NoteSoundMetadata meta) {
         final Minecraft minecraft = Minecraft.getInstance();
         final Player player = minecraft.player;
 
@@ -182,9 +180,11 @@ public class NoteSound {
         final float mcPitch = getPitchByNoteOffset(clampPitch(meta.pitch()));
 
         playLocally(
-            mcPitch, meta.volume() / 100f,
-            meta.pos(),
-            playDistSqr
+                mcPitch,
+                meta,
+                playDistSqr,
+                initiatorId,
+                oInitiatorId
         );
     }
 
@@ -193,32 +193,48 @@ public class NoteSound {
      * Plays this sound locally. Treats the given {@code pitch} as a Minecraft pitch.
      */
     @OnlyIn(Dist.CLIENT)
-    public void playLocally(float pitch, float volume, BlockPos pos, double playDistSqr) {
+    public void playLocally(float pitch, NoteSoundMetadata meta, double playDistSqr,
+            Optional<Integer> initiatorId, Optional<InitiatorID> oInitiatorId) {
         final Minecraft minecraft = Minecraft.getInstance();
         final SoundEvent sound = getByPreference(playDistSqr);
 
         if (sound == null)
-            return; // silently skip if still loading or missing
+            return;
 
-        if (playDistSqr > Mth.square(LOCAL_RANGE)) {
-            minecraft.level.playLocalSound(
-                    pos, sound,
-                    INSTRUMENT_SOUND_SOURCE,
-                    volume, pitch,
-                    false
-            );
-        } else {
-            minecraft.getSoundManager().play(new SimpleSoundInstance(
-                    sound.getLocation(),
-                    INSTRUMENT_SOUND_SOURCE,
-                    volume, pitch,
-                    SoundInstance.createUnseededRandom(),
-                    false, 0,
-                    Attenuation.NONE,
-                    0, 0, 0,
-                    true
-            ));
-        }
+        final NoteSoundInstance instance = new NoteSoundInstance(
+                this,
+                pitch,
+                meta,
+                playDistSqr,
+                initiatorId,
+                oInitiatorId
+        );
+
+        minecraft.getSoundManager().play(instance);
+        NoteSoundInstances.add(instance);
+    }
+
+    @OnlyIn(Dist.CLIENT)
+    public void playLocally(int notePitch, float volume, BlockPos pos, double playDistSqr,
+            ResourceLocation instrumentId, Optional<NoteButtonIdentifier> noteIdentifier) {
+        final float mcPitch = getPitchByNoteOffset(clampPitch(notePitch));
+
+        final NoteSoundMetadata meta = new NoteSoundMetadata(
+                pos,
+                notePitch,
+                (int)(volume * 100),
+                ParticleColorUtil.getNoteRGB(index, notePitch),
+                instrumentId,
+                noteIdentifier
+        );
+
+        playLocally(
+                mcPitch,
+                meta,
+                playDistSqr,
+                Optional.of(Minecraft.getInstance().player.getId()),
+                Optional.empty()
+        );
     }
 
     /**
@@ -226,10 +242,26 @@ public class NoteSound {
      */
     @OnlyIn(Dist.CLIENT)
     public void playLocally(float pitch, float volume, BlockPos pos) {
+        final Minecraft minecraft = Minecraft.getInstance();
+
+        final double playDistSqr =
+                minecraft.player.position().distanceToSqr(pos.getCenter());
+
+        final NoteSoundMetadata meta = new NoteSoundMetadata(
+                pos,
+                0,
+                (int)(volume * 100),
+                ParticleColorUtil.getNoteRGB(index, 0),
+                baseSoundLocation,
+                Optional.empty()
+        );
+
         playLocally(
-            pitch, volume,
-            pos,
-            Minecraft.getInstance().player.position().distanceToSqr(pos.getCenter())
+                pitch,
+                meta,
+                playDistSqr,
+                Optional.of(minecraft.player.getId()),
+                Optional.empty()
         );
     }
 
@@ -241,8 +273,16 @@ public class NoteSound {
      */
     @OnlyIn(Dist.CLIENT)
     public void playLocally(int pitch, float volume, BlockPos pos, double playDistSqr) {
-        playLocally(getPitchByNoteOffset(clampPitch(pitch)), volume, pos, playDistSqr);
+        playLocally(
+                pitch,
+                volume,
+                pos,
+                playDistSqr,
+                baseSoundLocation,
+                Optional.empty()
+        );
     }
+
     /**
      * <p>Plays this note locally.</p>
      * Treats the given {@code pitch} as a note offset pitch,
@@ -251,11 +291,12 @@ public class NoteSound {
      */
     @OnlyIn(Dist.CLIENT)
     public void playLocally(int pitch, float volume, BlockPos pos) {
-        playLocally(
-            getPitchByNoteOffset(clampPitch(pitch)),
-            volume,
-            pos,
-            Minecraft.getInstance().player.position().distanceToSqr(pos.getCenter())
+        playLocally(pitch,
+                volume,
+                pos,
+                Minecraft.getInstance().player.position().distanceToSqr(pos.getCenter()),
+                baseSoundLocation,
+                Optional.empty()
         );
     }
 

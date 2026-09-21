@@ -2,9 +2,9 @@ package com.stump.genshinstrument_lm.sound.held;
 
 import com.stump.genshinstrument_lm.client.util.ClientUtil;
 import com.stump.genshinstrument_lm.particle.ModParticles;
+import com.stump.genshinstrument_lm.sound.DampenableSoundInstance;
 import com.stump.genshinstrument_lm.sound.NoteSound;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSound.Phase;
-import com.stump.genshinstrument_lm.util.ParticleColorUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.resources.sounds.AbstractTickableSoundInstance;
 import net.minecraft.client.resources.sounds.SoundInstance;
@@ -20,7 +20,7 @@ import org.jetbrains.annotations.Nullable;
 import java.util.Optional;
 
 @OnlyIn(Dist.CLIENT)
-public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
+public class HeldNoteSoundInstance extends AbstractTickableSoundInstance implements DampenableSoundInstance {
     public final HeldNoteSound heldSoundContainer;
     public final HeldNoteSound.Phase phase;
     private int particleTimer = 10;
@@ -40,6 +40,7 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
     private final float startVolume;
 
     private boolean released;
+    private boolean dampened;
 
     /**
      * @param initiator The initiator of the sound. Empty for a non-player initiator.
@@ -162,6 +163,21 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance {
 
         }
     }
+
+    @Override
+    public void dampen() {
+        if (dampened || released)
+            return;
+
+        dampened = true;
+        released = true;
+    }
+
+    @Override
+    public boolean isDampened() {
+        return dampened;
+    }
+
     public boolean isReleased() {
         return released;
     }
