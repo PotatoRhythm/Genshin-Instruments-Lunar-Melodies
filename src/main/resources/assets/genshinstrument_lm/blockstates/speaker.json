@@ -1,0 +1,7 @@
+{
+    "variants": {
+        "": {
+            "model": "genshinstrument_lm:block/speaker"
+        }
+    }
+}

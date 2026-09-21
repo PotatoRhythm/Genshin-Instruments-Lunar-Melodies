@@ -22,6 +22,12 @@ public class ModBlockEntities {
         ).build(null)
     );
 
+    public static final RegistryObject<BlockEntityType<SpeakerBlockEntity>> SPEAKER = BLOCK_ENTITIES.register("speaker", () ->
+        BlockEntityType.Builder.of(
+            SpeakerBlockEntity::new, ModBlocks.SPEAKER.get()
+        ).build(null)
+    );
+
     public static final RegistryObject<BlockEntityType<ModInstrumentBlockEntity>> INSTRUMENT = BLOCK_ENTITIES.register(GInstrumentMod.MODID+"_instrument", () ->
         BlockEntityType.Builder.of(
             ModInstrumentBlockEntity::new,

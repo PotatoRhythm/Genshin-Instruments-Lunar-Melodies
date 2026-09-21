@@ -1,0 +1,13 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "R ",
+        "NT"
+    ],
+    "key": {
+        "R": { "item": "minecraft:redstone" },
+        "N": { "item": "minecraft:note_block" },
+        "T": { "item": "minecraft:redstone_torch" }
+    },
+    "result": { "item": "genshinstrument_lm:speaker", "count": 1 }
+}

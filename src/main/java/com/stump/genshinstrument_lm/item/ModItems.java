@@ -258,6 +258,9 @@ public class ModItems {
             GICreativeModeTabs.MUSIC_PRODUCTION_TAB.getKey(), CreativeModeTabs.FUNCTIONAL_BLOCKS,
             CreativeModeTabs.REDSTONE_BLOCKS
         ),
+        SPEAKER = registerBlockItem(ModBlocks.SPEAKER,
+            GICreativeModeTabs.MUSIC_PRODUCTION_TAB.getKey(), CreativeModeTabs.FUNCTIONAL_BLOCKS
+        ),
         LOOPER_ADAPTER = register("looper_adapter",
             () -> new LooperAdapterItem(new Properties().stacksTo(1)),
             CreativeModeTabs.REDSTONE_BLOCKS, GICreativeModeTabs.MUSIC_PRODUCTION_TAB.getKey()

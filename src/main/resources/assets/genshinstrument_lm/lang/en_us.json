@@ -265,13 +265,16 @@
 
     "item.genshinstrument_lm.looper_adapter": "Looper Wireless Adapter",
 
-    "item.genshinstrument_lm.looper_adapter.instrument.description": "Pairs an instrument block to a looper",
+    "item.genshinstrument_lm.looper_adapter.instrument.description": "Pairs an instrument block to a looper or speaker",
     "item.genshinstrument_lm.looper_adapter.instrument.select": "Looper connected. Waiting for instrument or 2nd looper connection.",
     "item.genshinstrument_lm.looper_adapter.instrument.success_pair": "Instrument paired successfully!",
 
     "item.genshinstrument_lm.looper_adapter.looper.description": "Syncs 2 loopers together by copying the 1st's properties",
-    "item.genshinstrument_lm.looper_adapter.looper.select": "Instrument connected. Waiting for looper connection.",
+    "item.genshinstrument_lm.looper_adapter.looper.select": "Instrument connected. Waiting for looper or speaker connection.",
     "item.genshinstrument_lm.looper_adapter.looper.success_pair": "Loopers synced successfully!",
+
+    "item.genshinstrument_lm.looper_adapter.speaker.description": "Pairs an instrument to a speaker, which immediately plays its notes",
+    "item.genshinstrument_lm.looper_adapter.speaker.select": "Speaker connected. Waiting for instrument connection.",
 
 
 
@@ -289,6 +292,7 @@
 
 
     "block.genshinstrument_lm.looper": "Looper",
+    "block.genshinstrument_lm.speaker": "Speaker",
 
     "genshinstrument_lm.looper.pair_conflict": "This record already has burned footage!",
     "genshinstrument_lm.looper.no_record": "No record inserted",
