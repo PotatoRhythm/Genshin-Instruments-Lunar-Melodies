@@ -191,7 +191,7 @@ public abstract class MultiblockInstrumentBlock extends AbstractInstrumentBlock 
         }
     }
 
-    protected BlockPos getController(Level level, BlockPos pos) {
+    public BlockPos getController(Level level, BlockPos pos) {
         BlockEntity be = level.getBlockEntity(pos);
 
         if (be instanceof DummyBlockEntity dummy) {
@@ -201,6 +201,11 @@ public abstract class MultiblockInstrumentBlock extends AbstractInstrumentBlock 
         }
 
         return pos;
+    }
+
+    @Override
+    public BlockPos getInstrumentPos(Level level, BlockPos pos) {
+        return getController(level, pos);
     }
 
     protected BlockPos rotate(Direction facing, BlockPos local) {

@@ -131,4 +131,8 @@ public abstract class AbstractInstrumentBlock extends BaseEntityBlock {
 
         return InteractionResult.sidedSuccess(level.isClientSide);
     }
+
+    public BlockPos getInstrumentPos(Level level, BlockPos pos) {
+        return pos;
+    }
 }
