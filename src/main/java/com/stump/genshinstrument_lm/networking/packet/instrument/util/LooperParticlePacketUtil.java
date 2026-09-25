@@ -6,7 +6,8 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.Level;
 
 public class LooperParticlePacketUtil {
-    public static void spawnLooperParticle(BlockPos pos, double color, int colorSet) {
+
+    public static void spawnLooperParticle(BlockPos pos, int rgb, double size) {
         Level level = Minecraft.getInstance().level;
         if (level == null)
             return;
@@ -20,9 +21,9 @@ public class LooperParticlePacketUtil {
                 pos.getX() + 0.5 + xOffset,
                 pos.getY() + 1.25 + yOffset,
                 pos.getZ() + 0.5 + zOffset,
-                color,
-                0.2,
-                colorSet
+                rgb,
+                size,
+                0
         );
     }
 }

@@ -8,6 +8,7 @@ import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButto
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.label.NoteLabelSupplier;
 import com.stump.genshinstrument_lm.client.gui.options.partial.AbstractInstrumentOptionsScreen;
 import com.stump.genshinstrument_lm.client.gui.options.partial.InstrumentOptionsScreen;
+import com.stump.genshinstrument_lm.client.gui.options.partial.SoundTypeOptionsScreen;
 import com.stump.genshinstrument_lm.client.gui.widget.IconToggleButton;
 import com.stump.genshinstrument_lm.client.gui.widget.SliderButton;
 import com.stump.genshinstrument_lm.client.keyMaps.InstrumentKeyMappings;
@@ -17,22 +18,27 @@ import com.stump.genshinstrument_lm.event.NoteSoundPlayedEvent;
 import com.stump.genshinstrument_lm.item.ModItemTags;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteButtonIdentifier;
+import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SDampenNotesPacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.CloseInstrumentPacket;
 import com.stump.genshinstrument_lm.sound.NoteSound;
 import com.mojang.blaze3d.platform.InputConstants.Key;
 import com.mojang.blaze3d.platform.InputConstants.Type;
 import com.mojang.logging.LogUtils;
+import com.stump.genshinstrument_lm.sound.NoteSoundInstances;
 import com.stump.genshinstrument_lm.sound.SoundOption;
+import com.stump.genshinstrument_lm.sound.held.HeldNoteSounds;
+import com.stump.genshinstrument_lm.sound.held.InitiatorID;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.GuiGraphics;
+import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.Item;
+import net.minecraft.world.entity.player.Player;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -41,7 +47,6 @@ import java.util.Iterator;
 import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Optional;
-import java.util.function.Consumer;
 
 /**
  * The abstract implementation of a Genshin Instrument screen.
@@ -49,7 +54,7 @@ import java.util.function.Consumer;
 @OnlyIn(Dist.CLIENT)
 public abstract class InstrumentScreen extends Screen {
     private static final int VISIBILITY_BUTTON_MARGIN = 6;
-    private static final String VISIBILITY_SPRITE_LOC = "textures/gui/sprites/icon/visibility/";
+    private static final String SPRITE_LOC = "textures/gui/sprites/";
 
     @SuppressWarnings("resource")
     public int getNoteSize() {
@@ -341,6 +346,12 @@ public abstract class InstrumentScreen extends Screen {
     protected Button initControlBar(int vertOffset) {
         Button btn = initOptionsButton(vertOffset);
         initVolumeSlider(btn);
+        if (optionsScreen instanceof SoundTypeOptionsScreen<?> soundTypeOptionsScreen) {
+            AbstractButton soundTypeButton = soundTypeOptionsScreen.createSoundTypeButton(100);
+            soundTypeButton.setPosition(btn.getX() + btn.getWidth() + 6, btn.getY());
+            addRenderableWidget(soundTypeButton);
+        }
+
         return btn;
     }
 
@@ -409,8 +420,8 @@ public abstract class InstrumentScreen extends Screen {
     protected IconToggleButton initVisibilityButton() {
         return new IconToggleButton(
             VISIBILITY_BUTTON_MARGIN, VISIBILITY_BUTTON_MARGIN,
-            new ResourceLocation(GInstrumentMod.MODID, VISIBILITY_SPRITE_LOC + "enabled.png"),
-            new ResourceLocation(GInstrumentMod.MODID, VISIBILITY_SPRITE_LOC + "disabled.png"),
+            new ResourceLocation(GInstrumentMod.MODID, SPRITE_LOC + "enabled.png"),
+            new ResourceLocation(GInstrumentMod.MODID, SPRITE_LOC + "disabled.png"),
             (btn) -> onInstrumentRenderStateChanged(instrumentRenders())
         );
     }
@@ -476,11 +487,16 @@ public abstract class InstrumentScreen extends Screen {
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
         if (InstrumentKeyMappings.VOLUME_UP.get().matches(keyCode, scanCode)) {
-            changeVolume(0.1f);
+            changeVolume(0.05f);
             return true;
         }
         if (InstrumentKeyMappings.VOLUME_DOWN.get().matches(keyCode, scanCode)) {
-            changeVolume(-0.1f);
+            changeVolume(-0.05f);
+            return true;
+        }
+
+        if (InstrumentKeyMappings.DAMPEN.get().matches(keyCode, scanCode)) {
+            dampenNotes();
             return true;
         }
 
@@ -700,5 +716,20 @@ public abstract class InstrumentScreen extends Screen {
         return ForgeRegistries.ITEMS.tags()
                 .getTag(ModItemTags.GUILD_WARS_INSTRUMENTS)
                 .contains(ForgeRegistries.ITEMS.getValue(getInstrumentId()));
+    }
+
+    public void dampenNotes() {
+        final Minecraft minecraft = Minecraft.getInstance();
+        final Player player = minecraft.player;
+
+        if (player == null)
+            return;
+
+        NoteSoundInstances.dampenAll(player.getId());
+        HeldNoteSounds.dampenAll(InitiatorID.fromEntity(player));
+
+        GIPacketHandler.sendToServer(
+                new C2SDampenNotesPacket(player.getId())
+        );
     }
 }

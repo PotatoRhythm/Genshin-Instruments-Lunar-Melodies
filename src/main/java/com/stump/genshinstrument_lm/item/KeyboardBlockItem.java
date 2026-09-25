@@ -1,37 +1,43 @@
 package com.stump.genshinstrument_lm.item;
 
-import com.stump.genshinstrument_lm.block.KeyboardStandBlock;
-import com.stump.genshinstrument_lm.item.partial.instrument.CreditableBlockInstrumentItem;
-import net.minecraft.core.BlockPos;
-import net.minecraft.world.InteractionResult;
-import net.minecraft.world.item.context.UseOnContext;
-import net.minecraft.world.level.Level;
+import com.stump.genshinstrument_lm.render.KeyboardItemRenderer;
+import net.minecraft.client.renderer.BlockEntityWithoutLevelRenderer;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.client.extensions.common.IClientItemExtensions;
+import software.bernie.geckolib.animatable.GeoItem;
+import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
+import software.bernie.geckolib.core.animation.AnimatableManager;
+import software.bernie.geckolib.util.GeckoLibUtil;
 
-public class KeyboardBlockItem extends CreditableBlockInstrumentItem {
+import java.util.function.Consumer;
 
-    public KeyboardBlockItem(Block pBlock, Properties pProperties, String credit) {
-        super(pBlock, pProperties, credit);
+public class KeyboardBlockItem extends BlockItem implements GeoItem {
+
+    public KeyboardBlockItem(Block pBlock, Properties pProperties) {
+        super(pBlock, pProperties);
     }
-    
+
     @Override
-    public InteractionResult useOn(UseOnContext pContext) {
-        final Level level = pContext.getLevel();
-        
-        final BlockPos pos = pContext.getClickedPos();
-        final BlockState bs = level.getBlockState(pos);
-        
-        // Add this keyboard to the used keyboard stand
-        if (bs.getBlock() instanceof KeyboardStandBlock) {
-            if (bs.getValue(KeyboardStandBlock.HAS_KEYBOARD))
-                return InteractionResult.FAIL;
-            
-            level.setBlock(pos, bs.setValue(KeyboardStandBlock.HAS_KEYBOARD, true), 3);
-            pContext.getPlayer().getItemInHand(pContext.getHand()).shrink(1);
-            return InteractionResult.SUCCESS;
-        }
-        
-        return super.useOn(pContext);
+    public void registerControllers(AnimatableManager.ControllerRegistrar controllers) {
+
+    }
+
+    private final AnimatableInstanceCache cache = GeckoLibUtil.createInstanceCache(this);
+
+    @Override
+    public AnimatableInstanceCache getAnimatableInstanceCache() {
+        return cache;
+    }
+    @Override
+    public void initializeClient(Consumer<IClientItemExtensions> consumer) {
+        consumer.accept(new IClientItemExtensions() {
+            private final KeyboardItemRenderer renderer = new KeyboardItemRenderer();
+
+            @Override
+            public BlockEntityWithoutLevelRenderer getCustomRenderer() {
+                return renderer;
+            }
+        });
     }
 }

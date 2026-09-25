@@ -5,7 +5,7 @@ import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentScre
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.grid.GridInstrumentScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.grid.NoteGrid;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
-import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButtonRenderer;
+import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.NoteButtonRenderer;
 import com.stump.genshinstrument_lm.client.keyMaps.InstrumentKeyMappings;
 import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteGridButtonIdentifier;
 import com.stump.genshinstrument_lm.sound.NoteSound;
@@ -96,6 +96,7 @@ public class NoteGridButton extends NoteButton {
     protected NoteButtonRenderer initNoteRenderer() {
         return new NoteButtonRenderer(this, this::getLabelTexture);
     }
+
     protected int getLabelTextureRow() {
         return ModClientConfigs.ACCURATE_NOTES.get() ? getABCOffset() : (row % GRID_LABELS.length);
     }

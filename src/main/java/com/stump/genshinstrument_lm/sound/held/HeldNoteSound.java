@@ -61,11 +61,11 @@ public record HeldNoteSound (
      * A held note sound instance for 3rd party trigger
      */
     @OnlyIn(Dist.CLIENT)
-    public void startPlaying(int notePitch, float volume, Entity initiator, BlockPos pos,
+    public void startPlaying(int notePitch, int particleColor, float volume, Entity initiator, BlockPos pos,
                              InitiatorID initiatorId, ResourceLocation instrumentId) {
         new HeldNoteSoundInstance(
             this, Phase.ATTACK,
-            notePitch, volume, volume,
+            notePitch, particleColor, volume, volume,
             initiator, pos,
             initiatorId, instrumentId
         ).queueAndAddInstance();
@@ -74,31 +74,31 @@ public record HeldNoteSound (
      * A held note sound instance for 3rd party trigger
      */
     @OnlyIn(Dist.CLIENT)
-    public void startPlaying(int notePitch, float volume, Entity initiator,
+    public void startPlaying(int notePitch, int particleColor, float volume, Entity initiator,
                              InitiatorID initiatorId, ResourceLocation instrumentId) {
-        startPlaying(notePitch, volume, initiator, null, initiatorId, instrumentId);
+        startPlaying(notePitch, particleColor, volume, initiator, null, initiatorId, instrumentId);
     }
     /**
      * A held note sound instance for 3rd party trigger
      */
     @OnlyIn(Dist.CLIENT)
-    public void startPlaying(int notePitch, float volume, Entity initiator, ResourceLocation instrumentId) {
-        startPlaying(notePitch, volume, initiator, InitiatorID.fromEntity(initiator), instrumentId);
+    public void startPlaying(int notePitch, int particleColor, float volume, Entity initiator, ResourceLocation instrumentId) {
+        startPlaying(notePitch, particleColor, volume, initiator, InitiatorID.fromEntity(initiator), instrumentId);
     }
     /**
      * A held note sound instance for 3rd party trigger
      */
     @OnlyIn(Dist.CLIENT)
-    public void startPlaying(int notePitch, float volume, BlockPos pos,
+    public void startPlaying(int notePitch, int particleColor, float volume, BlockPos pos,
                              InitiatorID initiatorId, ResourceLocation instrumentId) {
-        startPlaying(notePitch, volume, null, pos, initiatorId, instrumentId);
+        startPlaying(notePitch, particleColor, volume, null, pos, initiatorId, instrumentId);
     }
     /**
      * A held note sound instance for local playing
      */
     @OnlyIn(Dist.CLIENT)
-    public void startPlaying(int notePitch, float volume, ResourceLocation instrumentId) {
-        startPlaying(notePitch, volume, Minecraft.getInstance().player, instrumentId);
+    public void startPlaying(int notePitch, int particleColor, float volume, ResourceLocation instrumentId) {
+        startPlaying(notePitch, particleColor, volume, Minecraft.getInstance().player, instrumentId);
     }
 
 
@@ -150,7 +150,7 @@ public record HeldNoteSound (
         if (initiatorID.type().equals("entity")) {
             // Play as an entity
             startPlaying(
-                meta.pitch(), meta.volume() / 100f,
+                meta.pitch(), meta.particleColor(), meta.volume() / 100f,
                 Minecraft.getInstance().level.getEntity(
                     Integer.parseInt(initiatorID.identifier())
                 ),
@@ -159,7 +159,7 @@ public record HeldNoteSound (
         } else {
             // Play as other
             startPlaying(
-                meta.pitch(), meta.volume() / 100f,
+                meta.pitch(), meta.particleColor(), meta.volume() / 100f,
                 meta.pos(),
                 initiatorID, meta.instrumentId()
             );

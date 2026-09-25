@@ -17,17 +17,9 @@ public enum GloriousDrumNoteLabel implements INoteLabel {
 	QWERTY((note) ->
 		INoteLabel.getQwerty(dn(note).getKey())
 	),
-
 	DON_KA((note) ->
 		Component.translatable(dn(note).btnType.getTransKey())
 	),
-	NOTE_NAME((note) -> Component.literal(
-		note.getFormattedNoteName()
-	)),
-	DO_RE_MI((note) ->
-        LabelUtil.toDoReMi(note.getFormattedNoteName())
-    ),
-
     NONE(NoteLabelSupplier.EMPTY);
 
 

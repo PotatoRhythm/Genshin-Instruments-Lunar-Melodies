@@ -35,11 +35,12 @@ public abstract class SingleButtonOptionsScreen extends GridInstrumentOptionsScr
     @Override
     protected void initOptionsGrid(GridLayout grid, GridLayout.RowHelper rowHelper) {
         super.initOptionsGrid(grid, rowHelper);
-
+        if (this instanceof SoundTypeOptionsScreen<?>) {
+            return;
+        }
         rowHelper.addChild(SpacerElement.height(SPACER_HEIGHT), 2);
         grid.arrangeElements();
         heightBefore = grid.getHeight();
-
         rowHelper.addChild(constructButton(), 2);
     }
 

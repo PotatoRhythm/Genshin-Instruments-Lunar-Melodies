@@ -2,7 +2,7 @@ package com.stump.genshinstrument_lm.client.gui.instrument.ukelele;
 
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentThemeLoader;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
-import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButtonRenderer;
+import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.NoteButtonRenderer;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
@@ -58,14 +58,14 @@ public class UkuleleNoteButtonRenderer extends NoteButtonRenderer {
 
 
     @Override
-    protected void renderNote(GuiGraphics gui, InstrumentThemeLoader themeLoader) {
+    protected void renderNoteSymbol(GuiGraphics gui, InstrumentThemeLoader themeLoader) {
         if (getButton().ukuleleScreen().isTopRegular()) {
-            super.renderNote(gui, themeLoader);
+            super.renderNoteSymbol(gui, themeLoader);
             return;
         }
 
         if (getButton().column != 0) {
-            super.renderNote(gui, themeLoader);
+            super.renderNoteSymbol(gui, themeLoader);
             return;
         }
 

@@ -1,0 +1,6 @@
+{
+  "parent": "genshinstrument_lm:item/instrument",
+  "textures": {
+    "layer0": "genshinstrument_lm:item/gw2_drumset"
+  }
+}

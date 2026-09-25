@@ -2,7 +2,7 @@ package com.stump.genshinstrument_lm.client.gui.instrument.gloriousdrum;
 
 import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
-import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButtonRenderer;
+import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.NoteButtonRenderer;
 import com.stump.genshinstrument_lm.networking.buttonidentifier.GloriousDrumNoteIdentifier;
 import com.mojang.blaze3d.platform.InputConstants.Key;
 import net.minecraftforge.api.distmarker.Dist;

@@ -2,7 +2,14 @@ package com.stump.genshinstrument_lm.datagen;
 
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.common.data.SoundDefinition;
 import net.minecraftforge.common.data.SoundDefinitionsProvider;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Comparator;
 
 public class SoundJsonGenerator extends SoundDefinitionsProvider {
 
@@ -32,10 +39,10 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         registerInstrument("pipa_regular", 20, 0.9f, false, false);
         registerInstrument("pipa_tremolo", 20, 1f, false, false);
 
-        registerInstrument("keyboard", 20, 1f, false, true);
+        registerInstrument("keyboard", 20, 0.8f, false, true);
         registerInstrument("keyboard_gw2", 20, 0.60f, false, true);
-        registerInstrument("keyboard_yamaha_c5", 20, 0.45f, false, true);
-        registerInstrument("keyboard_heartopia", 20, 0.7f, false, true);
+        registerInstrument("keyboard_yamaha_c5", 20, 0.55f, false, true);
+        registerInstrument("keyboard_heartopia", 20, 0.85f, false, true);
         registerInstrument("keyboard_electric", 20, 1f, false, true);
         registerInstrument("keyboard_harpsichord", 20, 0.6f, false, true);
 
@@ -48,7 +55,9 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         registerInstrument("saxophone_tenor", 20, 0.25f, true, true);
 
         registerInstrument("guitar", 20, 0.9f, false, false);
-        registerInstrument("guitar_jazz", 20, 0.6f, false, true);
+
+        registerInstrument("guitar_clean", 20, 0.6f, false, true);
+
         registerInstrument("bass_acoustic", 20, 1.0f, false, true);
         registerInstrument("bass_finger", 20, 1.0f, false, true);
         registerInstrument("bass_slap", 20, 0.9f, false, true);
@@ -60,6 +69,8 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         registerInstrument("microphone_irina_brochin", 20, 0.3f, true, true);
         registerInstrument("microphone_bass_choir", 20, 0.7f, true, true);
         registerInstrument("microphone_not_miku", 20, 0.85f, true, true);
+        registerInstrument("microphone_not_teto", 20, 0.9f, true, true);
+        registerInstrument("microphone_not_teto_sneaky", 20, 1.0f, true, true);
 
         registerInstrument("gw2_bass", 13, 1f, false, true);
         registerInstrument("gw2_bell", 13, 0.7f, false, true);
@@ -67,7 +78,7 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         registerInstrument("gw2_lute", 20, 0.9f, false, true);
         registerInstrument("gw2_minstrel", 20, 0.8f, false, true);
         registerInstrument("gw2_pell", 20, 0.8f, false, true);
-        registerInstrument("gw2_drum", 9, 0.95f, false, true);
+        registerInstrument("gw2_frame_drum", 9, 0.95f, false, true);
         registerInstrument("gw2_horn", 20, 0.95f, true, true);
         registerInstrument("gw2_flute", 13, 0.95f, true, true);
         registerInstrument("gw2_verdarach", 20, 0.5f, true, true);
@@ -77,6 +88,24 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         add("glorious_drum_don", definition().with(sound("genshinstrument_lm:glorious_drum/don").volume(1f)));
         add("glorious_drum_ka", definition().with(sound("genshinstrument_lm:glorious_drum/ka").volume(1f)));
         add("glorious_drum_ka_stereo", definition().with(sound("genshinstrument_lm:glorious_drum/ka.stereo").volume(1f)));
+
+
+        float drumset_gw2_V = 0.7f;
+        addSoundVariants("drumset_bass", "genshinstrument_lm:drumset_gw2/0", drumset_gw2_V, true);
+        addSoundVariants("drumset_bass2", "genshinstrument_lm:drumset_gw2/0", drumset_gw2_V, true);
+        addSoundVariants("drumset_snare", "genshinstrument_lm:drumset_gw2/1", drumset_gw2_V, true);
+        addSoundVariants("drumset_snare2", "genshinstrument_lm:drumset_gw2/1", drumset_gw2_V, true);
+        addSoundVariants("drumset_cross_stick", "genshinstrument_lm:drumset_gw2/2", drumset_gw2_V, true);
+        addSoundVariants("drumset_ghost", "genshinstrument_lm:drumset_gw2/3", drumset_gw2_V, true);
+        addSoundVariants("drumset_ghost2", "genshinstrument_lm:drumset_gw2/3", drumset_gw2_V, true);
+        addSoundVariants("drumset_high_tom", "genshinstrument_lm:drumset_gw2/4", drumset_gw2_V, true);
+        addSoundVariants("drumset_mid_tom", "genshinstrument_lm:drumset_gw2/5", drumset_gw2_V, true);
+        addSoundVariants("drumset_low_tom", "genshinstrument_lm:drumset_gw2/6", drumset_gw2_V, true);
+        addSoundVariants("drumset_crash_cymbal", "genshinstrument_lm:drumset_gw2/7", drumset_gw2_V, true);
+        addSoundVariants("drumset_ride_cymbal", "genshinstrument_lm:drumset_gw2/8", drumset_gw2_V, true);
+        addSoundVariants("drumset_hi-hat_closed", "genshinstrument_lm:drumset_gw2/9", drumset_gw2_V, true);
+        addSoundVariants("drumset_hi-hat_open", "genshinstrument_lm:drumset_gw2/10", drumset_gw2_V, true);
+        addSoundVariants("drumset_hi-hat_foot", "genshinstrument_lm:drumset_gw2/11", drumset_gw2_V, true);
     }
 
     private static final int MONO_DISTANCE = 64;
@@ -154,4 +183,53 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         }
     }
 
+    private void addSoundVariants(String event, String soundPath, float volume, boolean supportsStereo) {
+        String[] parts = soundPath.split(":", 2);
+
+        Path soundDirectory = Paths.get(System.getProperty("user.dir"), "..",
+                "src", "main", "resources", "assets", parts[0], "sounds", parts[1]).normalize();
+
+        SoundDefinition monoDefinition = definition();
+        SoundDefinition stereoDefinition = supportsStereo ? definition() : null;
+
+        try {
+            Files.list(soundDirectory)
+                    .filter(Files::isRegularFile)
+                    .filter(path -> path.toString().toLowerCase().endsWith(".ogg"))
+                    .sorted(Comparator.comparing(Path::toString))
+                    .forEach(path -> {
+                        String fileName = path.getFileName().toString();
+                        String soundName = fileName.substring(0, fileName.length() - 4);
+
+                        boolean isStereo = soundName.endsWith(".stereo");
+
+                        if (isStereo) {
+                            if (!supportsStereo)
+                                return;
+
+                            stereoDefinition.with(
+                                    sound(soundPath + "/" + soundName)
+                                            .volume(volume - STEREO_VOLUME_ADJUSTMENT)
+                            );
+                        }
+                        else {
+                            monoDefinition.with(
+                                    sound(soundPath + "/" + soundName)
+                                            .volume(volume)
+                                            .attenuationDistance(MONO_DISTANCE)
+                            );
+                        }
+                    });
+        } catch (IOException e) {
+            throw new RuntimeException(
+                    "Failed to parse sound directory: " + soundDirectory,
+                    e
+            );
+        }
+
+        add(event, monoDefinition);
+
+        if (supportsStereo)
+            add(event + "_stereo", stereoDefinition);
+    }
 }

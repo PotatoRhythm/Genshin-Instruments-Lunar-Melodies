@@ -94,7 +94,7 @@ public abstract class HeldNoteSounds {
             soundInstance.heldSoundContainer,
             new NoteSoundMetadata(
                 player.blockPosition(),
-                soundInstance.notePitch, (int)(soundInstance.getVolume() * 100),
+                soundInstance.notePitch, (int)(soundInstance.getVolume() * 100), soundInstance.particleColor,
                 soundInstance.instrumentId,
                 Optional.ofNullable(noteIdentifier)
             ),
@@ -225,5 +225,21 @@ public abstract class HeldNoteSounds {
         heldSoundInstances.remove(soundInstance);
 
         return List.of(soundInstance);
+    }
+
+    public static void dampenAll(final InitiatorID initiatorId) {
+        final Map<HeldNoteSound, Map<Integer, List<HeldNoteSoundInstance>>> sounds =
+                SOUND_INSTANCES.get(initiatorId);
+
+        if (sounds == null)
+            return;
+
+        for (Map<Integer, List<HeldNoteSoundInstance>> pitches : sounds.values()) {
+            for (List<HeldNoteSoundInstance> instances : pitches.values()) {
+                for (HeldNoteSoundInstance instance : new ArrayList<>(instances)) {
+                    instance.dampen();
+                }
+            }
+        }
     }
 }

@@ -9,10 +9,13 @@ import com.stump.genshinstrument_lm.sound.NoteSound;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSound;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSounds;
 import com.stump.genshinstrument_lm.sound.held.InitiatorID;
+import com.stump.genshinstrument_lm.util.ParticleColorUtil;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.Optional;
 
 /**
  * A C2S packet notifying the server that a
@@ -36,7 +39,18 @@ public class C2SHeldNoteSoundPacket extends C2SNotePacket<HeldNoteSound> {
     }
     @OnlyIn(Dist.CLIENT)
     public C2SHeldNoteSoundPacket(NoteButton noteButton, HeldNoteSound sound, int pitch, HeldSoundPhase phase) {
-        super(noteButton, sound, pitch);
+        super(
+                sound,
+                new NoteSoundMetadata(
+                        noteButton.getSoundSourcePos(),
+                        pitch,
+                        noteButton.instrumentScreen.volume,
+                        ParticleColorUtil.getNoteRGB(sound.index(), pitch),
+                        noteButton.instrumentScreen.getInstrumentId(),
+                        Optional.ofNullable(noteButton.getIdentifier())
+                )
+        );
+
         this.phase = phase;
     }
 

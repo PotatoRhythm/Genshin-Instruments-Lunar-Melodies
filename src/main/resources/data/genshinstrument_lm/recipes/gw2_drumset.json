@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "G": {
+      "item": "minecraft:gold_ingot"
+    },
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+
+  "pattern": [
+    " L ",
+    "GPG",
+    " L "
+  ],
+
+  "result": {
+    "item": "genshinstrument_lm:gw2_drumset"
+  }
+}

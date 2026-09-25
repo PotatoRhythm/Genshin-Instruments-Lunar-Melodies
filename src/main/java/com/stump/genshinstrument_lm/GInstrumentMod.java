@@ -2,10 +2,7 @@ package com.stump.genshinstrument_lm;
 
 import com.stump.genshinstrument_lm.item.ModItems;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
-import com.stump.genshinstrument_lm.networking.buttonidentifier.DjemDjemDrumNoteIdentifier;
-import com.stump.genshinstrument_lm.networking.buttonidentifier.GloriousDrumNoteIdentifier;
-import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteButtonIdentifiers;
-import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteGridButtonIdentifier;
+import com.stump.genshinstrument_lm.networking.buttonidentifier.*;
 import com.stump.genshinstrument_lm.particle.ModParticles;
 import com.stump.genshinstrument_lm.sound.GISounds;
 import com.stump.genshinstrument_lm.util.CommonUtil;
@@ -23,6 +20,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import software.bernie.geckolib.GeckoLib;
 
 /**
  * The main class of the Genshin Instruments: Lunar Melodies mod
@@ -47,11 +45,14 @@ public class GInstrumentMod
     {
         IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        GeckoLib.initialize();
+
         GIPacketHandler.registerPackets();
         NoteButtonIdentifiers.register(
             NoteGridButtonIdentifier.class,
             GloriousDrumNoteIdentifier.class,
-            DjemDjemDrumNoteIdentifier.class
+            DjemDjemDrumNoteIdentifier.class,
+            DrumsetNoteIdentifier.class
         );
 
         ModGameRules.load();

@@ -2,10 +2,12 @@ package com.stump.genshinstrument_lm.block.blockentity;
 
 import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.capability.recording.RecordingCapabilityProvider;
+import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
 import com.stump.genshinstrument_lm.util.LooperUtil;
 import com.stump.genshinstrument_lm.event.HeldNoteSoundPlayedEvent;
 import com.stump.genshinstrument_lm.event.InstrumentPlayedEvent;
 import com.stump.genshinstrument_lm.event.NoteSoundPlayedEvent;
+import com.stump.genshinstrument_lm.util.ParticleColorUtil;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -26,13 +28,12 @@ public class LooperNoteListener {
     @SubscribeEvent
     public static void onNoteSoundPlayed(final NoteSoundPlayedEvent event) {
         getMatchingLooper(event).ifPresent(looperBE -> {
-            Player player = (Player) event.entityInfo().get().entity;
-            int particleSet = RecordingCapabilityProvider.getParticleSet(player);
+            int rgb = event.soundMeta().particleColor();
             looperBE.writeNote(
                     event.sound(),
                     event.soundMeta(),
                     looperBE.getTicks(),
-                    particleSet
+                    rgb
             );
         });
     }
@@ -40,14 +41,13 @@ public class LooperNoteListener {
     @SubscribeEvent
     public static void onHeldNoteSoundPlayed(final HeldNoteSoundPlayedEvent event) {
         getMatchingLooper(event).ifPresent(looperBE -> {
-            Player player = (Player) event.entityInfo().get().entity;
-            int particleSet = RecordingCapabilityProvider.getParticleSet(player);
+            int rgb = event.soundMeta().particleColor();
             looperBE.writeHeldNote(
                     event.sound(),
                     event.phase,
                     event.soundMeta(),
                     looperBE.getTicks(),
-                    particleSet
+                    rgb
             );
         });
     }

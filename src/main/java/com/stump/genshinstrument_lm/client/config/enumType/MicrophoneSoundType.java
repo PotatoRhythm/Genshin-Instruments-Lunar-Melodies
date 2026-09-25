@@ -11,7 +11,9 @@ import java.util.function.Supplier;
 public enum MicrophoneSoundType implements SoundType {
     IRINA(() -> new SoundOption(GISounds.IRINA_BROCHIN)),
     BASS(() -> new SoundOption(GISounds.BASS_CHOIR)),
-    MIKU(() -> new SoundOption(GISounds.NOT_MIKU));
+    MIKU(() -> new SoundOption(GISounds.NOT_MIKU)),
+    TETO(() -> new SoundOption(GISounds.NOT_TETO)),
+    TETO_SNEAKY(() -> new SoundOption(GISounds.NOT_TETO_SNEAKY));
 
     private final Supplier<SoundOption> soundArr;
     private MicrophoneSoundType(final Supplier<SoundOption> soundType) {

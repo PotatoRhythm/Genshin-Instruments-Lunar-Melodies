@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+
+    "key": {
+        "#": {
+            "item": "minecraft:iron_ingot"
+        },
+        "X": {
+            "item": "minecraft:string"
+        }
+    },
+
+    "pattern": [
+        "  #",
+        "#X ",
+        "## "
+    ],
+
+    "result": {
+        "item": "genshinstrument_lm:bass_guitar"
+    }
+}

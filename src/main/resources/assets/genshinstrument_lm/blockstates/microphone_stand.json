@@ -1,15 +1,39 @@
 {
   "variants": {
-    "facing=north,part=bottom": { "model": "genshinstrument_lm:block/microphone_stand_bottom", "y": 180 },
-    "facing=north,part=top":    { "model": "genshinstrument_lm:block/microphone_stand_top",    "y": 180 },
 
-    "facing=east,part=bottom":  { "model": "genshinstrument_lm:block/microphone_stand_bottom", "y": 270 },
-    "facing=east,part=top":     { "model": "genshinstrument_lm:block/microphone_stand_top",    "y": 270 },
+    "part=controller,facing=north": {
+      "model": "genshinstrument_lm:block/microphone_stand",
+      "y": 0
+    },
+    "part=controller,facing=east": {
+      "model": "genshinstrument_lm:block/microphone_stand",
+      "y": 90
+    },
+    "part=controller,facing=south": {
+      "model": "genshinstrument_lm:block/microphone_stand",
+      "y": 180
+    },
+    "part=controller,facing=west": {
+      "model": "genshinstrument_lm:block/microphone_stand",
+      "y": 270
+    },
 
-    "facing=south,part=bottom": { "model": "genshinstrument_lm:block/microphone_stand_bottom", "y": 0 },
-    "facing=south,part=top":    { "model": "genshinstrument_lm:block/microphone_stand_top",    "y": 0 },
+    "part=dummy,facing=north": {
+      "model": "genshinstrument_lm:block/microphone_stand",
+      "y": 0
+    },
+    "part=dummy,facing=east": {
+      "model": "genshinstrument_lm:block/microphone_stand",
+      "y": 90
+    },
+    "part=dummy,facing=south": {
+      "model": "genshinstrument_lm:block/microphone_stand",
+      "y": 180
+    },
+    "part=dummy,facing=west": {
+      "model": "genshinstrument_lm:block/microphone_stand",
+      "y": 270
+    }
 
-    "facing=west,part=bottom":  { "model": "genshinstrument_lm:block/microphone_stand_bottom", "y": 90 },
-    "facing=west,part=top":     { "model": "genshinstrument_lm:block/microphone_stand_top",    "y": 90 }
   }
 }

@@ -2,8 +2,8 @@ package com.stump.genshinstrument_lm.client.gui.instrument.partial.note.held;
 
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentThemeLoader;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
-import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButtonRenderer;
-import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteRing;
+import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.NoteButtonRenderer;
+import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.NoteRing;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.animation.HeldNoteAnimationController;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.animation.NoteAnimationController;
 import net.minecraft.client.gui.GuiGraphics;

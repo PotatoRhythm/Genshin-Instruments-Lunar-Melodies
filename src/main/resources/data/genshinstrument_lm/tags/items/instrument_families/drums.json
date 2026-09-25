@@ -1,6 +1,11 @@
 {
     "values": [
         "genshinstrument_lm:glorious_drum",
-        "genshinstrument_lm:djem_djem_drum"
+        "genshinstrument_lm:djem_djem_drum",
+
+        "genshinstrument_lm:drumset",
+
+        "genshinstrument_lm:gw2_frame_drum",
+        "genshinstrument_lm:gw2_drumset"
     ]
 }

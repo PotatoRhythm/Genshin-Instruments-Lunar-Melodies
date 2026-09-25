@@ -28,11 +28,11 @@ public class HeldNoteSoundPacketUtil {
      * @param phase The phase for the packet to report
      */
     public static void sendPlayerPlayNotePackets(Entity initiator, HeldNoteSound sound,
-                                                 ResourceLocation instrumentId, int pitch, int volume,
+                                                 ResourceLocation instrumentId, int pitch, int volume, int particleColor,
                                                  HeldSoundPhase phase) {
         fireEntityEvent(initiator,
             InstrumentPacketUtil.sendPlayerPlayNotePackets(
-                initiator, sound, instrumentId, pitch, volume,
+                initiator, sound, instrumentId, pitch, volume, particleColor,
                 toReg(phase, initiator)
             )
         );
@@ -64,11 +64,11 @@ public class HeldNoteSoundPacketUtil {
      * @param phase The phase for the packet to report
      */
     public static void sendPlayNotePackets(Level level, BlockPos pos, HeldNoteSound sound, ResourceLocation instrumentId,
-                                           int pitch, int volume, HeldSoundPhase phase,
+                                           int pitch, int volume, int particleColor, HeldSoundPhase phase,
                                            InitiatorID initiatorID) {
         fireGenericEvent(level,
             InstrumentPacketUtil.sendPlayNotePackets(
-                level, pos, sound, instrumentId, pitch, volume,
+                level, pos, sound, instrumentId, pitch, volume, particleColor,
                 toReg(initiatorID, phase)
             )
         );

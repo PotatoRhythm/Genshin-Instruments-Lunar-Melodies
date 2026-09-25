@@ -4,6 +4,7 @@ import com.stump.genshinstrument_lm.capability.instrumentOpen.InstrumentOpenProv
 import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.label.NoteLabelSupplier;
+import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.NoteButtonRenderer;
 import com.stump.genshinstrument_lm.client.util.ClientUtil;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteButtonIdentifier;
@@ -27,6 +28,7 @@ import org.slf4j.Logger;
 
 import javax.annotation.Nullable;
 import java.awt.*;
+import java.util.Optional;
 
 /**
  * The abstract implementation of an instrument's note button.
@@ -225,10 +227,18 @@ public abstract class NoteButton extends AbstractButton {
     public boolean play(final NoteSound sound, final int pitch) {
         if (locked)
             return false;
+
+        if (instrumentScreen.getSoundOption() != null
+                && instrumentScreen.getSoundOption().isSingleNote()) {
+            instrumentScreen.dampenNotes();
+        }
+
         final boolean serverAudioEnabled = ModClientConfigs.SERVER_AUDIO.get();
+
         if (!serverAudioEnabled) {
             playLocalSound(sound, pitch);
         }
+
         sendNotePlayPacket(sound, pitch);
         playNoteAnimation(false);
 
@@ -245,8 +255,18 @@ public abstract class NoteButton extends AbstractButton {
     }
 
     protected void playLocalSound(final NoteSound sound, final int pitch) {
-        sound.playLocally(pitch, instrumentScreen.volume(), getSoundSourcePos());
+        final BlockPos pos = getSoundSourcePos();
+
+        sound.playLocally(
+                pitch,
+                instrumentScreen.volume(),
+                pos,
+                Minecraft.getInstance().player.position().distanceToSqr(pos.getCenter()),
+                instrumentScreen.getInstrumentId(),
+                Optional.ofNullable(getIdentifier())
+        );
     }
+
     protected void sendNotePlayPacket(final NoteSound sound, final int pitch) {
         GIPacketHandler.sendToServer(new C2SNoteSoundPacket(this, sound, pitch));
     }

@@ -11,6 +11,7 @@ import com.stump.genshinstrument_lm.sound.NoteSound;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSound;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSounds;
 import com.stump.genshinstrument_lm.sound.held.InitiatorID;
+import com.stump.genshinstrument_lm.util.ParticleColorUtil;
 import net.minecraft.client.Minecraft;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -93,7 +94,8 @@ public interface IHoldableNoteButton {
 
         HeldNoteSound held = toHeldSound(sound);
         if (held != null)
-            held.startPlaying(pitch, screen.volume(), screen.getInstrumentId());
+            held.startPlaying(pitch, ParticleColorUtil.getNoteRGB(asNoteBtn().soundIndex(),
+                    pitch), screen.volume(), screen.getInstrumentId());
     }
 
     // TODO: should never send null sound packet

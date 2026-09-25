@@ -1,25 +1,38 @@
 {
     "variants": {
 
-        "part=left,facing=north": {
-            "model": "genshinstrument_lm:block/keyboard/left",
+        "part=controller,facing=north": {
+            "model": "genshinstrument_lm:block/keyboard",
             "y": 0
         },
-        "part=left,facing=east": {
-            "model": "genshinstrument_lm:block/keyboard/left",
+        "part=controller,facing=east": {
+            "model": "genshinstrument_lm:block/keyboard",
             "y": 90
         },
-        "part=left,facing=south": {
-            "model": "genshinstrument_lm:block/keyboard/left",
+        "part=controller,facing=south": {
+            "model": "genshinstrument_lm:block/keyboard",
             "y": 180
         },
-        "part=left,facing=west": {
-            "model": "genshinstrument_lm:block/keyboard/left",
+        "part=controller,facing=west": {
+            "model": "genshinstrument_lm:block/keyboard",
             "y": 270
         },
 
-        "part=right": {
-            "model": "genshinstrument_lm:block/keyboard/right"
+        "part=dummy,facing=north": {
+            "model": "genshinstrument_lm:block/keyboard",
+            "y": 0
+        },
+        "part=dummy,facing=east": {
+            "model": "genshinstrument_lm:block/keyboard",
+            "y": 90
+        },
+        "part=dummy,facing=south": {
+            "model": "genshinstrument_lm:block/keyboard",
+            "y": 180
+        },
+        "part=dummy,facing=west": {
+            "model": "genshinstrument_lm:block/keyboard",
+            "y": 270
         }
 
     }

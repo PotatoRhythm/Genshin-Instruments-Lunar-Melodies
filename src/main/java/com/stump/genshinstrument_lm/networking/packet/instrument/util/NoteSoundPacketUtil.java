@@ -4,11 +4,14 @@ import com.stump.genshinstrument_lm.event.NoteSoundPlayedEvent;
 import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CNoteSoundPacket;
 import com.stump.genshinstrument_lm.sound.NoteSound;
+import com.stump.genshinstrument_lm.sound.held.InitiatorID;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.level.Level;
 import net.minecraftforge.common.MinecraftForge;
+
+import java.util.Optional;
 
 /**
  * A helper class for dealing with {@link NoteSound} packets.
@@ -25,10 +28,10 @@ public class NoteSoundPacketUtil {
      * @param volume The volume of the sound to initiate
      */
     public static void sendPlayerPlayNotePackets(Entity initiator,
-                                           NoteSound sound, ResourceLocation instrumentId, int pitch, int volume) {
+                                           NoteSound sound, ResourceLocation instrumentId, int pitch, int volume, int particleColor) {
         firePlayerEvent(initiator,
             InstrumentPacketUtil.sendPlayerPlayNotePackets(
-                initiator, sound, instrumentId, pitch, volume, INIT
+                initiator, sound, instrumentId, pitch, volume, particleColor, INIT
             )
         );
     }
@@ -39,10 +42,17 @@ public class NoteSoundPacketUtil {
      * @param soundMeta Additional metadata of the used sound
      */
     public static void sendPlayerPlayNotePackets(Entity initiator, NoteSound sound, NoteSoundMetadata soundMeta) {
-        firePlayerEvent(initiator,
-            InstrumentPacketUtil.sendPlayerPlayNotePackets(
+        firePlayerEvent(initiator, InstrumentPacketUtil.sendPlayerPlayNotePackets(
                 initiator, sound, soundMeta, INIT
-            )
+                )
+        );
+    }
+
+    public static void sendPlayNotePackets(Level level, NoteSound sound,
+            NoteSoundMetadata soundMeta, InitiatorID initiatorID) {
+        fireGenericEvent(level, InstrumentPacketUtil.sendPlayNotePackets(
+                    level, sound, soundMeta, toReg(initiatorID)
+                )
         );
     }
 
@@ -56,10 +66,10 @@ public class NoteSoundPacketUtil {
      * @param pitch The pitch of the sound to initiate
      */
     public static void sendPlayNotePackets(Level level, BlockPos pos, NoteSound sound, ResourceLocation instrumentId,
-                                           int pitch, int volume) {
+                                           int pitch, int volume, int particleColor) {
         fireGenericEvent(level,
             InstrumentPacketUtil.sendPlayNotePackets(
-                level, pos, sound, instrumentId, pitch, volume, INIT
+                level, pos, sound, instrumentId, pitch, volume, particleColor, INIT
             )
         );
     }
@@ -84,10 +94,17 @@ public class NoteSoundPacketUtil {
             new NoteSoundPlayedEvent(initiator, packet.sound, packet.meta)
         );
     }
+
     private static void fireGenericEvent(Level level, S2CNoteSoundPacket packet) {
         MinecraftForge.EVENT_BUS.post(
             new NoteSoundPlayedEvent(level, packet.sound, packet.meta)
         );
     }
 
+    private static S2CNotePacketDelegate<NoteSound, S2CNoteSoundPacket> toReg(
+            InitiatorID oInitiatorID) {
+
+        return (initiatorID, sound, meta) ->
+                new S2CNoteSoundPacket(initiatorID, Optional.of(oInitiatorID), sound, meta);
+    }
 }

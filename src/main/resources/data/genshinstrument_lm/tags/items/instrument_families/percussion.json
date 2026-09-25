@@ -3,9 +3,13 @@
         "genshinstrument_lm:glorious_drum",
         "genshinstrument_lm:djem_djem_drum",
 
+        "genshinstrument_lm:drumset",
+        "genshinstrument_lm:keyboard",
+
         "genshinstrument_lm:gw2_piano",
         "genshinstrument_lm:gw2_bell",
         "genshinstrument_lm:gw2_pell",
-        "genshinstrument_lm:gw2_drum"
+        "genshinstrument_lm:gw2_frame_drum",
+        "genshinstrument_lm:gw2_drumset"
     ]
 }

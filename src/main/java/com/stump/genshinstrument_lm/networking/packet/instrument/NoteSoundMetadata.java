@@ -21,17 +21,20 @@ public record NoteSoundMetadata(
 
     int pitch,
     int volume,
+    int particleColor,
     ResourceLocation instrumentId,
     Optional<NoteButtonIdentifier> noteIdentifier
 ) {
     public static NoteSoundMetadata read(final FriendlyByteBuf buf) {
         return new NoteSoundMetadata(
-            buf.readBlockPos(),
+                buf.readBlockPos(),
 
-            buf.readInt(),
-            buf.readInt(),
-            buf.readResourceLocation(),
-            buf.readOptional(NoteButtonIdentifier::readFromNetwork)
+                buf.readInt(),
+                buf.readInt(),
+                buf.readInt(),
+
+                buf.readResourceLocation(),
+                buf.readOptional(NoteButtonIdentifier::readFromNetwork)
         );
     }
 
@@ -40,6 +43,7 @@ public record NoteSoundMetadata(
 
         buf.writeInt(pitch);
         buf.writeInt(volume);
+        buf.writeInt(particleColor);
 
         buf.writeResourceLocation(instrumentId);
         buf.writeOptional(noteIdentifier, (fbb, identifier) -> identifier.writeToNetwork(fbb));

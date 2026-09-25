@@ -1,7 +1,8 @@
 package com.stump.genshinstrument_lm.networking.packet.instrument.s2c;
 
-import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
+import com.stump.genshinstrument_lm.sound.held.InitiatorID;
 import com.stump.genshinstrument_lm.sound.NoteSound;
+import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraftforge.network.NetworkEvent.Context;
 
@@ -12,14 +13,24 @@ import java.util.Optional;
  * a specific {@link NoteSound}.
  */
 public class S2CNoteSoundPacket extends S2CNotePacket<NoteSound> {
-    /**
-     * Constructs a new {@link S2CNoteSoundPacket}.
-     * @param initiatorID The UUID of the player initiating the sound.
-     *                      May be empty for a non-player trigger.
-     */
-    public S2CNoteSoundPacket(Optional<Integer> initiatorID, NoteSound sound, NoteSoundMetadata meta) {
+
+    public S2CNoteSoundPacket(
+            Optional<Integer> initiatorID,
+            NoteSound sound,
+            NoteSoundMetadata meta
+    ) {
         super(initiatorID, sound, meta);
     }
+
+    public S2CNoteSoundPacket(
+            Optional<Integer> initiatorID,
+            Optional<InitiatorID> oInitiatorID,
+            NoteSound sound,
+            NoteSoundMetadata meta
+    ) {
+        super(initiatorID, oInitiatorID, sound, meta);
+    }
+
     public S2CNoteSoundPacket(FriendlyByteBuf buf) {
         super(buf);
     }
@@ -28,6 +39,7 @@ public class S2CNoteSoundPacket extends S2CNotePacket<NoteSound> {
     protected void writeSound(FriendlyByteBuf buf) {
         sound.writeToNetwork(buf);
     }
+
     @Override
     protected NoteSound readSound(FriendlyByteBuf buf) {
         return NoteSound.readFromNetwork(buf);
@@ -35,6 +47,6 @@ public class S2CNoteSoundPacket extends S2CNotePacket<NoteSound> {
 
     @Override
     public void handle(final Context context) {
-        sound.playFromServer(initiatorID, meta);
+        sound.playFromServer(initiatorID, oInitiatorID, meta);
     }
 }

@@ -78,13 +78,13 @@ public class InstrumentPacketUtil {
      * @return The sent packet
      */
     public static <T, P extends S2CNotePacket<T>> P sendPlayerPlayNotePackets(Entity initiator,
-                                                     T sound, ResourceLocation instrumentId, int pitch, int volume,
+                                                     T sound, ResourceLocation instrumentId, int pitch, int volume, int particleColor,
                                                      S2CNotePacketDelegate<T, P> notePacketDelegate) {
         return sendPlayerPlayNotePackets(
             initiator, sound,
             new NoteSoundMetadata(
                 initiator.blockPosition(),
-                pitch, volume,
+                pitch, volume, particleColor,
                 instrumentId,
                 Optional.empty()
             ),
@@ -143,13 +143,14 @@ public class InstrumentPacketUtil {
      * @return The sent packet
      */
     public static <T, P extends S2CNotePacket<T>> P sendPlayNotePackets(Level level, BlockPos pos, T sound, ResourceLocation instrumentId,
-                                               int pitch, int volume,
+                                               int pitch, int volume, int particleColor,
                                                S2CNotePacketDelegate<T, P> notePacketDelegate) {
         return sendPlayNotePackets(
             level, sound,
             new NoteSoundMetadata(
                 pos,
                 pitch, volume,
+                particleColor,
                 instrumentId,
                 Optional.empty()
             ),

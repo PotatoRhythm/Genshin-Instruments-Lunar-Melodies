@@ -1,7 +1,7 @@
 package com.stump.genshinstrument_lm.client.gui.instrument.partial.note.animation;
 
 import com.stump.genshinstrument_lm.client.AnimationController;
-import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteRing;
+import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.NoteRing;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 

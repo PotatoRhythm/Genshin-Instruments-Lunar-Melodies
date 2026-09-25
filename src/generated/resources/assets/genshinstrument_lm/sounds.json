@@ -1092,6 +1092,766 @@
       }
     ]
   },
+  "drumset_bass": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/0/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/0/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/0/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/0/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/0/4"
+      }
+    ]
+  },
+  "drumset_bass2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/0/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/0/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/0/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/0/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/0/4"
+      }
+    ]
+  },
+  "drumset_bass2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/0/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/0/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/0/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/0/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/0/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_bass_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/0/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/0/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/0/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/0/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/0/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_crash_cymbal": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/7/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/7/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/7/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/7/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/7/4"
+      }
+    ]
+  },
+  "drumset_crash_cymbal_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/7/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/7/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/7/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/7/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/7/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_cross_stick": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/2/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/2/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/2/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/2/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/2/4"
+      }
+    ]
+  },
+  "drumset_cross_stick_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/2/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/2/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/2/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/2/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/2/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_ghost": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/3/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/3/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/3/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/3/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/3/4"
+      }
+    ]
+  },
+  "drumset_ghost2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/3/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/3/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/3/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/3/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/3/4"
+      }
+    ]
+  },
+  "drumset_ghost2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/3/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/3/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/3/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/3/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/3/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_ghost_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/3/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/3/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/3/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/3/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/3/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_hi-hat_closed": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/9/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/9/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/9/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/9/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/9/4"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/9/5"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/9/6"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/9/7"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/9/8"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/9/9"
+      }
+    ]
+  },
+  "drumset_hi-hat_closed_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/9/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/9/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/9/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/9/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/9/4.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/9/5.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/9/6.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/9/7.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/9/8.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/9/9.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_hi-hat_foot": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/11/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/11/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/11/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/11/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/11/4"
+      }
+    ]
+  },
+  "drumset_hi-hat_foot_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/11/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/11/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/11/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/11/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/11/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_hi-hat_open": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/10/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/10/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/10/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/10/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/10/4"
+      }
+    ]
+  },
+  "drumset_hi-hat_open_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/10/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/10/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/10/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/10/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/10/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_high_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/4/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/4/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/4/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/4/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/4/4"
+      }
+    ]
+  },
+  "drumset_high_tom_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/4/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/4/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/4/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/4/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/4/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_low_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/6/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/6/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/6/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/6/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/6/4"
+      }
+    ]
+  },
+  "drumset_low_tom_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/6/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/6/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/6/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/6/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/6/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_mid_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/5/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/5/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/5/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/5/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/5/4"
+      }
+    ]
+  },
+  "drumset_mid_tom_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/5/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/5/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/5/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/5/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/5/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_ride_cymbal": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/8/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/8/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/8/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/8/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/8/4"
+      }
+    ]
+  },
+  "drumset_ride_cymbal_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/8/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/8/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/8/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/8/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/8/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_snare": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/1/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/1/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/1/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/1/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/1/4"
+      }
+    ]
+  },
+  "drumset_snare2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/1/0"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/1/1"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/1/2"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/1/3"
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:drumset_gw2/1/4"
+      }
+    ]
+  },
+  "drumset_snare2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/1/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/1/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/1/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/1/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/1/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "drumset_snare_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:drumset_gw2/1/0.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/1/1.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/1/2.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/1/3.stereo",
+        "volume": 0.8
+      },
+      {
+        "name": "genshinstrument_lm:drumset_gw2/1/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
   "floral_zither_new_note_0": {
     "sounds": [
       {
@@ -1485,359 +2245,359 @@
       "genshinstrument_lm:glorious_drum/ka.stereo"
     ]
   },
-  "guitar_jazz_note_0": {
+  "guitar_clean_note_0": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/0",
+        "name": "genshinstrument_lm:guitar_clean/0",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_0_stereo": {
+  "guitar_clean_note_0_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/0.stereo",
+        "name": "genshinstrument_lm:guitar_clean/0.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_1": {
+  "guitar_clean_note_1": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/1",
+        "name": "genshinstrument_lm:guitar_clean/1",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_10": {
+  "guitar_clean_note_10": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/10",
+        "name": "genshinstrument_lm:guitar_clean/10",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_10_stereo": {
+  "guitar_clean_note_10_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/10.stereo",
+        "name": "genshinstrument_lm:guitar_clean/10.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_11": {
+  "guitar_clean_note_11": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/11",
+        "name": "genshinstrument_lm:guitar_clean/11",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_11_stereo": {
+  "guitar_clean_note_11_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/11.stereo",
+        "name": "genshinstrument_lm:guitar_clean/11.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_12": {
+  "guitar_clean_note_12": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/12",
+        "name": "genshinstrument_lm:guitar_clean/12",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_12_stereo": {
+  "guitar_clean_note_12_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/12.stereo",
+        "name": "genshinstrument_lm:guitar_clean/12.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_13": {
+  "guitar_clean_note_13": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/13",
+        "name": "genshinstrument_lm:guitar_clean/13",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_13_stereo": {
+  "guitar_clean_note_13_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/13.stereo",
+        "name": "genshinstrument_lm:guitar_clean/13.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_14": {
+  "guitar_clean_note_14": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/14",
+        "name": "genshinstrument_lm:guitar_clean/14",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_14_stereo": {
+  "guitar_clean_note_14_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/14.stereo",
+        "name": "genshinstrument_lm:guitar_clean/14.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_15": {
+  "guitar_clean_note_15": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/15",
+        "name": "genshinstrument_lm:guitar_clean/15",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_15_stereo": {
+  "guitar_clean_note_15_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/15.stereo",
+        "name": "genshinstrument_lm:guitar_clean/15.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_16": {
+  "guitar_clean_note_16": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/16",
+        "name": "genshinstrument_lm:guitar_clean/16",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_16_stereo": {
+  "guitar_clean_note_16_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/16.stereo",
+        "name": "genshinstrument_lm:guitar_clean/16.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_17": {
+  "guitar_clean_note_17": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/17",
+        "name": "genshinstrument_lm:guitar_clean/17",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_17_stereo": {
+  "guitar_clean_note_17_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/17.stereo",
+        "name": "genshinstrument_lm:guitar_clean/17.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_18": {
+  "guitar_clean_note_18": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/18",
+        "name": "genshinstrument_lm:guitar_clean/18",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_18_stereo": {
+  "guitar_clean_note_18_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/18.stereo",
+        "name": "genshinstrument_lm:guitar_clean/18.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_19": {
+  "guitar_clean_note_19": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/19",
+        "name": "genshinstrument_lm:guitar_clean/19",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_19_stereo": {
+  "guitar_clean_note_19_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/19.stereo",
+        "name": "genshinstrument_lm:guitar_clean/19.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_1_stereo": {
+  "guitar_clean_note_1_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/1.stereo",
+        "name": "genshinstrument_lm:guitar_clean/1.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_2": {
+  "guitar_clean_note_2": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/2",
+        "name": "genshinstrument_lm:guitar_clean/2",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_20": {
+  "guitar_clean_note_20": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/20",
+        "name": "genshinstrument_lm:guitar_clean/20",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_20_stereo": {
+  "guitar_clean_note_20_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/20.stereo",
+        "name": "genshinstrument_lm:guitar_clean/20.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_2_stereo": {
+  "guitar_clean_note_2_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/2.stereo",
+        "name": "genshinstrument_lm:guitar_clean/2.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_3": {
+  "guitar_clean_note_3": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/3",
+        "name": "genshinstrument_lm:guitar_clean/3",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_3_stereo": {
+  "guitar_clean_note_3_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/3.stereo",
+        "name": "genshinstrument_lm:guitar_clean/3.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_4": {
+  "guitar_clean_note_4": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/4",
+        "name": "genshinstrument_lm:guitar_clean/4",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_4_stereo": {
+  "guitar_clean_note_4_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/4.stereo",
+        "name": "genshinstrument_lm:guitar_clean/4.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_5": {
+  "guitar_clean_note_5": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/5",
+        "name": "genshinstrument_lm:guitar_clean/5",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_5_stereo": {
+  "guitar_clean_note_5_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/5.stereo",
+        "name": "genshinstrument_lm:guitar_clean/5.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_6": {
+  "guitar_clean_note_6": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/6",
+        "name": "genshinstrument_lm:guitar_clean/6",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_6_stereo": {
+  "guitar_clean_note_6_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/6.stereo",
+        "name": "genshinstrument_lm:guitar_clean/6.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_7": {
+  "guitar_clean_note_7": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/7",
+        "name": "genshinstrument_lm:guitar_clean/7",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_7_stereo": {
+  "guitar_clean_note_7_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/7.stereo",
+        "name": "genshinstrument_lm:guitar_clean/7.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_8": {
+  "guitar_clean_note_8": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/8",
+        "name": "genshinstrument_lm:guitar_clean/8",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_8_stereo": {
+  "guitar_clean_note_8_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/8.stereo",
+        "name": "genshinstrument_lm:guitar_clean/8.stereo",
         "volume": 0.40000004
       }
     ]
   },
-  "guitar_jazz_note_9": {
+  "guitar_clean_note_9": {
     "sounds": [
       {
         "attenuation_distance": 64,
-        "name": "genshinstrument_lm:guitar_jazz/9",
+        "name": "genshinstrument_lm:guitar_clean/9",
         "volume": 0.6
       }
     ]
   },
-  "guitar_jazz_note_9_stereo": {
+  "guitar_clean_note_9_stereo": {
     "sounds": [
       {
-        "name": "genshinstrument_lm:guitar_jazz/9.stereo",
+        "name": "genshinstrument_lm:guitar_clean/9.stereo",
         "volume": 0.40000004
       }
     ]
@@ -2493,176 +3253,6 @@
       }
     ]
   },
-  "gw2_drum_note_0": {
-    "sounds": [
-      {
-        "attenuation_distance": 64,
-        "name": "genshinstrument_lm:gw2_drum/0",
-        "volume": 0.95
-      }
-    ]
-  },
-  "gw2_drum_note_0_stereo": {
-    "sounds": [
-      {
-        "name": "genshinstrument_lm:gw2_drum/0.stereo",
-        "volume": 0.75
-      }
-    ]
-  },
-  "gw2_drum_note_1": {
-    "sounds": [
-      {
-        "attenuation_distance": 64,
-        "name": "genshinstrument_lm:gw2_drum/1",
-        "volume": 0.95
-      }
-    ]
-  },
-  "gw2_drum_note_1_stereo": {
-    "sounds": [
-      {
-        "name": "genshinstrument_lm:gw2_drum/1.stereo",
-        "volume": 0.75
-      }
-    ]
-  },
-  "gw2_drum_note_2": {
-    "sounds": [
-      {
-        "attenuation_distance": 64,
-        "name": "genshinstrument_lm:gw2_drum/2",
-        "volume": 0.95
-      }
-    ]
-  },
-  "gw2_drum_note_2_stereo": {
-    "sounds": [
-      {
-        "name": "genshinstrument_lm:gw2_drum/2.stereo",
-        "volume": 0.75
-      }
-    ]
-  },
-  "gw2_drum_note_3": {
-    "sounds": [
-      {
-        "attenuation_distance": 64,
-        "name": "genshinstrument_lm:gw2_drum/3",
-        "volume": 0.95
-      }
-    ]
-  },
-  "gw2_drum_note_3_stereo": {
-    "sounds": [
-      {
-        "name": "genshinstrument_lm:gw2_drum/3.stereo",
-        "volume": 0.75
-      }
-    ]
-  },
-  "gw2_drum_note_4": {
-    "sounds": [
-      {
-        "attenuation_distance": 64,
-        "name": "genshinstrument_lm:gw2_drum/4",
-        "volume": 0.95
-      }
-    ]
-  },
-  "gw2_drum_note_4_stereo": {
-    "sounds": [
-      {
-        "name": "genshinstrument_lm:gw2_drum/4.stereo",
-        "volume": 0.75
-      }
-    ]
-  },
-  "gw2_drum_note_5": {
-    "sounds": [
-      {
-        "attenuation_distance": 64,
-        "name": "genshinstrument_lm:gw2_drum/5",
-        "volume": 0.95
-      }
-    ]
-  },
-  "gw2_drum_note_5_stereo": {
-    "sounds": [
-      {
-        "name": "genshinstrument_lm:gw2_drum/5.stereo",
-        "volume": 0.75
-      }
-    ]
-  },
-  "gw2_drum_note_6": {
-    "sounds": [
-      {
-        "attenuation_distance": 64,
-        "name": "genshinstrument_lm:gw2_drum/6",
-        "volume": 0.95
-      }
-    ]
-  },
-  "gw2_drum_note_6_stereo": {
-    "sounds": [
-      {
-        "name": "genshinstrument_lm:gw2_drum/6.stereo",
-        "volume": 0.75
-      }
-    ]
-  },
-  "gw2_drum_note_7": {
-    "sounds": [
-      {
-        "attenuation_distance": 64,
-        "name": "genshinstrument_lm:gw2_drum/7",
-        "volume": 0.95
-      }
-    ]
-  },
-  "gw2_drum_note_7_stereo": {
-    "sounds": [
-      {
-        "name": "genshinstrument_lm:gw2_drum/7.stereo",
-        "volume": 0.75
-      }
-    ]
-  },
-  "gw2_drum_note_8": {
-    "sounds": [
-      {
-        "attenuation_distance": 64,
-        "name": "genshinstrument_lm:gw2_drum/8",
-        "volume": 0.95
-      }
-    ]
-  },
-  "gw2_drum_note_8_stereo": {
-    "sounds": [
-      {
-        "name": "genshinstrument_lm:gw2_drum/8.stereo",
-        "volume": 0.75
-      }
-    ]
-  },
-  "gw2_drum_note_9": {
-    "sounds": [
-      {
-        "attenuation_distance": 64,
-        "name": "genshinstrument_lm:gw2_drum/9",
-        "volume": 0.95
-      }
-    ]
-  },
-  "gw2_drum_note_9_stereo": {
-    "sounds": [
-      {
-        "name": "genshinstrument_lm:gw2_drum/9.stereo",
-        "volume": 0.75
-      }
-    ]
-  },
   "gw2_flute_attack_note_0": {
     "sounds": [
       {
@@ -3135,6 +3725,176 @@
     "sounds": [
       {
         "name": "genshinstrument_lm:gw2_flute/hold/9.stereo",
+        "volume": 0.75
+      }
+    ]
+  },
+  "gw2_frame_drum_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:gw2_frame_drum/0",
+        "volume": 0.95
+      }
+    ]
+  },
+  "gw2_frame_drum_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:gw2_frame_drum/0.stereo",
+        "volume": 0.75
+      }
+    ]
+  },
+  "gw2_frame_drum_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:gw2_frame_drum/1",
+        "volume": 0.95
+      }
+    ]
+  },
+  "gw2_frame_drum_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:gw2_frame_drum/1.stereo",
+        "volume": 0.75
+      }
+    ]
+  },
+  "gw2_frame_drum_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:gw2_frame_drum/2",
+        "volume": 0.95
+      }
+    ]
+  },
+  "gw2_frame_drum_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:gw2_frame_drum/2.stereo",
+        "volume": 0.75
+      }
+    ]
+  },
+  "gw2_frame_drum_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:gw2_frame_drum/3",
+        "volume": 0.95
+      }
+    ]
+  },
+  "gw2_frame_drum_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:gw2_frame_drum/3.stereo",
+        "volume": 0.75
+      }
+    ]
+  },
+  "gw2_frame_drum_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:gw2_frame_drum/4",
+        "volume": 0.95
+      }
+    ]
+  },
+  "gw2_frame_drum_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:gw2_frame_drum/4.stereo",
+        "volume": 0.75
+      }
+    ]
+  },
+  "gw2_frame_drum_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:gw2_frame_drum/5",
+        "volume": 0.95
+      }
+    ]
+  },
+  "gw2_frame_drum_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:gw2_frame_drum/5.stereo",
+        "volume": 0.75
+      }
+    ]
+  },
+  "gw2_frame_drum_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:gw2_frame_drum/6",
+        "volume": 0.95
+      }
+    ]
+  },
+  "gw2_frame_drum_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:gw2_frame_drum/6.stereo",
+        "volume": 0.75
+      }
+    ]
+  },
+  "gw2_frame_drum_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:gw2_frame_drum/7",
+        "volume": 0.95
+      }
+    ]
+  },
+  "gw2_frame_drum_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:gw2_frame_drum/7.stereo",
+        "volume": 0.75
+      }
+    ]
+  },
+  "gw2_frame_drum_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:gw2_frame_drum/8",
+        "volume": 0.95
+      }
+    ]
+  },
+  "gw2_frame_drum_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:gw2_frame_drum/8.stereo",
+        "volume": 0.75
+      }
+    ]
+  },
+  "gw2_frame_drum_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:gw2_frame_drum/9",
+        "volume": 0.95
+      }
+    ]
+  },
+  "gw2_frame_drum_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:gw2_frame_drum/9.stereo",
         "volume": 0.75
       }
     ]
@@ -11851,6 +12611,1350 @@
       {
         "name": "genshinstrument_lm:microphone_not_miku/hold/9.stereo",
         "volume": 0.65000004
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/0"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/0.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/1"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/10"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/10.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/11"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/11.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/12"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/12.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/13"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/13.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/14"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/14.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/15"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/15.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/16"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/16.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/17"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/17.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/18"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/18.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/19"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/19.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/1.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/2"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/20"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/20.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/2.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/3"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/3.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/4"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/5"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/5.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/6"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/6.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/7"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/7.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/8"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/8.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/attack/9"
+      }
+    ]
+  },
+  "microphone_not_teto_attack_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/attack/9.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/0"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/0.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/1"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/10"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/10.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/11"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/11.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/12"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/12.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/13"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/13.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/14"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/14.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/15"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/15.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/16"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/16.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/17"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/17.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/18"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/18.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/19"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/19.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/1.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/2"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/20"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/20.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/2.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/3"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/3.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/4"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/5"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/5.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/6"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/6.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/7"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/7.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/8"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/8.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto/hold/9"
+      }
+    ]
+  },
+  "microphone_not_teto_hold_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto/hold/9.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/0"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/0.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/1"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/10"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/10.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/11"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/11.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/12"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/12.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/13"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/13.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/14"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/14.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/15"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/15.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/16"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/16.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/17"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/17.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/18"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/18.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/19"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/19.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/1.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/2"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/20"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/20.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/2.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/3"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/3.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/4"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/5"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/5.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/6"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/6.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/7"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/7.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/8"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/8.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/9"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_attack_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/attack/9.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/0"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/0.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/1"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/10"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/10.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/11"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/11.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/12"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/12.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/13"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/13.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/14"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/14.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/15"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/15.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/16"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/16.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/17"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/17.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/18"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/18.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/19"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/19.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/1.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/2"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/20"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/20.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/2.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/3"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/3.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/4"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/5"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/5.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/6"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/6.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/7"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/7.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/8"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/8.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/9"
+      }
+    ]
+  },
+  "microphone_not_teto_sneaky_hold_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "genshinstrument_lm:microphone_not_teto_sneaky/hold/9.stereo",
+        "volume": 0.8
       }
     ]
   },

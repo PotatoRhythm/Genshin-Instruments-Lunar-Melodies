@@ -17,6 +17,9 @@
         "genshinstrument_lm:shamisen",
         "genshinstrument_lm:koto",
         "genshinstrument_lm:microphone",
+        "genshinstrument_lm:drumset",
+        "genshinstrument_lm:electric_guitar",
+        "genshinstrument_lm:bass_guitar",
 
         "genshinstrument_lm:banjo_note_block_instrument",
         "genshinstrument_lm:basedrum_note_block_instrument",
@@ -47,6 +50,7 @@
         "genshinstrument_lm:gw2_piano",
         "genshinstrument_lm:gw2_quaggan_organ",
         "genshinstrument_lm:gw2_verdarach",
-        "genshinstrument_lm:gw2_drum"
+        "genshinstrument_lm:gw2_frame_drum",
+        "genshinstrument_lm:gw2_drumset"
     ]
 }

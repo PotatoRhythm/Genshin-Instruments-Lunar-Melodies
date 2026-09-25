@@ -50,10 +50,18 @@ public class LooperAdapterItem extends Item {
         if (pContext.getLevel().isClientSide)
             return InteractionResult.CONSUME_PARTIAL;
 
-        final BlockPos pos = pContext.getClickedPos();
-        final Block block = pContext.getLevel().getBlockState(pContext.getClickedPos()).getBlock();
+        final Level level = pContext.getLevel();
+        final BlockPos clickedPos = pContext.getClickedPos();
+        final Block block = level.getBlockState(clickedPos).getBlock();
 
-        final CompoundTag adapterTag = CommonUtil.getOrCreateElementTag(GInstrumentMod.modTag(pContext.getItemInHand()), "looperAdapter");
+        BlockPos pos = clickedPos;
+
+        if (block instanceof AbstractInstrumentBlock instrumentBlock) {
+            pos = instrumentBlock.getInstrumentPos(level, clickedPos);
+        }
+
+        final CompoundTag adapterTag = CommonUtil.getOrCreateElementTag(
+                GInstrumentMod.modTag(pContext.getItemInHand()), "looperAdapter");
         final Player player = pContext.getPlayer();
 
         boolean pairSucceed;

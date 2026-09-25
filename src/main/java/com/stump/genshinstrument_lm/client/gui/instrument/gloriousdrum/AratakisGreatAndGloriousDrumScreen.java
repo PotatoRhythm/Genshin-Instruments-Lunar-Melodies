@@ -22,7 +22,6 @@ import java.util.Map;
 @OnlyIn(Dist.CLIENT)
 public class AratakisGreatAndGloriousDrumScreen extends InstrumentScreen {
     public static final ResourceLocation INSTRUMENT_ID = new ResourceLocation(GInstrumentMod.MODID, "glorious_drum");
-    public static final String[] NOTE_LAYOUT = {"D", "G"};
 
     @Override
     public ResourceLocation getInstrumentId() {
@@ -91,12 +90,6 @@ public class AratakisGreatAndGloriousDrumScreen extends InstrumentScreen {
         notes.put(btn.getKey(), btn);
 
         return btn;
-    }
-    
-
-    @Override
-    public String[] noteLayout() {
-        return NOTE_LAYOUT;
     }
 
     public static final InstrumentThemeLoader THEME_LOADER = new InstrumentThemeLoader(INSTRUMENT_ID);

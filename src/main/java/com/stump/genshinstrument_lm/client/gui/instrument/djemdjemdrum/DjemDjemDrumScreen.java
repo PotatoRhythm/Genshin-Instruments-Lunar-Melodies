@@ -20,11 +20,6 @@ import java.util.Map;
 public class DjemDjemDrumScreen extends InstrumentScreen {
     public static final ResourceLocation INSTRUMENT_ID = new ResourceLocation(GInstrumentMod.MODID, "djem_djem_drum");
 
-    public static final String[] NOTE_LAYOUT = {
-        "C#", "C#", "F", "Bb",
-        "C#", "C", "F", "F",
-    };
-
     @Override
     public ResourceLocation getInstrumentId() {
         return INSTRUMENT_ID;
@@ -52,7 +47,6 @@ public class DjemDjemDrumScreen extends InstrumentScreen {
         final LinearLayout layout1 = createRow(0),
             layout2 = createRow(1);
 
-        // Make layout magic
         layout1.arrangeElements();
         layout2.arrangeElements();
 
@@ -108,12 +102,6 @@ public class DjemDjemDrumScreen extends InstrumentScreen {
         notes.put(btn.getKey(), btn);
 
         return btn;
-    }
-
-
-    @Override
-    public String[] noteLayout() {
-        return NOTE_LAYOUT;
     }
 
     public static final InstrumentThemeLoader THEME_LOADER = new InstrumentThemeLoader(INSTRUMENT_ID);

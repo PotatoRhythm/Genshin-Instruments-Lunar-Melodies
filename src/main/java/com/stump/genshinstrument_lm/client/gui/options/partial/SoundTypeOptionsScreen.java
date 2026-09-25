@@ -50,20 +50,24 @@ public abstract class SoundTypeOptionsScreen<T extends SoundType> extends Single
     protected abstract String soundTypeButtonKey();
 
 
-    @Override
-    protected AbstractButton constructButton() {
-        return CycleButton.<T>builder((soundType) ->
-                Component.translatable(soundTypeButtonKey()+"."+soundType.getName())
-        )
-            .withValues(values())
-            .withInitialValue(getPreferredSoundType())
-            .create(0, 0,
-                    getBigButtonWidth(), getButtonHeight(),
-                    Component.translatable(soundTypeButtonKey()),
-                    this::onSoundTypeChange
-            );
+    public AbstractButton createSoundTypeButton(final int width) {
+        return constructSoundTypeButton(width);
     }
 
+    protected CycleButton<T> constructSoundTypeButton(final int width) {
+        return CycleButton.<T>builder((soundType) ->
+                Component.translatable(soundTypeButtonKey() + "." + soundType.getName()))
+                .withValues(values()).withInitialValue(getPreferredSoundType())
+                .create(0, 0, width, getButtonHeight(),
+                        Component.translatable(soundTypeButtonKey()),
+                        this::onSoundTypeChange
+                );
+    }
+
+    @Override
+    protected AbstractButton constructButton() {
+        return constructSoundTypeButton(getBigButtonWidth());
+    }
 
     protected void onSoundTypeChange(final CycleButton<T> btn, final T soundType) {
         setPreferredSoundType(soundType);

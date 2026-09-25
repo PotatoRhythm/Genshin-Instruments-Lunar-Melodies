@@ -2,7 +2,7 @@ package com.stump.genshinstrument_lm.client.gui.instrument.ukelele;
 
 import com.stump.genshinstrument_lm.client.config.enumType.NoteGridLabel;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.grid.GridInstrumentScreen;
-import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButtonRenderer;
+import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.NoteButtonRenderer;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteNotation;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.grid.NoteGridButton;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.label.NoteLabelSupplier;

@@ -10,6 +10,7 @@ import com.stump.genshinstrument_lm.item.emirecord.EMIRecordItem;
 import com.stump.genshinstrument_lm.item.emirecord.RecordRepository;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.packet.LooperPlayStatePacket;
+import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CLooperDampenPacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CLooperParticlePacket;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 import com.stump.genshinstrument_lm.util.LooperUtil;
@@ -373,11 +374,11 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
     /**
      * Writes a new note to the writable record.
      */
-    public void writeNote(NoteSound sound, NoteSoundMetadata soundMeta, int timestamp, int particleSet) {
+    public void writeNote(NoteSound sound, NoteSoundMetadata soundMeta, int timestamp, int particleRgb) {
         if (!isWritable())
             return;
 
-        final CompoundTag noteTag = serializeNoteMeta(soundMeta, timestamp, particleSet);
+        final CompoundTag noteTag = serializeNoteMeta(soundMeta, timestamp, particleRgb);
         noteTag.putString(NOTE_TYPE, WritableNoteType.REGULAR.name());
 
         noteTag.putInt(SOUND_INDEX_TAG, sound.index);
@@ -391,11 +392,11 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
      */
     public void writeHeldNote(HeldNoteSound sound, HeldSoundPhase phase,
                               NoteSoundMetadata soundMeta, int timestamp,
-                              int particleSet) {
+                              int particleRgb) {
         if (!isWritable())
             return;
 
-        final CompoundTag noteTag = serializeNoteMeta(soundMeta, timestamp, particleSet);
+        final CompoundTag noteTag = serializeNoteMeta(soundMeta, timestamp, particleRgb);
         noteTag.putString(NOTE_TYPE, WritableNoteType.HELD.name());
 
         noteTag.putInt(SOUND_INDEX_TAG, sound.index());
@@ -406,13 +407,13 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         setChanged();
     }
 
-    public static final String PARTICLE_SET_TAG = "ParticleSet";
-    protected CompoundTag serializeNoteMeta(NoteSoundMetadata soundMeta, int timestamp, int particleSet) {
+    public static final String PARTICLE_COLOR_TAG = "ParticleColor";
+    protected CompoundTag serializeNoteMeta(NoteSoundMetadata soundMeta, int timestamp, int particleRgb) {
         final CompoundTag noteTag = new CompoundTag();
 
         noteTag.putInt(PITCH_TAG, soundMeta.pitch());
         noteTag.putFloat(VOLUME_TAG, soundMeta.volume() / 100f);
-        noteTag.putInt(PARTICLE_SET_TAG, particleSet);
+        noteTag.putInt(PARTICLE_COLOR_TAG, particleRgb);
         noteTag.putInt(TIMESTAMP_TAG, timestamp);
 
         return noteTag;
@@ -466,8 +467,13 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
                 case REGULAR:
                     playNoteSound(note, instrumentId);
                     break;
+
                 case HELD:
                     playHeldSound(note, instrumentId);
+                    break;
+
+                case DAMPEN:
+                    dampenSounds();
                     break;
             }
         } catch (Exception e) {
@@ -481,14 +487,15 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         final int soundIndex = noteTag.getInt(SOUND_INDEX_TAG);
 
         NoteSoundPacketUtil.sendPlayNotePackets(
-            level,
-            NoteSoundRegistrar.getSounds(soundLocation)[soundIndex],
-            meta
+                level,
+                NoteSoundRegistrar.getSounds(soundLocation)[soundIndex],
+                meta,
+                looperInitiatorID
         );
 
-        int noteIndex = soundIndex + meta.pitch();
-        int colorSet = noteTag.getInt(LooperBlockEntity.PARTICLE_SET_TAG);
-        triggerEmitNoteParticle(noteIndex, colorSet);
+        int rgb = noteTag.getInt(PARTICLE_COLOR_TAG);
+
+        triggerEmitNoteParticle(rgb);
     }
 
     protected void playHeldSound(final CompoundTag noteTag, final ResourceLocation instrumentId) {
@@ -506,10 +513,10 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         );
 
         if (phase == HeldSoundPhase.ATTACK) {
-            int colorSet = noteTag.getInt(LooperBlockEntity.PARTICLE_SET_TAG);
-            cachedHeldNotes.add(new TriValue<>(sound, meta, colorSet));
-            int noteIndex = soundIndex + meta.pitch();
-            triggerEmitNoteParticle(noteIndex, colorSet);
+            int rgb = noteTag.getInt(PARTICLE_COLOR_TAG);
+
+            cachedHeldNotes.add(new TriValue<>(sound, meta, rgb));
+            triggerEmitNoteParticle(rgb);
 
         } else if (phase == HeldSoundPhase.RELEASE) {
             cachedHeldNotes.removeIf(triple ->
@@ -519,23 +526,34 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         }
     }
 
+    protected void dampenSounds() {
+        cachedHeldNotes.clear();
+
+        GIPacketHandler.sendToTracking(
+                new S2CLooperDampenPacket(looperInitiatorID), (ServerLevel) level, getBlockPos()
+        );
+    }
+
     protected NoteSoundMetadata metaFromNoteTag(final CompoundTag noteTag, final ResourceLocation instrumentId) {
         return new NoteSoundMetadata(
             getBlockPos(),
             noteTag.getInt(PITCH_TAG),
             (int)(noteTag.getFloat(VOLUME_TAG) * 100),
+            noteTag.getInt(PARTICLE_COLOR_TAG),
             instrumentId, Optional.empty()
         );
     }
 
-    public void triggerEmitNoteParticle(int noteIndex, final int colorSet) {
-        final double MIN_NOTE = -12;
-        final double MAX_NOTE = 30; // should be 32, but color sets of 6 align better with octaves this way
-        double particleColor = (noteIndex - MIN_NOTE) / (MAX_NOTE - MIN_NOTE);
-        particleColor = net.minecraft.util.Mth.clamp(particleColor, 0.0, 1.0);
+    public void triggerEmitNoteParticle(int rgb) {
+
+        double size = 0.2;
 
         GIPacketHandler.sendToTracking(
-                new S2CLooperParticlePacket(getBlockPos(), particleColor, colorSet),
+                new S2CLooperParticlePacket(
+                        getBlockPos(),
+                        rgb,
+                        size
+                ),
                 (ServerLevel) getLevel(),
                 getBlockPos()
         );
@@ -549,11 +567,11 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
 
         heldParticleTimer = 0;
 
-        for (TriValue<HeldNoteSound, NoteSoundMetadata, Integer> heldNote : cachedHeldNotes) {
-            HeldNoteSound sound = heldNote.obj1();
-            NoteSoundMetadata meta = heldNote.obj2();
-            int noteIndex = sound.index() + meta.pitch();
-            triggerEmitNoteParticle(noteIndex, heldNote.obj3());
+        for (TriValue<HeldNoteSound, NoteSoundMetadata, Integer> heldNote : cachedHeldNotes)
+        {
+            triggerEmitNoteParticle(
+                    heldNote.obj3()
+            );
         }
     }
 
@@ -618,4 +636,17 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         LooperUtil.setNotRecording(player);
     }
 
+    public void writeDampen(int timestamp) {
+        if (!isWritable())
+            return;
+
+        final CompoundTag noteTag = new CompoundTag();
+
+        noteTag.putString(NOTE_TYPE, WritableNoteType.DAMPEN.name());
+        noteTag.putInt(TIMESTAMP_TAG, timestamp);
+
+        CommonUtil.getOrCreateListTag(getChannel(), NOTES_TAG).add(noteTag);
+
+        setChanged();
+    }
 }

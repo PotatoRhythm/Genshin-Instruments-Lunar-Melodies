@@ -30,6 +30,4 @@ public class DjemDjemDrumNoteIdentifier extends NoteButtonIdentifier {
     private boolean drumMatch(final DjemDjemDrumNoteIdentifier other) {
         return index == other.index;
     }
-
-    
 }

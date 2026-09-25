@@ -150,5 +150,4 @@ public class ClientEvents {
     public static void onGameShutdown(final GameShuttingDownEvent event) {
         MidiController.unloadDevice();
     }
-
 }

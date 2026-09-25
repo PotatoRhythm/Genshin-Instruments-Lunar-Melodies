@@ -1,39 +1,19 @@
 {
     "variants": {
-
-        "has_keyboard=false,facing=north": {
-            "model": "genshinstrument_lm:block/keyboard/stand",
-            "y": 0
+        "facing=north": {
+            "model": "genshinstrument_lm:block/keyboard/stand"
         },
-        "has_keyboard=false,facing=east": {
+        "facing=east": {
             "model": "genshinstrument_lm:block/keyboard/stand",
             "y": 90
         },
-        "has_keyboard=false,facing=south": {
+        "facing=south": {
             "model": "genshinstrument_lm:block/keyboard/stand",
             "y": 180
         },
-        "has_keyboard=false,facing=west": {
+        "facing=west": {
             "model": "genshinstrument_lm:block/keyboard/stand",
-            "y": 270
-        },
-
-        "has_keyboard=true,facing=north": {
-            "model": "genshinstrument_lm:block/keyboard/stand_with_keyboard",
-            "y": 0
-        },
-        "has_keyboard=true,facing=east": {
-            "model": "genshinstrument_lm:block/keyboard/stand_with_keyboard",
-            "y": 90
-        },
-        "has_keyboard=true,facing=south": {
-            "model": "genshinstrument_lm:block/keyboard/stand_with_keyboard",
-            "y": 180
-        },
-        "has_keyboard=true,facing=west": {
-            "model": "genshinstrument_lm:block/keyboard/stand_with_keyboard",
             "y": 270
         }
-
     }
 }

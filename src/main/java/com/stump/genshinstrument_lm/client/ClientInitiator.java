@@ -2,12 +2,16 @@ package com.stump.genshinstrument_lm.client;
 
 import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.client.gui.instrument.InstrumentScreenRegistry;
+import com.stump.genshinstrument_lm.client.gui.instrument.bassguitar.BassGuitarScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.djemdjemdrum.DjemDjemDrumScreen;
+import com.stump.genshinstrument_lm.client.gui.instrument.drumset.DrumsetScreen;
+import com.stump.genshinstrument_lm.client.gui.instrument.electricguitar.ElectricGuitarScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.floralzither.FloralZitherScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.gloriousdrum.AratakisGreatAndGloriousDrumScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.gw2_bass.Gw2BassScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.gw2_bell.Gw2BellScreen;
-import com.stump.genshinstrument_lm.client.gui.instrument.gw2_drum.Gw2DrumScreen;
+import com.stump.genshinstrument_lm.client.gui.instrument.gw2_drumset.Gw2DrumsetScreen;
+import com.stump.genshinstrument_lm.client.gui.instrument.gw2_frame_drum.Gw2FrameDrumScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.gw2_flute.Gw2FluteScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.gw2_harp.Gw2HarpScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.gw2_horn.Gw2HornScreen;
@@ -70,9 +74,12 @@ public class ClientInitiator {
                 Map.entry(DjemDjemDrumScreen.INSTRUMENT_ID, DjemDjemDrumScreen::new),
 
                 Map.entry(KeyboardScreen.INSTRUMENT_ID, KeyboardScreen::new),
+                Map.entry(DrumsetScreen.INSTRUMENT_ID, DrumsetScreen::new),
                 Map.entry(ViolinScreen.INSTRUMENT_ID, ViolinScreen::new),
                 Map.entry(TromboneScreen.INSTRUMENT_ID, TromboneScreen::new),
                 Map.entry(GuitarScreen.INSTRUMENT_ID, GuitarScreen::new),
+                Map.entry(BassGuitarScreen.INSTRUMENT_ID, BassGuitarScreen::new),
+                Map.entry(ElectricGuitarScreen.INSTRUMENT_ID, ElectricGuitarScreen::new),
                 Map.entry(PipaScreen.INSTRUMENT_ID, PipaScreen::new),
                 Map.entry(ShamisenScreen.INSTRUMENT_ID, ShamisenScreen::new),
                 Map.entry(KotoScreen.INSTRUMENT_ID, KotoScreen::new),
@@ -92,7 +99,8 @@ public class ClientInitiator {
                 Map.entry(Gw2PianoScreen.INSTRUMENT_ID, Gw2PianoScreen::new),
                 Map.entry(Gw2QuagganOrganScreen.INSTRUMENT_ID, Gw2QuagganOrganScreen::new),
                 Map.entry(Gw2VerdarachScreen.INSTRUMENT_ID, Gw2VerdarachScreen::new),
-                Map.entry(Gw2DrumScreen.INSTRUMENT_ID, Gw2DrumScreen::new)
+                Map.entry(Gw2FrameDrumScreen.INSTRUMENT_ID, Gw2FrameDrumScreen::new),
+                Map.entry(Gw2DrumsetScreen.INSTRUMENT_ID, Gw2DrumsetScreen::new)
         );
 
     @SubscribeEvent

@@ -1,23 +1,14 @@
 package com.stump.genshinstrument_lm.client.gui.options.partial;
 
 import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
-import com.stump.genshinstrument_lm.client.config.enumType.ControlModeType;
 import com.stump.genshinstrument_lm.client.config.enumType.InstrumentChannelType;
-import com.stump.genshinstrument_lm.client.config.enumType.ParticleColorType;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentScreen;
-import com.stump.genshinstrument_lm.client.gui.instrument.partial.grid.GridInstrumentScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.label.INoteLabel;
 import com.stump.genshinstrument_lm.client.gui.options.MidiOptionsScreen;
 import com.stump.genshinstrument_lm.client.gui.options.ParticleEditorScreen;
-import com.stump.genshinstrument_lm.client.gui.widget.SliderButton;
 import com.stump.genshinstrument_lm.client.util.ClientUtil;
-import com.stump.genshinstrument_lm.networking.GIPacketHandler;
-import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SParticleColorChangedPacket;
 import com.stump.genshinstrument_lm.sound.NoteSound;
-import com.stump.genshinstrument_lm.util.CommonUtil;
-import com.stump.genshinstrument_lm.util.LabelUtil;
-import net.minecraft.client.gui.components.AbstractSliderButton;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.CycleButton;
 import net.minecraft.client.gui.components.Tooltip;
@@ -34,7 +25,6 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import javax.annotation.Nullable;
-import java.text.DecimalFormat;
 
 /**
  * The base class for all main instrument options screens.
@@ -180,19 +170,6 @@ public abstract class InstrumentOptionsScreen extends AbstractInstrumentOptionsS
                 );
         rowHelper.addChild(serverAudio);
 
-        final CycleButton<ParticleColorType> particleColorButton = CycleButton.<ParticleColorType>builder(color ->
-                        Component.translatable("button.genshinstrument_lm.particle_color_type." + color.name().toLowerCase())
-                )
-                .withValues(ParticleColorType.values())
-                .withInitialValue(ModClientConfigs.PARTICLE_COLOR_TYPE.get())
-                .withTooltip(color -> Tooltip.create(Component.translatable("button.genshinstrument_lm.particle_color_type.tooltip")))
-                .create(0, 0,
-                        getSmallButtonWidth(), getButtonHeight(),
-                        Component.translatable("button.genshinstrument_lm.particle_color_type"),
-                        this::onParticleColorTypeChanged
-                );
-        rowHelper.addChild(particleColorButton);
-
         final Button particleColorEditorBtn = Button.builder(
                         Component.translatable("button.genshinstrument_lm.particle_color_editor"),
                         (btn) -> openParticleColorEditor()
@@ -249,13 +226,8 @@ public abstract class InstrumentOptionsScreen extends AbstractInstrumentOptionsS
         ModClientConfigs.SERVER_AUDIO.set(value);
     }
 
-    protected void onParticleColorTypeChanged(final CycleButton<ParticleColorType> button, final ParticleColorType value) {
-        ModClientConfigs.PARTICLE_COLOR_TYPE.set(value);
-        GIPacketHandler.sendToServer(new C2SParticleColorChangedPacket(value.ordinal()));
-    }
-
     protected void openParticleColorEditor() {
-        Screen particleEditorScreen = new ParticleEditorScreen(this, instrumentScreen.orElse(null)); // your new GUI class
+        Screen particleEditorScreen = new ParticleEditorScreen(this);
         if (isOverlay) {
             minecraft.popGuiLayer();
             minecraft.pushGuiLayer(particleEditorScreen);

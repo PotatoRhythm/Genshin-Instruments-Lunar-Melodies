@@ -1,0 +1,39 @@
+{
+  "variants": {
+
+    "part=controller,facing=north": {
+      "model": "genshinstrument_lm:block/drumset",
+      "y": 0
+    },
+    "part=controller,facing=east": {
+      "model": "genshinstrument_lm:block/drumset",
+      "y": 90
+    },
+    "part=controller,facing=south": {
+      "model": "genshinstrument_lm:block/drumset",
+      "y": 180
+    },
+    "part=controller,facing=west": {
+      "model": "genshinstrument_lm:block/drumset",
+      "y": 270
+    },
+
+    "part=dummy,facing=north": {
+      "model": "genshinstrument_lm:block/drumset",
+      "y": 0
+    },
+    "part=dummy,facing=east": {
+      "model": "genshinstrument_lm:block/drumset",
+      "y": 90
+    },
+    "part=dummy,facing=south": {
+      "model": "genshinstrument_lm:block/drumset",
+      "y": 180
+    },
+    "part=dummy,facing=west": {
+      "model": "genshinstrument_lm:block/drumset",
+      "y": 270
+    }
+
+  }
+}

@@ -4,10 +4,13 @@ import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButto
 import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
 import com.stump.genshinstrument_lm.networking.packet.instrument.util.NoteSoundPacketUtil;
 import com.stump.genshinstrument_lm.sound.NoteSound;
+import com.stump.genshinstrument_lm.util.ParticleColorUtil;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+
+import java.util.Optional;
 
 /**
  * A C2S packet notifying the server that a
@@ -20,9 +23,18 @@ public class C2SNoteSoundPacket extends C2SNotePacket<NoteSound> {
     }
     @OnlyIn(Dist.CLIENT)
     public C2SNoteSoundPacket(NoteButton noteButton, NoteSound sound, int pitch) {
-        super(noteButton, sound, pitch);
+        super(
+                sound,
+                new NoteSoundMetadata(
+                        noteButton.getSoundSourcePos(),
+                        pitch,
+                        noteButton.instrumentScreen.volume,
+                        ParticleColorUtil.getNoteRGB(sound.index, pitch),
+                        noteButton.instrumentScreen.getInstrumentId(),
+                        Optional.ofNullable(noteButton.getIdentifier())
+                )
+        );
     }
-
     public C2SNoteSoundPacket(FriendlyByteBuf buf) {
         super(buf);
     }

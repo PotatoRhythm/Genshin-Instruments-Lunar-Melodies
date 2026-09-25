@@ -16,7 +16,7 @@ public class Gw2BassScreen extends GridInstrumentScreen {
 
     @Override
     public SoundOption getSoundOption() {
-        return new SoundOption(GISounds.GW2_BASS);
+        return new SoundOption(GISounds.GW2_BASS, true);
     }
 
     @Override

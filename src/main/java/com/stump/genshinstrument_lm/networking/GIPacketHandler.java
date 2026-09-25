@@ -1,10 +1,7 @@
 package com.stump.genshinstrument_lm.networking;
 
 import com.stump.genshinstrument_lm.GInstrumentMod;
-import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SHeldNoteSoundPacket;
-import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SNoteSoundPacket;
-import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.CloseInstrumentPacket;
-import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.C2SParticleColorChangedPacket;
+import com.stump.genshinstrument_lm.networking.packet.instrument.c2s.*;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.*;
 import com.stump.genshinstrument_lm.networking.packet.*;
 import com.stump.genshinstrument_lm.util.ServerUtil;
@@ -17,7 +14,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import net.minecraftforge.network.NetworkRegistry;
 import net.minecraftforge.network.PacketDistributor;
 import net.minecraftforge.network.simple.SimpleChannel;
-
 import java.util.List;
 
 @EventBusSubscriber(modid = GInstrumentMod.MODID, bus = Bus.MOD)
@@ -26,11 +22,13 @@ public class GIPacketHandler {
     public static final List<Class<IModPacket>> ACCEPTABLE_PACKETS = List.of(new Class[] {
         NotifyInstrumentOpenPacket.class,
         C2SNoteSoundPacket.class, S2CNoteSoundPacket.class,
+        C2SDampenNotesPacket.class, S2CDampenNotesPacket.class,
         OpenInstrumentPacket.class, CloseInstrumentPacket.class,
         C2SHeldNoteSoundPacket.class, S2CHeldNoteSoundPacket.class,
         LooperRecordStatePacket.class, OpenNoteBlockInstrumentPacket.class,
-        S2CLooperParticlePacket.class, C2SParticleColorChangedPacket.class,
-        S2CParticleColorChangedPacket.class,
+        S2CLooperParticlePacket.class, C2SColorSetAcceptPacket.class,
+        S2CColorSetAddPacket.class, S2CColorSetConfirmationPacket.class,
+        S2CLooperDampenPacket.class,
         // Sync stuff
         DoesLooperExistPacket.class, LooperUnplayablePacket.class, SyncModTagPacket.class,
         LooperPlayStatePacket.class
@@ -60,5 +58,8 @@ public class GIPacketHandler {
     }
     public static <T> void sendToTracking(T packet, ServerLevel level, BlockPos pos) {
         INSTANCE.send(PacketDistributor.TRACKING_CHUNK.with(() -> level.getChunkAt(pos)), packet);
+    }
+    public static <T> void sendToTrackingEntity(final T packet, final ServerPlayer player) {
+        INSTANCE.send(PacketDistributor.TRACKING_ENTITY.with(() -> player), packet);
     }
 }

@@ -149,17 +149,38 @@ public class ModItems {
             DEFAULT_INSTRUMENT_BLOCK_TABS
         ),
 
-        MICROPHONE_STAND = register("microphone_stand", () ->
-                        new MicrophoneStandBlockItem(
-                                ModBlocks.MICROPHONE_STAND.get(), new Properties().stacksTo(1),
-                                null
-                        ),
-                DEFAULT_INSTRUMENT_BLOCK_TABS
+        MICROPHONE_STAND = register("microphone_stand",
+                () ->new MicrophoneStandBlockItem(ModBlocks.MICROPHONE_STAND.get(), new Properties().stacksTo(1)),
+                GICreativeModeTabs.INSTRUMENTS_TAB.getKey()
+        ),
+
+        DRUMSET = register(
+                "drumset",
+                () -> new DrumsetBlockItem(ModBlocks.DRUMSET.get(), new Properties().stacksTo(1)),
+                GICreativeModeTabs.INSTRUMENTS_TAB.getKey()
+        ),
+
+        KEYBOARD = register(
+                "keyboard",
+                () -> new KeyboardBlockItem(ModBlocks.KEYBOARD.get(), new Properties().stacksTo(1)),
+                GICreativeModeTabs.INSTRUMENTS_TAB.getKey()
         ),
 
         MICROPHONE = register("microphone", () -> new MicrophoneInstrumentItem(
                 (player) -> InstrumentPacketUtil.sendOpenPacket(
                         player, loc("microphone")
+                )
+        )),
+
+        ELECTRIC_GUITAR = register("electric_guitar", () -> new MicrophoneInstrumentItem(
+                (player) -> InstrumentPacketUtil.sendOpenPacket(
+                        player, loc("electric_guitar")
+                )
+        )),
+
+        BASS_GUITAR = register("bass_guitar", () -> new MicrophoneInstrumentItem(
+                (player) -> InstrumentPacketUtil.sendOpenPacket(
+                        player, loc("bass_guitar")
                 )
         )),
 
@@ -175,15 +196,11 @@ public class ModItems {
             ),
             "Philharmonia"
         )),
-        KEYBOARD = register("keyboard", () ->
-            new KeyboardBlockItem(
-                ModBlocks.KEYBOARD.get(), new Properties().stacksTo(1),
-                null
-            ),
-            DEFAULT_INSTRUMENT_BLOCK_TABS
-        ),
-        KEYBOARD_STAND = registerBlockItem(ModBlocks.KEYBOARD_STAND,
-            GICreativeModeTabs.INSTRUMENTS_TAB.getKey()
+
+        KEYBOARD_STAND = registerBlockItem(
+                ModBlocks.KEYBOARD_STAND,
+                "keyboard_stand",
+                GICreativeModeTabs.INSTRUMENTS_TAB.getKey()
         ),
 
         GW2_BASS = register("gw2_bass", () ->
@@ -247,20 +264,26 @@ public class ModItems {
                 )
         ),
 
-        GW2_DRUM = register("gw2_drum", () ->
+        GW2_FRAME_DRUM = register("gw2_frame_drum", () ->
                 new InstrumentItem(
-                        (player) -> sendOpenPacket(player, loc("gw2_drum"))
+                        (player) -> sendOpenPacket(player, loc("gw2_frame_drum"))
                 )
         ),
 
+        GW2_DRUMSET = register("gw2_drumset", () ->
+                new InstrumentItem(
+                        (player) -> sendOpenPacket(player, loc("gw2_drumset"))
+                )
+        ),
 
-        LOOPER = registerBlockItem(ModBlocks.LOOPER,
-            GICreativeModeTabs.MUSIC_PRODUCTION_TAB.getKey(), CreativeModeTabs.FUNCTIONAL_BLOCKS,
-            CreativeModeTabs.REDSTONE_BLOCKS
+        LOOPER = registerBlockItem(
+                ModBlocks.LOOPER,
+                "looper",
+            GICreativeModeTabs.MUSIC_PRODUCTION_TAB.getKey(),
+            CreativeModeTabs.FUNCTIONAL_BLOCKS,CreativeModeTabs.REDSTONE_BLOCKS
+
         ),
-        SPEAKER = registerBlockItem(ModBlocks.SPEAKER,
-            GICreativeModeTabs.MUSIC_PRODUCTION_TAB.getKey(), CreativeModeTabs.FUNCTIONAL_BLOCKS
-        ),
+
         LOOPER_ADAPTER = register("looper_adapter",
             () -> new LooperAdapterItem(new Properties().stacksTo(1)),
             CreativeModeTabs.REDSTONE_BLOCKS, GICreativeModeTabs.MUSIC_PRODUCTION_TAB.getKey()
@@ -338,11 +361,15 @@ public class ModItems {
     //     return registerBlockItem(block, DEFAULT_INSTRUMENT_BLOCK_TABS);
     // }
     @SafeVarargs
-    private static RegistryObject<Item> registerBlockItem(RegistryObject<Block> block, ResourceKey<CreativeModeTab>... tabs) {
+    private static RegistryObject<Item> registerBlockItem(
+            RegistryObject<Block> block,
+            String name,
+            ResourceKey<CreativeModeTab>... tabs
+    ) {
         return register(
-            block.getId().getPath(),
-            () -> new BlockItem(block.get(), new Properties()),
-            tabs
+                name,
+                () -> new BlockItem(block.get(), new Properties()),
+                tabs
         );
     }
 

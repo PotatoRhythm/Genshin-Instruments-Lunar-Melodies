@@ -1,0 +1,125 @@
+{
+  "credit": "Made with Blockbench",
+  "parent": "builtin/entity",
+  "texture_size": [
+    64,
+    64
+  ],
+  "textures": {
+    "particle": "minecraft:block/black_wool"
+  },
+  "gui_light": "front",
+  "display": {
+    "thirdperson_righthand": {
+      "rotation": [
+        0,
+        0,
+        91
+      ],
+      "translation": [
+        -6.25,
+        2,
+        3
+      ],
+      "scale": [
+        0.59,
+        0.59,
+        0.59
+      ]
+    },
+    "thirdperson_lefthand": {
+      "rotation": [
+        0,
+        0,
+        89
+      ],
+      "translation": [
+        -6.25,
+        -7.5,
+        3
+      ],
+      "scale": [
+        0.59,
+        0.59,
+        0.59
+      ]
+    },
+    "firstperson_righthand": {
+      "translation": [
+        6.25,
+        4.5,
+        0
+      ],
+      "scale": [
+        0.56,
+        0.56,
+        0.56
+      ]
+    },
+    "firstperson_lefthand": {
+      "translation": [
+        -2,
+        4.5,
+        0
+      ],
+      "scale": [
+        0.56,
+        0.56,
+        0.56
+      ]
+    },
+    "ground": {
+      "translation": [
+        3.75,
+        1.75,
+        0
+      ],
+      "scale": [
+        0.5,
+        0.5,
+        0.5
+      ]
+    },
+    "gui": {
+      "rotation": [
+        -100,
+        -40,
+        170
+      ],
+      "translation": [
+        -3.5,
+        -3,
+        0
+      ],
+      "scale": [
+        0.55,
+        0.55,
+        0.55
+      ]
+    },
+    "head": {
+      "translation": [
+        7.75,
+        14.5,
+        -0.5
+      ]
+    },
+    "fixed": {
+      "rotation": [
+        89,
+        -180,
+        -180
+      ],
+      "translation": [
+        5,
+        0.25,
+        -4.75
+      ],
+      "scale": [
+        0.62,
+        0.62,
+        0.62
+      ]
+    }
+  }
+}

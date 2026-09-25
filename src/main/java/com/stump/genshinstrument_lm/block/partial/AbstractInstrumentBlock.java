@@ -6,12 +6,16 @@ import com.stump.genshinstrument_lm.client.ModArmPose;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.NotifyInstrumentOpenPacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.util.InstrumentPacketUtil;
+import com.stump.genshinstrument_lm.render.util.InstrumentDyeColors;
 import net.minecraft.client.model.HumanoidModel.ArmPose;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.DyeColor;
+import net.minecraft.world.item.DyeItem;
+import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.BaseEntityBlock;
 import net.minecraft.world.level.block.entity.BlockEntity;
@@ -61,9 +65,14 @@ public abstract class AbstractInstrumentBlock extends BaseEntityBlock {
     @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand,
                                  BlockHitResult pHit) {
+        InteractionResult dyeResult =
+                tryApplyDye(pLevel, pPos, pPlayer, pHand);
+
+        if (dyeResult != null)
+            return dyeResult;
+
         if (pLevel.isClientSide)
             return InteractionResult.CONSUME;
-
 
         final BlockEntity be = pLevel.getBlockEntity(pPos);
         if (!(be instanceof InstrumentBlockEntity))
@@ -98,4 +107,32 @@ public abstract class AbstractInstrumentBlock extends BaseEntityBlock {
         super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
     }
 
+    protected InteractionResult tryApplyDye(Level level, BlockPos pos, Player player, InteractionHand hand) {
+
+        ItemStack stack = player.getItemInHand(hand);
+
+        if (!(stack.getItem() instanceof DyeItem dye))
+            return null;
+
+        if (!level.isClientSide) {
+            BlockEntity be = level.getBlockEntity(pos);
+
+            if (be instanceof InstrumentBlockEntity instrument) {
+                DyeColor dyeColor = dye.getDyeColor();
+                int rgb = InstrumentDyeColors.getColor(dyeColor);
+
+                instrument.setDyeColor(rgb);
+
+                if (!player.getAbilities().instabuild) {
+                    stack.shrink(1);
+                }
+            }
+        }
+
+        return InteractionResult.sidedSuccess(level.isClientSide);
+    }
+
+    public BlockPos getInstrumentPos(Level level, BlockPos pos) {
+        return pos;
+    }
 }
