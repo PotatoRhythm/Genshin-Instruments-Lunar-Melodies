@@ -3,7 +3,8 @@ package com.stump.genshinstrument_lm.client.config.enumType;
 import java.util.Locale;
 
 public enum ControlModeType {
-    DEFAULT,
+    GENSHIN,
+    HEARTOPIA,
     OCTAVE_SWAP;
 
     public String getKey() {

@@ -51,6 +51,6 @@ public class Gw2FrameDrumNoteButton extends NoteButton {
 
 
     public Key getKey() {
-        return InstrumentKeyMappings.GRID_INSTRUMENT_MAPPINGS[1 - row][column];
+        return InstrumentKeyMappings.GENSHIN_INSTRUMENT_MAPPINGS[1 - row][column];
     }
 }

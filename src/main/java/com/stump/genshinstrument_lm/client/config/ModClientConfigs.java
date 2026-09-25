@@ -71,7 +71,7 @@ public class ModClientConfigs {
 
         GRID_LABEL_TYPE = configBuilder.defineEnum("label_type", NoteGridLabel.KEYBOARD_LAYOUT);
         CHANNEL_TYPE = configBuilder.defineEnum("channel_type", InstrumentChannelType.MIXED);
-        CONTROL_MODE = configBuilder.comment("Selects the instrument control mode").defineEnum("control_mode", ControlModeType.DEFAULT);
+        CONTROL_MODE = configBuilder.comment("Selects the instrument control mode").defineEnum("control_mode", ControlModeType.GENSHIN);
 
         STOP_MUSIC_ON_PLAY = configBuilder.comment(
             "Stops all background music when you or someone else within "+ ClientUtil.STOP_SOUND_DISTANCE+" blocks of range plays an instrument"

@@ -155,7 +155,8 @@
     "button.genshinstrument_lm.label.do_re_mi": "do re mi",
     "button.genshinstrument_lm.label.do_re_mi.description": "Labels will be of the musical notation \"do re mi.\"",
 
-    "button.genshinstrument_lm.control_mode.default": "Default",
+    "button.genshinstrument_lm.control_mode.genshin": "Genshin",
+    "button.genshinstrument_lm.control_mode.heartopia": "Heartopia",
     "button.genshinstrument_lm.control_mode.octave_swap": "Octave Swap",
 
     "genshinstrument_lm.label.do": "do",
@@ -339,7 +340,8 @@
     "genshinstrument_lm.advancements.main.records_all.description": "Play all burned records",
 
 
-    "button.genshinstrument_lm.control_mode.default.description": "Default Genshin Impact controls",
+    "button.genshinstrument_lm.control_mode.genshin.description": "Genshin Impact controls",
+    "button.genshinstrument_lm.control_mode.heartopia.description": "Heartopia controls",
     "button.genshinstrument_lm.control_mode.octave_swap.description":
     "Use octave swap keys to shift octaves. Key binds set in Minecraft's Options > Controls > Key Binds",
     "genshinstrument_lm.keymaps.octave_mode": "Instruments: Octave Mode",

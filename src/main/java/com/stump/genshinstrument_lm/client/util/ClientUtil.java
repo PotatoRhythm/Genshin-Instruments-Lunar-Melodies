@@ -52,7 +52,7 @@ public class ClientUtil {
 
     public static final Lazy<Boolean> ON_QWERTY = Lazy.of(() -> {
         final String qwerty = "QWERTY";
-        final Key[] keyRow = InstrumentKeyMappings.GRID_INSTRUMENT_MAPPINGS[0];
+        final Key[] keyRow = InstrumentKeyMappings.GENSHIN_INSTRUMENT_MAPPINGS[0];
 
         // Assuming there will be more than 6 entries here
         for (int i = 0; i < qwerty.length(); i++) {

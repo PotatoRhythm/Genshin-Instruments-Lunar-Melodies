@@ -62,7 +62,7 @@ public class GridOctaveSwapController {
         if (overflowRes != null) {
             targetNote = overflowRes.fixedOctaveNote();
             int newInsPitch = overflowRes.pitchOffset() + screen.getPitch();
-            if ((newInsPitch < NoteSound.MIN_PITCH) || (newInsPitch > NoteSound.MIN_PITCH)) {
+            if ((newInsPitch < NoteSound.MIN_PITCH) || (newInsPitch > NoteSound.MAX_PITCH)) {
                 screen.setPitch(0);
             }
         }

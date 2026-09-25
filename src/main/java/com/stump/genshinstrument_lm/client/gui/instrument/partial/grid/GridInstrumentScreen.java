@@ -41,6 +41,7 @@ public abstract class GridInstrumentScreen extends InstrumentScreen implements I
     protected Map<Key, NoteButton> noteMap;
 
     private GridOctaveSwapController octaveController;
+    private GridHeartopiaController heartopiaController;
     private int currentOctave = 0;
     private int minOctave;
     private int maxOctave;
@@ -63,8 +64,8 @@ public abstract class GridInstrumentScreen extends InstrumentScreen implements I
 
     protected void buildGrid() {
         this.noteGrid = initNoteGrid();
-        this.noteMap = noteGrid.genKeyboardMap(InstrumentKeyMappings.GRID_INSTRUMENT_MAPPINGS);
-
+        Key[][] mappings = InstrumentKeyMappings.GENSHIN_INSTRUMENT_MAPPINGS;
+        this.noteMap = noteGrid.genKeyboardMap(mappings);
         this.clearWidgets();
         this.grid = noteGrid.initNoteGridLayout(.9f, width, height);
         grid.visitWidgets(this::addRenderableWidget);
@@ -77,23 +78,33 @@ public abstract class GridInstrumentScreen extends InstrumentScreen implements I
         buildGrid();
         super.init();
         octaveController = new GridOctaveSwapController(this);
+        heartopiaController = new GridHeartopiaController(this);
     }
 
     @Override
     public boolean keyPressed(int keyCode, int scanCode, int modifiers) {
-        if (ModClientConfigs.CONTROL_MODE.get() == ControlModeType.OCTAVE_SWAP) {
-            octaveController.handleKeyPress(keyCode, scanCode);
+        if (ModClientConfigs.CONTROL_MODE.get() == ControlModeType.HEARTOPIA) {
+            heartopiaController.handleKeyPress(keyCode, scanCode);
             // Ignore default note hotkeys in octave mode
             final NoteButton note = getNoteByKey(keyCode);
-            if (note != null) {
+            if (note != null)
                 return true;
-            }
+        }
+        if (ModClientConfigs.CONTROL_MODE.get() == ControlModeType.OCTAVE_SWAP) {
+            octaveController.handleKeyPress(keyCode, scanCode);
+            final NoteButton note = getNoteByKey(keyCode);
+            if (note != null)
+                return true;
         }
         return super.keyPressed(keyCode, scanCode, modifiers);
     }
 
     @Override
     public boolean keyReleased(int keyCode, int scanCode, int modifiers) {
+        if (ModClientConfigs.CONTROL_MODE.get() == ControlModeType.HEARTOPIA) {
+            heartopiaController.handleKeyRelease(keyCode);
+            return true;
+        }
         if (ModClientConfigs.CONTROL_MODE.get() == ControlModeType.OCTAVE_SWAP) {
             octaveController.handleKeyRelease(keyCode);
             return true;
@@ -151,7 +162,13 @@ public abstract class GridInstrumentScreen extends InstrumentScreen implements I
      * @return The corresponding note button
      */
     public NoteButton getNoteButtonByMIDINote(final int note) {
-        return getNoteButton(note % rows(), note / rows());
+        final int row = note % rows();
+        final int column = note / rows();
+
+        if (column < 0 || column >= columns())
+            return null;
+
+        return getNoteButton(row, column);
     }
 
     @Override

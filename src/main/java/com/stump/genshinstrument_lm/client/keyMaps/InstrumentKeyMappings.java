@@ -44,14 +44,14 @@ public class InstrumentKeyMappings {
             () -> new KeyMapping(CATEGORY+".volume_up",
                     INSTRUMENT_KEY_CONFLICT_CONTEXT,
                     InputConstants.Type.KEYSYM,
-                    GLFW.GLFW_KEY_RIGHT_BRACKET
+                    GLFW.GLFW_KEY_RIGHT
                     , CATEGORY)
     );
     public static final Lazy<KeyMapping> VOLUME_DOWN = Lazy.of(
             () -> new KeyMapping(CATEGORY+".volume_down",
                     INSTRUMENT_KEY_CONFLICT_CONTEXT,
                     InputConstants.Type.KEYSYM,
-                    GLFW.GLFW_KEY_LEFT_BRACKET
+                    GLFW.GLFW_KEY_LEFT
                     , CATEGORY)
     );
 
@@ -107,7 +107,7 @@ public class InstrumentKeyMappings {
                     OCTAVE_CATEGORY + ".octave_down", // translation key
                     INSTRUMENT_KEY_CONFLICT_CONTEXT,
                     InputConstants.Type.KEYSYM,
-                    GLFW.GLFW_KEY_9, // default key
+                    GLFW.GLFW_KEY_O, // default key
                     OCTAVE_CATEGORY // category
             )
     );
@@ -116,24 +116,24 @@ public class InstrumentKeyMappings {
                     OCTAVE_CATEGORY + ".octave_up",
                     INSTRUMENT_KEY_CONFLICT_CONTEXT,
                     InputConstants.Type.KEYSYM,
-                    GLFW.GLFW_KEY_0, // default key
+                    GLFW.GLFW_KEY_P, // default key
                     OCTAVE_CATEGORY
             )
     );
     public static final Lazy<KeyMapping>
-            NOTE_C = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_c", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_1, OCTAVE_CATEGORY)),
-            NOTE_CS = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_csharp", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_F1, OCTAVE_CATEGORY)),
-            NOTE_D = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_d", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_2, OCTAVE_CATEGORY)),
-            NOTE_DS = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_dsharp", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_F2, OCTAVE_CATEGORY)),
-            NOTE_E = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_e", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_3, OCTAVE_CATEGORY)),
-            NOTE_F = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_f", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_4, OCTAVE_CATEGORY)),
-            NOTE_FS = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_fsharp", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_F4, OCTAVE_CATEGORY)),
-            NOTE_G = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_g", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_5, OCTAVE_CATEGORY)),
-            NOTE_GS = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_gsharp", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_F5, OCTAVE_CATEGORY)),
-            NOTE_A = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_a", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_6, OCTAVE_CATEGORY)),
-            NOTE_AS = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_asharp", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_F6, OCTAVE_CATEGORY)),
-            NOTE_B = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_b", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_7, OCTAVE_CATEGORY)),
-            NOTE_HIGH_C = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_high_c", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_8, OCTAVE_CATEGORY));
+            NOTE_C = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_c", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_Q, OCTAVE_CATEGORY)),
+            NOTE_CS = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_csharp", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_2, OCTAVE_CATEGORY)),
+            NOTE_D = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_d", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_W, OCTAVE_CATEGORY)),
+            NOTE_DS = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_dsharp", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_3, OCTAVE_CATEGORY)),
+            NOTE_E = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_e", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_E, OCTAVE_CATEGORY)),
+            NOTE_F = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_f", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_R, OCTAVE_CATEGORY)),
+            NOTE_FS = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_fsharp", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_5, OCTAVE_CATEGORY)),
+            NOTE_G = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_g", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_T, OCTAVE_CATEGORY)),
+            NOTE_GS = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_gsharp", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_6, OCTAVE_CATEGORY)),
+            NOTE_A = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_a", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_Y, OCTAVE_CATEGORY)),
+            NOTE_AS = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_asharp", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_7, OCTAVE_CATEGORY)),
+            NOTE_B = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_b", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_U, OCTAVE_CATEGORY)),
+            NOTE_HIGH_C = Lazy.of(() -> new KeyMapping(OCTAVE_CATEGORY + ".note_high_c", INSTRUMENT_KEY_CONFLICT_CONTEXT, Type.KEYSYM, GLFW.GLFW_KEY_I, OCTAVE_CATEGORY));
     public static final Map<KeyMapping, Integer> HOTKEY_TO_PITCH = Map.ofEntries(
             Map.entry(NOTE_C.get(), 0),
             Map.entry(NOTE_CS.get(), 1),
@@ -177,9 +177,7 @@ public class InstrumentKeyMappings {
 
         event.register(DAMPEN.get());
     }
-    
 
-    /* --------------- Builtin Keys --------------- */
     public static final KeyMapping[] DRUMSET_MAPPINGS = {
             NOTE_C.get(),
             NOTE_E.get(),
@@ -200,12 +198,55 @@ public class InstrumentKeyMappings {
             NOTE_AS.get()
     };
 
-    public static final Key[][] GRID_INSTRUMENT_MAPPINGS = createInstrumentMaps(new int[][] {
+    /* --------------- Builtin Keys --------------- */
+
+    public static final Map<Integer, Integer> HEARTOPIA_KEY_TO_PITCH = Map.ofEntries(
+            Map.entry(GLFW.GLFW_KEY_COMMA,        0),  // C
+            Map.entry(GLFW.GLFW_KEY_L,            1),  // C#
+            Map.entry(GLFW.GLFW_KEY_PERIOD,       2),  // D
+            Map.entry(GLFW.GLFW_KEY_SEMICOLON,    3),  // D#
+            Map.entry(GLFW.GLFW_KEY_SLASH,        4),  // E
+            Map.entry(GLFW.GLFW_KEY_O,            5),  // F
+            Map.entry(GLFW.GLFW_KEY_0,            6),  // F#
+            Map.entry(GLFW.GLFW_KEY_P,            7),  // G
+            Map.entry(GLFW.GLFW_KEY_MINUS,        8),  // G#
+            Map.entry(GLFW.GLFW_KEY_LEFT_BRACKET, 9),  // A
+            Map.entry(GLFW.GLFW_KEY_EQUAL,       10),  // A#
+            Map.entry(GLFW.GLFW_KEY_RIGHT_BRACKET,11), // B
+
+            Map.entry(GLFW.GLFW_KEY_Z,  12), // C
+            Map.entry(GLFW.GLFW_KEY_S,  13), // C#
+            Map.entry(GLFW.GLFW_KEY_X,  14), // D
+            Map.entry(GLFW.GLFW_KEY_D,  15), // D#
+            Map.entry(GLFW.GLFW_KEY_C,  16), // E
+            Map.entry(GLFW.GLFW_KEY_V,  17), // F
+            Map.entry(GLFW.GLFW_KEY_G,  18), // F#
+            Map.entry(GLFW.GLFW_KEY_B,  19), // G
+            Map.entry(GLFW.GLFW_KEY_H,  20), // G#
+            Map.entry(GLFW.GLFW_KEY_N,  21), // A
+            Map.entry(GLFW.GLFW_KEY_J,  22), // A#
+            Map.entry(GLFW.GLFW_KEY_M,  23), // B
+
+            Map.entry(GLFW.GLFW_KEY_Q,  24), // C
+            Map.entry(GLFW.GLFW_KEY_2,  25), // C#
+            Map.entry(GLFW.GLFW_KEY_W,  26), // D
+            Map.entry(GLFW.GLFW_KEY_3,  27), // D#
+            Map.entry(GLFW.GLFW_KEY_E,  28), // E
+            Map.entry(GLFW.GLFW_KEY_R,  29), // F
+            Map.entry(GLFW.GLFW_KEY_5,  30), // F#
+            Map.entry(GLFW.GLFW_KEY_T,  31), // G
+            Map.entry(GLFW.GLFW_KEY_6,  32), // G#
+            Map.entry(GLFW.GLFW_KEY_Y,  33), // A
+            Map.entry(GLFW.GLFW_KEY_7,  34), // A#
+            Map.entry(GLFW.GLFW_KEY_U,  35), // B
+            Map.entry(GLFW.GLFW_KEY_I,  36)  // high C
+    );
+
+    public static final Key[][] GENSHIN_INSTRUMENT_MAPPINGS = createInstrumentMaps(new int[][] {
         {81, 87, 69, 82, 84, 89, 85, 73},
         {65, 83, 68, 70, 71, 72, 74, 75},
         {90, 88, 67, 86, 66, 78, 77, 44}
     });
-
 
     // Glorious drum
     public static final GloriousDrumKeys
