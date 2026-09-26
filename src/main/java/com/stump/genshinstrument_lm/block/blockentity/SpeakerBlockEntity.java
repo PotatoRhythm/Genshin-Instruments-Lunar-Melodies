@@ -18,8 +18,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import java.util.HashSet;
 
 /**
- * immediately rebroadcasts the notes of a paired instrument from this block's position,
- * rather than recording them for later playback like LooperBlockEntity does.
+ * immediately rebroadcasts the notes of a paired instrument from this block's position
  */
 public class SpeakerBlockEntity extends BlockEntity {
     private static final double MIN_NOTE = -12, MAX_NOTE = 30;
