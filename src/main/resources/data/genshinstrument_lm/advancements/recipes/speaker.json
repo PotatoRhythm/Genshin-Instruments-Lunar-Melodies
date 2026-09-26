@@ -1,0 +1,26 @@
+{
+    "parent": "genshinstrument_lm:recipes/root",
+
+    "criteria": {
+        "has_item": {
+            "conditions": {
+                "items": [
+                    {
+                        "items": ["minecraft:note_block"]
+                    }
+                ]
+            },
+            "trigger": "minecraft:inventory_changed"
+        }
+    },
+
+    "requirements": [
+        ["has_item"]
+    ],
+
+    "rewards": {
+        "recipes": [
+            "genshinstrument_lm:speaker"
+        ]
+    }
+}

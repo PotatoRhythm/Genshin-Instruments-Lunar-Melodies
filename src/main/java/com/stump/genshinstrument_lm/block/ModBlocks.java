@@ -43,6 +43,8 @@ public class ModBlocks {
                     BlockBehaviour.Properties.of().noOcclusion().strength(0.3f).sound(SoundType.WOOD)
         )),
 
-        LOOPER = BLOCKS.register("looper", () -> new LooperBlock(BlockBehaviour.Properties.copy(Blocks.NOTE_BLOCK)))
+        LOOPER = BLOCKS.register("looper", () -> new LooperBlock(BlockBehaviour.Properties.copy(Blocks.NOTE_BLOCK))),
+
+        SPEAKER = BLOCKS.register("speaker", () -> new SpeakerBlock(BlockBehaviour.Properties.copy(Blocks.NOTE_BLOCK)))
         ;
 }

@@ -54,7 +54,6 @@ public class NoteButtonRenderer {
         rootLocation = instrumentScreen.getResourceFromRoot("note");
 
         String[] notes = {"c", "d", "e", "f", "g", "a", "b"};
-
         if (instrumentScreen.isGuildWarsInstrument()) {
             int index = noteButton.soundIndex();
             String noteLetter = notes[index % 7];
