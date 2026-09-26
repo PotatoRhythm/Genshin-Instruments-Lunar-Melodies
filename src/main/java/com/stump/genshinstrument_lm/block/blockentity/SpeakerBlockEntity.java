@@ -39,7 +39,7 @@ public class SpeakerBlockEntity extends BlockEntity {
     }
 
     /**
-     * @return The same metadata, but originating from this speaker's position.
+     * return The same metadata, but originating from this speaker's position.
      */
     private NoteSoundMetadata relocate(final NoteSoundMetadata meta) {
         return new NoteSoundMetadata(getBlockPos(), meta.pitch(), meta.volume(), meta.particleColor(), meta.instrumentId(), meta.noteIdentifier());

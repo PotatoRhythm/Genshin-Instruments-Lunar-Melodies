@@ -34,8 +34,8 @@ public class SpeakerNoteListener {
 
 
     /**
-     * @return The speaker paired to the instrument that produced the provided event.
-     * Only matches player-initiated events - this both ties speaker playback to
+     * return The speaker paired to the instrument that produced the provided event.
+     * Only matches player-initiated events, this both ties speaker playback to
      * an actual player performance, and prevents a speaker's own relayed sound
      * (which is not player-initiated) from re-triggering itself.
      */

@@ -16,8 +16,8 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 
 /**
- * Handles pairing an instrument to a SpeakerBlockEntity and resolving
- * that pairing when the instrument is played. Mirrors link LooperUtil's
+ * handles pairing an instrument to a SpeakerBlockEntity and resolving
+ * that pairing when the instrument is played. mirrors link LooperUtil's
  * looper-pairing mechanism, but a given instrument may be paired to a speaker
  * independently of (and simultaneously with) a looper, since the two use separate tags.
  */
@@ -101,9 +101,9 @@ public class SpeakerUtil {
         });
     }
     /**
-     * Attempts to get the speaker pointed out by {@code speakerData}. Removes its reference if not found.
-     * @return The speaker's block entity as pointed in the {@code instrument}'s data.
-     * Null if not found
+     * attempts to get the speaker pointed out by speakerData. removes its reference if not found.
+     * return the speaker's block entity as pointed in the instrument's data.
+     * null if not found
      */
     @Nullable
     private static SpeakerBlockEntity getFromInstrument(Level level, CompoundTag speakerData, Runnable onInvalid) {
