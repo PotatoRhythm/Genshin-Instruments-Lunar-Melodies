@@ -2,11 +2,12 @@ package com.stump.genshinstrument_lm.client.gui.instrument.partial.grid;
 
 import com.stump.genshinstrument_lm.client.config.ModClientConfigs;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.NoteButton;
+import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.grid.NoteGridButton;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.held.IHoldableNoteButton;
 import com.stump.genshinstrument_lm.client.keyMaps.InstrumentKeyMappings;
-import com.stump.genshinstrument_lm.client.midi.MidiOverflowResult;
 import com.stump.genshinstrument_lm.client.midi.PressedMIDINote;
 import com.stump.genshinstrument_lm.sound.NoteSound;
+import com.stump.genshinstrument_lm.sound.held.HeldNoteSound;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,40 +39,90 @@ public class GridHeartopiaController {
             return false;
 
         // Limit max note if extended range is off
-        if (!ModClientConfigs.EXTEND_RANGE.get()
-                && pitchOffset >= screen.columns() * 12 + 1) {
+        if (!ModClientConfigs.EXTEND_RANGE.get() && pitchOffset >= screen.columns() * 12 + 1) {
             return true;
         }
 
-        int targetNote = pitchOffset;
+        NoteGridButton visualButton = null;
+        int visualPitch = Integer.MIN_VALUE;
 
-        screen.resetTransposition();
+        for (int column = 0; column < screen.columns(); column++) {
+            for (int row = 0; row < screen.rows(); row++) {
 
-        final MidiOverflowResult overflowRes =
-            midiReceiver.handleMidiOverflow(targetNote);
+                final NoteButton button = screen.getNoteButton(row, column);
 
-        if (overflowRes != null) {
-            targetNote = overflowRes.fixedOctaveNote();
-            int newInsPitch = overflowRes.pitchOffset() + screen.getPitch();
-            if ((newInsPitch < NoteSound.MIN_PITCH) || (newInsPitch > NoteSound.MAX_PITCH)) {
-                screen.setPitch(0);
+                if (!(button instanceof NoteGridButton gridButton))
+                    continue;
+
+                final int buttonPitch = gridButton.getChromaticPitch();
+
+                if (buttonPitch <= pitchOffset && buttonPitch > visualPitch) {
+                    visualButton = gridButton;
+                    visualPitch = buttonPitch;
+                }
             }
         }
 
-        final int basePitch = screen.getPitch();
-
-        final NoteButton pressedNote = midiReceiver.handleMidiPress(targetNote, 0);
-
-        if (pressedNote == null)
+        if (visualButton == null)
             return true;
 
-        pressedNote.unlockInput();
+        final int targetPitch = pitchOffset + ModClientConfigs.TRANSPOSE.get();
+        NoteGridButton closestButton = null;
+        int closestDistance = Integer.MAX_VALUE;
+        int closestSamplePitch = 0;
 
-        final PressedMIDINote pressedNoteObj = midiReceiver.playNote(pressedNote, overflowRes, basePitch);
+        for (int column = 0; column < screen.columns(); column++) {
+            for (int row = 0; row < screen.rows(); row++) {
+                final NoteButton button = screen.getNoteButton(row, column);
 
-        if (pressedNoteObj != null) {
-            pressedNotes.put(keyCode, pressedNoteObj);
+                if (!(button instanceof NoteGridButton gridButton))
+                    continue;
+
+                final int samplePitch = gridButton.getChromaticPitch();
+                final int distance = Math.abs(targetPitch - samplePitch);
+
+                if (distance < closestDistance) {
+                    closestButton = gridButton;
+                    closestDistance = distance;
+                    closestSamplePitch = samplePitch;
+                }
+            }
         }
+
+        if (closestButton == null)
+            return true;
+
+        final int newPitch = NoteSound.clampPitch(
+                targetPitch - closestSamplePitch
+        );
+
+        final NoteSound sound = closestButton.getSound();
+
+        if (visualButton instanceof IHoldableNoteButton heldButton) {
+            final HeldNoteSound[] heldSounds =
+                    screen.getHeldNoteSounds();
+
+            if (heldSounds != null) {
+                for (HeldNoteSound heldSound : heldSounds) {
+
+                    if (heldSound != null
+                            && sound.equals(heldSound.attack())) {
+
+                        heldButton.setHeldNoteSound(heldSound);
+                        break;
+                    }
+                }
+            }
+        }
+
+        visualButton.unlockInput();
+        final boolean played = visualButton.play(sound, newPitch);
+
+        if (!played)
+            return true;
+
+        pressedNotes.put(keyCode, new PressedMIDINote(newPitch, visualButton, sound)
+        );
 
         return true;
     }
@@ -82,22 +133,20 @@ public class GridHeartopiaController {
 
     public boolean handleKeyRelease(int keyCode) {
 
-        final PressedMIDINote prevNote =
-            pressedNotes.remove(keyCode);
+        final PressedMIDINote prevNote = pressedNotes.remove(keyCode);
 
         if (prevNote == null)
             return InstrumentKeyMappings.HEARTOPIA_KEY_TO_PITCH.containsKey(keyCode);
 
-        final NoteButton prevButton = prevNote.pressedNote();
+        final NoteButton prevButton =
+                prevNote.pressedNote();
 
         if (!(prevButton instanceof IHoldableNoteButton)) {
             prevButton.release();
             return true;
         }
 
-        final IHoldableNoteButton heldButton =
-            (IHoldableNoteButton) prevButton;
-
+        final IHoldableNoteButton heldButton = (IHoldableNoteButton) prevButton;
         heldButton.releaseHeld(prevNote.notePitch(), true, heldButton.toHeldSound(prevNote.sound()));
 
         return true;

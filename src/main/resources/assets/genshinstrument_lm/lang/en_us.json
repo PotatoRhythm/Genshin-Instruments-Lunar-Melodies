@@ -103,6 +103,7 @@
 
     "button.genshinstrument_lm.label": "Note Labels",
     "button.genshinstrument_lm.volume": "Volume",
+    "button.genshinstrument_lm.transpose": "Transpose",
     "button.genshinstrument_lm.control_mode": "Control Mode",
 
     "button.genshinstrument_lm.zither.soundType": "Sound",

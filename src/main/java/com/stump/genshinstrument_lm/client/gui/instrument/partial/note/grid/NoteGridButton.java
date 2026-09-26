@@ -9,6 +9,7 @@ import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.render.No
 import com.stump.genshinstrument_lm.client.keyMaps.InstrumentKeyMappings;
 import com.stump.genshinstrument_lm.networking.buttonidentifier.NoteGridButtonIdentifier;
 import com.stump.genshinstrument_lm.sound.NoteSound;
+import com.stump.genshinstrument_lm.sound.held.HeldNoteSound;
 import com.stump.genshinstrument_lm.util.LabelUtil;
 import com.mojang.blaze3d.platform.InputConstants.Key;
 import net.minecraft.resources.ResourceLocation;
@@ -28,6 +29,8 @@ public class NoteGridButton extends NoteButton {
 
 
     public final int row, column;
+    private NoteSound lastPlayedSound;
+    private int lastPlayedPitch;
 
     public NoteGridButton(int row, int column, GridInstrumentScreen instrumentScreen) {
         super(
@@ -112,5 +115,103 @@ public class NoteGridButton extends NoteButton {
     @Override
     public int getNoteOffset() {
         return row + column * gridInstrument().rows();
+    }
+
+    private static final int[] NATURAL_NOTE_PITCHES = {
+            0, 2, 4, 5, 7, 9, 11
+    };
+
+    public int getChromaticPitch() {
+        int soundColumn = NoteGrid.getFlippedColumn(column, gridInstrument().columns());
+        return soundColumn * 12 + NATURAL_NOTE_PITCHES[row];
+    }
+
+    private record TransposedSound(NoteSound sound, int pitch) {}
+
+    private TransposedSound getTransposedSound() {
+        final GridInstrumentScreen screen = gridInstrument();
+
+        /*
+         * SSTI instruments do not use the standard C-major grid layout,
+         * so do not calculate their pitch from row/column.
+         */
+        if (screen.isSSTI()) {
+            return new TransposedSound(getSound(), getPitch() + ModClientConfigs.TRANSPOSE.get());
+        }
+
+        final int transpose = screen.getPitch() + ModClientConfigs.TRANSPOSE.get();
+
+        if (transpose == 0) {
+            return new TransposedSound(getSound(), 0);
+        }
+
+        final int targetPitch = getChromaticPitch() + transpose;
+
+        final NoteSound[] sounds = screen.getInitSounds();
+
+        if (sounds == null || sounds.length == 0)
+            return new TransposedSound(getSound(), getPitch() + transpose);
+
+        NoteSound closestSound = sounds[0];
+        int closestPitch = getSampleChromaticPitch(0);
+        int closestDistance = Math.abs(targetPitch - closestPitch);
+
+        for (int i = 1; i < sounds.length; i++) {
+            final int samplePitch = getSampleChromaticPitch(i);
+            final int distance = Math.abs(targetPitch - samplePitch);
+
+            if (distance < closestDistance) {
+                closestSound = sounds[i];
+                closestPitch = samplePitch;
+                closestDistance = distance;
+            }
+        }
+
+        return new TransposedSound(closestSound, targetPitch - closestPitch);
+    }
+
+    private int getSampleChromaticPitch(int index) {
+        final int row = index % gridInstrument().rows();
+        final int column = index / gridInstrument().rows();
+
+        return column * 12 + NATURAL_NOTE_PITCHES[row];
+    }
+
+    @Override
+    public boolean play() {
+        final TransposedSound transposedSound = getTransposedSound();
+
+        if (this instanceof HeldGridNoteButton heldButton) {
+            HeldNoteSound[] heldSounds = gridInstrument().getHeldNoteSounds();
+
+            if (heldSounds != null) {
+                final HeldNoteSound heldSound = findHeldSound(heldSounds, transposedSound.sound());
+
+                if (heldSound != null)
+                    heldButton.setHeldNoteSound(heldSound);
+            }
+        }
+
+        lastPlayedSound = transposedSound.sound();
+        lastPlayedPitch = transposedSound.pitch();
+
+        return play(transposedSound.sound(), transposedSound.pitch());
+    }
+
+    public NoteSound getLastPlayedSound() {
+        return lastPlayedSound;
+    }
+
+    public int getLastPlayedPitch() {
+        return lastPlayedPitch;
+    }
+
+    private HeldNoteSound findHeldSound(HeldNoteSound[] heldSounds, NoteSound attackSound) {
+        for (HeldNoteSound heldSound : heldSounds) {
+            if (heldSound != null && attackSound.equals(heldSound.attack()))
+                return heldSound;
+        }
+
+        return null;
     }
 }

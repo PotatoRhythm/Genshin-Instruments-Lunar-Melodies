@@ -62,8 +62,8 @@ public class GISounds {
 
         VIOLIN_PIZZICATO = nsr(loc("violin_pizzicato")).stereo().registerGrid(),
 
-        GW2_BASS = nsr(loc("gw2_bass")).stereo().registerGrid(),
-        GW2_BELL = nsr(loc("gw2_bell")).stereo().registerGrid(),
+        GW2_BASS = nsr(loc("gw2_bass")).stereo().registerGrid(GridInstrumentScreen.DEF_ROWS, 2),
+        GW2_BELL = nsr(loc("gw2_bell")).registerGrid(GridInstrumentScreen.DEF_ROWS, 2),
         GW2_HARP = nsr(loc("gw2_harp")).stereo().registerGrid(),
         GW2_LUTE = nsr(loc("gw2_lute")).stereo().registerGrid(),
         GW2_MINSTREL = nsr(loc("gw2_minstrel")).stereo().registerGrid(),

@@ -44,13 +44,6 @@ public class NoteSound {
      */
     public static final double LOCAL_RANGE = STEREO_RANGE;
 
-    public static final int
-        MIN_PITCH = -LabelUtil.NOTES_PER_SCALE,
-        MAX_PITCH = LabelUtil.NOTES_PER_SCALE
-    ;
-
-
-
     public final int index;
     public final ResourceLocation baseSoundLocation;
 
@@ -66,7 +59,18 @@ public class NoteSound {
         this.index = index;
         this.baseSoundLocation = baseSoundLocation;
     }
-    
+
+    public static int getMinPitch() {
+        return ModClientConfigs.EXTEND_RANGE.get()
+                ? -LabelUtil.NOTES_PER_SCALE * 2
+                : -LabelUtil.NOTES_PER_SCALE;
+    }
+
+    public static int getMaxPitch() {
+        return ModClientConfigs.EXTEND_RANGE.get()
+                ? LabelUtil.NOTES_PER_SCALE * 2
+                : LabelUtil.NOTES_PER_SCALE;
+    }
 
     public SoundEvent getMono() {
         return mono;
@@ -305,7 +309,7 @@ public class NoteSound {
      * Clams the given {@code pitch} between the set range
      */
     public static int clampPitch(final int pitch) {
-        return (int)Mth.clamp(pitch, MIN_PITCH, MAX_PITCH);
+        return Mth.clamp(pitch, getMinPitch(), getMaxPitch());
     }
     /**
      * Converts the given note offset to Minecraft pitch.

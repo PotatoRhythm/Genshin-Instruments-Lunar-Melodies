@@ -7,6 +7,7 @@ import com.stump.genshinstrument_lm.client.config.enumType.NoteGridLabel;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.grid.GridInstrumentScreen;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.note.label.INoteLabel;
 import com.stump.genshinstrument_lm.client.gui.options.partial.InstrumentOptionsScreen;
+import com.stump.genshinstrument_lm.client.gui.widget.SliderButton;
 import net.minecraft.client.gui.components.CycleButton;
 import net.minecraft.client.gui.components.Tooltip;
 import net.minecraft.client.gui.layouts.GridLayout;
@@ -83,6 +84,22 @@ public class GridInstrumentOptionsScreen extends InstrumentOptionsScreen {
                 );
         rowHelper.addChild(extendRange);
 
+        final SliderButton transpose = new SliderButton(getSmallButtonWidth(),
+                ModClientConfigs.TRANSPOSE.get(), -12, 12) {
+            @Override
+            public Component getMessage() {
+                int value = (int) Math.round(getValueClamped());
+                return Component.translatable("button.genshinstrument_lm.transpose").append(": ").append(getTransposeDisplay(value));
+            }
+
+            @Override
+            protected void applyValue() {
+                int value = (int) Math.round(getValueClamped());
+                ModClientConfigs.TRANSPOSE.set(value);
+            }
+        };
+        rowHelper.addChild(transpose);
+
         super.initControlSection(grid, rowHelper);
     }
 
@@ -109,5 +126,16 @@ public class GridInstrumentOptionsScreen extends InstrumentOptionsScreen {
             () -> new ConfigScreenFactory((minecraft, screen) -> new GridInstrumentOptionsScreen(screen))
         );
     }
-    
+
+    private static final String[] TRANSPOSE_NOTE_NAMES = {
+            "C", "C#", "D", "D#", "E", "F",
+            "F#", "G", "G#", "A", "A#", "B"
+    };
+
+    private static String getTransposeDisplay(int transpose) {
+        String sign = transpose > 0 ? "+" : "";
+        String note = TRANSPOSE_NOTE_NAMES[Math.floorMod(transpose, 12)];
+
+        return sign + transpose + "  [" + note + "]";
+    }
 }

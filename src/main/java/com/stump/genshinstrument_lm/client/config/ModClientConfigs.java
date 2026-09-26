@@ -30,6 +30,7 @@ public class ModClientConfigs {
     public static final ForgeConfigSpec CONFIGS;
 
     public static final IntValue MIDI_DEVICE_INDEX, OCTAVE_SHIFT, MIDI_CHANNEL;
+    public static final IntValue TRANSPOSE;
     public static final DoubleValue VOLUME, MIDI_IN_SENSITIVITY;
 
     public static final EnumValue<NoteGridLabel> GRID_LABEL_TYPE;
@@ -67,6 +68,10 @@ public class ModClientConfigs {
 
         VOLUME = configBuilder.defineInRange("instrument_volume",
             0.5, 0, 1
+        );
+
+        TRANSPOSE = configBuilder.defineInRange("transpose",
+                0, -12, 12
         );
 
         GRID_LABEL_TYPE = configBuilder.defineEnum("label_type", NoteGridLabel.KEYBOARD_LAYOUT);

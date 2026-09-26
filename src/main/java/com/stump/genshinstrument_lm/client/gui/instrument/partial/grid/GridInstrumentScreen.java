@@ -58,7 +58,7 @@ public abstract class GridInstrumentScreen extends InstrumentScreen implements I
             return new NoteGrid(this);
 
         return isSSTI()
-                ? new NoteGrid(this, NoteSound.MIN_PITCH)
+                ? new NoteGrid(this, NoteSound.getMinPitch())
                 : new NoteGrid(this);
     }
 
@@ -276,7 +276,7 @@ public abstract class GridInstrumentScreen extends InstrumentScreen implements I
      * An SSTI instrument is a Singular Sound-Type Instrument, such that
      * only the <b>first</b> note in {@link GridInstrumentScreen#getInitSounds()} will get used.
      * </p><p>
-     * Notes will start with the {@link NoteSound#MIN_PITCH set minimum pitch},
+     * Notes will start with the {@link NoteSound#getMinPitch()}  set minimum pitch},
      * and increment their pitch up by 1 for every new instance.
      * </p>
      * This behaviour can be changed by overriding {@link GridInstrumentScreen#initNoteGrid}.

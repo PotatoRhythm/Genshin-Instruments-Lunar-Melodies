@@ -4,7 +4,8 @@
 	"compatibilityLevel": "JAVA_17",
 	"refmap": "mixins.genshinstrument_lm.refmap.json",
 	"client": [
-        "ScreenAccessor"
+        "ScreenAccessor",
+		"SoundEngineMixin"
 	],
 	"minVersion": "0.8"
 }

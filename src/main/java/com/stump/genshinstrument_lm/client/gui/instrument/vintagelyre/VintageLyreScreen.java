@@ -55,7 +55,7 @@ public class VintageLyreScreen extends GridInstrumentScreen {
         return ModClientConfigs.NORMALIZE_VINTAGE_LYRE.get()
             // To normalize a flattened note, one must go up a note.
             // ...But we're maxed.
-            && (getPitch() != NoteSound.MAX_PITCH);
+            && (getPitch() != NoteSound.getMaxPitch());
     }
 
 
@@ -82,7 +82,7 @@ public class VintageLyreScreen extends GridInstrumentScreen {
 
                 // Account for Minecraft pitch overflow
                 final int newPitch = basePitch + offsetFix;
-                if (newPitch + midiOverflow.pitchOffset() > NoteSound.MAX_PITCH)
+                if (newPitch + midiOverflow.pitchOffset() > NoteSound.getMaxPitch())
                     return null;
 
                 return super.playNote(noteBtn, midiOverflow, newPitch);

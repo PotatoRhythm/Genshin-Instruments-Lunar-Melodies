@@ -83,7 +83,7 @@ public abstract class InstrumentMidiReceiver {
 
             // Handle overflowing from Minecraft pitch limitations
             int newInsPitch = overflowRes.pitchOffset() + instrument.getPitch();
-            if ((newInsPitch < NoteSound.MIN_PITCH) || (newInsPitch > NoteSound.MIN_PITCH)) {
+            if (newInsPitch < NoteSound.getMinPitch() || newInsPitch > NoteSound.getMaxPitch()) {
                 instrument.setPitch(0);
             }
         }
@@ -215,7 +215,7 @@ public abstract class InstrumentMidiReceiver {
      * Minecraft pitch limitations will want us to go down a pitch instead of up.
      */
     protected boolean shouldFlatten(final boolean shouldSharpen) {
-        return shouldSharpen && (instrument.getPitch() == NoteSound.MAX_PITCH);
+        return shouldSharpen && (instrument.getPitch() == NoteSound.getMaxPitch());
     }
     
     protected void transposeMidi(final boolean shouldSharpen, final boolean shouldFlatten) {
