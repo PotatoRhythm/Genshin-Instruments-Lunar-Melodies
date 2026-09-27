@@ -292,6 +292,11 @@ public class ModItems {
             CreativeModeTabs.REDSTONE_BLOCKS, GICreativeModeTabs.MUSIC_PRODUCTION_TAB.getKey()
         ),
 
+        SPEAKER_CABLE = register("speaker_cable",
+            () -> new SpeakerCableItem(new Properties().stacksTo(1)),
+            CreativeModeTabs.REDSTONE_BLOCKS, GICreativeModeTabs.MUSIC_PRODUCTION_TAB.getKey()
+        ),
+
         RECORD_WRITABLE = register("record_writable", () -> new WritableRecordItem(new Properties()),
             CreativeModeTabs.TOOLS_AND_UTILITIES, GICreativeModeTabs.MUSIC_PRODUCTION_TAB.getKey()
         ),

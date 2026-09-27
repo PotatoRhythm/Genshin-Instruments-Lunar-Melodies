@@ -31,7 +31,7 @@ import java.util.UUID;
 public class SpeakerBlockEntity extends BlockEntity {
     private static final double PARTICLE_SIZE = 0.2;
     private static final String SPEAKER_ID_TAG = "speaker_id", INSTRUMENTS_TAG = "instruments",
-        INSTRUMENT_ID_TAG = "id", INSTRUMENT_POS_TAG = "pos";
+        INSTRUMENT_ID_TAG = "id", INSTRUMENT_POS_TAG = "pos", LOOPER_ID_TAG = "looper_id";
     /**
      * how often (in ticks) paired block instruments are checked for still being paired
      */
@@ -45,7 +45,7 @@ public class SpeakerBlockEntity extends BlockEntity {
     private final InitiatorID speakerInitiatorID;
 
     /**
-     * Held notes currently being sustained through this speaker,
+     * held notes currently being sustained through this speaker,
      * kept so they can be released if the speaker is removed mid-sustain.
      */
     private record HeldNoteKey(HeldNoteSound sound, NoteSoundMetadata meta) {}
@@ -63,6 +63,12 @@ public class SpeakerBlockEntity extends BlockEntity {
      * the speaker shows as connected exactly while this is non-empty.
      */
     private final HashMap<UUID, BlockPos> pairedInstruments = new HashMap<>();
+    /**
+     * the ID of the looper paired to this speaker, if any. a speaker accepts at most one looper.
+     * the looper is also in pairedInstruments, so it counts towards the connected state.
+     */
+    @Nullable
+    private UUID pairedLooperId = null;
 
     public SpeakerBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.SPEAKER.get(), pPos, pBlockState);
@@ -109,10 +115,21 @@ public class SpeakerBlockEntity extends BlockEntity {
         return pairedInstruments.containsKey(instrumentId);
     }
     /**
-     * @param instrumentPos The block instrument's position, or null for a held instrument
+     * return whether a looper other than the given one is paired to this speaker.
+     * re-checks block pairings first, so a broken or unpaired looper doesn't block a new one.
      */
-    public void addInstrument(final UUID instrumentId, @Nullable final BlockPos instrumentPos) {
+    public boolean hasOtherLooper(final Level level, final UUID looperId) {
+        validateBlockInstruments(level);
+        return (pairedLooperId != null) && !pairedLooperId.equals(looperId);
+    }
+    /**
+     * instrumentPos - The block instrument's or looper's position, or null for a held instrument
+     * isLooper - Whether the paired source is a looper
+     */
+    public void addInstrument(final UUID instrumentId, @Nullable final BlockPos instrumentPos, final boolean isLooper) {
         pairedInstruments.put(instrumentId, instrumentPos);
+        if (isLooper)
+            pairedLooperId = instrumentId;
         onPairingsChanged();
     }
     public void removeInstrument(final UUID instrumentId) {
@@ -121,6 +138,8 @@ public class SpeakerBlockEntity extends BlockEntity {
             return;
 
         pairedInstruments.remove(instrumentId);
+        if (instrumentId.equals(pairedLooperId))
+            pairedLooperId = null;
         onPairingsChanged();
     }
 
@@ -159,6 +178,8 @@ public class SpeakerBlockEntity extends BlockEntity {
                 && level.isLoaded(instrumentPos)
                 && !SpeakerUtil.isBlockInstrumentPaired(level, instrumentPos, entry.getKey(), this);
         });
+        if ((pairedLooperId != null) && !pairedInstruments.containsKey(pairedLooperId))
+            pairedLooperId = null;
 
         if (changed)
             setChanged();
@@ -179,6 +200,9 @@ public class SpeakerBlockEntity extends BlockEntity {
             instruments.add(instrumentTag);
         });
         pTag.put(INSTRUMENTS_TAG, instruments);
+
+        if (pairedLooperId != null)
+            pTag.putUUID(LOOPER_ID_TAG, pairedLooperId);
     }
     @Override
     public void load(CompoundTag pTag) {
@@ -199,6 +223,10 @@ public class SpeakerBlockEntity extends BlockEntity {
                     : null
             );
         }
+
+        pairedLooperId = pTag.hasUUID(LOOPER_ID_TAG) ? pTag.getUUID(LOOPER_ID_TAG) : null;
+        if ((pairedLooperId != null) && !pairedInstruments.containsKey(pairedLooperId))
+            pairedLooperId = null;
     }
 
     //#endregion

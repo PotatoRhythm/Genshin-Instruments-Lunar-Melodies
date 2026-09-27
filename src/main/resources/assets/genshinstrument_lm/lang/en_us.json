@@ -274,16 +274,21 @@
 
     "item.genshinstrument_lm.looper_adapter": "Looper Wireless Adapter",
 
-    "item.genshinstrument_lm.looper_adapter.instrument.description": "Pairs an instrument block to a looper or speaker",
+    "item.genshinstrument_lm.looper_adapter.instrument.description": "Pairs an instrument block to a looper",
     "item.genshinstrument_lm.looper_adapter.instrument.select": "Looper connected. Waiting for instrument or 2nd looper connection.",
     "item.genshinstrument_lm.looper_adapter.instrument.success_pair": "Instrument paired successfully!",
 
     "item.genshinstrument_lm.looper_adapter.looper.description": "Syncs 2 loopers together by copying the 1st's properties",
-    "item.genshinstrument_lm.looper_adapter.looper.select": "Instrument connected. Waiting for looper or speaker connection.",
+    "item.genshinstrument_lm.looper_adapter.looper.select": "Instrument connected. Waiting for looper connection.",
     "item.genshinstrument_lm.looper_adapter.looper.success_pair": "Loopers synced successfully!",
 
-    "item.genshinstrument_lm.looper_adapter.speaker.description": "Pairs an instrument block to a speaker, which immediately plays its notes. Shift + right-click an instrument block to disconnect its speakers (or only the selected speaker). Held instruments pair by right-clicking a speaker, and unpair with shift + right-click",
-    "item.genshinstrument_lm.looper_adapter.speaker.select": "Speaker connected. Waiting for instrument connection.",
+    "item.genshinstrument_lm.speaker_cable": "Speaker Cable",
+    "item.genshinstrument_lm.speaker_cable.pair.description": "Right-click an instrument block or looper and a speaker (in either order) to connect them. A speaker can have at most 1 looper",
+    "item.genshinstrument_lm.speaker_cable.unpair.description": "Shift + right-click an instrument block or looper to disconnect all of its speakers, or only the speaker selected first",
+    "item.genshinstrument_lm.speaker_cable.held.description": "Held instruments connect by right-clicking a speaker directly, and disconnect with shift + right-click",
+    "item.genshinstrument_lm.speaker_cable.instrument.select": "Instrument selected. Right-click a speaker to connect it.",
+    "item.genshinstrument_lm.speaker_cable.looper.select": "Looper selected. Right-click a speaker to connect it.",
+    "item.genshinstrument_lm.speaker_cable.speaker.select": "Speaker selected. Right-click an instrument block or looper to connect it.",
 
 
     "item.genshinstrument_lm.writable_record": "Empty Record",
@@ -303,11 +308,12 @@
     "block.genshinstrument_lm.speaker": "Speaker",
     "genshinstrument_lm.speaker.paired": "%s of %s speakers connected!",
     "genshinstrument_lm.speaker.already_paired": "This speaker is already connected (%s of %s speakers)",
-    "genshinstrument_lm.speaker.full": "This instrument already has the maximum of %s speakers connected",
+    "genshinstrument_lm.speaker.full": "Already at the maximum of %s connected speakers",
+    "genshinstrument_lm.speaker.looper_taken": "This speaker is already connected to a looper",
     "genshinstrument_lm.speaker.unpaired": "Speaker disconnected. %s of %s speakers connected",
-    "genshinstrument_lm.speaker.not_paired": "This speaker is not connected to this instrument",
-    "genshinstrument_lm.speaker.unpaired_all": "Disconnected %s speaker(s) from this instrument",
-    "genshinstrument_lm.speaker.none_paired": "This instrument is not connected to any speakers",
+    "genshinstrument_lm.speaker.not_paired": "This speaker is not connected",
+    "genshinstrument_lm.speaker.unpaired_all": "Disconnected %s speaker(s)",
+    "genshinstrument_lm.speaker.none_paired": "No speakers are connected",
 
     "genshinstrument_lm.looper.pair_conflict": "This record already has burned footage!",
     "genshinstrument_lm.looper.no_record": "No record inserted",

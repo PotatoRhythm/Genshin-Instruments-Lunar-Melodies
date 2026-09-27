@@ -14,6 +14,7 @@ import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CLooperDa
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CLooperParticlePacket;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 import com.stump.genshinstrument_lm.util.LooperUtil;
+import com.stump.genshinstrument_lm.util.SpeakerUtil;
 import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
 import com.stump.genshinstrument_lm.networking.packet.instrument.util.HeldNoteSoundPacketUtil;
 import com.stump.genshinstrument_lm.networking.packet.instrument.util.HeldSoundPhase;
@@ -47,6 +48,7 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 import org.slf4j.Logger;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Optional;
 
 import static com.stump.genshinstrument_lm.item.emirecord.BurnedRecordItem.*;
@@ -360,14 +362,26 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
     }
 
     private void notifyHeldNotesPhase(final HeldSoundPhase phase) {
-        cachedHeldNotes.forEach((bi) ->
+        final List<SpeakerBlockEntity> speakers = getPairedSpeakers();
+
+        cachedHeldNotes.forEach((bi) -> {
             HeldNoteSoundPacketUtil.sendPlayNotePackets(
                 level,
                 bi.obj1(), bi.obj2(),
                 phase,
                 looperInitiatorID
-            )
-        );
+            );
+            speakers.forEach((speaker) -> speaker.playHeldNote(bi.obj1(), bi.obj2(), phase));
+        });
+    }
+
+    /**
+     * return the speakers paired to this looper, which relay everything it plays
+     */
+    private List<SpeakerBlockEntity> getPairedSpeakers() {
+        if (level == null || level.isClientSide)
+            return List.of();
+        return SpeakerUtil.getFromBlock(level, this);
     }
 
 
@@ -486,12 +500,14 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
         final ResourceLocation soundLocation = new ResourceLocation(noteTag.getString(SOUND_TYPE_TAG));
         final int soundIndex = noteTag.getInt(SOUND_INDEX_TAG);
 
+        final NoteSound sound = NoteSoundRegistrar.getSounds(soundLocation)[soundIndex];
         NoteSoundPacketUtil.sendPlayNotePackets(
                 level,
-                NoteSoundRegistrar.getSounds(soundLocation)[soundIndex],
+                sound,
                 meta,
                 looperInitiatorID
         );
+        getPairedSpeakers().forEach((speaker) -> speaker.playNote(sound, meta));
 
         int rgb = noteTag.getInt(PARTICLE_COLOR_TAG);
 
@@ -511,6 +527,7 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
             level, sound,
             meta, phase, looperInitiatorID
         );
+        getPairedSpeakers().forEach((speaker) -> speaker.playHeldNote(sound, meta, phase));
 
         if (phase == HeldSoundPhase.ATTACK) {
             int rgb = noteTag.getInt(PARTICLE_COLOR_TAG);
@@ -527,6 +544,11 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
     }
 
     protected void dampenSounds() {
+        // Speakers don't get the dampen packet, so release their copies of the held notes
+        final List<SpeakerBlockEntity> speakers = getPairedSpeakers();
+        cachedHeldNotes.forEach((bi) ->
+            speakers.forEach((speaker) -> speaker.playHeldNote(bi.obj1(), bi.obj2(), HeldSoundPhase.RELEASE))
+        );
         cachedHeldNotes.clear();
 
         GIPacketHandler.sendToTracking(

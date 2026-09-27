@@ -2,15 +2,12 @@ package com.stump.genshinstrument_lm.item;
 
 import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.block.LooperBlock;
-import com.stump.genshinstrument_lm.block.SpeakerBlock;
 import com.stump.genshinstrument_lm.block.blockentity.LooperBlockEntity;
-import com.stump.genshinstrument_lm.block.blockentity.SpeakerBlockEntity;
 import com.stump.genshinstrument_lm.block.partial.IDoubleBlock;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.packet.SyncModTagPacket;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 import com.stump.genshinstrument_lm.util.LooperUtil;
-import com.stump.genshinstrument_lm.util.SpeakerUtil;
 import com.stump.genshinstrument_lm.block.partial.AbstractInstrumentBlock;
 import com.stump.genshinstrument_lm.block.partial.InstrumentBlockEntity;
 import net.minecraft.ChatFormatting;
@@ -37,8 +34,7 @@ import java.util.List;
 
 public class LooperAdapterItem extends Item {
     private static final String BLOCK_INSTRUMENT_POS_TAG = "instrument_block",
-        LOOPER_POS_TAG = "looper",
-        SPEAKER_POS_TAG = "speaker";
+        LOOPER_POS_TAG = "looper";
 
     public LooperAdapterItem(Properties pProperties) {
         super(pProperties);
@@ -66,13 +62,9 @@ public class LooperAdapterItem extends Item {
 
         boolean pairSucceed;
         if (block instanceof AbstractInstrumentBlock)
-            pairSucceed = player.isShiftKeyDown()
-                ? unpairSpeakersFromInstrument(pos, adapterTag, player)
-                : handleInstrumentBlock(pos, adapterTag, player);
+            pairSucceed = handleInstrumentBlock(pos, adapterTag, player);
         else if (block instanceof LooperBlock)
             pairSucceed = handleLooperBlock(pos, adapterTag, player);
-        else if (block instanceof SpeakerBlock)
-            pairSucceed = handleSpeakerBlock(pos, adapterTag, player);
         else
             return InteractionResult.FAIL;
 
@@ -82,8 +74,6 @@ public class LooperAdapterItem extends Item {
     private static boolean handleInstrumentBlock(BlockPos blockPos, CompoundTag adapterTag, Player player) {
         if (adapterTag.contains(LOOPER_POS_TAG, Tag.TAG_COMPOUND))
             return pairLooperToInstrument(adapterTag, NbtUtils.readBlockPos(adapterTag.getCompound(LOOPER_POS_TAG)), blockPos, player);
-        if (adapterTag.contains(SPEAKER_POS_TAG, Tag.TAG_COMPOUND))
-            return pairSpeakerToInstrument(adapterTag, NbtUtils.readBlockPos(adapterTag.getCompound(SPEAKER_POS_TAG)), blockPos, player);
 
         adapterTag.put(BLOCK_INSTRUMENT_POS_TAG, NbtUtils.writeBlockPos(blockPos));
         player.displayClientMessage(
@@ -113,20 +103,6 @@ public class LooperAdapterItem extends Item {
         adapterTag.put(LOOPER_POS_TAG, NbtUtils.writeBlockPos(blockPos));
         player.displayClientMessage(
             Component.translatable("item.genshinstrument_lm.looper_adapter.instrument.select").withStyle(ChatFormatting.GREEN),
-            true
-        );
-        return true;
-    }
-    private static boolean handleSpeakerBlock(BlockPos blockPos, CompoundTag adapterTag, Player player) {
-        if (!(player.level().getBlockEntity(blockPos) instanceof SpeakerBlockEntity))
-            return false;
-
-        if (adapterTag.contains(BLOCK_INSTRUMENT_POS_TAG, Tag.TAG_COMPOUND))
-            return pairSpeakerToInstrument(adapterTag, blockPos, NbtUtils.readBlockPos(adapterTag.getCompound(BLOCK_INSTRUMENT_POS_TAG)), player);
-
-        adapterTag.put(SPEAKER_POS_TAG, NbtUtils.writeBlockPos(blockPos));
-        player.displayClientMessage(
-            Component.translatable("item.genshinstrument_lm.looper_adapter.speaker.select").withStyle(ChatFormatting.GREEN),
             true
         );
         return true;
@@ -175,75 +151,6 @@ public class LooperAdapterItem extends Item {
             return false;
 
         return pairLooperToInstrument(adapterTag, (InstrumentBlockEntity)ibe, (LooperBlockEntity)lbe, player);
-    }
-
-    private static boolean pairSpeakerToInstrument(CompoundTag adapterTag, InstrumentBlockEntity ibe, SpeakerBlockEntity sbe, Player player) {
-        // Clear all compound keys after pairing
-        for (final String key : adapterTag.getAllKeys())
-            adapterTag.remove(key);
-
-        // also mirrors the pairing onto the other half of linked blocks (like the Keyboard)
-        final SpeakerUtil.PairResult result = SpeakerUtil.pair(player.level(), ibe, sbe);
-        SpeakerUtil.sendPairMessage(player, result, SpeakerUtil.speakerCount(player.level(), ibe));
-        if (result == SpeakerUtil.PairResult.PAIRED)
-            syncInstrumentToClient(ibe, player);
-
-        return true;
-    }
-
-    /**
-     * shift + right-click on a block instrument. If a speaker was selected with this adapter first,
-     * only that speaker is unpaired, otherwise every speaker paired to the instrument is.
-     */
-    private static boolean unpairSpeakersFromInstrument(BlockPos instrumentPos, CompoundTag adapterTag, Player player) {
-        final Level level = player.level();
-        if (!(level.getBlockEntity(instrumentPos) instanceof InstrumentBlockEntity ibe))
-            return false;
-
-        final BlockPos selectedSpeakerPos = adapterTag.contains(SPEAKER_POS_TAG, Tag.TAG_COMPOUND)
-            ? NbtUtils.readBlockPos(adapterTag.getCompound(SPEAKER_POS_TAG))
-            : null;
-
-        // Clear all compound keys after unpairing
-        for (final String key : adapterTag.getAllKeys())
-            adapterTag.remove(key);
-
-        if (selectedSpeakerPos != null && (level.getBlockEntity(selectedSpeakerPos) instanceof SpeakerBlockEntity sbe)) {
-            final boolean removed = SpeakerUtil.unpair(level, ibe, sbe);
-            SpeakerUtil.sendUnpairMessage(player, removed, SpeakerUtil.speakerCount(level, ibe));
-        } else {
-            SpeakerUtil.sendUnpairAllMessage(player, SpeakerUtil.unpairAll(level, ibe));
-        }
-
-        syncInstrumentToClient(ibe, player);
-        return true;
-    }
-
-    /**
-     * Sends the instrument's mod tag to the client, including the other half of linked blocks (like keyboard)
-     */
-    private static void syncInstrumentToClient(InstrumentBlockEntity ibe, Player player) {
-        if (!(player instanceof ServerPlayer serverPlayer))
-            return;
-
-        final BlockState instrumentBlockState = ibe.getBlockState();
-        final BlockPos instrumentBlockPos = ibe.getBlockPos();
-
-        GIPacketHandler.sendToClient(new SyncModTagPacket(GInstrumentMod.modTag(ibe), instrumentBlockPos), serverPlayer);
-        if (instrumentBlockState.getBlock() instanceof IDoubleBlock doubleBlock) {
-            final BlockPos otherBlockPos = doubleBlock.getOtherBlock(instrumentBlockState, instrumentBlockPos, player.level());
-            GIPacketHandler.sendToClient(new SyncModTagPacket(GInstrumentMod.modTag(ibe), otherBlockPos), serverPlayer);
-        }
-    }
-    private static boolean pairSpeakerToInstrument(CompoundTag adapterTag, BlockPos speakerPos, BlockPos instrumentPos, Player player) {
-        final Level level = player.level();
-
-        final BlockEntity sbe = level.getBlockEntity(speakerPos),
-            ibe = level.getBlockEntity(instrumentPos);
-        if (!(sbe instanceof SpeakerBlockEntity) || !(ibe instanceof InstrumentBlockEntity))
-            return false;
-
-        return pairSpeakerToInstrument(adapterTag, (InstrumentBlockEntity)ibe, (SpeakerBlockEntity)sbe, player);
     }
 
     /**
@@ -311,10 +218,6 @@ public class LooperAdapterItem extends Item {
         );
         tooltipComponents.add(
             Component.translatable("item.genshinstrument_lm.looper_adapter.looper.description")
-                .withStyle(ChatFormatting.GRAY)
-        );
-        tooltipComponents.add(
-            Component.translatable("item.genshinstrument_lm.looper_adapter.speaker.description")
                 .withStyle(ChatFormatting.GRAY)
         );
 

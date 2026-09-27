@@ -28,7 +28,7 @@ import net.minecraft.world.phys.BlockHitResult;
 
 /**
  * once a speaker is paired to an instrument, the speaker immediately plays that instrument's notes from its own position.
- * Block instruments are paired via the LooperAdapterItem, while held instruments are paired
+ * Block instruments are paired via the SpeakerCableItem, while held instruments are paired
  * by right-clicking the speaker with the instrument in hand, and unpaired by shift + right-clicking it.
  */
 public class SpeakerBlock extends Block implements EntityBlock {

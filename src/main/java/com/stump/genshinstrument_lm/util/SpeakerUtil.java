@@ -1,6 +1,7 @@
 package com.stump.genshinstrument_lm.util;
 
 import com.stump.genshinstrument_lm.GInstrumentMod;
+import com.stump.genshinstrument_lm.block.blockentity.LooperBlockEntity;
 import com.stump.genshinstrument_lm.block.blockentity.SpeakerBlockEntity;
 import com.stump.genshinstrument_lm.block.partial.IDoubleBlock;
 import com.stump.genshinstrument_lm.event.InstrumentPlayedEvent;
@@ -30,6 +31,9 @@ import java.util.UUID;
  * so a broken speaker (or a new speaker placed where an old one was) is dropped from
  * the instrument's list the next time that list is read.
  *
+ * loopers pair the same way as block instruments (the "instrument" data lives on the looper),
+ * except that a speaker accepts at most one looper. the looper relays its own playback to its speakers.
+ *
  * instrument tag layout: speaker: { instrument_id: UUID, speakers: [ { pos: {X,Y,Z}, id: UUID }, ... ] }
  */
 public class SpeakerUtil {
@@ -37,7 +41,7 @@ public class SpeakerUtil {
         INSTRUMENT_ID_TAG = "instrument_id", POS_TAG = "pos", ID_TAG = "id";
     public static final int MAX_SPEAKERS = 8;
 
-    public enum PairResult { PAIRED, ALREADY_PAIRED, FULL }
+    public enum PairResult { PAIRED, ALREADY_PAIRED, FULL, LOOPER_TAKEN }
 
     private record SpeakerEntry(BlockPos pos, UUID speakerId) {}
 
@@ -45,18 +49,20 @@ public class SpeakerUtil {
     //#region Pairing
 
     public static PairResult pair(final Level level, final ItemStack instrument, final SpeakerBlockEntity sbe) {
-        return pair(level, GInstrumentMod.modTag(instrument), sbe, null);
+        return pair(level, GInstrumentMod.modTag(instrument), sbe, null, false);
     }
     /**
-     * pairs a block instrument, including the other half of a double block (like the Keyboard)
+     * pairs a block source: a block instrument (including the other half of a double block, like the Keyboard)
+     * or a looper. a speaker accepts at most one looper.
      */
-    public static PairResult pair(final Level level, final BlockEntity instrument, final SpeakerBlockEntity sbe) {
-        final PairResult result = pair(level, GInstrumentMod.modTag(instrument), sbe, instrument.getBlockPos());
-        onBlockInstrumentChanged(level, instrument);
+    public static PairResult pair(final Level level, final BlockEntity source, final SpeakerBlockEntity sbe) {
+        final boolean isLooper = source instanceof LooperBlockEntity;
+        final PairResult result = pair(level, GInstrumentMod.modTag(source), sbe, source.getBlockPos(), isLooper);
+        onBlockInstrumentChanged(level, source);
         return result;
     }
     private static PairResult pair(final Level level, final CompoundTag modTag, final SpeakerBlockEntity sbe,
-                                   @Nullable final BlockPos instrumentPos) {
+                                   @Nullable final BlockPos instrumentPos, final boolean isLooper) {
         final List<SpeakerEntry> entries = getValidEntries(level, modTag);
         final UUID instrumentId = getOrCreateInstrumentId(modTag);
 
@@ -69,10 +75,14 @@ public class SpeakerUtil {
             writeEntries(modTag, entries);
             return PairResult.FULL;
         }
+        if (isLooper && sbe.hasOtherLooper(level, instrumentId)) {
+            writeEntries(modTag, entries);
+            return PairResult.LOOPER_TAKEN;
+        }
 
         entries.add(newEntry);
         writeEntries(modTag, entries);
-        sbe.addInstrument(instrumentId, instrumentPos);
+        sbe.addInstrument(instrumentId, instrumentPos, isLooper);
         return PairResult.PAIRED;
     }
 
@@ -100,7 +110,7 @@ public class SpeakerUtil {
     }
 
     /**
-     * unpairs every speaker from a block instrument (and the other half of a double block).
+     * unpairs every speaker from a block instrument (and the other half of a double block) or a looper.
      * speakers in unloaded chunks drop the instrument on their own once loaded,
      * since the instrument no longer lists them.
      * return how many speakers were unpaired
@@ -135,8 +145,8 @@ public class SpeakerUtil {
     }
 
     /**
-     * return whether the block instrument at the given position is still paired to the given speaker.
-     * used by speakers to verify their own list of block instruments.
+     * return whether the block instrument or looper at the given position is still paired to the given speaker.
+     * used by speakers to verify their own list of block sources.
      */
     public static boolean isBlockInstrumentPaired(final Level level, final BlockPos instrumentPos,
                                                   final UUID instrumentId, final SpeakerBlockEntity sbe) {
@@ -169,14 +179,21 @@ public class SpeakerUtil {
         if (entityInfo.isItemInstrument())
             return getSpeakers(level, GInstrumentMod.modTag(player.getItemInHand(entityInfo.hand.get())));
 
-        if (entityInfo.isBlockInstrument()) {
-            final BlockEntity instrument = level.getBlockEntity(event.soundMeta().pos());
-            final List<SpeakerBlockEntity> speakers = getSpeakers(level, GInstrumentMod.modTag(instrument));
-            onBlockInstrumentChanged(level, instrument);
-            return speakers;
-        }
+        if (entityInfo.isBlockInstrument())
+            return getFromBlock(level, level.getBlockEntity(event.soundMeta().pos()));
 
         return List.of();
+    }
+
+    /**
+     * return every speaker paired to a block source: a block instrument or a looper.
+     * stale pairings are dropped along the way.
+     */
+    public static List<SpeakerBlockEntity> getFromBlock(final Level level, final BlockEntity source) {
+        final CompoundTag modTag = GInstrumentMod.modTag(source);
+        if (pruneStaleEntries(level, modTag))
+            onBlockInstrumentChanged(level, source);
+        return resolveSpeakers(level, modTag);
     }
 
     /**
@@ -184,11 +201,25 @@ public class SpeakerUtil {
      * return the loaded speakers that are still paired.
      */
     private static List<SpeakerBlockEntity> getSpeakers(final Level level, final CompoundTag modTag) {
-        final List<SpeakerEntry> entries = getValidEntries(level, modTag);
-        writeEntries(modTag, entries);
+        pruneStaleEntries(level, modTag);
+        return resolveSpeakers(level, modTag);
+    }
+    /**
+     * only rewrites the data when something was actually dropped,
+     * so playing a note doesn't touch the instrument's NBT every time
+     * return whether any pairing was dropped
+     */
+    private static boolean pruneStaleEntries(final Level level, final CompoundTag modTag) {
+        final List<SpeakerEntry> valid = getValidEntries(level, modTag);
+        if (valid.size() == readEntries(modTag).size())
+            return false;
 
+        writeEntries(modTag, valid);
+        return true;
+    }
+    private static List<SpeakerBlockEntity> resolveSpeakers(final Level level, final CompoundTag modTag) {
         final List<SpeakerBlockEntity> speakers = new ArrayList<>();
-        for (final SpeakerEntry entry : entries) {
+        for (final SpeakerEntry entry : readEntries(modTag)) {
             if (level.isLoaded(entry.pos()) && (level.getBlockEntity(entry.pos()) instanceof SpeakerBlockEntity sbe))
                 speakers.add(sbe);
         }
@@ -308,6 +339,8 @@ public class SpeakerUtil {
             case ALREADY_PAIRED -> Component.translatable("genshinstrument_lm.speaker.already_paired", count, MAX_SPEAKERS)
                 .withStyle(ChatFormatting.YELLOW);
             case FULL -> Component.translatable("genshinstrument_lm.speaker.full", MAX_SPEAKERS)
+                .withStyle(ChatFormatting.RED);
+            case LOOPER_TAKEN -> Component.translatable("genshinstrument_lm.speaker.looper_taken")
                 .withStyle(ChatFormatting.RED);
         };
         player.displayClientMessage(message, true);
