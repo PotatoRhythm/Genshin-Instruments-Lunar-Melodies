@@ -1,6 +1,12 @@
 {
-    "parent": "minecraft:block/cube_all",
+    "parent": "minecraft:block/cube",
     "textures": {
-        "all": "minecraft:block/note_block"
+        "particle": "genshinstrument_lm:block/speaker_front",
+        "north": "genshinstrument_lm:block/speaker_front",
+        "south": "genshinstrument_lm:block/speaker_back",
+        "east": "genshinstrument_lm:block/speaker_left",
+        "west": "genshinstrument_lm:block/speaker_right",
+        "up": "genshinstrument_lm:block/speaker_top",
+        "down": "genshinstrument_lm:block/speaker_bottom"
     }
 }

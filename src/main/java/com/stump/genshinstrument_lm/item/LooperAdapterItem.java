@@ -191,9 +191,13 @@ public class LooperAdapterItem extends Item {
         if (instrumentBlock instanceof IDoubleBlock doubleBlock)
             otherBlockPos = doubleBlock.getOtherBlock(instrumentBlockState, instrumentBlockPos, player.level());
 
-        SpeakerUtil.createSpeakerTag(ibe, speakerBlockPos);
+        final SpeakerUtil.PairResult result = SpeakerUtil.addSpeaker(ibe, speakerBlockPos);
+        SpeakerUtil.sendPairMessage(player, result, SpeakerUtil.speakerCount(ibe));
+        if (result != SpeakerUtil.PairResult.PAIRED)
+            return true;
+
         if (otherBlockPos != null)
-            SpeakerUtil.createSpeakerTag(player.level().getBlockEntity(otherBlockPos), speakerBlockPos);
+            SpeakerUtil.addSpeaker(player.level().getBlockEntity(otherBlockPos), speakerBlockPos);
 
         ibe.setChanged();
 
@@ -203,10 +207,6 @@ public class LooperAdapterItem extends Item {
             if (otherBlockPos != null)
                 GIPacketHandler.sendToClient(new SyncModTagPacket(GInstrumentMod.modTag(ibe), otherBlockPos), serverPlayer);
         }
-
-        player.displayClientMessage(
-            Component.translatable("item.genshinstrument_lm.looper_adapter.instrument.success_pair").withStyle(ChatFormatting.GREEN)
-        , true);
 
         return true;
     }

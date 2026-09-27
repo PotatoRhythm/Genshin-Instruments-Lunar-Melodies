@@ -1,9 +1,11 @@
 package com.stump.genshinstrument_lm.item;
 
+import com.stump.genshinstrument_lm.block.SpeakerBlock;
 import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentScreen;
 import com.stump.genshinstrument_lm.item.clientExtensions.InstrumentItemClientExt;
 import com.stump.genshinstrument_lm.networking.OpenInstrumentPacketSender;
 import com.stump.genshinstrument_lm.networking.packet.instrument.util.InstrumentPacketUtil;
+import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResultHolder;
@@ -12,6 +14,7 @@ import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelReader;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.NotNull;
 
@@ -56,6 +59,14 @@ public class InstrumentItem extends Item {
         } else {
             return InteractionResultHolder.fail(item);
         }
+    }
+
+    /**
+     * allows shift + right-clicking a speaker to reach SpeakerBlock, so it can unpair this instrument.
+     */
+    @Override
+    public boolean doesSneakBypassUse(ItemStack stack, LevelReader level, BlockPos pos, Player player) {
+        return level.getBlockState(pos).getBlock() instanceof SpeakerBlock;
     }
 
     @Override
