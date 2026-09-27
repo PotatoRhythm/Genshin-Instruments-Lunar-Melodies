@@ -5,6 +5,7 @@ import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.IModPacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CDampenNotesPacket;
 import com.stump.genshinstrument_lm.util.LooperUtil;
+import com.stump.genshinstrument_lm.util.SpeakerUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.server.level.ServerPlayer;
@@ -49,6 +50,9 @@ public class C2SDampenNotesPacket implements IModPacket {
                 }
             }
         }
+
+        // Dampening doesn't send individual releases, so release the player's held notes on their speakers too
+        SpeakerUtil.releaseHeldNotes(player);
 
         GIPacketHandler.sendToTrackingEntity(
                 new S2CDampenNotesPacket(player.getId()),

@@ -28,7 +28,7 @@ public class SpeakerNoteListener {
     @SubscribeEvent
     public static void onHeldNoteSoundPlayed(final HeldNoteSoundPlayedEvent event) {
         getMatchingSpeakers(event).forEach((speakerBE) ->
-            speakerBE.playHeldNote(event.sound(), event.soundMeta(), event.phase)
+            speakerBE.playHeldNote(event.sound(), event.soundMeta(), event.phase, event.initiatorID)
         );
     }
 

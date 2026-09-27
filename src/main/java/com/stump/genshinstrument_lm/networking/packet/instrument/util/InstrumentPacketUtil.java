@@ -9,6 +9,7 @@ import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.NotifyInstr
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.OpenInstrumentPacket;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CNotePacket;
 import com.stump.genshinstrument_lm.util.CommonUtil;
+import com.stump.genshinstrument_lm.util.SpeakerUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerPlayer;
@@ -176,6 +177,9 @@ public class InstrumentPacketUtil {
         // No need to go through the hassle if it's already closed
         if (!InstrumentOpenProvider.isOpen(player))
             return;
+
+        // Release anything still held on the instrument's speakers, while the open instrument is still known
+        SpeakerUtil.releaseHeldNotes(player);
 
         // Update the capability on server
         InstrumentOpenProvider.setClosed(player);

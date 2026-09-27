@@ -371,7 +371,7 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
                 phase,
                 looperInitiatorID
             );
-            speakers.forEach((speaker) -> speaker.playHeldNote(bi.obj1(), bi.obj2(), phase));
+            speakers.forEach((speaker) -> speaker.playHeldNote(bi.obj1(), bi.obj2(), phase, looperInitiatorID));
         });
     }
 
@@ -527,7 +527,7 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
             level, sound,
             meta, phase, looperInitiatorID
         );
-        getPairedSpeakers().forEach((speaker) -> speaker.playHeldNote(sound, meta, phase));
+        getPairedSpeakers().forEach((speaker) -> speaker.playHeldNote(sound, meta, phase, looperInitiatorID));
 
         if (phase == HeldSoundPhase.ATTACK) {
             int rgb = noteTag.getInt(PARTICLE_COLOR_TAG);
@@ -545,10 +545,7 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
 
     protected void dampenSounds() {
         // Speakers don't get the dampen packet, so release their copies of the held notes
-        final List<SpeakerBlockEntity> speakers = getPairedSpeakers();
-        cachedHeldNotes.forEach((bi) ->
-            speakers.forEach((speaker) -> speaker.playHeldNote(bi.obj1(), bi.obj2(), HeldSoundPhase.RELEASE))
-        );
+        getPairedSpeakers().forEach((speaker) -> speaker.releaseHeldNotesFrom(looperInitiatorID));
         cachedHeldNotes.clear();
 
         GIPacketHandler.sendToTracking(

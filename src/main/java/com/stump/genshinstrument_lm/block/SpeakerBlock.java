@@ -6,7 +6,6 @@ import com.stump.genshinstrument_lm.item.InstrumentItem;
 import com.stump.genshinstrument_lm.util.SpeakerUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
@@ -25,7 +24,6 @@ import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
-import net.minecraft.world.phys.BlockHitResult;
 
 import javax.annotation.Nullable;
 
@@ -93,13 +91,12 @@ public class SpeakerBlock extends Block implements EntityBlock {
             : null;
     }
 
-    @Override
-    public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand,
-            BlockHitResult pHit) {
-        final ItemStack heldStack = pPlayer.getItemInHand(pHand);
-        if (!(heldStack.getItem() instanceof InstrumentItem))
-            return InteractionResult.PASS;
-
+    /**
+     * called by {@link InstrumentItem#onItemUseFirst} when a held instrument right-clicks a speaker,
+     * which runs before any block interaction and regardless of sneaking.
+     * right-click pairs the instrument to this speaker, shift + right-click unpairs it.
+     */
+    public static InteractionResult onHeldInstrumentUse(Level pLevel, BlockPos pPos, Player pPlayer, ItemStack heldStack) {
         // Consume on the client too, so the instrument's screen doesn't open
         if (pLevel.isClientSide)
             return InteractionResult.SUCCESS;

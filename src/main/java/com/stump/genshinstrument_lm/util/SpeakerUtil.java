@@ -5,9 +5,11 @@ import com.stump.genshinstrument_lm.block.blockentity.LooperBlockEntity;
 import com.stump.genshinstrument_lm.block.blockentity.SpeakerBlockEntity;
 import com.stump.genshinstrument_lm.block.partial.IDoubleBlock;
 import com.stump.genshinstrument_lm.block.partial.InstrumentBlockEntity;
+import com.stump.genshinstrument_lm.capability.instrumentOpen.InstrumentOpenProvider;
 import com.stump.genshinstrument_lm.event.InstrumentPlayedEvent;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.packet.SyncModTagPacket;
+import com.stump.genshinstrument_lm.sound.held.InitiatorID;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -17,6 +19,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
 import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
@@ -257,10 +260,42 @@ public class SpeakerUtil {
         if (entityInfo.isItemInstrument())
             return getSpeakers(level, GInstrumentMod.modTag(player.getItemInHand(entityInfo.hand.get())));
 
+        // Prefer the block instrument the player has open: some notes (e.g. the releases sent when
+        // closing the instrument) carry the player's position rather than the instrument's
+        final BlockPos openInstrumentPos = InstrumentOpenProvider.isOpen(player) ? InstrumentOpenProvider.getBlockPos(player) : null;
+        if ((openInstrumentPos != null) && (level.getBlockEntity(openInstrumentPos) instanceof InstrumentBlockEntity ibe))
+            return getFromBlock(level, ibe);
+
         if (entityInfo.isBlockInstrument())
             return getFromBlock(level, level.getBlockEntity(event.soundMeta().pos()));
 
         return List.of();
+    }
+
+    /**
+     * return every speaker paired to the instrument the player has open, held or block
+     */
+    public static List<SpeakerBlockEntity> getFromOpenInstrument(final Player player) {
+        final Level level = player.level();
+        if (!InstrumentOpenProvider.isOpen(player))
+            return List.of();
+
+        if (InstrumentOpenProvider.isItem(player)) {
+            final InteractionHand hand = InstrumentOpenProvider.getHand(player);
+            return (hand == null) ? List.of() : getSpeakers(level, GInstrumentMod.modTag(player.getItemInHand(hand)));
+        }
+
+        final BlockPos instrumentPos = InstrumentOpenProvider.getBlockPos(player);
+        final BlockEntity instrument = (instrumentPos == null) ? null : level.getBlockEntity(instrumentPos);
+        return (instrument == null) ? List.of() : getFromBlock(level, instrument);
+    }
+    /**
+     * releases every held note the player is sustaining through the speakers of their open instrument.
+     * used when their notes stop all at once without individual releases reaching the server, e.g. on dampen.
+     */
+    public static void releaseHeldNotes(final Player player) {
+        final InitiatorID initiatorID = InitiatorID.fromEntity(player);
+        getFromOpenInstrument(player).forEach((speaker) -> speaker.releaseHeldNotesFrom(initiatorID));
     }
 
     /**

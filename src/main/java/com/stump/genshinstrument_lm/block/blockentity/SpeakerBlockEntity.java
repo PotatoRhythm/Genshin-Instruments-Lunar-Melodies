@@ -22,7 +22,6 @@ import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.Map;
 import java.util.UUID;
 
@@ -46,11 +45,13 @@ public class SpeakerBlockEntity extends BlockEntity {
     private final InitiatorID speakerInitiatorID;
 
     /**
-     * held notes currently being sustained through this speaker,
-     * kept so they can be released if the speaker is removed mid-sustain.
+     * held notes currently being sustained through this speaker, mapped to the (relocated) metadata they started with.
+     * keyed by sound, pitch and source only: a release's volume or particle color can differ from its attack's
+     * (e.g. closing the instrument reports the fading volume), which must not stop the release from matching.
+     * the source is who played it (a player or looper), so their notes can all be released at once, e.g. on dampen.
      */
-    private record HeldNoteKey(HeldNoteSound sound, NoteSoundMetadata meta) {}
-    private final HashSet<HeldNoteKey> sustainedNotes = new HashSet<>();
+    private record HeldNoteKey(HeldNoteSound sound, int pitch, InitiatorID source) {}
+    private final HashMap<HeldNoteKey, NoteSoundMetadata> sustainedNotes = new HashMap<>();
 
     /**
      * identifies this specific speaker, so an instrument can tell it apart from
@@ -92,18 +93,40 @@ public class SpeakerBlockEntity extends BlockEntity {
         emitNoteParticle(relocated.particleColor());
     }
 
-    public void playHeldNote(final HeldNoteSound sound, final NoteSoundMetadata meta, final HeldSoundPhase phase) {
+    /**
+     * @param source Who played the note (a player or looper), see {@link #releaseHeldNotesFrom}
+     */
+    public void playHeldNote(final HeldNoteSound sound, final NoteSoundMetadata meta, final HeldSoundPhase phase,
+                             final InitiatorID source) {
         final NoteSoundMetadata relocated = relocate(meta);
+        final HeldNoteKey key = new HeldNoteKey(sound, relocated.pitch(), source);
 
-        HeldNoteSoundPacketUtil.sendPlayNotePackets(level, sound, relocated, phase, speakerInitiatorID);
-
-        final HeldNoteKey key = new HeldNoteKey(sound, relocated);
         if (phase == HeldSoundPhase.ATTACK) {
-            sustainedNotes.add(key);
+            HeldNoteSoundPacketUtil.sendPlayNotePackets(level, sound, relocated, phase, speakerInitiatorID);
+            sustainedNotes.put(key, relocated);
             emitNoteParticle(relocated.particleColor());
         } else if (phase == HeldSoundPhase.RELEASE) {
-            sustainedNotes.remove(key);
+            // Release with the metadata the note started with, so clients match it to the right sound
+            final NoteSoundMetadata attackMeta = sustainedNotes.remove(key);
+            HeldNoteSoundPacketUtil.sendPlayNotePackets(level, sound,
+                (attackMeta != null) ? attackMeta : relocated, phase, speakerInitiatorID);
         }
+    }
+
+    /**
+     * releases every held note the given source (a player or looper) is sustaining through this speaker.
+     * used when the source stops all its notes at once without releasing each one, e.g. on dampen.
+     */
+    public void releaseHeldNotesFrom(final InitiatorID source) {
+        sustainedNotes.entrySet().removeIf((entry) -> {
+            if (!entry.getKey().source().equals(source))
+                return false;
+
+            HeldNoteSoundPacketUtil.sendPlayNotePackets(
+                level, entry.getKey().sound(), entry.getValue(), HeldSoundPhase.RELEASE, speakerInitiatorID
+            );
+            return true;
+        });
     }
 
     //#region Pairing
@@ -289,13 +312,13 @@ public class SpeakerBlockEntity extends BlockEntity {
             return;
 
         heldParticleTimer = 0;
-        sustainedNotes.forEach((key) -> emitNoteParticle(key.meta().particleColor()));
+        sustainedNotes.values().forEach((meta) -> emitNoteParticle(meta.particleColor()));
     }
 
     private void releaseSustainedNotes() {
-        sustainedNotes.forEach((key) ->
+        sustainedNotes.forEach((key, meta) ->
             HeldNoteSoundPacketUtil.sendPlayNotePackets(
-                level, key.sound(), key.meta(), HeldSoundPhase.RELEASE, speakerInitiatorID
+                level, key.sound(), meta, HeldSoundPhase.RELEASE, speakerInitiatorID
             )
         );
         sustainedNotes.clear();

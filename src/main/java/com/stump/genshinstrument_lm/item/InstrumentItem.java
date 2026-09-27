@@ -5,16 +5,16 @@ import com.stump.genshinstrument_lm.client.gui.instrument.partial.InstrumentScre
 import com.stump.genshinstrument_lm.item.clientExtensions.InstrumentItemClientExt;
 import com.stump.genshinstrument_lm.networking.OpenInstrumentPacketSender;
 import com.stump.genshinstrument_lm.networking.packet.instrument.util.InstrumentPacketUtil;
-import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
+import net.minecraft.world.InteractionResult;
 import net.minecraft.world.InteractionResultHolder;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.UseAnim;
+import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
-import net.minecraft.world.level.LevelReader;
 import net.minecraftforge.client.extensions.common.IClientItemExtensions;
 import org.jetbrains.annotations.NotNull;
 
@@ -62,11 +62,16 @@ public class InstrumentItem extends Item {
     }
 
     /**
-     * allows shift + right-clicking a speaker to reach SpeakerBlock, so it can unpair this instrument.
+     * right-clicking a speaker pairs this instrument to it, and shift + right-clicking unpairs it.
+     * handled here rather than in the speaker's own interaction, as this runs first and regardless of sneaking.
      */
     @Override
-    public boolean doesSneakBypassUse(ItemStack stack, LevelReader level, BlockPos pos, Player player) {
-        return level.getBlockState(pos).getBlock() instanceof SpeakerBlock;
+    public InteractionResult onItemUseFirst(ItemStack stack, UseOnContext context) {
+        final Player player = context.getPlayer();
+        if ((player == null) || !(context.getLevel().getBlockState(context.getClickedPos()).getBlock() instanceof SpeakerBlock))
+            return InteractionResult.PASS;
+
+        return SpeakerBlock.onHeldInstrumentUse(context.getLevel(), context.getClickedPos(), player, stack);
     }
 
     @Override
