@@ -8,6 +8,7 @@ import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.context.BlockPlaceContext;
@@ -25,6 +26,8 @@ import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
+
+import javax.annotation.Nullable;
 
 /**
  * once a speaker is paired to an instrument, the speaker immediately plays that instrument's notes from its own position.
@@ -70,6 +73,13 @@ public class SpeakerBlock extends Block implements EntityBlock {
     }
 
     @Override
+    public void setPlacedBy(Level pLevel, BlockPos pPos, BlockState pState, @Nullable LivingEntity pPlacer, ItemStack pStack) {
+        super.setPlacedBy(pLevel, pPos, pState, pPlacer, pStack);
+        if (!pLevel.isClientSide && pLevel.getBlockEntity(pPos) instanceof SpeakerBlockEntity sbe)
+            sbe.resetPairings();
+    }
+
+    @Override
     public BlockEntity newBlockEntity(BlockPos pPos, BlockState pState) {
         return new SpeakerBlockEntity(pPos, pState);
     }
@@ -100,7 +110,7 @@ public class SpeakerBlock extends Block implements EntityBlock {
         // shift + right-click unpairs this speaker, right-click pairs it
         if (pPlayer.isShiftKeyDown()) {
             final boolean removed = SpeakerUtil.unpair(pLevel, heldStack, sbe);
-            SpeakerUtil.sendUnpairMessage(pPlayer, removed, SpeakerUtil.speakerCount(pLevel, heldStack));
+            SpeakerUtil.sendUnpairMessage(pPlayer, removed, SpeakerUtil.speakerCount(pLevel, heldStack), sbe);
         } else {
             final SpeakerUtil.PairResult result = SpeakerUtil.pair(pLevel, heldStack, sbe);
             SpeakerUtil.sendPairMessage(pPlayer, result, SpeakerUtil.speakerCount(pLevel, heldStack));

@@ -4,13 +4,19 @@ import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.block.blockentity.LooperBlockEntity;
 import com.stump.genshinstrument_lm.block.blockentity.SpeakerBlockEntity;
 import com.stump.genshinstrument_lm.block.partial.IDoubleBlock;
+import com.stump.genshinstrument_lm.block.partial.InstrumentBlockEntity;
 import com.stump.genshinstrument_lm.event.InstrumentPlayedEvent;
+import com.stump.genshinstrument_lm.networking.GIPacketHandler;
+import com.stump.genshinstrument_lm.networking.packet.SyncModTagPacket;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.network.chat.Component;
+import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
@@ -20,6 +26,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -115,21 +122,71 @@ public class SpeakerUtil {
      * since the instrument no longer lists them.
      * return how many speakers were unpaired
      */
-    public static int unpairAll(final Level level, final BlockEntity instrument) {
+    public static UnpairAllResult unpairAll(final Level level, final BlockEntity instrument) {
         final CompoundTag modTag = GInstrumentMod.modTag(instrument);
         final UUID instrumentId = getInstrumentId(modTag);
         final List<SpeakerEntry> entries = getValidEntries(level, modTag);
 
+        int stillConnected = 0;
         if (instrumentId != null) {
             for (final SpeakerEntry entry : entries) {
-                if (level.isLoaded(entry.pos()) && (level.getBlockEntity(entry.pos()) instanceof SpeakerBlockEntity sbe))
+                if (level.isLoaded(entry.pos()) && (level.getBlockEntity(entry.pos()) instanceof SpeakerBlockEntity sbe)) {
                     sbe.removeInstrument(instrumentId);
+                    if (sbe.isConnected())
+                        stillConnected++;
+                }
             }
         }
 
         modTag.remove(SPEAKER_TAG);
         onBlockInstrumentChanged(level, instrument);
-        return entries.size();
+        return new UnpairAllResult(entries.size(), stillConnected);
+    }
+    /**
+     * @param removed How many speakers were unpaired
+     * @param stillConnected How many of them are still connected to another instrument or looper
+     */
+    public record UnpairAllResult(int removed, int stillConnected) {}
+
+    /**
+     * unpairs everything from a speaker's end: its block instruments, looper and held instruments.
+     * held instruments in online players' inventories are updated right away; any others
+     * drop the speaker the next time they're used, since the speaker no longer lists them.
+     * return how many sources were unpaired
+     */
+    public static int unpairAllFromSpeaker(final Level level, final SpeakerBlockEntity sbe) {
+        final Map<UUID, BlockPos> sources = sbe.getPairedSources();
+
+        sources.forEach((sourceId, sourcePos) -> {
+            if (sourcePos == null) {
+                removeFromHeldInstruments(level, sourceId, sbe);
+            } else if (level.isLoaded(sourcePos)) {
+                final BlockEntity source = level.getBlockEntity(sourcePos);
+                if (source != null)
+                    unpair(level, source, sbe);
+            }
+
+            // Also covers sources that couldn't be reached (unloaded, or held by an offline player)
+            sbe.removeInstrument(sourceId);
+        });
+
+        return sources.size();
+    }
+    private static void removeFromHeldInstruments(final Level level, final UUID instrumentId, final SpeakerBlockEntity sbe) {
+        final SpeakerEntry speakerEntry = new SpeakerEntry(sbe.getBlockPos(), sbe.getSpeakerId());
+
+        for (final Player player : level.players()) {
+            final Inventory inventory = player.getInventory();
+            for (int i = 0; i < inventory.getContainerSize(); i++) {
+                final CompoundTag modTag = inventory.getItem(i).getTagElement(GInstrumentMod.MODID);
+                if ((modTag == null) || !instrumentId.equals(getInstrumentId(modTag)))
+                    continue;
+
+                final List<SpeakerEntry> entries = readEntries(modTag);
+                if (entries.remove(speakerEntry))
+                    writeEntries(modTag, entries);
+            }
+        }
     }
 
     /**
@@ -154,7 +211,27 @@ public class SpeakerUtil {
         if (be == null)
             return false;
 
-        final CompoundTag modTag = GInstrumentMod.modTag(be);
+        return listsSpeaker(GInstrumentMod.modTag(be), instrumentId, sbe);
+    }
+
+    /**
+     * return whether a held instrument with the given ID, still listing the given speaker,
+     * is in an online player's inventory. used for the speaker's connected light, since a
+     * speaker can't otherwise tell whether a held instrument still exists.
+     */
+    public static boolean isHeldInstrumentPresent(final Level level, final UUID instrumentId, final SpeakerBlockEntity sbe) {
+        for (final Player player : level.players()) {
+            final Inventory inventory = player.getInventory();
+            for (int i = 0; i < inventory.getContainerSize(); i++) {
+                final CompoundTag modTag = inventory.getItem(i).getTagElement(GInstrumentMod.MODID);
+                if ((modTag != null) && listsSpeaker(modTag, instrumentId, sbe))
+                    return true;
+            }
+        }
+        return false;
+    }
+
+    private static boolean listsSpeaker(final CompoundTag modTag, final UUID instrumentId, final SpeakerBlockEntity sbe) {
         return instrumentId.equals(getInstrumentId(modTag))
             && readEntries(modTag).contains(new SpeakerEntry(sbe.getBlockPos(), sbe.getSpeakerId()));
     }
@@ -303,11 +380,13 @@ public class SpeakerUtil {
     }
 
     /**
-     * marks a block instrument as changed, and mirrors its speaker data
-     * onto the other half of a double block (like the Keyboard).
+     * marks a block instrument as changed, mirrors its speaker data
+     * onto the other half of a double block (like the Keyboard),
+     * and syncs it to nearby clients so the instrument screen's speaker counter stays accurate.
      */
     private static void onBlockInstrumentChanged(final Level level, final BlockEntity instrument) {
         instrument.setChanged();
+        syncToClients(level, instrument);
 
         final BlockPos pos = instrument.getBlockPos();
         final BlockState state = level.getBlockState(pos);
@@ -324,6 +403,25 @@ public class SpeakerUtil {
         else
             otherModTag.remove(SPEAKER_TAG);
         other.setChanged();
+        syncToClients(level, other);
+    }
+    private static void syncToClients(final Level level, final BlockEntity instrument) {
+        // Loopers don't show the counter, so only block instruments need syncing
+        if (!(level instanceof ServerLevel serverLevel) || !(instrument instanceof InstrumentBlockEntity))
+            return;
+
+        GIPacketHandler.sendToTracking(
+            new SyncModTagPacket(GInstrumentMod.modTag(instrument), instrument.getBlockPos()),
+            serverLevel, instrument.getBlockPos()
+        );
+    }
+
+    /**
+     * return how many speakers the instrument's data lists, without checking them.
+     * safe to call on the client, e.g. for the instrument screen's speaker counter.
+     */
+    public static int getListedSpeakerCount(final CompoundTag modTag) {
+        return readEntries(modTag).size();
     }
 
     //#endregion
@@ -345,19 +443,40 @@ public class SpeakerUtil {
         };
         player.displayClientMessage(message, true);
     }
-    public static void sendUnpairMessage(final Player player, final boolean removed, final int count) {
-        player.displayClientMessage(removed
-            ? Component.translatable("genshinstrument_lm.speaker.unpaired", count, MAX_SPEAKERS)
-                .withStyle(ChatFormatting.GREEN)
-            : Component.translatable("genshinstrument_lm.speaker.not_paired")
-                .withStyle(ChatFormatting.YELLOW)
-        , true);
+    /**
+     * @param sbe The speaker that was unpaired, to mention when it's still connected to something else
+     */
+    public static void sendUnpairMessage(final Player player, final boolean removed, final int count, final SpeakerBlockEntity sbe) {
+        if (!removed) {
+            player.displayClientMessage(
+                Component.translatable("genshinstrument_lm.speaker.not_paired").withStyle(ChatFormatting.YELLOW)
+            , true);
+            return;
+        }
+
+        final MutableComponent message = Component.translatable("genshinstrument_lm.speaker.unpaired", count, MAX_SPEAKERS);
+        if (sbe.isConnected())
+            message.append(" ").append(Component.translatable("genshinstrument_lm.speaker.still_connected"));
+        player.displayClientMessage(message.withStyle(ChatFormatting.GREEN), true);
     }
-    public static void sendUnpairAllMessage(final Player player, final int removedCount) {
+    public static void sendUnpairAllMessage(final Player player, final UnpairAllResult result) {
+        if (result.removed() <= 0) {
+            player.displayClientMessage(
+                Component.translatable("genshinstrument_lm.speaker.none_paired").withStyle(ChatFormatting.YELLOW)
+            , true);
+            return;
+        }
+
+        final MutableComponent message = Component.translatable("genshinstrument_lm.speaker.unpaired_all", result.removed());
+        if (result.stillConnected() > 0)
+            message.append(" ").append(Component.translatable("genshinstrument_lm.speaker.still_connected_count", result.stillConnected()));
+        player.displayClientMessage(message.withStyle(ChatFormatting.GREEN), true);
+    }
+    public static void sendSpeakerUnpairAllMessage(final Player player, final int removedCount) {
         player.displayClientMessage((removedCount > 0)
-            ? Component.translatable("genshinstrument_lm.speaker.unpaired_all", removedCount)
+            ? Component.translatable("genshinstrument_lm.speaker.speaker_unpaired_all", removedCount)
                 .withStyle(ChatFormatting.GREEN)
-            : Component.translatable("genshinstrument_lm.speaker.none_paired")
+            : Component.translatable("genshinstrument_lm.speaker.speaker_none_paired")
                 .withStyle(ChatFormatting.YELLOW)
         , true);
     }

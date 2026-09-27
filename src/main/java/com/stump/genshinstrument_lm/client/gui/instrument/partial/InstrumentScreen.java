@@ -29,7 +29,10 @@ import com.stump.genshinstrument_lm.sound.SoundOption;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSounds;
 import com.stump.genshinstrument_lm.sound.held.InitiatorID;
 import com.stump.genshinstrument_lm.util.CommonUtil;
+import com.stump.genshinstrument_lm.util.SpeakerUtil;
 import net.minecraft.client.Minecraft;
+import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.AbstractWidget;
@@ -38,7 +41,9 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -482,6 +487,49 @@ public abstract class InstrumentScreen extends Screen {
     }
     public void renderInstrument(GuiGraphics pGuiGraphics, int pMouseX, int pMouseY, float pPartialTick) {
         super.render(pGuiGraphics, pMouseX, pMouseY, pPartialTick);
+        renderSpeakerCounter(pGuiGraphics);
+    }
+
+    private static final ResourceLocation SPEAKER_ICON = new ResourceLocation(GInstrumentMod.MODID, SPRITE_LOC + "speaker.png");
+    private static final int SPEAKER_ICON_SIZE = 9;
+
+    /**
+     * renders the connected speaker counter ("🔈:1") in the top-right corner,
+     * lined up with the visibility button. hidden when no speakers are connected.
+     */
+    protected void renderSpeakerCounter(final GuiGraphics gui) {
+        final int count = getSpeakerCount();
+        if (count <= 0)
+            return;
+
+        final String text = ":" + count;
+        final int iconX = width - VISIBILITY_BUTTON_MARGIN - font.width(text) - 1 - SPEAKER_ICON_SIZE;
+        // vertically centered on the visibility button
+        final int iconY = VISIBILITY_BUTTON_MARGIN + (18 - SPEAKER_ICON_SIZE) / 2;
+
+        gui.blit(SPEAKER_ICON, iconX, iconY, 0, 0, SPEAKER_ICON_SIZE, SPEAKER_ICON_SIZE, SPEAKER_ICON_SIZE, SPEAKER_ICON_SIZE);
+        gui.drawString(font, text, iconX + SPEAKER_ICON_SIZE + 1, iconY + 1, 0xFFFFFF);
+    }
+    /**
+     * @return how many speakers the instrument the player has open is connected to
+     */
+    private int getSpeakerCount() {
+        final Player player = minecraft.player;
+        if (player == null)
+            return 0;
+
+        final CompoundTag modTag;
+        if (InstrumentOpenProvider.isItem(player)) {
+            final InteractionHand hand = InstrumentOpenProvider.getHand(player);
+            // getTagElement, since apparently modTag would create the tag on the client's copy of the item every frame oops
+            modTag = (hand == null) ? null : player.getItemInHand(hand).getTagElement(GInstrumentMod.MODID);
+        } else {
+            final BlockPos instrumentPos = InstrumentOpenProvider.getBlockPos(player);
+            final BlockEntity instrumentBE = (instrumentPos == null) ? null : player.level().getBlockEntity(instrumentPos);
+            modTag = (instrumentBE == null) ? null : GInstrumentMod.modTag(instrumentBE);
+        }
+
+        return (modTag == null) ? 0 : SpeakerUtil.getListedSpeakerCount(modTag);
     }
 
     @Override

@@ -23,6 +23,7 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.UUID;
 
 /**
@@ -149,16 +150,52 @@ public class SpeakerBlockEntity extends BlockEntity {
     }
     /**
      * swaps da front texture between speaker_front and speaker_front_connected,
-     * according to whether any instrument is paired
+     * according to whether any instrument or looper is properly paired
      */
     private void updateConnectedState() {
         if (level == null || level.isClientSide)
             return;
 
         final BlockState state = getBlockState();
-        final boolean connected = !pairedInstruments.isEmpty();
+        final boolean connected = hasConfirmedPairing(level);
         if (state.getValue(SpeakerBlock.CONNECTED) != connected)
             level.setBlockAndUpdate(getBlockPos(), state.setValue(SpeakerBlock.CONNECTED, connected));
+    }
+    /**
+     * block instruments and loopers are checked (and dropped if stale) by validateBlockInstruments,
+     * so they count as-is. held instruments only count while the item is actually in an online player's
+     * inventory, since a lost or deleted item can't tell the speaker it's gone.
+     */
+    /**
+     * @return Whether the speaker currently shows as connected (the green front light)
+     */
+    public boolean isConnected() {
+        return getBlockState().getValue(SpeakerBlock.CONNECTED);
+    }
+    /**
+     * @return A copy of this speaker's pairings: instrument/looper ID to its position (null for held instruments)
+     */
+    public Map<UUID, BlockPos> getPairedSources() {
+        return new HashMap<>(pairedInstruments);
+    }
+
+    private boolean hasConfirmedPairing(final Level level) {
+        for (final var entry : pairedInstruments.entrySet()) {
+            if (entry.getValue() != null || SpeakerUtil.isHeldInstrumentPresent(level, entry.getKey(), this))
+                return true;
+        }
+        return false;
+    }
+
+    /**
+     * called when this speaker is placed. a new speaker never starts paired, even if the item
+     * carried a copied speaker's data (e.g. creative pick-block with ctrl).
+     */
+    public void resetPairings() {
+        speakerId = UUID.randomUUID();
+        pairedInstruments.clear();
+        pairedLooperId = null;
+        onPairingsChanged();
     }
 
     public void tick(final Level level) {

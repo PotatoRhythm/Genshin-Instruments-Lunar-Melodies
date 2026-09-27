@@ -6,10 +6,7 @@ import com.stump.genshinstrument_lm.block.SpeakerBlock;
 import com.stump.genshinstrument_lm.block.blockentity.LooperBlockEntity;
 import com.stump.genshinstrument_lm.block.blockentity.SpeakerBlockEntity;
 import com.stump.genshinstrument_lm.block.partial.AbstractInstrumentBlock;
-import com.stump.genshinstrument_lm.block.partial.IDoubleBlock;
 import com.stump.genshinstrument_lm.block.partial.InstrumentBlockEntity;
-import com.stump.genshinstrument_lm.networking.GIPacketHandler;
-import com.stump.genshinstrument_lm.networking.packet.SyncModTagPacket;
 import com.stump.genshinstrument_lm.util.CommonUtil;
 import com.stump.genshinstrument_lm.util.SpeakerUtil;
 import net.minecraft.ChatFormatting;
@@ -19,7 +16,6 @@ import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
-import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
@@ -29,7 +25,6 @@ import net.minecraft.world.item.context.UseOnContext;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.state.BlockState;
 
 import javax.annotation.Nullable;
 import java.util.List;
@@ -85,8 +80,10 @@ public class SpeakerCableItem extends Item {
             sourcePos = clickedPos;
             selectMessage = "item.genshinstrument_lm.speaker_cable.looper.select";
         } else if (block instanceof SpeakerBlock) {
-            return handleSpeakerBlock(clickedPos, cableTag, player)
-                ? InteractionResult.SUCCESS : InteractionResult.CONSUME_PARTIAL;
+            final boolean succeed = player.isShiftKeyDown()
+                ? unpairFromSpeaker(clickedPos, cableTag, player)
+                : handleSpeakerBlock(clickedPos, cableTag, player);
+            return succeed ? InteractionResult.SUCCESS : InteractionResult.CONSUME_PARTIAL;
         } else {
             return InteractionResult.FAIL;
         }
@@ -142,11 +139,9 @@ public class SpeakerCableItem extends Item {
         if (!(level.getBlockEntity(speakerPos) instanceof SpeakerBlockEntity sbe) || source == null)
             return false;
 
-        // also mirrors the pairing onto the other half of linked blocks (like the Keyboard)
+        // also mirrors the pairing onto the other half of linked blocks (like the Keyboard), and syncs it to clients
         final SpeakerUtil.PairResult result = SpeakerUtil.pair(level, source, sbe);
         SpeakerUtil.sendPairMessage(player, result, SpeakerUtil.speakerCount(level, source));
-        if (result == SpeakerUtil.PairResult.PAIRED)
-            syncInstrumentToClient(source, player);
 
         return true;
     }
@@ -168,36 +163,41 @@ public class SpeakerCableItem extends Item {
 
         if (selectedSpeakerPos != null && (level.getBlockEntity(selectedSpeakerPos) instanceof SpeakerBlockEntity sbe)) {
             final boolean removed = SpeakerUtil.unpair(level, source, sbe);
-            SpeakerUtil.sendUnpairMessage(player, removed, SpeakerUtil.speakerCount(level, source));
+            SpeakerUtil.sendUnpairMessage(player, removed, SpeakerUtil.speakerCount(level, source), sbe);
         } else {
             SpeakerUtil.sendUnpairAllMessage(player, SpeakerUtil.unpairAll(level, source));
         }
 
-        syncInstrumentToClient(source, player);
+        return true;
+    }
+
+    /**
+     * shift + right-click on a speaker. If a source (block instrument or looper) was selected with this cable first,
+     * only that source is unpaired, otherwise everything paired to the speaker is (including held instruments).
+     */
+    private static boolean unpairFromSpeaker(BlockPos speakerPos, CompoundTag cableTag, Player player) {
+        final Level level = player.level();
+        if (!(level.getBlockEntity(speakerPos) instanceof SpeakerBlockEntity sbe))
+            return false;
+
+        final BlockEntity selectedSource = cableTag.contains(SOURCE_POS_TAG, Tag.TAG_COMPOUND)
+            ? getSource(level, NbtUtils.readBlockPos(cableTag.getCompound(SOURCE_POS_TAG)))
+            : null;
+        clearCable(cableTag);
+
+        if (selectedSource != null) {
+            final boolean removed = SpeakerUtil.unpair(level, selectedSource, sbe);
+            SpeakerUtil.sendUnpairMessage(player, removed, SpeakerUtil.speakerCount(level, selectedSource), sbe);
+        } else {
+            SpeakerUtil.sendSpeakerUnpairAllMessage(player, SpeakerUtil.unpairAllFromSpeaker(level, sbe));
+        }
+
         return true;
     }
 
     private static void clearCable(CompoundTag cableTag) {
         for (final String key : List.copyOf(cableTag.getAllKeys()))
             cableTag.remove(key);
-    }
-
-    /**
-     * Sends a block instrument's mod tag to the client, including the other half of linked blocks (like the Keyboard).
-     * Loopers don't need syncing.
-     */
-    private static void syncInstrumentToClient(BlockEntity source, Player player) {
-        if (!(source instanceof InstrumentBlockEntity ibe) || !(player instanceof ServerPlayer serverPlayer))
-            return;
-
-        final BlockState instrumentBlockState = ibe.getBlockState();
-        final BlockPos instrumentBlockPos = ibe.getBlockPos();
-
-        GIPacketHandler.sendToClient(new SyncModTagPacket(GInstrumentMod.modTag(ibe), instrumentBlockPos), serverPlayer);
-        if (instrumentBlockState.getBlock() instanceof IDoubleBlock doubleBlock) {
-            final BlockPos otherBlockPos = doubleBlock.getOtherBlock(instrumentBlockState, instrumentBlockPos, player.level());
-            GIPacketHandler.sendToClient(new SyncModTagPacket(GInstrumentMod.modTag(ibe), otherBlockPos), serverPlayer);
-        }
     }
 
 
