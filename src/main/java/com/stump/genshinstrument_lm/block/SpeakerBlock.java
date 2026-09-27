@@ -19,6 +19,7 @@ import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
+import net.minecraft.world.level.block.state.properties.BooleanProperty;
 import net.minecraft.world.level.block.state.properties.DirectionProperty;
 import net.minecraft.world.phys.BlockHitResult;
 
@@ -29,15 +30,23 @@ import net.minecraft.world.phys.BlockHitResult;
  */
 public class SpeakerBlock extends Block implements EntityBlock {
     public static final DirectionProperty FACING = HorizontalDirectionalBlock.FACING;
+    /**
+     * whether at least one instrument is paired to this speaker; switches the front texture.
+     * managed by SpeakerBlockEntity's pair count.
+     */
+    public static final BooleanProperty CONNECTED = BooleanProperty.create("connected");
 
     public SpeakerBlock(Properties properties) {
         super(properties);
-        registerDefaultState(defaultBlockState().setValue(FACING, Direction.NORTH));
+        registerDefaultState(defaultBlockState()
+            .setValue(FACING, Direction.NORTH)
+            .setValue(CONNECTED, false)
+        );
     }
 
     @Override
     protected void createBlockStateDefinition(Builder<Block, BlockState> pBuilder) {
-        pBuilder.add(FACING);
+        pBuilder.add(FACING, CONNECTED);
     }
     /**
      * places the speaker with its front facing the player
@@ -73,15 +82,19 @@ public class SpeakerBlock extends Block implements EntityBlock {
         if (pLevel.isClientSide)
             return InteractionResult.SUCCESS;
 
-        if (!(pLevel.getBlockEntity(pPos) instanceof SpeakerBlockEntity))
+        if (!(pLevel.getBlockEntity(pPos) instanceof SpeakerBlockEntity sbe))
             return InteractionResult.FAIL;
 
         // shift + right-click unpairs this speaker, right-click pairs it
         if (pPlayer.isShiftKeyDown()) {
             final boolean removed = SpeakerUtil.removeSpeaker(heldStack, pPos);
+            if (removed)
+                sbe.onUnpaired();
             SpeakerUtil.sendUnpairMessage(pPlayer, removed, SpeakerUtil.speakerCount(heldStack));
         } else {
             final SpeakerUtil.PairResult result = SpeakerUtil.addSpeaker(heldStack, pPos);
+            if (result == SpeakerUtil.PairResult.PAIRED)
+                sbe.onPaired();
             SpeakerUtil.sendPairMessage(pPlayer, result, SpeakerUtil.speakerCount(heldStack));
         }
 

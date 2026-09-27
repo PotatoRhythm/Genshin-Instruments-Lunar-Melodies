@@ -196,6 +196,8 @@ public class LooperAdapterItem extends Item {
         if (result != SpeakerUtil.PairResult.PAIRED)
             return true;
 
+        sbe.onPaired();
+
         if (otherBlockPos != null)
             SpeakerUtil.addSpeaker(player.level().getBlockEntity(otherBlockPos), speakerBlockPos);
 

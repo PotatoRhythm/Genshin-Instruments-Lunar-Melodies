@@ -1,5 +1,6 @@
 package com.stump.genshinstrument_lm.block.blockentity;
 
+import com.stump.genshinstrument_lm.block.SpeakerBlock;
 import com.stump.genshinstrument_lm.networking.GIPacketHandler;
 import com.stump.genshinstrument_lm.networking.packet.instrument.NoteSoundMetadata;
 import com.stump.genshinstrument_lm.networking.packet.instrument.s2c.S2CLooperParticlePacket;
@@ -10,6 +11,7 @@ import com.stump.genshinstrument_lm.sound.NoteSound;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSound;
 import com.stump.genshinstrument_lm.sound.held.InitiatorID;
 import net.minecraft.core.BlockPos;
+import net.minecraft.nbt.CompoundTag;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -21,6 +23,7 @@ import java.util.HashSet;
  */
 public class SpeakerBlockEntity extends BlockEntity {
     private static final double PARTICLE_SIZE = 0.2;
+    private static final String PAIR_COUNT_TAG = "pair_count";
 
     private final InitiatorID speakerInitiatorID;
 
@@ -30,6 +33,13 @@ public class SpeakerBlockEntity extends BlockEntity {
      */
     private record HeldNoteKey(HeldNoteSound sound, NoteSoundMetadata meta) {}
     private final HashSet<HeldNoteKey> sustainedNotes = new HashSet<>();
+
+    /**
+     * counts how many instruments are paired to this speaker. pairings live on the instruments,
+     * so this is a best-effort count: it goes up on pair and down on an explicit unpair,
+     * but an instrument destroyed while paired is not subtracted.
+     */
+    private int pairCount = 0;
 
     public SpeakerBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.SPEAKER.get(), pPos, pBlockState);
@@ -64,6 +74,34 @@ public class SpeakerBlockEntity extends BlockEntity {
         } else if (phase == HeldSoundPhase.RELEASE) {
             sustainedNotes.remove(key);
         }
+    }
+
+    public void onPaired() {
+        setPairCount(pairCount + 1);
+    }
+    public void onUnpaired() {
+        setPairCount(Math.max(0, pairCount - 1));
+    }
+    private void setPairCount(final int count) {
+        pairCount = count;
+        setChanged();
+
+        // swap da front texture between speaker_front and speaker_front_connected
+        final BlockState state = getBlockState();
+        final boolean connected = pairCount > 0;
+        if (state.getValue(SpeakerBlock.CONNECTED) != connected)
+            level.setBlockAndUpdate(getBlockPos(), state.setValue(SpeakerBlock.CONNECTED, connected));
+    }
+
+    @Override
+    protected void saveAdditional(CompoundTag pTag) {
+        super.saveAdditional(pTag);
+        pTag.putInt(PAIR_COUNT_TAG, pairCount);
+    }
+    @Override
+    public void load(CompoundTag pTag) {
+        super.load(pTag);
+        pairCount = pTag.getInt(PAIR_COUNT_TAG);
     }
 
     private void emitNoteParticle(final int rgb) {

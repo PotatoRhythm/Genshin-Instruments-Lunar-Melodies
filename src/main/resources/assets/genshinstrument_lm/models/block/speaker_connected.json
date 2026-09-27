@@ -1,0 +1,6 @@
+{
+    "parent": "genshinstrument_lm:block/speaker",
+    "textures": {
+        "north": "genshinstrument_lm:block/speaker_front_connected"
+    }
+}
