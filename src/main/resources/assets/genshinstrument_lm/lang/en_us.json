@@ -314,8 +314,8 @@
     "genshinstrument_lm.speaker.not_paired": "This speaker is not connected",
     "genshinstrument_lm.speaker.unpaired_all": "Disconnected %s speaker(s)",
     "genshinstrument_lm.speaker.none_paired": "No speakers are connected",
-    "genshinstrument_lm.speaker.still_connected": "(the speaker is still connected to something else)",
-    "genshinstrument_lm.speaker.still_connected_count": "(%s still connected to something else)",
+    "genshinstrument_lm.speaker.still_connected": "(still in use)",
+    "genshinstrument_lm.speaker.still_connected_count": "(%s still in use)",
     "genshinstrument_lm.speaker.speaker_unpaired_all": "Disconnected %s connection(s) from this speaker",
     "genshinstrument_lm.speaker.speaker_none_paired": "Nothing is connected to this speaker",
 

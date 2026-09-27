@@ -15,6 +15,7 @@ import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.MutableComponent;
+import net.minecraft.network.chat.TextColor;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
@@ -456,7 +457,7 @@ public class SpeakerUtil {
 
         final MutableComponent message = Component.translatable("genshinstrument_lm.speaker.unpaired", count, MAX_SPEAKERS);
         if (sbe.isConnected())
-            message.append(" ").append(Component.translatable("genshinstrument_lm.speaker.still_connected"));
+            message.append(" ").append(stillConnectedNote(Component.translatable("genshinstrument_lm.speaker.still_connected")));
         player.displayClientMessage(message.withStyle(ChatFormatting.GREEN), true);
     }
     public static void sendUnpairAllMessage(final Player player, final UnpairAllResult result) {
@@ -469,9 +470,18 @@ public class SpeakerUtil {
 
         final MutableComponent message = Component.translatable("genshinstrument_lm.speaker.unpaired_all", result.removed());
         if (result.stillConnected() > 0)
-            message.append(" ").append(Component.translatable("genshinstrument_lm.speaker.still_connected_count", result.stillConnected()));
+            message.append(" ").append(stillConnectedNote(Component.translatable("genshinstrument_lm.speaker.still_connected_count", result.stillConnected())));
         player.displayClientMessage(message.withStyle(ChatFormatting.GREEN), true);
     }
+    /**
+     * dark orange, so the "still connected" note stands out from the green message.
+     * a child's own color overrides the parent's, so the rest of the message stays green.
+     */
+    private static final TextColor STILL_CONNECTED_COLOR = TextColor.fromRgb(0xFF8C00);
+    private static MutableComponent stillConnectedNote(final MutableComponent note) {
+        return note.withStyle((style) -> style.withColor(STILL_CONNECTED_COLOR));
+    }
+
     public static void sendSpeakerUnpairAllMessage(final Player player, final int removedCount) {
         player.displayClientMessage((removedCount > 0)
             ? Component.translatable("genshinstrument_lm.speaker.speaker_unpaired_all", removedCount)
