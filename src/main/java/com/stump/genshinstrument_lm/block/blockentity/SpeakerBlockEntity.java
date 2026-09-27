@@ -10,20 +10,37 @@ import com.stump.genshinstrument_lm.networking.packet.instrument.util.NoteSoundP
 import com.stump.genshinstrument_lm.sound.NoteSound;
 import com.stump.genshinstrument_lm.sound.held.HeldNoteSound;
 import com.stump.genshinstrument_lm.sound.held.InitiatorID;
+import com.stump.genshinstrument_lm.util.SpeakerUtil;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
+import net.minecraft.nbt.NbtUtils;
 import net.minecraft.server.level.ServerLevel;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
 
+import javax.annotation.Nullable;
+import java.util.HashMap;
 import java.util.HashSet;
+import java.util.UUID;
 
 /**
- * immediately rebroadcasts the notes of a paired instrument from this block's position
+ * immediately rebroadcasts the notes of its paired instruments from this block's position
  */
 public class SpeakerBlockEntity extends BlockEntity {
     private static final double PARTICLE_SIZE = 0.2;
-    private static final String PAIR_COUNT_TAG = "pair_count";
+    private static final String SPEAKER_ID_TAG = "speaker_id", INSTRUMENTS_TAG = "instruments",
+        INSTRUMENT_ID_TAG = "id", INSTRUMENT_POS_TAG = "pos";
+    /**
+     * how often (in ticks) paired block instruments are checked for still being paired
+     */
+    private static final int VALIDATE_INTERVAL = 40;
+    /**
+     * how often (in ticks) held notes re-emit their particle while sustained, same as the looper
+     */
+    private static final int HELD_PARTICLE_INTERVAL = 10;
+    private int heldParticleTimer = 0;
 
     private final InitiatorID speakerInitiatorID;
 
@@ -35,11 +52,17 @@ public class SpeakerBlockEntity extends BlockEntity {
     private final HashSet<HeldNoteKey> sustainedNotes = new HashSet<>();
 
     /**
-     * counts how many instruments are paired to this speaker. pairings live on the instruments,
-     * so this is a best-effort count: it goes up on pair and down on an explicit unpair,
-     * but an instrument destroyed while paired is not subtracted.
+     * identifies this specific speaker, so an instrument can tell it apart from
+     * a new speaker later placed at the same position.
      */
-    private int pairCount = 0;
+    private UUID speakerId = UUID.randomUUID();
+
+    /**
+     * the instruments paired to this speaker, by instrument ID. block instruments map to their position
+     * so they can be re-checked; held instruments map to null.
+     * the speaker shows as connected exactly while this is non-empty.
+     */
+    private final HashMap<UUID, BlockPos> pairedInstruments = new HashMap<>();
 
     public SpeakerBlockEntity(BlockPos pPos, BlockState pBlockState) {
         super(ModBlockEntities.SPEAKER.get(), pPos, pBlockState);
@@ -76,33 +99,109 @@ public class SpeakerBlockEntity extends BlockEntity {
         }
     }
 
-    public void onPaired() {
-        setPairCount(pairCount + 1);
-    }
-    public void onUnpaired() {
-        setPairCount(Math.max(0, pairCount - 1));
-    }
-    private void setPairCount(final int count) {
-        pairCount = count;
-        setChanged();
+    //#region Pairing
 
-        // swap da front texture between speaker_front and speaker_front_connected
+    public UUID getSpeakerId() {
+        return speakerId;
+    }
+
+    public boolean hasInstrument(final UUID instrumentId) {
+        return pairedInstruments.containsKey(instrumentId);
+    }
+    /**
+     * @param instrumentPos The block instrument's position, or null for a held instrument
+     */
+    public void addInstrument(final UUID instrumentId, @Nullable final BlockPos instrumentPos) {
+        pairedInstruments.put(instrumentId, instrumentPos);
+        onPairingsChanged();
+    }
+    public void removeInstrument(final UUID instrumentId) {
+        // containsKey, since held instruments map to a null position
+        if (!pairedInstruments.containsKey(instrumentId))
+            return;
+
+        pairedInstruments.remove(instrumentId);
+        onPairingsChanged();
+    }
+
+    private void onPairingsChanged() {
+        setChanged();
+        updateConnectedState();
+    }
+    /**
+     * swaps da front texture between speaker_front and speaker_front_connected,
+     * according to whether any instrument is paired
+     */
+    private void updateConnectedState() {
+        if (level == null || level.isClientSide)
+            return;
+
         final BlockState state = getBlockState();
-        final boolean connected = pairCount > 0;
+        final boolean connected = !pairedInstruments.isEmpty();
         if (state.getValue(SpeakerBlock.CONNECTED) != connected)
             level.setBlockAndUpdate(getBlockPos(), state.setValue(SpeakerBlock.CONNECTED, connected));
+    }
+
+    public void tick(final Level level) {
+        emitHeldParticles();
+
+        if (level.getGameTime() % VALIDATE_INTERVAL == 0)
+            validateBlockInstruments(level);
+    }
+    /**
+     * drops block instruments that were broken or no longer list this speaker.
+     * also corrects the connected state, e.g. for speakers saved by an older version.
+     */
+    private void validateBlockInstruments(final Level level) {
+        final boolean changed = pairedInstruments.entrySet().removeIf((entry) -> {
+            final BlockPos instrumentPos = entry.getValue();
+            return (instrumentPos != null)
+                && level.isLoaded(instrumentPos)
+                && !SpeakerUtil.isBlockInstrumentPaired(level, instrumentPos, entry.getKey(), this);
+        });
+
+        if (changed)
+            setChanged();
+        updateConnectedState();
     }
 
     @Override
     protected void saveAdditional(CompoundTag pTag) {
         super.saveAdditional(pTag);
-        pTag.putInt(PAIR_COUNT_TAG, pairCount);
+        pTag.putUUID(SPEAKER_ID_TAG, speakerId);
+
+        final ListTag instruments = new ListTag();
+        pairedInstruments.forEach((instrumentId, instrumentPos) -> {
+            final CompoundTag instrumentTag = new CompoundTag();
+            instrumentTag.putUUID(INSTRUMENT_ID_TAG, instrumentId);
+            if (instrumentPos != null)
+                instrumentTag.put(INSTRUMENT_POS_TAG, NbtUtils.writeBlockPos(instrumentPos));
+            instruments.add(instrumentTag);
+        });
+        pTag.put(INSTRUMENTS_TAG, instruments);
     }
     @Override
     public void load(CompoundTag pTag) {
         super.load(pTag);
-        pairCount = pTag.getInt(PAIR_COUNT_TAG);
+        if (pTag.hasUUID(SPEAKER_ID_TAG))
+            speakerId = pTag.getUUID(SPEAKER_ID_TAG);
+
+        pairedInstruments.clear();
+        final ListTag instruments = pTag.getList(INSTRUMENTS_TAG, CompoundTag.TAG_COMPOUND);
+        for (int i = 0; i < instruments.size(); i++) {
+            final CompoundTag instrumentTag = instruments.getCompound(i);
+            if (!instrumentTag.hasUUID(INSTRUMENT_ID_TAG))
+                continue;
+
+            pairedInstruments.put(instrumentTag.getUUID(INSTRUMENT_ID_TAG),
+                instrumentTag.contains(INSTRUMENT_POS_TAG, CompoundTag.TAG_COMPOUND)
+                    ? NbtUtils.readBlockPos(instrumentTag.getCompound(INSTRUMENT_POS_TAG))
+                    : null
+            );
+        }
     }
+
+    //#endregion
 
     private void emitNoteParticle(final int rgb) {
         GIPacketHandler.sendToTracking(
@@ -110,6 +209,22 @@ public class SpeakerBlockEntity extends BlockEntity {
             (ServerLevel) getLevel(),
             getBlockPos()
         );
+    }
+
+    /**
+     * keeps emitting particles while held notes (e.g. the flute's) are sustained,
+     * as the looper does in LooperBlockEntity
+     */
+    private void emitHeldParticles() {
+        if (sustainedNotes.isEmpty()) {
+            heldParticleTimer = 0;
+            return;
+        }
+        if (++heldParticleTimer < HELD_PARTICLE_INTERVAL)
+            return;
+
+        heldParticleTimer = 0;
+        sustainedNotes.forEach((key) -> emitNoteParticle(key.meta().particleColor()));
     }
 
     private void releaseSustainedNotes() {

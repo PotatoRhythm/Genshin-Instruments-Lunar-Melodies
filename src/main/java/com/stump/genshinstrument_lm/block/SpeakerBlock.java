@@ -1,5 +1,6 @@
 package com.stump.genshinstrument_lm.block;
 
+import com.stump.genshinstrument_lm.block.blockentity.ModBlockEntities;
 import com.stump.genshinstrument_lm.block.blockentity.SpeakerBlockEntity;
 import com.stump.genshinstrument_lm.item.InstrumentItem;
 import com.stump.genshinstrument_lm.util.SpeakerUtil;
@@ -17,6 +18,8 @@ import net.minecraft.world.level.block.HorizontalDirectionalBlock;
 import net.minecraft.world.level.block.Mirror;
 import net.minecraft.world.level.block.Rotation;
 import net.minecraft.world.level.block.entity.BlockEntity;
+import net.minecraft.world.level.block.entity.BlockEntityTicker;
+import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.StateDefinition.Builder;
 import net.minecraft.world.level.block.state.properties.BooleanProperty;
@@ -72,6 +75,15 @@ public class SpeakerBlock extends Block implements EntityBlock {
     }
 
     @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState,
+            BlockEntityType<T> pBlockEntityType) {
+
+        return (!pLevel.isClientSide && pBlockEntityType == ModBlockEntities.SPEAKER.get())
+            ? (level, pos, state, be) -> ((SpeakerBlockEntity)(be)).tick(level)
+            : null;
+    }
+
+    @Override
     public InteractionResult use(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, InteractionHand pHand,
             BlockHitResult pHit) {
         final ItemStack heldStack = pPlayer.getItemInHand(pHand);
@@ -87,15 +99,11 @@ public class SpeakerBlock extends Block implements EntityBlock {
 
         // shift + right-click unpairs this speaker, right-click pairs it
         if (pPlayer.isShiftKeyDown()) {
-            final boolean removed = SpeakerUtil.removeSpeaker(heldStack, pPos);
-            if (removed)
-                sbe.onUnpaired();
-            SpeakerUtil.sendUnpairMessage(pPlayer, removed, SpeakerUtil.speakerCount(heldStack));
+            final boolean removed = SpeakerUtil.unpair(pLevel, heldStack, sbe);
+            SpeakerUtil.sendUnpairMessage(pPlayer, removed, SpeakerUtil.speakerCount(pLevel, heldStack));
         } else {
-            final SpeakerUtil.PairResult result = SpeakerUtil.addSpeaker(heldStack, pPos);
-            if (result == SpeakerUtil.PairResult.PAIRED)
-                sbe.onPaired();
-            SpeakerUtil.sendPairMessage(pPlayer, result, SpeakerUtil.speakerCount(heldStack));
+            final SpeakerUtil.PairResult result = SpeakerUtil.pair(pLevel, heldStack, sbe);
+            SpeakerUtil.sendPairMessage(pPlayer, result, SpeakerUtil.speakerCount(pLevel, heldStack));
         }
 
         return InteractionResult.SUCCESS;

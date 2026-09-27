@@ -282,7 +282,7 @@
     "item.genshinstrument_lm.looper_adapter.looper.select": "Instrument connected. Waiting for looper or speaker connection.",
     "item.genshinstrument_lm.looper_adapter.looper.success_pair": "Loopers synced successfully!",
 
-    "item.genshinstrument_lm.looper_adapter.speaker.description": "Pairs an instrument block to a speaker, which immediately plays its notes. Right-click a speaker with a held instrument to pair it directly, or shift + right-click to unpair",
+    "item.genshinstrument_lm.looper_adapter.speaker.description": "Pairs an instrument block to a speaker, which immediately plays its notes. Shift + right-click an instrument block to disconnect its speakers (or only the selected speaker). Held instruments pair by right-clicking a speaker, and unpair with shift + right-click",
     "item.genshinstrument_lm.looper_adapter.speaker.select": "Speaker connected. Waiting for instrument connection.",
 
 
@@ -306,6 +306,8 @@
     "genshinstrument_lm.speaker.full": "This instrument already has the maximum of %s speakers connected",
     "genshinstrument_lm.speaker.unpaired": "Speaker disconnected. %s of %s speakers connected",
     "genshinstrument_lm.speaker.not_paired": "This speaker is not connected to this instrument",
+    "genshinstrument_lm.speaker.unpaired_all": "Disconnected %s speaker(s) from this instrument",
+    "genshinstrument_lm.speaker.none_paired": "This instrument is not connected to any speakers",
 
     "genshinstrument_lm.looper.pair_conflict": "This record already has burned footage!",
     "genshinstrument_lm.looper.no_record": "No record inserted",

@@ -66,7 +66,9 @@ public class LooperAdapterItem extends Item {
 
         boolean pairSucceed;
         if (block instanceof AbstractInstrumentBlock)
-            pairSucceed = handleInstrumentBlock(pos, adapterTag, player);
+            pairSucceed = player.isShiftKeyDown()
+                ? unpairSpeakersFromInstrument(pos, adapterTag, player)
+                : handleInstrumentBlock(pos, adapterTag, player);
         else if (block instanceof LooperBlock)
             pairSucceed = handleLooperBlock(pos, adapterTag, player);
         else if (block instanceof SpeakerBlock)
@@ -180,37 +182,58 @@ public class LooperAdapterItem extends Item {
         for (final String key : adapterTag.getAllKeys())
             adapterTag.remove(key);
 
-        final BlockState instrumentBlockState = ibe.getBlockState();
-        final Block instrumentBlock = instrumentBlockState.getBlock();
-
-        final BlockPos instrumentBlockPos = ibe.getBlockPos(),
-            speakerBlockPos = sbe.getBlockPos();
-
-        // Linked blocks (like the Keyboard) should too have the tag:
-        BlockPos otherBlockPos = null;
-        if (instrumentBlock instanceof IDoubleBlock doubleBlock)
-            otherBlockPos = doubleBlock.getOtherBlock(instrumentBlockState, instrumentBlockPos, player.level());
-
-        final SpeakerUtil.PairResult result = SpeakerUtil.addSpeaker(ibe, speakerBlockPos);
-        SpeakerUtil.sendPairMessage(player, result, SpeakerUtil.speakerCount(ibe));
-        if (result != SpeakerUtil.PairResult.PAIRED)
-            return true;
-
-        sbe.onPaired();
-
-        if (otherBlockPos != null)
-            SpeakerUtil.addSpeaker(player.level().getBlockEntity(otherBlockPos), speakerBlockPos);
-
-        ibe.setChanged();
-
-        // Handle syncing data to client
-        if (player instanceof ServerPlayer serverPlayer) {
-            GIPacketHandler.sendToClient(new SyncModTagPacket(GInstrumentMod.modTag(ibe), instrumentBlockPos), serverPlayer);
-            if (otherBlockPos != null)
-                GIPacketHandler.sendToClient(new SyncModTagPacket(GInstrumentMod.modTag(ibe), otherBlockPos), serverPlayer);
-        }
+        // also mirrors the pairing onto the other half of linked blocks (like the Keyboard)
+        final SpeakerUtil.PairResult result = SpeakerUtil.pair(player.level(), ibe, sbe);
+        SpeakerUtil.sendPairMessage(player, result, SpeakerUtil.speakerCount(player.level(), ibe));
+        if (result == SpeakerUtil.PairResult.PAIRED)
+            syncInstrumentToClient(ibe, player);
 
         return true;
+    }
+
+    /**
+     * shift + right-click on a block instrument. If a speaker was selected with this adapter first,
+     * only that speaker is unpaired, otherwise every speaker paired to the instrument is.
+     */
+    private static boolean unpairSpeakersFromInstrument(BlockPos instrumentPos, CompoundTag adapterTag, Player player) {
+        final Level level = player.level();
+        if (!(level.getBlockEntity(instrumentPos) instanceof InstrumentBlockEntity ibe))
+            return false;
+
+        final BlockPos selectedSpeakerPos = adapterTag.contains(SPEAKER_POS_TAG, Tag.TAG_COMPOUND)
+            ? NbtUtils.readBlockPos(adapterTag.getCompound(SPEAKER_POS_TAG))
+            : null;
+
+        // Clear all compound keys after unpairing
+        for (final String key : adapterTag.getAllKeys())
+            adapterTag.remove(key);
+
+        if (selectedSpeakerPos != null && (level.getBlockEntity(selectedSpeakerPos) instanceof SpeakerBlockEntity sbe)) {
+            final boolean removed = SpeakerUtil.unpair(level, ibe, sbe);
+            SpeakerUtil.sendUnpairMessage(player, removed, SpeakerUtil.speakerCount(level, ibe));
+        } else {
+            SpeakerUtil.sendUnpairAllMessage(player, SpeakerUtil.unpairAll(level, ibe));
+        }
+
+        syncInstrumentToClient(ibe, player);
+        return true;
+    }
+
+    /**
+     * Sends the instrument's mod tag to the client, including the other half of linked blocks (like keyboard)
+     */
+    private static void syncInstrumentToClient(InstrumentBlockEntity ibe, Player player) {
+        if (!(player instanceof ServerPlayer serverPlayer))
+            return;
+
+        final BlockState instrumentBlockState = ibe.getBlockState();
+        final BlockPos instrumentBlockPos = ibe.getBlockPos();
+
+        GIPacketHandler.sendToClient(new SyncModTagPacket(GInstrumentMod.modTag(ibe), instrumentBlockPos), serverPlayer);
+        if (instrumentBlockState.getBlock() instanceof IDoubleBlock doubleBlock) {
+            final BlockPos otherBlockPos = doubleBlock.getOtherBlock(instrumentBlockState, instrumentBlockPos, player.level());
+            GIPacketHandler.sendToClient(new SyncModTagPacket(GInstrumentMod.modTag(ibe), otherBlockPos), serverPlayer);
+        }
     }
     private static boolean pairSpeakerToInstrument(CompoundTag adapterTag, BlockPos speakerPos, BlockPos instrumentPos, Player player) {
         final Level level = player.level();
