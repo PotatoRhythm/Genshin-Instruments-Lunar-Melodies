@@ -86,10 +86,10 @@ public class SpeakerBlockEntity extends BlockEntity {
         return new NoteSoundMetadata(getBlockPos(), meta.pitch(), meta.volume(), meta.particleColor(), meta.instrumentId(), meta.noteIdentifier());
     }
 
-    public void playNote(final NoteSound sound, final NoteSoundMetadata meta) {
+    public void playNote(final NoteSound sound, final NoteSoundMetadata meta, final InitiatorID source) {
         final NoteSoundMetadata relocated = relocate(meta);
 
-        NoteSoundPacketUtil.sendPlayNotePackets(level, sound, relocated);
+        NoteSoundPacketUtil.sendPlayNotePackets(level, sound, relocated, source);
         emitNoteParticle(relocated.particleColor());
     }
 

@@ -507,7 +507,7 @@ public class LooperBlockEntity extends BlockEntity implements ContainerSingleIte
                 meta,
                 looperInitiatorID
         );
-        getPairedSpeakers().forEach((speaker) -> speaker.playNote(sound, meta));
+        getPairedSpeakers().forEach((speaker) -> speaker.playNote(sound, meta, looperInitiatorID));
 
         int rgb = noteTag.getInt(PARTICLE_COLOR_TAG);
 

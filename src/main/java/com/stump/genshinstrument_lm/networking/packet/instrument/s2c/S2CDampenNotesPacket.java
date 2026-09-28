@@ -43,7 +43,10 @@ public class S2CDampenNotesPacket implements IModPacket {
         if (entity == null)
             return;
 
+        final InitiatorID source = InitiatorID.fromEntity(entity);
+
         NoteSoundInstances.dampenAll(initiatorId);
-        HeldNoteSounds.dampenAll(InitiatorID.fromEntity(entity));
+        NoteSoundInstances.dampenAll(source);
+        HeldNoteSounds.dampenAll(source);
     }
 }

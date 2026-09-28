@@ -4,6 +4,7 @@ import com.stump.genshinstrument_lm.GInstrumentMod;
 import com.stump.genshinstrument_lm.event.HeldNoteSoundPlayedEvent;
 import com.stump.genshinstrument_lm.event.InstrumentPlayedEvent;
 import com.stump.genshinstrument_lm.event.NoteSoundPlayedEvent;
+import com.stump.genshinstrument_lm.sound.held.InitiatorID;
 import com.stump.genshinstrument_lm.util.SpeakerUtil;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
@@ -20,9 +21,10 @@ public class SpeakerNoteListener {
 
     @SubscribeEvent
     public static void onNoteSoundPlayed(final NoteSoundPlayedEvent event) {
-        getMatchingSpeakers(event).forEach((speakerBE) ->
-            speakerBE.playNote(event.sound(), event.soundMeta())
-        );
+        if (!event.isByPlayer() || event.level().isClientSide)
+            return;
+        final InitiatorID source = InitiatorID.fromEntity(event.entityInfo().get().entity);
+        getMatchingSpeakers(event).forEach((speakerBE) -> speakerBE.playNote(event.sound(), event.soundMeta(), source));
     }
 
     @SubscribeEvent

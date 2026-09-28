@@ -54,7 +54,7 @@ public class C2SDampenNotesPacket implements IModPacket {
         // Dampening doesn't send individual releases, so release the player's held notes on their speakers too
         SpeakerUtil.releaseHeldNotes(player);
 
-        GIPacketHandler.sendToTrackingEntity(
+        GIPacketHandler.sendToTrackingEntityAndSelf(
                 new S2CDampenNotesPacket(player.getId()),
                 player
         );

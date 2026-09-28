@@ -62,4 +62,7 @@ public class GIPacketHandler {
     public static <T> void sendToTrackingEntity(final T packet, final ServerPlayer player) {
         INSTANCE.send(PacketDistributor.TRACKING_ENTITY.with(() -> player), packet);
     }
+    public static <T> void sendToTrackingEntityAndSelf(final T packet, final ServerPlayer player) {
+        INSTANCE.send(PacketDistributor.TRACKING_ENTITY_AND_SELF.with(() -> player), packet);
+    }
 }
