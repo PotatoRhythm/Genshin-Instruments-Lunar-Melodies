@@ -1,8 +1,0 @@
-{
-    "parent": "genshinstrument_lm:block/looper/root",
-    "textures": {
-        "record": "genshinstrument_lm:block/looper_top_uninjected",
-        "playing": "genshinstrument_lm:block/looper_front_uninjected",
-        "looping": "genshinstrument_lm:block/looper_loop_on"
-    }
-}

@@ -1,0 +1,384 @@
+{
+    "songcraft_instruments.keymaps": "Instruments GUI",
+    "songcraft_instruments.keymaps.volume_up": "Increase Volume",
+    "songcraft_instruments.keymaps.volume_down": "Decrease Volume",
+    "songcraft_instruments.keymaps.transpose_up_modifier": "Transpose Instrument Up",
+    "songcraft_instruments.keymaps.transpose_down_modifier": "Transpose Instrument Down",
+
+
+    "songcraft_instruments.itemGroup.instruments": "Instruments",
+
+    "item.songcraft_instruments.windsong_lyre": "Windsong Lyre",
+    "item.songcraft_instruments.floral_zither": "Floral Zither",
+    "item.songcraft_instruments.vintage_lyre": "Vintage Lyre",
+    "item.songcraft_instruments.glorious_drum": "Arataki's Great and Glorious Drum",
+    "item.songcraft_instruments.nightwind_horn": "Nightwind Horn",
+    "item.songcraft_instruments.ukulele": "Ukulele",
+    "item.songcraft_instruments.djem_djem_drum": "Djem Djem Drum",
+
+
+    "soundCategory.record": "Instruments",
+
+
+    "button.songcraft_instruments.instrumentOptions": "Instrument Options",
+    "label.songcraft_instruments.midiOptions": "MIDI Options",
+    "label.songcraft_instruments.zither_options": "Zither Options",
+    "label.songcraft_instruments.vintage_lyre_options": "Vintage Lyre Options",
+    "label.songcraft_instruments.ukulele_options": "Ukulele Options",
+    "label.songcraft_instruments.keyboard_options": "Keyboard Options",
+    "label.songcraft_instruments.drumset_options": "Drumset Options",
+    "label.songcraft_instruments.electric_guitar_options": "Electric Guitar Options",
+    "label.songcraft_instruments.bass_guitar_options": "Bass Guitar Options",
+    "label.songcraft_instruments.violin_options": "Violin Options",
+    "label.songcraft_instruments.microphone_options": "Microphone Options",
+    "label.songcraft_instruments.saxophone_options": "Saxophone Options",
+    "label.songcraft_instruments.trombone_options": "Trombone Options",
+
+
+
+    "songcraft_instruments.genshin_disclaimer.title": "Disclaimer!",
+    "songcraft_instruments.genshin_disclaimer.content": "SongCraft Instruments is an %s and %s Minecraft mod that is in no way affiliated with neither Genshin Impact nor HoYoverse.\n\nThus, all Genshin-related assets used in-game, such as sounds, images, instruments etc. are of complete ownership to HoYoverse.\n\nAs the user, you have the full responsibility over your actions within the game, including (but not limited to!) playing and sharing/publishing any songs that may be protected under copyright laws.",
+    "songcraft_instruments.genshin_disclaimer.bolden1": "unofficial",
+    "songcraft_instruments.genshin_disclaimer.bolden2": "fanmade",
+
+
+    "button.songcraft_instruments.audioChannels": "Instrument Audio Channel Type",
+    "button.songcraft_instruments.audioChannels.mono": "Mono",
+    "button.songcraft_instruments.audioChannels.stereo": "Stereo",
+    "button.songcraft_instruments.audioChannels.stereo.tooltip":
+    "NOTICE: Because of some annoying specification by OpenAL, all sounds produced on Stereo will be stuck on 100%.\nThis includes some instruments.",
+    "button.songcraft_instruments.audioChannels.mixed.tooltip":
+    "If the Instruments sound category is set to 100%, you will hear instruments on Stereo within %s blocks of range.\nOtherwise, you will hear Mono.",
+    "button.songcraft_instruments.audioChannels.mixed": "Mixed",
+    "button.songcraft_instruments.stop_music_on_play.tooltip": "When you or other players within %s blocks of range play an instrument, Minecraft's background music will stop.",
+    "button.songcraft_instruments.stop_music_on_play": "Stop Music On Play",
+    "button.songcraft_instruments.shared_instrument.tooltip": "See what other notes players nearby are playing in your instrument's screen",
+    "button.songcraft_instruments.shared_instrument": "Shared Instrument Screen",
+
+    "button.songcraft_instruments.render_background": "Show Background Visuals",
+    "button.songcraft_instruments.accurate_notes": "Accurate Notes",
+    "button.songcraft_instruments.accurate_notes.tooltip": "When on, provides a pitch-accurate representation of the note symbols and accidentals used by this instrument's layout",
+    "button.songcraft_instruments.server_audio": "Server-Side Audio",
+    "button.songcraft_instruments.server_audio.tooltip": "When on, hear your notes after they reach the server. Useful for syncing with high latency",
+    "button.songcraft_instruments.extend_range": "Extend Range",
+    "button.songcraft_instruments.extend_range.tooltip": "Extend playable range to 5 octaves for Octave Swap mode",
+
+
+    "button.songcraft_instruments.midiEnabled": "MIDI Enabled",
+    "button.songcraft_instruments.midiDevice": "MIDI Device",
+
+    "button.songcraft_instruments.fixedTouch": "Fixed Touch",
+    "button.songcraft_instruments.fixedTouch.tooltip": "Defines whether the velocity of a note press will not affect the instrument's volume",
+    "button.songcraft_instruments.inputSensitivity": "Sensitivity",
+
+    "button.songcraft_instruments.extendOctaves": "Extend Octaves",
+    "button.songcraft_instruments.extendOctaves.tooltip": "When a note that is higher/lower than the usual octave range is played, will automatically adjust the pitch to match your playings. Can only extend up to 1 octave per side: high and low C.\nBlame Minecraft.",
+
+    "button.songcraft_instruments.midiOctaveShift": "Octave Shift",
+    "button.songcraft_instruments.midiChannel": "MIDI Channel",
+    "button.songcraft_instruments.acceptAllChannels": "Listen to All Channels",
+
+
+    "button.songcraft_instruments.dominantDrumType": "Dominant Drum Type",
+    "button.songcraft_instruments.dominantDrumType.both": "Both",
+
+    "button.songcraft_instruments.dominantDrumType.both.tooltip": "The MIDI keyboard will be split in middle C, such that low C plays Don and high plays Ka",
+    "button.songcraft_instruments.dominantDrumType.don.tooltip": "The whole keyboard plays Don",
+    "button.songcraft_instruments.dominantDrumType.ka.tooltip": "The whole keyboard plays Ka",
+
+
+    "button.songcraft_instruments.normalize_vintage_lyre": "Normalize Vintage Lyre",
+    "button.songcraft_instruments.normalize_vintage_lyre.tooltip": "Normalizes all flattened notes in the Vintage Lyre. Does not apply to the max pitch.",
+
+    "button.songcraft_instruments.ukulele_3rd_octave" : "Ukulele's 3rd Octave",
+
+    "button.songcraft_instruments.ukulele_3rd_octave.chords" : "Chords",
+    "button.songcraft_instruments.ukulele_3rd_octave.treble" : "Treble",
+    "button.songcraft_instruments.ukulele_3rd_octave.treble.tooltip": "Because of Minecraft limitations, the more you pitch up the instrument, the more notes will be heard as B2.",
+
+
+    "button.none": "None",
+
+
+
+    "button.songcraft_instruments.label": "Note Labels",
+    "button.songcraft_instruments.volume": "Volume",
+    "button.songcraft_instruments.transpose": "Transpose",
+    "button.songcraft_instruments.control_mode": "Control Mode",
+
+    "button.songcraft_instruments.zither.soundType": "Sound",
+    "button.songcraft_instruments.zither.soundType.old": "Old",
+    "button.songcraft_instruments.zither.soundType.new": "New",
+
+    "button.songcraft_instruments.particle_color_editor": "Particle Color Editor",
+
+    "button.songcraft_instruments.keyboard.soundType": "Sound",
+    "button.songcraft_instruments.keyboard.soundType.emi": "EMI",
+    "button.songcraft_instruments.keyboard.soundType.gw2": "Guild Wars 2",
+    "button.songcraft_instruments.keyboard.soundType.yamaha_c5": "Yamaha_C5",
+    "button.songcraft_instruments.keyboard.soundType.heartopia": "Heartopia",
+    "button.songcraft_instruments.keyboard.soundType.electric": "Electric",
+    "button.songcraft_instruments.keyboard.soundType.harpsichord": "Harpsichord",
+
+    "button.songcraft_instruments.drumset.soundType": "Sound",
+    "button.songcraft_instruments.drumset.soundType.gw2": "Guild Wars 2",
+
+    "button.songcraft_instruments.electric_guitar.soundType": "Sound",
+    "button.songcraft_instruments.electric_guitar.soundType.clean": "Clean",
+
+    "button.songcraft_instruments.bass_guitar.soundType": "Sound",
+    "button.songcraft_instruments.bass_guitar.soundType.acoustic": "Acoustic Bass",
+    "button.songcraft_instruments.bass_guitar.soundType.finger": "Finger Bass",
+    "button.songcraft_instruments.bass_guitar.soundType.slap": "Slap Bass",
+
+    "button.songcraft_instruments.violin.soundType": "Sound",
+    "button.songcraft_instruments.violin.soundType.slow": "Slow",
+    "button.songcraft_instruments.violin.soundType.fast": "Fast",
+    "button.songcraft_instruments.violin.soundType.pizz": "Pizzicato",
+
+    "button.songcraft_instruments.microphone.soundType": "Sound",
+    "button.songcraft_instruments.microphone.soundType.irina": "Irina Brochin",
+    "button.songcraft_instruments.microphone.soundType.bass": "Bass Choir",
+    "button.songcraft_instruments.microphone.soundType.miku": "Not Miku",
+    "button.songcraft_instruments.microphone.soundType.teto": "Not Teto",
+    "button.songcraft_instruments.microphone.soundType.teto_sneaky": "Not Teto (Whisper)",
+
+    "button.songcraft_instruments.saxophone.soundType": "Sound",
+    "button.songcraft_instruments.saxophone.soundType.emi": "EMI",
+    "button.songcraft_instruments.saxophone.soundType.baritone": "Baritone",
+    "button.songcraft_instruments.saxophone.soundType.tenor": "Tenor",
+
+    "button.songcraft_instruments.trombone.soundType": "Sound",
+    "button.songcraft_instruments.trombone.soundType.emi": "EMI",
+    "button.songcraft_instruments.trombone.soundType.phgm": "Trombone",
+    "button.songcraft_instruments.trombone.soundType.westgate": "Trumpet",
+
+    "button.songcraft_instruments.label.do_re_mi": "do re mi",
+    "button.songcraft_instruments.label.do_re_mi.description": "Labels will be of the musical notation \"do re mi.\"",
+
+    "button.songcraft_instruments.control_mode.genshin": "Genshin",
+    "button.songcraft_instruments.control_mode.heartopia": "Heartopia",
+    "button.songcraft_instruments.control_mode.octave_swap": "Octave Swap",
+
+    "songcraft_instruments.label.do": "do",
+    "songcraft_instruments.label.re": "re",
+    "songcraft_instruments.label.mi": "mi",
+    "songcraft_instruments.label.fa": "fa",
+    "songcraft_instruments.label.so": "so",
+    "songcraft_instruments.label.la": "la",
+    "songcraft_instruments.label.ti": "ti",
+
+    "songcraft_instruments.label.glorious_drum.ka": "ka",
+    "songcraft_instruments.label.glorious_drum.don": "don",
+
+
+    "button.songcraft_instruments.label.keyboard_layout": "Keyboard",
+    "button.songcraft_instruments.label.keyboard_layout.description": "Labels will be of your local keyboard layout",
+    "button.songcraft_instruments.label.qwerty": "Keyboard (QWERTY)",
+    "button.songcraft_instruments.label.qwerty.description": "Labels will be of the QWERTY keyboard layout",
+    "button.songcraft_instruments.label.note_name": "ABC",
+    "button.songcraft_instruments.label.note_name.description": "Labels will be of the musical notation \"ABC\"",
+
+    "button.songcraft_instruments.label.fixed_abc": "Fixed ABC",
+    "button.songcraft_instruments.label.fixed_abc.description": "ABC labels that are not affected by custom transpositions (pitch)",
+    "button.songcraft_instruments.label.fixed_do_re_mi": "Fixed do re mi",
+    "button.songcraft_instruments.label.fixed_do_re_mi.description": "do re mi labels that are not affected by custom transpositions (pitch)",
+
+    "button.songcraft_instruments.label.none": "No Label",
+    "button.songcraft_instruments.label.none.description": "",
+
+    "button.songcraft_instruments.label.don_ka": "Don-Ka",
+
+    "button.songcraft_instruments.label.genshin_notation": "Genshin Notation",
+    "button.songcraft_instruments.label.genshin_notation.description": "The note labeling, as appears in Genshin Impact.",
+
+    "songcraft_instruments.label.genshin_notation.djem_djem_drum.b": "B",
+    "songcraft_instruments.label.genshin_notation.djem_djem_drum.t": "T",
+    "songcraft_instruments.label.genshin_notation.djem_djem_drum.s": "S",
+    "songcraft_instruments.label.genshin_notation.djem_djem_drum.r": "R",
+
+
+
+    "songcraft_instruments.advancements.main.root.title": "A Bard's Journey",
+    "songcraft_instruments.advancements.main.root.description": "Though wine may not be by your side, the instruments will always walk you through the Game of Freedom.",
+
+    "songcraft_instruments.advancements.main.master.title": "A Band of One",
+    "songcraft_instruments.advancements.main.master.description": "Have all Genshin instruments in your inventory at once",
+
+    "songcraft_instruments.advancements.main.windsong_lyre.title": "The Sound of Wind",
+    "songcraft_instruments.advancements.main.windsong_lyre.description": "Play the Windsong Lyre",
+
+    "songcraft_instruments.advancements.main.vintage_lyre.title": "The Forest Will Remember",
+    "songcraft_instruments.advancements.main.vintage_lyre.description": "Play the Vintage Lyre",
+
+    "songcraft_instruments.advancements.main.glorious_drum.title": "Totally Not a Scam",
+    "songcraft_instruments.advancements.main.glorious_drum.description": "Play Arataki's Great and Glorious Drum",
+
+    "songcraft_instruments.advancements.main.floral_zither.title": "Incognito Player",
+    "songcraft_instruments.advancements.main.floral_zither.description": "Play the Floral Zither",
+
+    "songcraft_instruments.advancements.main.nightwind_horn.title": "The Final Symphony",
+    "songcraft_instruments.advancements.main.nightwind_horn.description": "Play the Nightwind Horn",
+
+    "songcraft_instruments.advancements.main.people_of_the_springs.title": "Chasing Waves",
+    "songcraft_instruments.advancements.main.people_of_the_springs.description": "Play any of the People of the Springs' instruments",
+
+    "songcraft_instruments.advancements.main.master_of_the_springs.title": "Master of the Springs",
+    "songcraft_instruments.advancements.main.master_of_the_springs.description": "Play all of the People of the Springs' instruments",
+
+    "songcraft_instruments.keymaps.instrument_type_modifier": "Cycle Instrument Sound",
+    "songcraft_instruments.keymaps.record": "Record",
+
+    "itemGroup.songcraft_instruments.music_production_tab": "Music Production",
+
+    "item.shift.hint.show": "Hold Shift to learn more",
+    "item.shift.hint.hide": "Release Shift to hide",
+
+
+    "item.songcraft_instruments.violin": "Violin",
+    "item.songcraft_instruments.guitar": "Guitar",
+    "item.songcraft_instruments.electric_guitar": "Electric Guitar",
+    "item.songcraft_instruments.bass_guitar": "Bass Guitar",
+    "item.songcraft_instruments.trombone": "Trombone",
+    "item.songcraft_instruments.saxophone": "Saxophone",
+    "item.songcraft_instruments.pipa": "Pipa",
+    "item.songcraft_instruments.shamisen": "Shamisen",
+    "item.songcraft_instruments.microphone": "Microphone",
+    "item.songcraft_instruments.note_block_instrument": "%s Note Block Instrument",
+    "item.songcraft_instruments.gw2_bass": "GW2 Bass",
+    "item.songcraft_instruments.gw2_bell": "GW2 Magnanimous Choir Bell",
+    "item.songcraft_instruments.gw2_flute": "GW2 Flute",
+    "item.songcraft_instruments.gw2_harp": "GW2 Harp",
+    "item.songcraft_instruments.gw2_horn": "GW2 Marriner's Horn",
+    "item.songcraft_instruments.gw2_lute": "GW2 Lute",
+    "item.songcraft_instruments.gw2_minstrel": "GW2 Minstrel",
+    "item.songcraft_instruments.gw2_organ": "GW2 Pipe Organ",
+    "item.songcraft_instruments.gw2_pell": "GW2 Unbreakable Choir Bell",
+    "item.songcraft_instruments.gw2_piano": "GW2 Piano",
+    "item.songcraft_instruments.gw2_quaggan_organ": "GW2 Quaggan Organ",
+    "item.songcraft_instruments.gw2_verdarach": "GW2 Verdarach",
+    "item.songcraft_instruments.gw2_frame_drum": "GW2 Frame Drum",
+    "item.songcraft_instruments.gw2_drumset": "GW2 Drumset",
+
+    "block.songcraft_instruments.keyboard": "Keyboard",
+    "block.songcraft_instruments.koto": "Koto",
+    "block.songcraft_instruments.microphone_stand": "Microphone Stand",
+    "block.songcraft_instruments.drumset": "Drumset",
+
+    "block.songcraft_instruments.keyboard_stand": "Keyboard Stand",
+    "item.songcraft_instruments.violin_bow": "Violin Bow",
+    "item.songcraft_instruments.bachi": "Bachi",
+
+    "item.songcraft_instruments.instrument.accessory.not_present": "You must hold a %s to use this instrument",
+
+
+    "item.songcraft_instruments.looper_adapter": "Looper Wireless Adapter",
+
+    "item.songcraft_instruments.looper_adapter.instrument.description": "Pairs an instrument block to a looper",
+    "item.songcraft_instruments.looper_adapter.instrument.select": "Looper connected. Waiting for instrument or 2nd looper connection.",
+    "item.songcraft_instruments.looper_adapter.instrument.success_pair": "Instrument paired successfully!",
+
+    "item.songcraft_instruments.looper_adapter.looper.description": "Syncs 2 loopers together by copying the 1st's properties",
+    "item.songcraft_instruments.looper_adapter.looper.select": "Instrument connected. Waiting for looper connection.",
+    "item.songcraft_instruments.looper_adapter.looper.success_pair": "Loopers synced successfully!",
+
+    "item.songcraft_instruments.speaker_cable": "Speaker Cable",
+    "item.songcraft_instruments.speaker_cable.pair.description": "Right-click an instrument block or looper and a speaker (in either order) to connect them. A speaker can have at most 1 looper",
+    "item.songcraft_instruments.speaker_cable.unpair.description": "Shift + right-click an instrument block or looper to disconnect its speakers, or a speaker to disconnect everything from it. Select a block first to disconnect only that one",
+    "item.songcraft_instruments.speaker_cable.held.description": "Held instruments connect by right-clicking a speaker directly, and disconnect with shift + right-click",
+    "item.songcraft_instruments.speaker_cable.instrument.select": "Instrument selected. Right-click a speaker to connect it.",
+    "item.songcraft_instruments.speaker_cable.looper.select": "Looper selected. Right-click a speaker to connect it.",
+    "item.songcraft_instruments.speaker_cable.speaker.select": "Speaker selected. Right-click an instrument block or looper to connect it.",
+
+
+    "item.songcraft_instruments.writable_record": "Empty Record",
+    "item.songcraft_instruments.burned_record": "Burned Record",
+
+    "item.songcraft_instruments.interesting_record": "Interesting Record",
+
+    "item.songcraft_instruments.record.arranger": "Arranger: %s",
+
+    "label.songcraft_instruments.pipa_options": "Pipa Options",
+    "button.songcraft_instruments.pipa.soundType": "Pipa Sound",
+    "button.songcraft_instruments.pipa.soundType.regular": "Regular",
+    "button.songcraft_instruments.pipa.soundType.tremolo": "Tremolo",
+
+
+    "block.songcraft_instruments.looper": "Looper",
+    "block.songcraft_instruments.speaker": "Speaker",
+    "songcraft_instruments.speaker.paired": "%s of %s speakers connected!",
+    "songcraft_instruments.speaker.already_paired": "This speaker is already connected (%s of %s speakers)",
+    "songcraft_instruments.speaker.full": "Already at the maximum of %s connected speakers",
+    "songcraft_instruments.speaker.looper_taken": "This speaker is already connected to a looper",
+    "songcraft_instruments.speaker.unpaired": "Speaker disconnected. %s of %s speakers connected",
+    "songcraft_instruments.speaker.not_paired": "This speaker is not connected",
+    "songcraft_instruments.speaker.unpaired_all": "Disconnected %s speaker(s)",
+    "songcraft_instruments.speaker.none_paired": "No speakers are connected",
+    "songcraft_instruments.speaker.still_connected": "(still in use)",
+    "songcraft_instruments.speaker.still_connected_count": "(%s still in use)",
+    "songcraft_instruments.speaker.speaker_unpaired_all": "Disconnected %s connection(s) from this speaker",
+    "songcraft_instruments.speaker.speaker_none_paired": "Nothing is connected to this speaker",
+
+    "songcraft_instruments.looper.pair_conflict": "This record already has burned footage!",
+    "songcraft_instruments.looper.no_record": "No record inserted",
+
+    "songcraft_instruments.record.no_footage": "This record has no footage! Use an instrument to start recording",
+    "songcraft_instruments.record.not_writable": "Record already burned",
+
+
+    "button.songcraft_instruments.record": "Record",
+    "button.songcraft_instruments.stop": "Stop",
+
+    "gamerule.songcraft_instruments_looperMaxNotes": "Looper Max Notes",
+    "gamerule.songcraft_instruments_looperMaxNotes.description": "Defines the maximum amount of notes a looper can have. Any value below 0 will make the looper uncappable.",
+
+
+    "commands.songcraft_instruments.emirecord.failed.record_already_burned": "Held record of %s is already burned",
+    "commands.songcraft_instruments.emirecord.failed.record_burned": "Cannot save a burned record",
+    "commands.songcraft_instruments.emirecord.failed.no_record": "%s is not holding an Empty Record",
+    "commands.songcraft_instruments.emirecord.failed.record_empty": "Held record of %s is empty",
+    "commands.songcraft_instruments.emirecord.failed.record_invalid": "Provided record name '%s' is unrecognizable",
+    "commands.songcraft_instruments.emirecord.failed.too_many": "Too many records present at %s's hand. Exactly 1 record must be held to load a track.",
+    "commands.songcraft_instruments.emirecord.failed.invalid_namespace": "Cannot save record by the namespace of %s (provided %s)",
+    "commands.songcraft_instruments.emirecord.failed.illegal_name": "Illegal record name: %s",
+
+    "commands.songcraft_instruments.emirecord.success.record_burned": "Record successfully burned",
+    "commands.songcraft_instruments.emirecord.success.record_removed": "Record removed successfully",
+    "commands.songcraft_instruments.emirecord.success.record_saved": "Record successfully saved",
+
+
+
+    "songcraft_instruments.advancements.main.japanese.title": "True Weeb",
+    "songcraft_instruments.advancements.main.japanese.description": "Play on all Asian instruments",
+
+    "songcraft_instruments.advancements.main.record_rickroll_in.title": "Interesting Record",
+    "songcraft_instruments.advancements.main.record_rickroll_in.description": "Play the utterly suspicious record",
+
+    "songcraft_instruments.advancements.main.record_writable_in.title": "Composer",
+    "songcraft_instruments.advancements.main.record_writable_in.description": "Insert or burn music into a record",
+
+    "songcraft_instruments.advancements.main.records_all.title": "Holan'i",
+    "songcraft_instruments.advancements.main.records_all.description": "Play all burned records",
+
+
+    "button.songcraft_instruments.control_mode.genshin.description": "Genshin Impact controls",
+    "button.songcraft_instruments.control_mode.heartopia.description": "Heartopia controls",
+    "button.songcraft_instruments.control_mode.octave_swap.description":
+    "Use octave swap keys to shift octaves. Key binds set in Minecraft's Options > Controls > Key Binds",
+    "songcraft_instruments.keymaps.octave_mode": "Instruments: Octave Mode",
+    "songcraft_instruments.keymaps.octave_mode.note_c": "Note C",
+    "songcraft_instruments.keymaps.octave_mode.note_csharp": "Note C#",
+    "songcraft_instruments.keymaps.octave_mode.note_d": "Note D",
+    "songcraft_instruments.keymaps.octave_mode.note_dsharp": "Note D#",
+    "songcraft_instruments.keymaps.octave_mode.note_e": "Note E",
+    "songcraft_instruments.keymaps.octave_mode.note_f": "Note F",
+    "songcraft_instruments.keymaps.octave_mode.note_fsharp": "Note F#",
+    "songcraft_instruments.keymaps.octave_mode.note_g": "Note G",
+    "songcraft_instruments.keymaps.octave_mode.note_gsharp": "Note G#",
+    "songcraft_instruments.keymaps.octave_mode.note_a": "Note A",
+    "songcraft_instruments.keymaps.octave_mode.note_asharp": "Note A#",
+    "songcraft_instruments.keymaps.octave_mode.note_b": "Note B",
+    "songcraft_instruments.keymaps.octave_mode.note_high_c": "Note High C",
+    "songcraft_instruments.keymaps.octave_mode.octave_down": "Octave Down",
+    "songcraft_instruments.keymaps.octave_mode.octave_up": "Octave Up"
+}

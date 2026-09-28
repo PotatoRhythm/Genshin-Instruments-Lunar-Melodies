@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "#": {
+      "tag": "minecraft:planks"
+    }
+  },
+
+  "pattern": [
+    " # ",
+    "#P#",
+    " # "
+  ],
+
+  "result": {
+    "item": "songcraft_instruments:gw2_lute"
+  }
+}

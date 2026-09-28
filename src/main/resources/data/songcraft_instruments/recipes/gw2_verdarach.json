@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "N": {
+      "item": "minecraft:nautilus_shell"
+    }
+  },
+
+  "pattern": [
+    " N ",
+    "NPN",
+    " N "
+  ],
+
+  "result": {
+    "item": "songcraft_instruments:gw2_verdarach"
+  }
+}

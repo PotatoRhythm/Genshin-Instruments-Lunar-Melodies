@@ -1,0 +1,6 @@
+{
+    "parent": "songcraft_instruments:block/speaker",
+    "textures": {
+        "north": "songcraft_instruments:block/speaker_front_connected"
+    }
+}

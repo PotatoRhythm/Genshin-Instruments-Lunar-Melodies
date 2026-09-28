@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "E": {
+      "item": "minecraft:egg"
+    }
+  },
+
+  "pattern": [
+    " E ",
+    "EPE",
+    " E "
+  ],
+
+  "result": {
+    "item": "songcraft_instruments:gw2_minstrel"
+  }
+}

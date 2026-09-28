@@ -1,0 +1,22 @@
+{
+    "type": "minecraft:crafting_shaped",
+
+    "key": {
+        "#": {
+            "item": "minecraft:dark_oak_planks"
+        },
+        "X": {
+            "item": "minecraft:string"
+        }
+    },
+
+    "pattern": [
+        "#X#",
+        "X# ",
+        "#  "
+    ],
+
+    "result": {
+        "item": "songcraft_instruments:vintage_lyre"
+    }
+}

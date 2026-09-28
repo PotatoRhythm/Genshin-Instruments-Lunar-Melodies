@@ -1,0 +1,33 @@
+{
+    "parent": "songcraft_instruments:genshin_instruments/root",
+
+    "display": {
+        "icon": {
+            "item": "songcraft_instruments:record_writable"
+        },
+        "hidden": false,
+
+        "title": {
+            "translate": "songcraft_instruments.advancements.main.record_writable_in.title"
+        },
+        "description": {
+            "translate": "songcraft_instruments.advancements.main.record_writable_in.description"
+        }
+    },
+
+    "criteria": {
+        "record_injected": {
+            "trigger": "songcraft_instruments_record_injected",
+
+            "conditions": {
+                "record": {
+                    "items": ["songcraft_instruments:record_writable"]
+                }
+            }
+        }
+    },
+
+    "requirements": [
+        ["record_injected"]
+    ]
+}

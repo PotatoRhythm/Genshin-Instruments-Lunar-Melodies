@@ -1,0 +1,12 @@
+{
+    "parent": "minecraft:block/cube",
+    "textures": {
+        "particle": "songcraft_instruments:block/speaker_front",
+        "north": "songcraft_instruments:block/speaker_front",
+        "south": "songcraft_instruments:block/speaker_back",
+        "east": "songcraft_instruments:block/speaker_left",
+        "west": "songcraft_instruments:block/speaker_right",
+        "up": "songcraft_instruments:block/speaker_top",
+        "down": "songcraft_instruments:block/speaker_bottom"
+    }
+}

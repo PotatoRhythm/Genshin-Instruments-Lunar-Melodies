@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "C": {
+      "item": "minecraft:copper_ingot"
+    }
+  },
+
+  "pattern": [
+    " C ",
+    "CPC",
+    " C "
+  ],
+
+  "result": {
+    "item": "songcraft_instruments:gw2_horn"
+  }
+}

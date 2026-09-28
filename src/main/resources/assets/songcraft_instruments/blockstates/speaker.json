@@ -1,0 +1,37 @@
+{
+    "variants": {
+        "facing=north,connected=false": {
+            "model": "songcraft_instruments:block/speaker",
+            "y": 0
+        },
+        "facing=east,connected=false": {
+            "model": "songcraft_instruments:block/speaker",
+            "y": 90
+        },
+        "facing=south,connected=false": {
+            "model": "songcraft_instruments:block/speaker",
+            "y": 180
+        },
+        "facing=west,connected=false": {
+            "model": "songcraft_instruments:block/speaker",
+            "y": 270
+        },
+
+        "facing=north,connected=true": {
+            "model": "songcraft_instruments:block/speaker_connected",
+            "y": 0
+        },
+        "facing=east,connected=true": {
+            "model": "songcraft_instruments:block/speaker_connected",
+            "y": 90
+        },
+        "facing=south,connected=true": {
+            "model": "songcraft_instruments:block/speaker_connected",
+            "y": 180
+        },
+        "facing=west,connected=true": {
+            "model": "songcraft_instruments:block/speaker_connected",
+            "y": 270
+        }
+    }
+}

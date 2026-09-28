@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "A": {
+      "item": "minecraft:apple"
+    }
+  },
+
+  "pattern": [
+    " A ",
+    "APA",
+    " A "
+  ],
+
+  "result": {
+    "item": "songcraft_instruments:gw2_bell"
+  }
+}

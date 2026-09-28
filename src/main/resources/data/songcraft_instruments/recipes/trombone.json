@@ -1,0 +1,24 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "abc"
+    ],
+    "key": {
+        "a": {
+            "item": "minecraft:gold_nugget"
+        },
+        "b": {
+            "item": "minecraft:gold_ingot"
+        },
+        "c": {
+            "item": "minecraft:gold_block"
+        }
+    },
+
+    "group": "songcraft_instruments:trombone",
+
+    "result": {
+        "item": "songcraft_instruments:trombone",
+        "count": 1
+    }
+}

@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "G": {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+
+  "pattern": [
+    " G ",
+    "GPG",
+    " G "
+  ],
+
+  "result": {
+    "item": "songcraft_instruments:gw2_pell"
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "M": {
+      "item": "songcraft_instruments:microphone"
+    },
+    "B": {
+      "item": "minecraft:black_concrete"
+    },
+    "I": {
+      "item": "minecraft:iron_ingot"
+    }
+  },
+
+  "pattern": [
+    " IM",
+    " I ",
+    "IBI"
+  ],
+
+  "result": {
+    "item": "songcraft_instruments:microphone_stand"
+  }
+}

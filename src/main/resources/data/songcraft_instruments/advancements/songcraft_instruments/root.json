@@ -1,0 +1,34 @@
+{
+    "display": {
+        "icon": {
+            "item": "songcraft_instruments:floral_zither"
+        },
+
+        "title": {
+            "translate": "songcraft_instruments.advancements.main.root.title"
+        },
+        "description": {
+            "translate": "songcraft_instruments.advancements.main.root.description"
+        },
+
+        "background": "minecraft:textures/block/note_block.png"
+    },
+
+    "criteria": {
+        "has_instruments": {
+            "trigger": "inventory_changed",
+
+            "conditions": {
+                "items": [
+                    {
+                        "tag": "songcraft_instruments:instruments"
+                    }
+                ]
+            }
+        }
+    },
+
+    "requirements": [
+        ["has_instruments"]
+    ]
+}

@@ -202,9 +202,9 @@ dependencies {
 }
 
 mixin {
-    add sourceSets.main, 'mixins.genshinstrument_lm.refmap.json'
-    config 'mixins.genshinstrument_lm.optional.json'
-    config 'mixins.genshinstrument_lm.required.json'
+    add sourceSets.main, 'mixins.songcraft_instruments.refmap.json'
+    config 'mixins.songcraft_instruments.optional.json'
+    config 'mixins.songcraft_instruments.required.json'
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.

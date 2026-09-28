@@ -1,0 +1,21 @@
+{
+    "values": [
+        "songcraft_instruments:windsong_lyre",
+        "songcraft_instruments:vintage_lyre",
+        "songcraft_instruments:floral_zither",
+        "songcraft_instruments:ukulele",
+
+        "songcraft_instruments:violin",
+        "songcraft_instruments:guitar",
+        "songcraft_instruments:pipa",
+        "songcraft_instruments:shamisen",
+        "songcraft_instruments:koto",
+        "songcraft_instruments:electric_guitar",
+        "songcraft_instruments:bass_guitar",
+
+        "songcraft_instruments:gw2_bass",
+        "songcraft_instruments:gw2_harp",
+        "songcraft_instruments:gw2_lute",
+        "songcraft_instruments:gw2_minstrel"
+    ]
+}

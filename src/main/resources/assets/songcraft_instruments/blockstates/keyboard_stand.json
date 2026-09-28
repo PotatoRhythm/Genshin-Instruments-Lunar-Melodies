@@ -1,0 +1,19 @@
+{
+    "variants": {
+        "facing=north": {
+            "model": "songcraft_instruments:block/keyboard/stand"
+        },
+        "facing=east": {
+            "model": "songcraft_instruments:block/keyboard/stand",
+            "y": 90
+        },
+        "facing=south": {
+            "model": "songcraft_instruments:block/keyboard/stand",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "songcraft_instruments:block/keyboard/stand",
+            "y": 270
+        }
+    }
+}

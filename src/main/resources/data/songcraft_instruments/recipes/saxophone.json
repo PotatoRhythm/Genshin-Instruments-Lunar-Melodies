@@ -1,0 +1,30 @@
+{
+    "type": "minecraft:crafting_shaped",
+
+    "key": {
+        "#": {
+            "item": "minecraft:polished_blackstone_slab"
+        },
+        "X": {
+            "item": "minecraft:copper_ingot"
+        },
+        "O": {
+            "item": "minecraft:copper_block"
+        },
+        "b": {
+            "item": "minecraft:stone_button"
+        }
+    },
+
+    "pattern": [
+        "#X ",
+        " Ob",
+        " Ob"
+    ],
+
+    "group": "songcraft_instruments:saxophone",
+
+    "result": {
+        "item": "songcraft_instruments:saxophone"
+    }
+}

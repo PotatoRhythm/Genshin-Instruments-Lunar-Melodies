@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:block",
+  "name": "songcraft_instruments:keyboard_stand",
+  "pools": [
+    {
+      "bonus_rolls": 0.0,
+      "conditions": [
+        {
+          "condition": "survives_explosion"
+        }
+      ],
+      "entries": [
+        {
+          "type": "item",
+          "name": "songcraft_instruments:keyboard_stand"
+        }
+      ],
+      "rolls": 1.0
+    }
+  ],
+  "random_sequence": "songcraft_instruments:blocks/keyboard_stand"
+}

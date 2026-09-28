@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "B": {
+      "item": "minecraft:bamboo"
+    }
+  },
+
+  "pattern": [
+    " B ",
+    "BPB",
+    " B "
+  ],
+
+  "result": {
+    "item": "songcraft_instruments:gw2_flute"
+  }
+}

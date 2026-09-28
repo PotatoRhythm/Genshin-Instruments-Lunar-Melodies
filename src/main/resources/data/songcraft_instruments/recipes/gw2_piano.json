@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "B": {
+      "item": "minecraft:black_concrete"
+    },
+    "W": {
+      "item": "minecraft:white_concrete"
+    }
+  },
+
+  "pattern": [
+    " B ",
+    "WPW",
+    " B "
+  ],
+
+  "result": {
+    "item": "songcraft_instruments:gw2_piano"
+  }
+}

@@ -1,0 +1,26 @@
+{
+    "variants": {
+
+        "part=left,facing=north": {
+            "model": "songcraft_instruments:block/koto_left",
+            "y": 0
+        },
+        "part=left,facing=east": {
+            "model": "songcraft_instruments:block/koto_left",
+            "y": 90
+        },
+        "part=left,facing=south": {
+            "model": "songcraft_instruments:block/koto_left",
+            "y": 180
+        },
+        "part=left,facing=west": {
+            "model": "songcraft_instruments:block/koto_left",
+            "y": 270
+        },
+
+        "part=right": {
+            "model": "songcraft_instruments:block/koto_right"
+        }
+
+    }
+}

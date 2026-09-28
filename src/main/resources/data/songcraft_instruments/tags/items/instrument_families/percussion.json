@@ -1,0 +1,15 @@
+{
+    "values": [
+        "songcraft_instruments:glorious_drum",
+        "songcraft_instruments:djem_djem_drum",
+
+        "songcraft_instruments:drumset",
+        "songcraft_instruments:keyboard",
+
+        "songcraft_instruments:gw2_piano",
+        "songcraft_instruments:gw2_bell",
+        "songcraft_instruments:gw2_pell",
+        "songcraft_instruments:gw2_frame_drum",
+        "songcraft_instruments:gw2_drumset"
+    ]
+}

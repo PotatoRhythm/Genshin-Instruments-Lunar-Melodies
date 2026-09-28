@@ -1,0 +1,55 @@
+{
+    "parent": "songcraft_instruments:genshin_instruments/master",
+
+    "display": {
+        "icon": {
+            "item": "songcraft_instruments:shamisen"
+        },
+        "hidden": false,
+
+        "title": {
+            "translate": "songcraft_instruments.advancements.main.japanese.title"
+        },
+        "description": {
+            "translate": "songcraft_instruments.advancements.main.japanese.description"
+        },
+
+        "frame": "goal"
+    },
+
+    "criteria": {
+        "koto_played": {
+            "trigger": "songcraft_instruments_instrument_played",
+
+            "conditions": {
+                "instrument": {
+                    "items": ["songcraft_instruments:koto"]
+                }
+            }
+        },
+        "pipa_played": {
+            "trigger": "songcraft_instruments_instrument_played",
+
+            "conditions": {
+                "instrument": {
+                    "items": ["songcraft_instruments:pipa"]
+                }
+            }
+        },
+        "shamisen_played": {
+            "trigger": "songcraft_instruments_instrument_played",
+
+            "conditions": {
+                "instrument": {
+                    "items": ["songcraft_instruments:shamisen"]
+                }
+            }
+        }
+    },
+
+    "requirements": [
+        ["koto_played"],
+        ["pipa_played"],
+        ["shamisen_played"]
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    "parent": "songcraft_instruments:block/looper/root",
+    "textures": {
+        "record": "songcraft_instruments:block/looper_top_uninjected",
+        "playing": "songcraft_instruments:block/looper_front_uninjected",
+        "looping": "songcraft_instruments:block/looper_loop_on"
+    }
+}

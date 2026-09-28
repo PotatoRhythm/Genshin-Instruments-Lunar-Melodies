@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+
+  "key": {
+    "P": {
+      "item": "minecraft:potato"
+    },
+    "L": {
+      "item": "minecraft:leather"
+    }
+  },
+
+  "pattern": [
+    " L ",
+    "LPL",
+    " L "
+  ],
+
+  "result": {
+    "item": "songcraft_instruments:gw2_frame_drum"
+  }
+}

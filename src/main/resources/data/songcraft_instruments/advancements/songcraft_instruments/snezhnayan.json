@@ -1,0 +1,27 @@
+{
+    "parent": "songcraft_instruments:genshin_instruments/people_of_the_springs",
+
+    "display": {
+        "title": {
+            "text": "Coming Soon"
+        },
+        "description": {
+            "text": "Coming Soon"
+        },
+
+        "icon": {
+            "item": "songcraft_instruments:windsong_lyre"
+        },
+
+        "hidden": true
+    },
+
+    "criteria": {
+        "impossible": {
+            "trigger": "minecraft:impossible"
+        }
+    },
+    "requirements": [
+        ["impossible"]
+    ]
+}

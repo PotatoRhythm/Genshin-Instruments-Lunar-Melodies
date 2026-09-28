@@ -1,0 +1,43 @@
+{
+    "parent": "songcraft_instruments:genshin_instruments/root",
+
+    "display": {
+        "icon": {
+            "item": "minecraft:ender_eye"
+        },
+
+        "title": {
+            "translate": "songcraft_instruments.advancements.main.master.title"
+        },
+        "description": {
+            "translate": "songcraft_instruments.advancements.main.master.description"
+        },
+
+        "frame": "goal"
+    },
+
+    "criteria": {
+        "gottem_all": {
+            "trigger": "inventory_changed",
+
+            "conditions": {
+                "items": [
+                    {"items": ["songcraft_instruments:windsong_lyre"]},
+                    {"items": ["songcraft_instruments:vintage_lyre"]},
+                    {"items": ["songcraft_instruments:floral_zither"]},
+                    {"items": ["songcraft_instruments:glorious_drum"]},
+                    {"items": ["songcraft_instruments:ukulele"]},
+                    {"items": ["songcraft_instruments:djem_djem_drum"]}
+                ]
+            }
+        }
+    },
+
+    "requirements": [
+        ["gottem_all"]
+    ],
+
+    "rewards": {
+        "experience": 5
+    }
+}

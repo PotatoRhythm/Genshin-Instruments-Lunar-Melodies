@@ -1,0 +1,28 @@
+{
+	"loader":"songcraft_instruments:separate_transforms",
+	"gui_light": "front",
+
+	"base": {
+		"parent": "songcraft_instruments:item/nightwind_horn_idle"
+	},
+	"perspectives": {
+		"gui": {
+			"parent": "songcraft_instruments:item/nightwind_horn_item"
+		},
+		"ground": {
+			"parent": "songcraft_instruments:item/nightwind_horn_item"
+		},
+		"fixed": {
+			"parent": "songcraft_instruments:item/nightwind_horn_item"
+		}
+	},
+
+	"overrides": [
+		{
+			"predicate": {
+				"songcraft_instruments:instrument_open": 1
+			},
+			"model": "songcraft_instruments:item/nightwind_horn_played"
+		}
+	]
+}

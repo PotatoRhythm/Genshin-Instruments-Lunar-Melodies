@@ -1,0 +1,39 @@
+{
+    "variants": {
+
+        "part=controller,facing=north": {
+            "model": "songcraft_instruments:block/keyboard",
+            "y": 0
+        },
+        "part=controller,facing=east": {
+            "model": "songcraft_instruments:block/keyboard",
+            "y": 90
+        },
+        "part=controller,facing=south": {
+            "model": "songcraft_instruments:block/keyboard",
+            "y": 180
+        },
+        "part=controller,facing=west": {
+            "model": "songcraft_instruments:block/keyboard",
+            "y": 270
+        },
+
+        "part=dummy,facing=north": {
+            "model": "songcraft_instruments:block/keyboard",
+            "y": 0
+        },
+        "part=dummy,facing=east": {
+            "model": "songcraft_instruments:block/keyboard",
+            "y": 90
+        },
+        "part=dummy,facing=south": {
+            "model": "songcraft_instruments:block/keyboard",
+            "y": 180
+        },
+        "part=dummy,facing=west": {
+            "model": "songcraft_instruments:block/keyboard",
+            "y": 270
+        }
+
+    }
+}
