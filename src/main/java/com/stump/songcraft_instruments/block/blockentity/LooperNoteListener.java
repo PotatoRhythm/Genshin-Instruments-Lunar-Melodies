@@ -1,5 +1,6 @@
 package com.stump.songcraft_instruments.block.blockentity;
 
+import com.stump.songcraft_instruments.block.blockentity.looper.LooperConnections;
 import com.stump.songcraft_instruments.SCInstrumentMod;
 import com.stump.songcraft_instruments.util.LooperUtil;
 import com.stump.songcraft_instruments.event.HeldNoteSoundPlayedEvent;
@@ -13,8 +14,6 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 import java.util.Optional;
 
-import static com.stump.songcraft_instruments.item.emirecord.EMIRecordItem.INSTRUMENT_ID_TAG;
-
 /**
  * Listens to instrument played events
  * and writes it to a matching looper.
@@ -26,11 +25,12 @@ public class LooperNoteListener {
     public static void onNoteSoundPlayed(final NoteSoundPlayedEvent event) {
         getMatchingLooper(event).ifPresent(looperBE -> {
             int rgb = event.soundMeta().particleColor();
-            looperBE.writeNote(
+            looperBE.writer().writeNote(
                     event.sound(),
                     event.soundMeta(),
                     looperBE.getTicks(),
-                    rgb
+                    rgb,
+                    getPlayer(event).getUUID()
             );
         });
     }
@@ -39,14 +39,19 @@ public class LooperNoteListener {
     public static void onHeldNoteSoundPlayed(final HeldNoteSoundPlayedEvent event) {
         getMatchingLooper(event).ifPresent(looperBE -> {
             int rgb = event.soundMeta().particleColor();
-            looperBE.writeHeldNote(
+            looperBE.writer().writeHeldNote(
                     event.sound(),
                     event.phase,
                     event.soundMeta(),
                     looperBE.getTicks(),
-                    rgb
+                    rgb,
+                    getPlayer(event).getUUID()
             );
         });
+    }
+
+    private static Player getPlayer(final InstrumentPlayedEvent<?> event) {
+        return (Player) event.entityInfo().get().entity;
     }
 
 
@@ -60,28 +65,47 @@ public class LooperNoteListener {
 
         final Player player = (Player) event.entityInfo().get().entity;
 
-        if (event.level().isClientSide || !LooperUtil.isRecording(player))
+        if (event.level().isClientSide)
             return Optional.empty();
 
 
         final Level level = player.level();
 
+        // Group participants are recorded on whichever instrument they play
+        final Optional<LooperBlockEntity> groupLooper = LooperConnections.getGroupSessionLooper(player);
+        if (groupLooper.isPresent()) {
+            final LooperBlockEntity looperBE = groupLooper.get();
+            // Out of range participants remain in the session, but are not recorded
+            if (!looperBE.isWritable() || looperBE.writer().isCapped(level) || !looperBE.session().isInRecordRange(player))
+                return Optional.empty();
+
+            return looperBE.session().acceptGroupNote() ? groupLooper : Optional.empty();
+        }
+
         final LooperBlockEntity looperBE = LooperUtil.getFromEvent(event);
-        if (looperBE == null || looperBE.isCapped(level))
+        // Omit if record is not writable (or absent)
+        if (looperBE == null || !looperBE.isWritable() || looperBE.writer().isCapped(level))
             return Optional.empty();
 
-        // Omit if record is not writable
-        if (!looperBE.isWritable())
+        // Only record players playing their own connected instrument
+        if (!LooperUtil.isConnectedBy(looperBE, LooperUtil.getLooperTagFromEvent(event), player))
+            return Optional.empty();
+
+        // A group session the player is not participating in
+        if (looperBE.session().isGroupSession())
+            return Optional.empty();
+
+        // Solo recording requires the player to have pressed record
+        if (!LooperUtil.isRecording(player))
             return Optional.empty();
 
 
-        if (looperBE.isLocked()) {
-            if (!looperBE.isRecording() || !looperBE.isAllowedToRecord(player))
+        if (looperBE.session().isLocked()) {
+            if (!looperBE.session().isRecording() || !looperBE.session().isAllowedToRecord(player))
                 return Optional.empty();
         } else {
-            looperBE.setLockedBy(player);
-            looperBE.setRecording(true);
-            looperBE.getChannel().putString(INSTRUMENT_ID_TAG, event.soundMeta().instrumentId().toString());
+            looperBE.session().setLockedBy(player);
+            looperBE.session().setRecording(true);
         }
 
         return Optional.of(looperBE);

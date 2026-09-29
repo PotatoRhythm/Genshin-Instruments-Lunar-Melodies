@@ -114,7 +114,8 @@ public class LooperAdapterItem extends Item {
         for (final String key : adapterTag.getAllKeys())
             adapterTag.remove(key);
 
-        return LooperUtil.performPair(lbe, () -> {
+        // The player using the adapter owns the block instrument's connection
+        return LooperUtil.performPair(lbe, (connectionId) -> {
 
             final BlockState instrumentBlockState = ibe.getBlockState();
             final Block instrumentBlock = instrumentBlockState.getBlock();
@@ -127,9 +128,9 @@ public class LooperAdapterItem extends Item {
             if (instrumentBlock instanceof IDoubleBlock doubleBlock)
                 otherBlockPos = doubleBlock.getOtherBlock(instrumentBlockState, instrumentBlockPos, player.level());
 
-            LooperUtil.createLooperTag(ibe, looperBlockPos);
+            LooperUtil.createLooperTag(ibe, looperBlockPos, connectionId);
             if (otherBlockPos != null)
-                LooperUtil.createLooperTag(player.level().getBlockEntity(otherBlockPos), looperBlockPos);
+                LooperUtil.createLooperTag(player.level().getBlockEntity(otherBlockPos), looperBlockPos, connectionId);
 
             ibe.setChanged();
 

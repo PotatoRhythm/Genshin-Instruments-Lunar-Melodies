@@ -218,7 +218,7 @@ public class LooperBlock extends Block implements EntityBlock {
             return InteractionResult.FAIL;
 
         if (lbe.isWritable()) {
-            if (LooperUtil.performPair(lbe, () -> LooperUtil.createLooperTag(heldStack, pPos), pPlayer))
+            if (LooperUtil.performPair(lbe, (connectionId) -> LooperUtil.createLooperTag(heldStack, pPos, connectionId), pPlayer))
                 return InteractionResult.SUCCESS;
         } else {
             pPlayer.displayClientMessage(

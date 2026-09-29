@@ -1,6 +1,8 @@
 package com.stump.songcraft_instruments.server;
 
+import com.stump.songcraft_instruments.block.blockentity.looper.LooperConnections;
 import com.stump.songcraft_instruments.SCInstrumentMod;
+import com.stump.songcraft_instruments.block.blockentity.LooperBlockEntity;
 import com.stump.songcraft_instruments.util.LooperRecordStateUtil;
 import com.stump.songcraft_instruments.event.InstrumentOpenStateChangedEvent;
 import net.minecraft.server.level.ServerPlayer;
@@ -17,7 +19,11 @@ public class ServerEvents {
             return;
 
         if (!event.isOpen) {
-            LooperRecordStateUtil.handle((ServerPlayer) event.player, event.hand, false);
+            LooperRecordStateUtil.handle((ServerPlayer) event.player, event.hand, false, true);
+
+            // A group recording ends once every participant has closed their instrument
+            LooperConnections.getConnectedLooper(event.player)
+                .ifPresent((lbe) -> lbe.session().onParticipantLeft(event.player.getUUID()));
         }
     }
 

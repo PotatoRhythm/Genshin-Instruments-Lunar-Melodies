@@ -13,6 +13,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import java.util.UUID;
 import java.util.function.Function;
 
 public class RecordingCapabilityProvider implements ICapabilityProvider, INBTSerializable<CompoundTag> {
@@ -56,6 +57,16 @@ public class RecordingCapabilityProvider implements ICapabilityProvider, INBTSer
     }
     public static void setNotRecording(final Player player) {
         player.getCapability(CAPABILITY).ifPresent(RecordingCapability::setNotRecording);
+    }
+
+    public static void setConnection(final Player player, final BlockPos looperPos, final UUID connectionId) {
+        player.getCapability(CAPABILITY).ifPresent((cap) -> cap.setConnection(looperPos, connectionId));
+    }
+    public static BlockPos getConnectedLooperPos(final Player player) {
+        return getProp(player, RecordingCapability::getConnectedLooperPos, null);
+    }
+    public static UUID getConnectionId(final Player player) {
+        return getProp(player, RecordingCapability::getConnectionId, null);
     }
 
 

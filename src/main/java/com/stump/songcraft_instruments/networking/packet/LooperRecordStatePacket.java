@@ -33,7 +33,7 @@ public class LooperRecordStatePacket implements IModPacket {
 
     @Override
     public void handle(final Context context) {
-        LooperRecordStateUtil.handle(context.getSender(), usedHand, recording);
+        LooperRecordStateUtil.handle(context.getSender(), usedHand, recording, false);
     }
 
 }

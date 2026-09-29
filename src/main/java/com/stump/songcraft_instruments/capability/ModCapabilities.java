@@ -37,6 +37,22 @@ public class ModCapabilities {
     }
 
 
+    // Keep looper connections across respawns
+    @SubscribeEvent
+    public static void onPlayerCloned(final PlayerEvent.Clone event) {
+        final Player original = event.getOriginal();
+        original.reviveCaps();
+
+        original.getCapability(RecordingCapabilityProvider.CAPABILITY).ifPresent((oldCap) ->
+            event.getEntity().getCapability(RecordingCapabilityProvider.CAPABILITY).ifPresent((newCap) ->
+                newCap.copyFrom(oldCap)
+            )
+        );
+
+        original.invalidateCaps();
+    }
+
+
     // Sync the open state of players to a new player
     @SubscribeEvent
     public static void onPlayerJoin(final PlayerEvent.PlayerLoggedInEvent event) {

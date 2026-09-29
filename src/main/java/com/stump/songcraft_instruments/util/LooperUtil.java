@@ -1,5 +1,6 @@
 package com.stump.songcraft_instruments.util;
 
+import com.stump.songcraft_instruments.block.blockentity.looper.RecordingSession;
 import com.stump.songcraft_instruments.SCInstrumentMod;
 import com.stump.songcraft_instruments.block.blockentity.LooperBlockEntity;
 import com.stump.songcraft_instruments.block.partial.IDoubleBlock;
@@ -21,11 +22,13 @@ import net.minecraft.world.level.block.state.BlockState;
 import javax.annotation.Nullable;
 import java.util.Map;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.function.Consumer;
 
 import static java.util.Map.entry;
 
 public class LooperUtil {
-    public static final String LOOPER_TAG = "looper", POS_TAG = "pos";
+    public static final String LOOPER_TAG = "looper", POS_TAG = "pos", CONNECTION_TAG = "connection";
     
 
     // Handle instrument's looper tag
@@ -46,16 +49,22 @@ public class LooperUtil {
         SCInstrumentMod.modTag(instrument).remove(LOOPER_TAG);
     }
 
-    public static void createLooperTag(final ItemStack instrument, final BlockPos looperPos) {
+    public static void createLooperTag(final ItemStack instrument, final BlockPos looperPos, final UUID connectionId) {
         SCInstrumentMod.modTag(instrument).put(LOOPER_TAG, new CompoundTag());
-        constructLooperTag(looperTag(instrument), looperPos);
+        constructLooperTag(looperTag(instrument), looperPos, connectionId);
     }
-    public static void createLooperTag(final BlockEntity instrument, final BlockPos looperPos) {
+    public static void createLooperTag(final BlockEntity instrument, final BlockPos looperPos, final UUID connectionId) {
         SCInstrumentMod.modTag(instrument).put(LOOPER_TAG, new CompoundTag());
-        constructLooperTag(looperTag(instrument), looperPos);
+        constructLooperTag(looperTag(instrument), looperPos, connectionId);
     }
-    private static void constructLooperTag(final CompoundTag looperTag, final BlockPos looperPos) {
+    private static void constructLooperTag(final CompoundTag looperTag, final BlockPos looperPos, final UUID connectionId) {
         looperTag.put(POS_TAG, NbtUtils.writeBlockPos(looperPos));
+        looperTag.putUUID(CONNECTION_TAG, connectionId);
+    }
+
+    @Nullable
+    public static UUID getConnectionId(final CompoundTag looperTag) {
+        return looperTag.hasUUID(CONNECTION_TAG) ? looperTag.getUUID(CONNECTION_TAG) : null;
     }
 
     public static CompoundTag looperTag(final ItemStack instrument) {
@@ -116,7 +125,8 @@ public class LooperUtil {
         });
     }
     /**
-     * Attempts to get the looper pointed out by {@code looperData}. Removes its reference if not found.
+     * Attempts to get the looper pointed out by {@code looperData}. Removes its reference if not found,
+     * or if the instrument's connection is no longer held by the looper.
      * @return The Looper's block entity as pointed in the {@code instrument}'s data.
      * Null if not found
      */
@@ -127,10 +137,20 @@ public class LooperUtil {
 
         final LooperBlockEntity looperBE = getFromPos(level, LooperUtil.getLooperPos(looperData));
 
-        if (looperBE == null)
+        if (looperBE == null || !looperBE.connections().has(getConnectionId(looperData))) {
             onInvalid.run();
+            return null;
+        }
 
         return looperBE;
+    }
+
+    /**
+     * @return Whether the instrument holding {@code looperTag} is the player's current connection to the looper.
+     * False for players using an instrument connected by someone else (e.g. a shared block instrument).
+     */
+    public static boolean isConnectedBy(final LooperBlockEntity lbe, final CompoundTag looperTag, final Player player) {
+        return lbe.connections().isConnectedBy(player, getConnectionId(looperTag));
     }
 
     public static LooperBlockEntity getFromPos(final Level level, final BlockPos pos) {
@@ -138,11 +158,22 @@ public class LooperUtil {
     }
 
 
-    public static boolean performPair(LooperBlockEntity lbe, Runnable pairPerformer, Player pairingPlayer) {
+    /**
+     * Connects the player to the looper, and passes the new connection ID to {@code pairPerformer}
+     * to be stored within the connected instrument.
+     */
+    public static boolean performPair(LooperBlockEntity lbe, Consumer<UUID> pairPerformer, Player pairingPlayer) {
         if (!validateFootagePresence(lbe, pairingPlayer))
             return false;
 
-        pairPerformer.run();
+        if (!lbe.session().canAcceptConnections()) {
+            pairingPlayer.displayClientMessage(
+                Component.translatable("songcraft_instruments.looper.connections_locked").withStyle(ChatFormatting.RED)
+            , true);
+            return false;
+        }
+
+        pairPerformer.accept(connect(lbe, pairingPlayer));
 
         pairingPlayer.displayClientMessage(
             Component.translatable("item.songcraft_instruments.looper_adapter.instrument.success_pair").withStyle(ChatFormatting.GREEN)
@@ -150,6 +181,30 @@ public class LooperUtil {
 
         return true;
     }
+    /**
+     * Connects the player to the looper, disconnecting their previous instrument (from this or any other looper).
+     * @return The new connection's ID
+     */
+    private static UUID connect(final LooperBlockEntity lbe, final Player player) {
+        final UUID oldConnectionId = RecordingCapabilityProvider.getConnectionId(player);
+        final BlockPos oldLooperPos = RecordingCapabilityProvider.getConnectedLooperPos(player);
+
+        // Unloaded loopers will prune the stale connection themselves when accessed
+        if (oldConnectionId != null && oldLooperPos != null && player.level().isLoaded(oldLooperPos)) {
+            final LooperBlockEntity oldLooper = getFromPos(player.level(), oldLooperPos);
+            if (oldLooper != null)
+                oldLooper.connections().remove(player.getUUID(), oldConnectionId);
+        }
+
+        final UUID connectionId = UUID.randomUUID();
+        // Must be set before adding the connection, as the looper prunes connections
+        // that don't match their player's current one
+        RecordingCapabilityProvider.setConnection(player, lbe.getBlockPos(), connectionId);
+        lbe.connections().add(player, connectionId);
+
+        return connectionId;
+    }
+
     public static boolean validateFootagePresence(final LooperBlockEntity lbe, final Player pairingPlayer) {
         if (!lbe.hasFootage())
             return true;
@@ -206,7 +261,7 @@ public class LooperUtil {
         entry("soundType", EMIRecordItem.SOUND_TYPE_TAG),
         entry("timestamp", EMIRecordItem.TIMESTAMP_TAG),
         // Looper
-        entry("recording", LooperBlockEntity.RECORDING_TAG),
+        entry("recording", RecordingSession.RECORDING_TAG),
         entry("ticks", LooperBlockEntity.TICKS_TAG),
         // Looper -> Record
         entry("channel", EMIRecordItem.CHANNEL_TAG),

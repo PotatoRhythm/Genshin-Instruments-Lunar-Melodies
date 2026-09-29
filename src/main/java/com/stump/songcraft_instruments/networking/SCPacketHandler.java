@@ -31,7 +31,7 @@ public class SCPacketHandler {
         S2CLooperDampenPacket.class,
         // Sync stuff
         DoesLooperExistPacket.class, LooperUnplayablePacket.class, SyncModTagPacket.class,
-        LooperPlayStatePacket.class
+        LooperPlayStatePacket.class, LooperConnectionsPacket.class, LooperRestartPacket.class
     });
 
     private static int id = 0;
