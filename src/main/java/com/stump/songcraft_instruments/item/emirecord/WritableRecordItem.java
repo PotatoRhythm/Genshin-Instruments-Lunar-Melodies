@@ -1,9 +1,11 @@
 package com.stump.songcraft_instruments.item.emirecord;
 
 import com.stump.songcraft_instruments.block.blockentity.LooperBlockEntity;
+import com.stump.songcraft_instruments.item.ModItems;
 import com.stump.songcraft_instruments.util.CommonUtil;
 import com.stump.songcraft_instruments.util.LooperUtil;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.Tag;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.ItemStack;

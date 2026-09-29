@@ -20,4 +20,9 @@ public class ModRecipeSerializers {
         () -> new SimpleCraftingRecipeSerializer<>(RecordCloningRecipe::new))
     ;
 
+    public static final RegistryObject<RecipeSerializer<RecordErasingRecipe>> RECORD_ERASING = RECIPES.register(
+        "crafting_special_recorderasing",
+        () -> new SimpleCraftingRecipeSerializer<>(RecordErasingRecipe::new))
+    ;
+
 }
