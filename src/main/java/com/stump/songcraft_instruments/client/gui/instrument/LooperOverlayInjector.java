@@ -2,6 +2,7 @@ package com.stump.songcraft_instruments.client.gui.instrument;
 
 import com.stump.songcraft_instruments.block.blockentity.looper.RecordingSession;
 import com.stump.songcraft_instruments.SCInstrumentMod;
+import com.stump.songcraft_instruments.client.colorSet.ColorSetManager;
 import com.stump.songcraft_instruments.client.keyMaps.InstrumentKeyMappings; //hmm
 import com.stump.songcraft_instruments.mixins.required.ScreenAccessor;
 import com.stump.songcraft_instruments.networking.SCPacketHandler;
@@ -160,6 +161,8 @@ public class LooperOverlayInjector {
     }
 
     private static void onRestartPress(final Button btn) {
+        // The recording starts over; credit the player with their current particle colors
+        ColorSetManager.sendActiveSetToServer();
         SCPacketHandler.sendToServer(new LooperRestartPacket());
     }
 
@@ -201,6 +204,10 @@ public class LooperOverlayInjector {
         final UUID selfId = Minecraft.getInstance().player.getUUID();
         final boolean selfConnected = syncedConnections.stream().anyMatch((entry) -> entry.playerId().equals(selfId));
         final boolean wasGroupSession = syncedLooperPos.equals(groupLooperPos);
+
+        // A group recording we participate in is starting; credit us with our current particle colors
+        if (selfConnected && syncedGroupSession && (syncedState == LooperSessionState.COUNTDOWN))
+            ColorSetManager.sendActiveSetToServer();
 
         // Track the group session we participate in, even with no instrument open
         if (selfConnected && syncedGroupSession)
@@ -367,6 +374,9 @@ public class LooperOverlayInjector {
             screen = null;
         } else
             updateRecordButtonLabel();
+        // A recording is starting; credit the player with their current particle colors
+        if (isRecording)
+            ColorSetManager.sendActiveSetToServer();
         SCPacketHandler.sendToServer(new LooperRecordStatePacket(isRecording, hand));
     }
 

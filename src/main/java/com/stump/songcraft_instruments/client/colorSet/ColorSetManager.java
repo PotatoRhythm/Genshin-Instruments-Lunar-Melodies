@@ -4,6 +4,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import net.minecraft.ChatFormatting;
 import net.minecraft.client.Minecraft;
+import com.stump.songcraft_instruments.networking.SCPacketHandler;
+import com.stump.songcraft_instruments.networking.packet.instrument.c2s.C2SActiveColorSetPacket;
 import net.minecraft.network.chat.ClickEvent;
 import net.minecraft.network.chat.Component;
 import net.minecraft.network.chat.HoverEvent;
@@ -45,6 +47,18 @@ public final class ColorSetManager {
 
         int clamped = Mth.clamp(index, 0, data.getSets().size() - 1);
         data.setActiveSet(clamped);
+    }
+
+    /**
+     * Tells the server the colors of the active set, for a looper recording that is starting to credit the player in.
+     */
+    public static void sendActiveSetToServer() {
+        if (Minecraft.getInstance().getConnection() == null)
+            return;
+
+        final ColorSet set = getActiveColorSet();
+        final int[] colors = ((set == null) || (set.getColors() == null)) ? new int[0] : set.getColors();
+        SCPacketHandler.sendToServer(new C2SActiveColorSetPacket(colors));
     }
 
     public static ColorSet getActiveColorSet() {

@@ -2,6 +2,7 @@ package com.stump.songcraft_instruments.block.blockentity.looper;
 
 import com.stump.songcraft_instruments.block.blockentity.LooperBlockEntity;
 import com.stump.songcraft_instruments.block.util.WritableNoteType;
+import com.stump.songcraft_instruments.capability.recording.RecordingCapabilityProvider;
 import com.stump.songcraft_instruments.gamerule.ModGameRules;
 import com.stump.songcraft_instruments.networking.packet.instrument.NoteSoundMetadata;
 import com.stump.songcraft_instruments.networking.packet.instrument.util.HeldSoundPhase;
@@ -9,9 +10,12 @@ import com.stump.songcraft_instruments.sound.NoteSound;
 import com.stump.songcraft_instruments.sound.held.HeldNoteSound;
 import com.stump.songcraft_instruments.util.CommonUtil;
 import net.minecraft.nbt.CompoundTag;
+import net.minecraft.nbt.IntArrayTag;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.nbt.NbtUtils;
+import net.minecraft.nbt.StringTag;
 import net.minecraft.nbt.Tag;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 
 import java.util.UUID;
@@ -23,7 +27,9 @@ import static com.stump.songcraft_instruments.item.emirecord.BurnedRecordItem.*;
  */
 public class LooperRecordWriter {
     public static final String PARTICLE_COLOR_TAG = "ParticleColor",
-        PERFORMER_TAG = "Performer", PERFORMERS_TAG = "Performers";
+        PERFORMER_TAG = "Performer", PERFORMERS_TAG = "Performers",
+        // The names and particle colors of the performers, in the same order as PERFORMERS_TAG
+        PERFORMER_NAMES_TAG = "PerformerNames", PERFORMER_COLORS_TAG = "PerformerColors";
 
     private final LooperBlockEntity looper;
 
@@ -115,7 +121,26 @@ public class LooperRecordWriter {
         }
 
         performers.add(NbtUtils.createUUID(performer));
+        CommonUtil.getOrCreateListTag(channel, PERFORMER_NAMES_TAG).add(StringTag.valueOf(getPlayerName(performer)));
+        CommonUtil.getOrCreateListTag(channel, PERFORMER_COLORS_TAG)
+            .add(new IntArrayTag(getPlayerParticleColors(performer)));
         return performers.size() - 1;
+    }
+
+    /**
+     * @return The particle colors the performer's client sent when the recording started. Empty if unknown.
+     */
+    private int[] getPlayerParticleColors(final UUID playerId) {
+        final Player player = looper.getLevel().getPlayerByUUID(playerId);
+        return (player != null) ? RecordingCapabilityProvider.getParticleColors(player) : new int[0];
+    }
+
+    /**
+     * @return The name of the (online) performer, as shown on the record's tooltip
+     */
+    private String getPlayerName(final UUID playerId) {
+        final Player player = looper.getLevel().getPlayerByUUID(playerId);
+        return (player != null) ? player.getGameProfile().getName() : playerId.toString();
     }
 
     /**
@@ -124,6 +149,8 @@ public class LooperRecordWriter {
     public void clearRecordedNotes() {
         looper.getChannel().remove(NOTES_TAG);
         looper.getChannel().remove(PERFORMERS_TAG);
+        looper.getChannel().remove(PERFORMER_NAMES_TAG);
+        looper.getChannel().remove(PERFORMER_COLORS_TAG);
         looper.setTicks(0);
         looper.setChanged();
     }

@@ -297,6 +297,7 @@
     "item.songcraft_instruments.interesting_record": "Interesting Record",
 
     "item.songcraft_instruments.record.arranger": "Arranger: %s",
+    "item.songcraft_instruments.record.performers": "Recorded by: %s",
 
     "label.songcraft_instruments.pipa_options": "Pipa Options",
     "button.songcraft_instruments.pipa.soundType": "Pipa Sound",

@@ -69,6 +69,13 @@ public class RecordingCapabilityProvider implements ICapabilityProvider, INBTSer
         return getProp(player, RecordingCapability::getConnectionId, null);
     }
 
+    public static void setParticleColors(final Player player, final int[] colors) {
+        player.getCapability(CAPABILITY).ifPresent((cap) -> cap.setParticleColors(colors));
+    }
+    public static int[] getParticleColors(final Player player) {
+        return getProp(player, RecordingCapability::getParticleColors, new int[0]);
+    }
+
 
     private static <T> T getProp(Player player, Function<RecordingCapability, T> ifExists, T elseVal) {
         final LazyOptional<RecordingCapability> lazyOpen = player.getCapability(RecordingCapabilityProvider.CAPABILITY);

@@ -23,6 +23,9 @@ public class RecordingCapability {
     private BlockPos connectedLooperPos = null;
     private UUID connectionId = null;
 
+    // The colors of the player's active particle color set, as sent by their client. Not saved.
+    private int[] particleColors = new int[0];
+
     public void setRecording(final BlockPos looperPos) {
         isRecording = true;
         this.looperPos = looperPos;
@@ -50,11 +53,19 @@ public class RecordingCapability {
         return connectionId;
     }
 
+    public int[] getParticleColors() {
+        return particleColors;
+    }
+    public void setParticleColors(final int[] particleColors) {
+        this.particleColors = particleColors;
+    }
+
     public void copyFrom(final RecordingCapability other) {
         isRecording = other.isRecording;
         looperPos = other.looperPos;
         connectedLooperPos = other.connectedLooperPos;
         connectionId = other.connectionId;
+        particleColors = other.particleColors;
     }
 
     public void saveNBTData(final CompoundTag nbt) {
