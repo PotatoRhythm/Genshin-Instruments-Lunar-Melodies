@@ -1,11 +1,12 @@
 package com.stump.songcraft_instruments.client.gui.instrument.microphone;
 
+import com.stump.songcraft_instruments.client.gui.instrument.partial.SoundTypeOption;
+import com.stump.songcraft_instruments.client.config.ModClientConfigs;
+import com.stump.songcraft_instruments.client.config.enumType.MicrophoneSoundType;
 import com.stump.songcraft_instruments.SCInstrumentMod;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.IHeldInstrumentScreen;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.InstrumentThemeLoader;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.grid.GridInstrumentScreen;
-import com.stump.songcraft_instruments.client.gui.options.partial.InstrumentOptionsScreen;
-import com.stump.songcraft_instruments.sound.SoundOption;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -20,26 +21,14 @@ public class MicrophoneScreen extends GridInstrumentScreen implements IHeldInstr
     }
 
     @Override
-    public SoundOption getSoundOption() {
-        return ((MicrophoneOptionsScreen) optionsScreen)
-                .getPreferredSoundType()
-                .getSoundArr()
-                .get();
-    }
-
-    @Override
-    protected InstrumentOptionsScreen initInstrumentOptionsScreen() {
-        return new MicrophoneOptionsScreen(this);
+    public SoundTypeOption<MicrophoneSoundType> soundTypeOption() {
+        return new SoundTypeOption<>(MicrophoneSoundType.values(), ModClientConfigs.MICROPHONE_SOUND_TYPE,
+            "button.songcraft_instruments.microphone.soundType");
     }
 
     public static final InstrumentThemeLoader THEME_LOADER = new InstrumentThemeLoader(INSTRUMENT_ID);
     @Override
     public InstrumentThemeLoader getThemeLoader() {
         return THEME_LOADER;
-    }
-
-    @Override
-    public boolean isGenshinInstrument() {
-        return false;
     }
 }

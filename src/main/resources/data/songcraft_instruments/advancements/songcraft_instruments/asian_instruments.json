@@ -1,5 +1,5 @@
 {
-    "parent": "songcraft_instruments:genshin_instruments/master",
+    "parent": "songcraft_instruments:songcraft_instruments/master",
 
     "display": {
         "icon": {

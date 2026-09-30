@@ -37,9 +37,9 @@
 
 
     "songcraft_instruments.genshin_disclaimer.title": "Disclaimer!",
-    "songcraft_instruments.genshin_disclaimer.content": "SongCraft Instruments is an %s and %s Minecraft mod that is in no way affiliated with neither Genshin Impact nor HoYoverse.\n\nThus, all Genshin-related assets used in-game, such as sounds, images, instruments etc. are of complete ownership to HoYoverse.\n\nAs the user, you have the full responsibility over your actions within the game, including (but not limited to!) playing and sharing/publishing any songs that may be protected under copyright laws.",
-    "songcraft_instruments.genshin_disclaimer.bolden1": "unofficial",
-    "songcraft_instruments.genshin_disclaimer.bolden2": "fanmade",
+    "songcraft_instruments.genshin_disclaimer.content": "SongCraft Instruments is an unofficial and fanmade Minecraft mod that is in no way affiliated with neither Genshin Impact nor HoYoverse.\n\nThus, all Genshin related assets used in-game, such as sounds, images, instruments etc. are of complete ownership to HoYoverse.\n\nAs the user, you have the full responsibility over your actions within the game, including (but not limited to!) playing and sharing/publishing any songs that may be protected under copyright laws.",
+    "songcraft_instruments.gw2_disclaimer.content": "SongCraft Instruments is an unofficial and fanmade Minecraft mod that is in no way affiliated with neither Guild Wars 2 nor ArenaNet.\n\nThus, all Guild Wars 2 related assets used in-game, such as sounds, images, instruments etc. are of complete ownership to ArenaNet.\n\nAs the user, you have the full responsibility over your actions within the game, including (but not limited to!) playing and sharing/publishing any songs that may be protected under copyright laws.",
+
 
 
     "button.songcraft_instruments.audioChannels": "Instrument Audio Channel Type",

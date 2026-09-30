@@ -23,10 +23,6 @@ public class KotoScreen extends GridInstrumentScreen {
     public ResourceLocation getInstrumentId() {
         return INSTRUMENT_ID;
     }
-    @Override
-    public boolean isGenshinInstrument() {
-        return false;
-    }
 
     public static final InstrumentThemeLoader THEME_LOADER = InstrumentThemeLoader.fromOther(
         PipaScreen.THEME_LOADER,

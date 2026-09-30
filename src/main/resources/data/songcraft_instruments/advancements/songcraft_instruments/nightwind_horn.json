@@ -1,5 +1,5 @@
 {
-    "parent": "songcraft_instruments:genshin_instruments/vintage_lyre",
+    "parent": "songcraft_instruments:songcraft_instruments/vintage_lyre",
 
     "display": {
         "icon": {

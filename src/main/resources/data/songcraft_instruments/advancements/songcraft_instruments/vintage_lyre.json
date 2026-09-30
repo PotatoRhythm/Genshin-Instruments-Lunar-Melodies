@@ -1,5 +1,5 @@
 {
-    "parent": "songcraft_instruments:genshin_instruments/glorious_drum",
+    "parent": "songcraft_instruments:songcraft_instruments/glorious_drum",
 
     "display": {
         "icon": {

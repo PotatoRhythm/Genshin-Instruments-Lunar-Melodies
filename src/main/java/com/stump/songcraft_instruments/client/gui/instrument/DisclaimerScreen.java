@@ -11,32 +11,49 @@ import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.gui.screens.multiplayer.WarningScreen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
-import net.minecraft.network.chat.MutableComponent;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
 
 /**
+ * A disclaimer shown the first time an instrument derived from another game is opened,
+ * until the player acknowledges it.
  * @implNote
  * This screen was heavily inspired by <a href=https://ko-fi.com/s/665c3cc518>Kistu-Lyre+</a>'s Disclaimer screen.
  * Please consider supporting them on Ko-fi!
  */
 @OnlyIn(Dist.CLIENT)
-public class GenshinConsentScreen extends WarningScreen {
+public class DisclaimerScreen extends WarningScreen {
 
     private static final Component TITLE = Component.translatable(
         "songcraft_instruments.genshin_disclaimer.title"
     ).withStyle(ChatFormatting.BOLD);
-    // Can't create object field because of constructor
-    private static final MutableComponent CONTENT = Component.translatable(
-        "songcraft_instruments.genshin_disclaimer.content", boldenAll(2)
-    );
-    private static final Component NARRATION = TITLE.copy().append("\n").append(CONTENT);
 
     private final Screen previousScreen;
+    private final BooleanValue acceptedConfig;
 
-    public GenshinConsentScreen(final Screen previousScreen) {
-        super(TITLE, CONTENT, null, NARRATION);
+    /**
+     * @param contentKey The translation key of the disclaimer's text
+     * @param acceptedConfig The config value remembering that this disclaimer was acknowledged
+     */
+    private DisclaimerScreen(final Screen previousScreen, final String contentKey, final BooleanValue acceptedConfig) {
+        this(previousScreen, Component.translatable(contentKey), acceptedConfig);
+    }
+    private DisclaimerScreen(final Screen previousScreen, final Component content, final BooleanValue acceptedConfig) {
+        super(TITLE, content, null, TITLE.copy().append("\n").append(content));
         this.previousScreen = previousScreen;
+        this.acceptedConfig = acceptedConfig;
+    }
+
+    public static DisclaimerScreen genshin(final Screen previousScreen) {
+        return new DisclaimerScreen(previousScreen,
+            "songcraft_instruments.genshin_disclaimer.content", ModClientConfigs.ACCEPTED_GENSHIN_CONSENT
+        );
+    }
+    public static DisclaimerScreen gw2(final Screen previousScreen) {
+        return new DisclaimerScreen(previousScreen,
+            "songcraft_instruments.gw2_disclaimer.content", ModClientConfigs.ACCEPTED_GW2_CONSENT
+        );
     }
 
 
@@ -48,7 +65,7 @@ public class GenshinConsentScreen extends WarningScreen {
     @Override
     protected void init() {
         final Button acknowledgeButton = Button.builder(CommonComponents.GUI_ACKNOWLEDGE, (button) -> {
-            ModClientConfigs.ACCEPTED_GENSHIN_CONSENT.set(true);
+            acceptedConfig.set(true);
             minecraft.setScreen(previousScreen);
         }).build();
 
@@ -69,19 +86,6 @@ public class GenshinConsentScreen extends WarningScreen {
     @Override
     protected void renderTitle(GuiGraphics gui) {
         gui.drawCenteredString(font, title, width/2, 30, Color.WHITE.getRGB());
-    }
-    
-
-    private static Component bolden(final int index) {
-        return Component.translatable("songcraft_instruments.genshin_disclaimer.bolden"+index).withStyle(ChatFormatting.BOLD);
-    }
-    private static Object[] boldenAll(final int amount) {
-        final Object[] result = new Object[amount];
-
-        for (int i = 0; i < amount; i++)
-            result[i] = bolden(i+1);
-
-        return result;
     }
 
 

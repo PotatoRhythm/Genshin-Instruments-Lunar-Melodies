@@ -1,5 +1,5 @@
 {
-    "parent": "songcraft_instruments:genshin_instruments/record_writable",
+    "parent": "songcraft_instruments:songcraft_instruments/record_writable",
 
     "display": {
         "icon": {

@@ -1,12 +1,13 @@
 package com.stump.songcraft_instruments.client.gui.instrument.saxophone;
 
+import com.stump.songcraft_instruments.client.gui.instrument.partial.SoundTypeOption;
+import com.stump.songcraft_instruments.client.config.ModClientConfigs;
+import com.stump.songcraft_instruments.client.config.enumType.SaxophoneSoundType;
 import com.stump.songcraft_instruments.SCInstrumentMod;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.IHeldInstrumentScreen;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.InstrumentThemeLoader;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.grid.GridInstrumentScreen;
 import com.stump.songcraft_instruments.client.gui.instrument.trombone.TromboneScreen;
-import com.stump.songcraft_instruments.client.gui.options.partial.InstrumentOptionsScreen;
-import com.stump.songcraft_instruments.sound.SoundOption;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -21,16 +22,9 @@ public class SaxophoneScreen extends GridInstrumentScreen implements IHeldInstru
     }
 
     @Override
-    public SoundOption getSoundOption() {
-        return ((SaxophoneOptionsScreen) optionsScreen)
-                .getPreferredSoundType()
-                .getSoundArr()
-                .get();
-    }
-
-    @Override
-    protected InstrumentOptionsScreen initInstrumentOptionsScreen() {
-        return new SaxophoneOptionsScreen(this);
+    public SoundTypeOption<SaxophoneSoundType> soundTypeOption() {
+        return new SoundTypeOption<>(SaxophoneSoundType.values(), ModClientConfigs.SAXOPHONE_SOUND_TYPE,
+            "button.songcraft_instruments.saxophone.soundType");
     }
 
     public static final InstrumentThemeLoader THEME_LOADER = InstrumentThemeLoader.fromOther(
@@ -40,10 +34,5 @@ public class SaxophoneScreen extends GridInstrumentScreen implements IHeldInstru
     @Override
     public InstrumentThemeLoader getThemeLoader() {
         return THEME_LOADER;
-    }
-
-    @Override
-    public boolean isGenshinInstrument() {
-        return false;
     }
 }

@@ -44,14 +44,14 @@ public class InstrumentKeyMappings {
             () -> new KeyMapping(CATEGORY+".volume_up",
                     INSTRUMENT_KEY_CONFLICT_CONTEXT,
                     InputConstants.Type.KEYSYM,
-                    GLFW.GLFW_KEY_RIGHT
+                    GLFW.GLFW_KEY_UP
                     , CATEGORY)
     );
     public static final Lazy<KeyMapping> VOLUME_DOWN = Lazy.of(
             () -> new KeyMapping(CATEGORY+".volume_down",
                     INSTRUMENT_KEY_CONFLICT_CONTEXT,
                     InputConstants.Type.KEYSYM,
-                    GLFW.GLFW_KEY_LEFT
+                    GLFW.GLFW_KEY_DOWN
                     , CATEGORY)
     );
 

@@ -5,7 +5,6 @@ import com.stump.songcraft_instruments.client.config.enumType.DrumsetSoundType;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.InstrumentScreen;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.note.label.INoteLabel;
 import com.stump.songcraft_instruments.client.gui.options.partial.InstrumentOptionsScreen;
-import com.stump.songcraft_instruments.client.gui.options.partial.SoundTypeOptionsScreen;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;

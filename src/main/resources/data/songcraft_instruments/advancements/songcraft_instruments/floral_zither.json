@@ -1,5 +1,5 @@
 {
-    "parent": "songcraft_instruments:genshin_instruments/windsong_lyre",
+    "parent": "songcraft_instruments:songcraft_instruments/windsong_lyre",
 
     "display": {
         "icon": {

@@ -1,10 +1,11 @@
 package com.stump.songcraft_instruments.client.gui.instrument.keyboard;
 
+import com.stump.songcraft_instruments.client.gui.instrument.partial.SoundTypeOption;
+import com.stump.songcraft_instruments.client.config.ModClientConfigs;
+import com.stump.songcraft_instruments.client.config.enumType.KeyboardSoundType;
 import com.stump.songcraft_instruments.SCInstrumentMod;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.InstrumentThemeLoader;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.grid.GridInstrumentScreen;
-import com.stump.songcraft_instruments.client.gui.options.partial.InstrumentOptionsScreen;
-import com.stump.songcraft_instruments.sound.SoundOption;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
@@ -19,16 +20,9 @@ public class KeyboardScreen extends GridInstrumentScreen {
     }
 
     @Override
-    public SoundOption getSoundOption() {
-        return ((KeyboardOptionsScreen) optionsScreen)
-                .getPreferredSoundType()
-                .getSoundArr()
-                .get();
-    }
-
-    @Override
-    protected InstrumentOptionsScreen initInstrumentOptionsScreen() {
-        return new KeyboardOptionsScreen(this);
+    public SoundTypeOption<KeyboardSoundType> soundTypeOption() {
+        return new SoundTypeOption<>(KeyboardSoundType.values(), ModClientConfigs.KEYBOARD_SOUND_TYPE,
+            "button.songcraft_instruments.keyboard.soundType");
     }
 
     
@@ -36,10 +30,5 @@ public class KeyboardScreen extends GridInstrumentScreen {
     @Override
     public InstrumentThemeLoader getThemeLoader() {
         return THEME_LOADER;
-    }
-
-    @Override
-    public boolean isGenshinInstrument() {
-        return false;
     }
 }

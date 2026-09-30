@@ -40,16 +40,15 @@ public class Gw2BassScreen extends GridInstrumentScreen {
             renderStaff(gui, i);
     }
 
-    @Override
-    public boolean isGenshinInstrument() {
-        return false;
-    }
-
 
     public static final InstrumentThemeLoader THEME_LOADER = new InstrumentThemeLoader(INSTRUMENT_ID);
     @Override
     public InstrumentThemeLoader getThemeLoader() {
         return THEME_LOADER;
     }
-    
+
+    @Override
+    public boolean isGw2Instrument() {
+        return true;
+    }
 }

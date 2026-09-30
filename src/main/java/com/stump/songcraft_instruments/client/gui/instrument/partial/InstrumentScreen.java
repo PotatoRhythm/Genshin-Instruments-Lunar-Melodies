@@ -3,12 +3,12 @@ package com.stump.songcraft_instruments.client.gui.instrument.partial;
 import com.stump.songcraft_instruments.SCInstrumentMod;
 import com.stump.songcraft_instruments.capability.instrumentOpen.InstrumentOpenProvider;
 import com.stump.songcraft_instruments.client.config.ModClientConfigs;
-import com.stump.songcraft_instruments.client.gui.instrument.GenshinConsentScreen;
+import com.stump.songcraft_instruments.client.config.enumType.SoundType;
+import com.stump.songcraft_instruments.client.gui.instrument.DisclaimerScreen;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.note.NoteButton;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.note.label.NoteLabelSupplier;
 import com.stump.songcraft_instruments.client.gui.options.partial.AbstractInstrumentOptionsScreen;
 import com.stump.songcraft_instruments.client.gui.options.partial.InstrumentOptionsScreen;
-import com.stump.songcraft_instruments.client.gui.options.partial.SoundTypeOptionsScreen;
 import com.stump.songcraft_instruments.client.gui.widget.IconToggleButton;
 import com.stump.songcraft_instruments.client.gui.widget.SliderButton;
 import com.stump.songcraft_instruments.client.keyMaps.InstrumentKeyMappings;
@@ -37,6 +37,7 @@ import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.AbstractButton;
 import net.minecraft.client.gui.components.AbstractWidget;
 import net.minecraft.client.gui.components.Button;
+import net.minecraft.client.gui.components.CycleButton;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
@@ -47,6 +48,8 @@ import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.registries.ForgeRegistries;
+import org.jetbrains.annotations.Nullable;
+import org.lwjgl.glfw.GLFW;
 
 import java.util.Iterator;
 import java.util.Map;
@@ -167,7 +170,15 @@ public abstract class InstrumentScreen extends Screen {
      * instrument.
      */
     public boolean isGenshinInstrument() {
-        return true;
+        return false;
+    }
+    /**
+     * @return Whether this instrument is derived from Guild Wars 2
+     * @apiNote This value will help the mod determine whether a disclaimer pop-up should appear upon opening this
+     * instrument.
+     */
+    public boolean isGw2Instrument() {
+        return false;
     }
 
 
@@ -345,14 +356,17 @@ public abstract class InstrumentScreen extends Screen {
         visibilityButton.setEnabled(wasEnabled);
 
         if (isGenshinInstrument() && !ModClientConfigs.ACCEPTED_GENSHIN_CONSENT.get())
-            minecraft.setScreen(new GenshinConsentScreen(this));
+            minecraft.setScreen(DisclaimerScreen.genshin(this));
+        else if (isGw2Instrument() && !ModClientConfigs.ACCEPTED_GW2_CONSENT.get())
+            minecraft.setScreen(DisclaimerScreen.gw2(this));
     }
 
     protected Button initControlBar(int vertOffset) {
         Button btn = initOptionsButton(vertOffset);
         initVolumeSlider(btn);
-        if (optionsScreen instanceof SoundTypeOptionsScreen<?> soundTypeOptionsScreen) {
-            AbstractButton soundTypeButton = soundTypeOptionsScreen.createSoundTypeButton(100);
+        final SoundTypeOption<?> soundTypeOption = soundTypeOption();
+        if (soundTypeOption != null) {
+            AbstractButton soundTypeButton = createSoundTypeButton(soundTypeOption, 100);
             soundTypeButton.setPosition(btn.getX() + btn.getWidth() + 6, btn.getY());
             addRenderableWidget(soundTypeButton);
         }
@@ -557,7 +571,18 @@ public abstract class InstrumentScreen extends Screen {
             return true;
         }
 
+        // Arrow keys and tab are reserved for music controls (volume, octave swapping etc.),
+        // so don't let them navigate between the screen's buttons
+        if (isNavigationKey(keyCode))
+            return true;
+
         return super.keyPressed(keyCode, scanCode, modifiers);
+    }
+
+    private static boolean isNavigationKey(final int keyCode) {
+        return keyCode == GLFW.GLFW_KEY_UP || keyCode == GLFW.GLFW_KEY_DOWN
+            || keyCode == GLFW.GLFW_KEY_LEFT || keyCode == GLFW.GLFW_KEY_RIGHT
+            || keyCode == GLFW.GLFW_KEY_TAB;
     }
 
     @Override
@@ -752,13 +777,64 @@ public abstract class InstrumentScreen extends Screen {
 
     private SoundOption soundOption;
 
+    /**
+     * @return The sounds of this instrument's {@link #getPreferredSoundType preferred sound type} if it has one,
+     * or the ones last {@link #setSoundOption set} otherwise
+     */
     public SoundOption getSoundOption() {
-        return soundOption;
+        final SoundType soundType = getPreferredSoundType();
+        return (soundType != null) ? soundType.getSoundArr().get() : soundOption;
     }
 
     public void setSoundOption(SoundOption option) {
         this.soundOption = option;
     }
+
+
+    //#region Sound type
+
+    /**
+     * @return The sound types this instrument can switch between, or null if it has none.
+     * Instruments with sound types get a button next to their volume slider to cycle through them.
+     */
+    public @Nullable SoundTypeOption<?> soundTypeOption() {
+        return null;
+    }
+
+    private SoundType preferredSoundType;
+
+    /**
+     * @return The sound type currently chosen for this instrument, or null if it has no {@link #soundTypeOption sound types}
+     */
+    public @Nullable SoundType getPreferredSoundType() {
+        if (preferredSoundType == null) {
+            final SoundTypeOption<?> option = soundTypeOption();
+            if (option != null)
+                preferredSoundType = option.config().get();
+        }
+
+        return preferredSoundType;
+    }
+    public void setPreferredSoundType(final SoundType preferredSoundType) {
+        this.preferredSoundType = preferredSoundType;
+        setSoundOption(preferredSoundType.getSoundArr().get());
+    }
+
+    @SuppressWarnings("unchecked")
+    private <T extends Enum<T> & SoundType> CycleButton<T> createSoundTypeButton(final SoundTypeOption<T> option, final int width) {
+        return CycleButton.<T>builder((soundType) ->
+                Component.translatable(option.buttonKey() + "." + soundType.getName()))
+                .withValues(option.values()).withInitialValue((T) getPreferredSoundType())
+                .create(0, 0, width, optionsScreen.getButtonHeight(),
+                        Component.translatable(option.buttonKey()),
+                        (btn, soundType) -> {
+                            setPreferredSoundType(soundType);
+                            optionsScreen.queueToSave(getInstrumentId().getPath() + "_sound_type", () -> option.config().set(soundType));
+                        }
+                );
+    }
+
+    //#endregion
 
     public boolean isGuildWarsInstrument() {
         return ForgeRegistries.ITEMS.tags()

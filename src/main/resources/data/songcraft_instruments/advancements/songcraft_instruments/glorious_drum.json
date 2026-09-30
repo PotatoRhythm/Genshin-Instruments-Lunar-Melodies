@@ -1,5 +1,5 @@
 {
-    "parent": "songcraft_instruments:genshin_instruments/floral_zither",
+    "parent": "songcraft_instruments:songcraft_instruments/floral_zither",
 
     "display": {
         "icon": {

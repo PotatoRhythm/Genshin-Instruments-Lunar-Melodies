@@ -92,6 +92,15 @@ public class LooperConnections {
         // They may have been the last participant present
         looper.session().onParticipantLeft(playerId);
     }
+    /**
+     * Removes the connection with the provided {@code connectionId}, whichever player it belongs to.
+     */
+    public void removeByConnectionId(final UUID connectionId) {
+        connections.values().stream()
+            .filter((connection) -> connection.connectionId().equals(connectionId))
+            .findFirst()
+            .ifPresent((connection) -> remove(connection.playerId(), connectionId));
+    }
     public void clear() {
         if (connections.isEmpty())
             return;

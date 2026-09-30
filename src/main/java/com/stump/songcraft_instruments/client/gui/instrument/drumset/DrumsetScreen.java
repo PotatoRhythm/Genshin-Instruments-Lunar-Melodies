@@ -1,5 +1,8 @@
 package com.stump.songcraft_instruments.client.gui.instrument.drumset;
 
+import com.stump.songcraft_instruments.client.gui.instrument.partial.SoundTypeOption;
+import com.stump.songcraft_instruments.client.config.ModClientConfigs;
+import com.stump.songcraft_instruments.client.config.enumType.DrumsetSoundType;
 import com.mojang.blaze3d.platform.InputConstants.Key;
 import com.stump.songcraft_instruments.SCInstrumentMod;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.InstrumentScreen;
@@ -32,6 +35,12 @@ public class DrumsetScreen extends InstrumentScreen {
     @Override
     protected InstrumentOptionsScreen initInstrumentOptionsScreen() {
         return new DrumsetOptionsScreen(this);
+    }
+
+    @Override
+    public SoundTypeOption<DrumsetSoundType> soundTypeOption() {
+        return new SoundTypeOption<>(DrumsetSoundType.values(), ModClientConfigs.DRUMSET_SOUND_TYPE,
+            "button.songcraft_instruments.drumset.soundType");
     }
 
 

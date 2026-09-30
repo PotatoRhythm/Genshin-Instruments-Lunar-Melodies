@@ -39,7 +39,7 @@ public class ModClientConfigs {
 
     public static final BooleanValue
         STOP_MUSIC_ON_PLAY, SHARED_INSTRUMENT,
-        RENDER_BACKGROUND, ACCEPTED_GENSHIN_CONSENT, ACCURATE_NOTES,
+        RENDER_BACKGROUND, ACCEPTED_GENSHIN_CONSENT, ACCEPTED_GW2_CONSENT, ACCURATE_NOTES,
         MIDI_ENABLED, EXTEND_OCTAVES, FIXED_TOUCH, ACCEPT_ALL_CHANNELS,
         NORMALIZE_VINTAGE_LYRE, SERVER_AUDIO, EXTEND_RANGE
     ;
@@ -93,6 +93,7 @@ public class ModClientConfigs {
         EXTEND_RANGE = configBuilder.comment("Extend Range to 5 octaves").define("extend_range", true);
 
         ACCEPTED_GENSHIN_CONSENT = configBuilder.define("accepted_genshin_consent", false);
+        ACCEPTED_GW2_CONSENT = configBuilder.define("accepted_gw2_consent", false);
 
         ZITHER_SOUND_TYPE = configBuilder.defineEnum("zither_sound_type", ZitherSoundType.NEW);
         GLORIOUS_DRUM_LABEL_TYPE = configBuilder.defineEnum("glorious_drum_label_type", GloriousDrumNoteLabel.KEYBOARD_LAYOUT);

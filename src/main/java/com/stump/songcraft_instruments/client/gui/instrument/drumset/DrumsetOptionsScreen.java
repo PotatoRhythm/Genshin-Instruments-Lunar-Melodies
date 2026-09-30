@@ -1,53 +1,18 @@
 package com.stump.songcraft_instruments.client.gui.instrument.drumset;
 
 import com.stump.songcraft_instruments.client.config.ModClientConfigs;
-import com.stump.songcraft_instruments.client.config.enumType.DrumsetSoundType;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.InstrumentScreen;
 import com.stump.songcraft_instruments.client.gui.instrument.partial.note.label.INoteLabel;
-import com.stump.songcraft_instruments.client.gui.options.partial.SoundTypeOptionsScreen;
+import com.stump.songcraft_instruments.client.gui.options.partial.InstrumentOptionsScreen;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import org.jetbrains.annotations.Nullable;
 
 @OnlyIn(Dist.CLIENT)
-public class DrumsetOptionsScreen extends SoundTypeOptionsScreen<DrumsetSoundType> {
-    private static final String SOUND_TYPE_KEY = "button.songcraft_instruments.drumset.soundType",
-            OPTIONS_LABEL_KEY = "label.songcraft_instruments.drumset_options";
+public class DrumsetOptionsScreen extends InstrumentOptionsScreen {
 
     public DrumsetOptionsScreen(@Nullable InstrumentScreen screen) {
         super(screen);
-    }
-
-
-    @Override
-    protected String soundTypeButtonKey() {
-        return SOUND_TYPE_KEY;
-    }
-    @Override
-    protected String optionsLabelKey() {
-        return OPTIONS_LABEL_KEY;
-    }
-
-
-    @Override
-    protected DrumsetSoundType getInitSoundType() {
-        return ModClientConfigs.DRUMSET_SOUND_TYPE.get();
-    }
-
-    @Override
-    protected DrumsetSoundType[] values() {
-        return DrumsetSoundType.values();
-    }
-
-
-    @Override
-    protected void saveSoundType(DrumsetSoundType soundType) {
-        ModClientConfigs.DRUMSET_SOUND_TYPE.set(soundType);
-    }
-
-    @Override
-    protected boolean isValidForSet(InstrumentScreen screen) {
-        return screen instanceof DrumsetScreen;
     }
 
     @Override

@@ -19,6 +19,12 @@ public class KeyboardStandRenderer extends AbstractDyeableBlockRenderer<Keyboard
         super(new KeyboardStandModel());
     }
 
+    // The keyboard may face the stand's front or back
+    @Override
+    protected Direction getFacing(final KeyboardStandBlockEntity block) {
+        return KeyboardStandBlock.getKeyboardFacing(block.getBlockState());
+    }
+
     @Override
     public void actuallyRender(PoseStack poseStack, KeyboardStandBlockEntity animatable, BakedGeoModel model,
             RenderType renderType, MultiBufferSource bufferSource, VertexConsumer buffer, boolean isReRender,
@@ -30,7 +36,7 @@ public class KeyboardStandRenderer extends AbstractDyeableBlockRenderer<Keyboard
 
         poseStack.pushPose();
 
-        Direction facing = animatable.getBlockState().getValue(KeyboardStandBlock.FACING);
+        Direction facing = getFacing(animatable);
 
         switch (facing) {
             case NORTH -> poseStack.translate(0.5D, KEYBOARD_Y_OFFSET, 0.0D);

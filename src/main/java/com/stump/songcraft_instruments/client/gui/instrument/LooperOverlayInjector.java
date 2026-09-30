@@ -20,6 +20,7 @@ import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.components.Button;
 import net.minecraft.client.gui.components.Tooltip;
+import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.client.player.LocalPlayer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -39,8 +40,10 @@ import net.minecraftforge.fml.common.Mod.EventBusSubscriber.Bus;
 
 import javax.annotation.Nullable;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 import java.util.function.Supplier;
+import java.util.stream.Stream;
 
 @OnlyIn(Dist.CLIENT)
 @EventBusSubscriber(bus = Bus.FORGE, modid = SCInstrumentMod.MODID, value = Dist.CLIENT)
@@ -61,7 +64,7 @@ public class LooperOverlayInjector {
 
     private static InstrumentScreen screen = null;
     private static boolean isRecording = false;
-    public static Button recordBtn;
+    private static Button recordBtn;
     private static Button restartBtn;
 
     // The looper the current screen is showing, and its synced state
@@ -374,6 +377,16 @@ public class LooperOverlayInjector {
 //            : player.level().getBlockEntity(instrumentPos);
 //    }
 
+
+    /**
+     * @return The looper buttons currently on the provided screen, for it to add back after clearing its widgets
+     */
+    public static List<Button> getButtons(final Screen targetScreen) {
+        if (targetScreen != screen)
+            return List.of();
+
+        return Stream.of(recordBtn, restartBtn).filter(Objects::nonNull).toList();
+    }
 
     public static void removeRecordButton() {
         if (screen == null)

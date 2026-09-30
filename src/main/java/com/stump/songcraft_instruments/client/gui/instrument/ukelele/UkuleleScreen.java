@@ -103,4 +103,9 @@ public class UkuleleScreen extends GridInstrumentScreen {
 
         RenderSystem.disableBlend();
     }
+
+    @Override
+    public boolean isGenshinInstrument() {
+        return true;
+    }
 }

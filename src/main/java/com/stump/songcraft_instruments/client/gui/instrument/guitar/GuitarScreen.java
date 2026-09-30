@@ -22,10 +22,6 @@ public class GuitarScreen extends GridInstrumentScreen {
     public ResourceLocation getInstrumentId() {
         return INSTRUMENT_ID;
     }
-    @Override
-    public boolean isGenshinInstrument() {
-        return false;
-    }
 
 
     public static final InstrumentThemeLoader THEME_LOADER = new InstrumentThemeLoader(INSTRUMENT_ID);

@@ -24,7 +24,7 @@ public class DjemDjemDrumScreen extends InstrumentScreen {
         return INSTRUMENT_ID;
     }
 
-
+    
     /**
      * Maps keycodes to their respected note button
      */
@@ -109,4 +109,8 @@ public class DjemDjemDrumScreen extends InstrumentScreen {
         return THEME_LOADER;
     }
 
+    @Override
+    public boolean isGenshinInstrument() {
+        return true;
+    }
 }

@@ -9,6 +9,9 @@ import com.stump.songcraft_instruments.item.emirecord.EMIRecordItem;
 import com.stump.songcraft_instruments.event.InstrumentPlayedEvent;
 import net.minecraft.ChatFormatting;
 import net.minecraft.core.BlockPos;
+import net.minecraft.server.level.ServerLevel;
+import com.stump.songcraft_instruments.networking.packet.SyncModTagPacket;
+import com.stump.songcraft_instruments.networking.SCPacketHandler;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtUtils;
 import net.minecraft.nbt.Tag;
@@ -151,6 +154,34 @@ public class LooperUtil {
      */
     public static boolean isConnectedBy(final LooperBlockEntity lbe, final CompoundTag looperTag, final Player player) {
         return lbe.connections().isConnectedBy(player, getConnectionId(looperTag));
+    }
+
+    /**
+     * Disconnects a block instrument from its looper on both ends, and syncs the change to nearby clients.
+     */
+    public static void disconnectBlockInstrument(final Level level, final BlockEntity instrument) {
+        final CompoundTag looperTag = looperTag(instrument);
+        if (looperTag.isEmpty())
+            return;
+
+        final BlockPos looperPos = getLooperPos(looperTag);
+        final UUID connectionId = getConnectionId(looperTag);
+        if (looperPos != null && connectionId != null && level.isLoaded(looperPos)) {
+            final LooperBlockEntity lbe = getFromPos(level, looperPos);
+            // Group participants stay in the session until it ends, recording on any instrument they play
+            if (lbe != null && !lbe.session().isGroupSession())
+                lbe.connections().removeByConnectionId(connectionId);
+        }
+
+        remLooperTag(instrument);
+        instrument.setChanged();
+
+        if (level instanceof ServerLevel serverLevel) {
+            SCPacketHandler.sendToTracking(
+                new SyncModTagPacket(SCInstrumentMod.modTag(instrument), instrument.getBlockPos()),
+                serverLevel, instrument.getBlockPos()
+            );
+        }
     }
 
     public static LooperBlockEntity getFromPos(final Level level, final BlockPos pos) {

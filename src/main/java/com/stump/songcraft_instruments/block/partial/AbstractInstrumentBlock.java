@@ -7,6 +7,7 @@ import com.stump.songcraft_instruments.networking.SCPacketHandler;
 import com.stump.songcraft_instruments.networking.packet.instrument.s2c.NotifyInstrumentOpenPacket;
 import com.stump.songcraft_instruments.networking.packet.instrument.util.InstrumentPacketUtil;
 import com.stump.songcraft_instruments.render.util.InstrumentDyeColors;
+import com.stump.songcraft_instruments.util.LooperUtil;
 import net.minecraft.client.model.HumanoidModel.ArmPose;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
@@ -103,6 +104,10 @@ public abstract class AbstractInstrumentBlock extends BaseEntityBlock {
                 SCPacketHandler.sendToClient(new NotifyInstrumentOpenPacket(user), (ServerPlayer)player);
             });
         }
+
+        // The instrument is gone (not just changing state); disconnect it from its looper
+        if (!pLevel.isClientSide && !pState.is(pNewState.getBlock()))
+            LooperUtil.disconnectBlockInstrument(pLevel, be);
 
         super.onRemove(pState, pLevel, pPos, pNewState, pMovedByPiston);
     }

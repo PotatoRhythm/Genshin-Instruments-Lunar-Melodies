@@ -23,10 +23,6 @@ public class Gw2FluteScreen extends GridInstrumentScreen {
     public ResourceLocation getInstrumentId() {
         return INSTRUMENT_ID;
     }
-    @Override
-    public boolean isGenshinInstrument() {
-        return false;
-    }
 
     @Override
     public int columns() {
@@ -49,5 +45,9 @@ public class Gw2FluteScreen extends GridInstrumentScreen {
     public InstrumentThemeLoader getThemeLoader() {
         return THEME_LOADER;
     }
-    
+
+    @Override
+    public boolean isGw2Instrument() {
+        return true;
+    }
 }

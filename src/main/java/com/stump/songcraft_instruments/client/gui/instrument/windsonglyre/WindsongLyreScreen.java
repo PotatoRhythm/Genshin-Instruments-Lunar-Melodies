@@ -30,5 +30,9 @@ public class WindsongLyreScreen extends GridInstrumentScreen {
     public InstrumentThemeLoader getThemeLoader() {
         return THEME_LOADER;
     }
-    
+
+    @Override
+    public boolean isGenshinInstrument() {
+        return true;
+    }
 }

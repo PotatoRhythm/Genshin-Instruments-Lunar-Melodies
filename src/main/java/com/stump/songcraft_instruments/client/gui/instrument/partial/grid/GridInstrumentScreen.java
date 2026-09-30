@@ -297,9 +297,11 @@ public abstract class GridInstrumentScreen extends InstrumentScreen implements I
         closeHeldScreen();
         super.setSoundOption(option);
         buildGrid();
-        if (LooperOverlayInjector.recordBtn != null) {
-            addRenderableWidget(LooperOverlayInjector.recordBtn);
-        }
+
+        // Rebuilding the grid clears all widgets; add back the ones that aren't part of it
+        if (visibilityButton != null)
+            addRenderableWidget(visibilityButton);
+        LooperOverlayInjector.getButtons(this).forEach(this::addRenderableWidget);
     }
 
     @Override

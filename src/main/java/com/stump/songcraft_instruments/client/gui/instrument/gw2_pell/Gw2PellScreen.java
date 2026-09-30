@@ -22,10 +22,6 @@ public class Gw2PellScreen extends GridInstrumentScreen {
     public ResourceLocation getInstrumentId() {
         return INSTRUMENT_ID;
     }
-    @Override
-    public boolean isGenshinInstrument() {
-        return false;
-    }
 
 
     public static final InstrumentThemeLoader THEME_LOADER = new InstrumentThemeLoader(INSTRUMENT_ID);
@@ -33,5 +29,9 @@ public class Gw2PellScreen extends GridInstrumentScreen {
     public InstrumentThemeLoader getThemeLoader() {
         return THEME_LOADER;
     }
-    
+
+    @Override
+    public boolean isGw2Instrument() {
+        return true;
+    }
 }

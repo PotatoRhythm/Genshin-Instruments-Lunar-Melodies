@@ -188,4 +188,8 @@ public class AratakisGreatAndGloriousDrumScreen extends InstrumentScreen {
         return ModClientConfigs.DOMINANT_DRUM_TYPE.get();
     }
 
+    @Override
+    public boolean isGenshinInstrument() {
+        return true;
+    }
 }

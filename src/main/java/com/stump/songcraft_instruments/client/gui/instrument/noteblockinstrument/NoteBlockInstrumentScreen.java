@@ -36,11 +36,6 @@ public class NoteBlockInstrumentScreen extends GridInstrumentScreen {
         return soundOption;
     }
 
-    @Override
-    public boolean isGenshinInstrument() {
-        return false;
-    }
-
 
     @Override
     public int rows() {
