@@ -61,15 +61,11 @@ public class NoteSound {
     }
 
     public static int getMinPitch() {
-        return ModClientConfigs.EXTEND_RANGE.get()
-                ? -LabelUtil.NOTES_PER_SCALE * 2
-                : -LabelUtil.NOTES_PER_SCALE;
+        return -LabelUtil.NOTES_PER_SCALE * 2;
     }
 
     public static int getMaxPitch() {
-        return ModClientConfigs.EXTEND_RANGE.get()
-                ? LabelUtil.NOTES_PER_SCALE * 2
-                : LabelUtil.NOTES_PER_SCALE;
+        return LabelUtil.NOTES_PER_SCALE * 2;
     }
 
     public SoundEvent getMono() {

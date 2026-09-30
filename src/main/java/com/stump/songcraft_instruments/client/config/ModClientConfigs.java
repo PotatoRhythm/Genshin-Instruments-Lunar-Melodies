@@ -31,6 +31,7 @@ public class ModClientConfigs {
 
     public static final IntValue MIDI_DEVICE_INDEX, OCTAVE_SHIFT, MIDI_CHANNEL;
     public static final IntValue TRANSPOSE;
+    public static final IntValue OCTAVE_SWAP_MIN, OCTAVE_SWAP_MAX;
     public static final DoubleValue VOLUME, MIDI_IN_SENSITIVITY;
 
     public static final EnumValue<NoteGridLabel> GRID_LABEL_TYPE;
@@ -41,7 +42,7 @@ public class ModClientConfigs {
         STOP_MUSIC_ON_PLAY, SHARED_INSTRUMENT,
         RENDER_BACKGROUND, ACCEPTED_DISCLAIMER, ACCURATE_NOTES,
         MIDI_ENABLED, EXTEND_OCTAVES, FIXED_TOUCH, ACCEPT_ALL_CHANNELS,
-        NORMALIZE_VINTAGE_LYRE, SERVER_AUDIO, EXTEND_RANGE
+        NORMALIZE_VINTAGE_LYRE, SERVER_AUDIO
     ;
 
     public static final EnumValue<ZitherSoundType> ZITHER_SOUND_TYPE;
@@ -90,7 +91,10 @@ public class ModClientConfigs {
         NORMALIZE_VINTAGE_LYRE = configBuilder.define("normalize_vintage_lyre", true);
 
         SERVER_AUDIO = configBuilder.define("server_audio", false);
-        EXTEND_RANGE = configBuilder.comment("Extend Range to 5 octaves").define("extend_range", true);
+        OCTAVE_SWAP_MIN = configBuilder.comment("The lowest octave Octave Swap mode may shift to")
+            .defineInRange("octave_swap_min", -2, -2, 2);
+        OCTAVE_SWAP_MAX = configBuilder.comment("The highest octave Octave Swap mode may shift to")
+            .defineInRange("octave_swap_max", 2, -2, 2);
 
         ACCEPTED_DISCLAIMER = configBuilder.define("accepted_disclaimer", false);
 

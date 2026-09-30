@@ -489,7 +489,7 @@ public abstract class InstrumentScreen extends Screen {
     private static final int SPEAKER_ICON_SIZE = 9;
 
     /**
-     * renders the connected speaker counter ("🔈:1") in the top-right corner,
+     * renders the connected speaker counter ("🔈 1") in the top-right corner,
      * lined up with the visibility button. hidden when no speakers are connected.
      */
     protected void renderSpeakerCounter(final GuiGraphics gui) {
@@ -497,7 +497,7 @@ public abstract class InstrumentScreen extends Screen {
         if (count <= 0)
             return;
 
-        final String text = ":" + count;
+        final String text = " " + count;
         final int iconX = width - VISIBILITY_BUTTON_MARGIN - font.width(text) - 1 - SPEAKER_ICON_SIZE;
         // vertically centered on the visibility button
         final int iconY = VISIBILITY_BUTTON_MARGIN + (18 - SPEAKER_ICON_SIZE) / 2;

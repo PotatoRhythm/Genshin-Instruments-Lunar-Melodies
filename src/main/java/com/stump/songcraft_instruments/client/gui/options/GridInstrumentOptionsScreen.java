@@ -75,15 +75,6 @@ public class GridInstrumentOptionsScreen extends InstrumentOptionsScreen {
                 );
         rowHelper.addChild(controlModeButton);
 
-        final CycleButton<Boolean> extendRange = CycleButton.booleanBuilder(CommonComponents.OPTION_ON, CommonComponents.OPTION_OFF)
-                .withInitialValue(ModClientConfigs.EXTEND_RANGE.get())
-                .withTooltip((value) -> Tooltip.create(Component.translatable("button.songcraft_instruments.extend_range.tooltip")))
-                .create(0, 0,
-                        getSmallButtonWidth(), getButtonHeight(),
-                        Component.translatable("button.songcraft_instruments.extend_range"), this::onExtendRangeChanged
-                );
-        rowHelper.addChild(extendRange);
-
         final SliderButton transpose = new SliderButton(getSmallButtonWidth(),
                 ModClientConfigs.TRANSPOSE.get(), -12, 12) {
             @Override
@@ -107,14 +98,6 @@ public class GridInstrumentOptionsScreen extends InstrumentOptionsScreen {
         ModClientConfigs.RENDER_BACKGROUND.set(value);
     }
 
-    protected void onExtendRangeChanged(final CycleButton<Boolean> button, final boolean value) {
-        ModClientConfigs.EXTEND_RANGE.set(value);
-        instrumentScreen.ifPresent(screen -> {
-            if (screen instanceof GridInstrumentScreen gridScreen) {
-                gridScreen.updateOctaveRange(value);
-            }
-        });
-    }
     protected void onControlModeChanged(final CycleButton<ControlModeType> button, final ControlModeType value) {
         ModClientConfigs.CONTROL_MODE.set(value);
     }

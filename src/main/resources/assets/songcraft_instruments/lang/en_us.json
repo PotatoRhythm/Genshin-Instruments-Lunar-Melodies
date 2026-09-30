@@ -59,8 +59,7 @@
     "button.songcraft_instruments.accurate_notes.tooltip": "When on, provides a pitch-accurate representation of the note symbols and accidentals used by this instrument's layout",
     "button.songcraft_instruments.server_audio": "Server-Side Audio",
     "button.songcraft_instruments.server_audio.tooltip": "When on, hear your notes after they reach the server. Useful for syncing with high latency",
-    "button.songcraft_instruments.extend_range": "Extend Range",
-    "button.songcraft_instruments.extend_range.tooltip": "Extend playable range to 5 octaves for Octave Swap mode",
+    "button.songcraft_instruments.octave_range.tooltip": "Octave Range: %s to %s\nDrag the edges to change it",
 
 
     "button.songcraft_instruments.midiEnabled": "MIDI Enabled",
