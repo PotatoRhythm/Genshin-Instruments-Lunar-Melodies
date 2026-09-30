@@ -164,23 +164,6 @@ public abstract class InstrumentScreen extends Screen {
         return null;
     }
 
-    /**
-     * @return Whether this instrument is derived from Genshin Impact
-     * @apiNote This value will help the mod determine whether a disclaimer pop-up should appear upon opening this
-     * instrument.
-     */
-    public boolean isGenshinInstrument() {
-        return false;
-    }
-    /**
-     * @return Whether this instrument is derived from Guild Wars 2
-     * @apiNote This value will help the mod determine whether a disclaimer pop-up should appear upon opening this
-     * instrument.
-     */
-    public boolean isGw2Instrument() {
-        return false;
-    }
-
 
     public final InstrumentMidiReceiver midiReceiver;
     /**
@@ -355,10 +338,8 @@ public abstract class InstrumentScreen extends Screen {
         addRenderableWidget(visibilityButton);
         visibilityButton.setEnabled(wasEnabled);
 
-        if (isGenshinInstrument() && !ModClientConfigs.ACCEPTED_GENSHIN_CONSENT.get())
-            minecraft.setScreen(DisclaimerScreen.genshin(this));
-        else if (isGw2Instrument() && !ModClientConfigs.ACCEPTED_GW2_CONSENT.get())
-            minecraft.setScreen(DisclaimerScreen.gw2(this));
+        if (!ModClientConfigs.ACCEPTED_DISCLAIMER.get())
+            minecraft.setScreen(new DisclaimerScreen(this));
     }
 
     protected Button initControlBar(int vertOffset) {
