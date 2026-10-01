@@ -1,5 +1,6 @@
 package com.stump.songcraft_instruments.datagen;
 
+import com.stump.songcraft_instruments.sound.NoteSound;
 import net.minecraft.data.PackOutput;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.common.data.SoundDefinition;
@@ -108,8 +109,7 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         addSoundVariants("drumset_hi-hat_foot", "songcraft_instruments:drumset_gw2/11", drumset_gw2_V, true);
     }
 
-    private static final int MONO_DISTANCE = 64;
-    private static final float STEREO_VOLUME_ADJUSTMENT = 0.2f;
+    private static final int MONO_DISTANCE = NoteSound.MONO_DISTANCE;
 
     /**
      * @param instrumentName    Instrument name (gw2_quaggan_organ, nightwind_horn, etc)
@@ -135,9 +135,9 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
                     String stereoPath = "songcraft_instruments:" + instrumentName + "/" + i + ".stereo";
                     String stereoEvent = instrumentName + "_note_" + i + "_stereo";
 
-                    // STEREO (no attenuation)
+                    // STEREO (attenuated manually, see NoteSound#stereoGain)
                     add(stereoEvent, definition().with(
-                            sound(stereoPath).volume(volume - STEREO_VOLUME_ADJUSTMENT)
+                            sound(stereoPath).volume(volume)
                     ));
                 }
             }
@@ -157,7 +157,7 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
                     String holdStereoEvent = instrumentName + "_hold_note_" + i + "_stereo";
 
                     add(holdStereoEvent, definition().with(
-                            sound(holdStereoPath).volume(volume - STEREO_VOLUME_ADJUSTMENT)
+                            sound(holdStereoPath).volume(volume)
                     ));
                 }
 
@@ -176,7 +176,7 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
                     String attackStereoEvent = instrumentName + "_attack_note_" + i + "_stereo";
 
                     add(attackStereoEvent, definition().with(
-                            sound(attackStereoPath).volume(volume - STEREO_VOLUME_ADJUSTMENT)
+                            sound(attackStereoPath).volume(volume)
                     ));
                 }
             }
@@ -209,7 +209,7 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
 
                             stereoDefinition.with(
                                     sound(soundPath + "/" + soundName)
-                                            .volume(volume - STEREO_VOLUME_ADJUSTMENT)
+                                            .volume(volume)
                             );
                         }
                         else {

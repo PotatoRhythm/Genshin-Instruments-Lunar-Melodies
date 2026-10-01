@@ -20,6 +20,7 @@ import net.minecraft.util.Mth;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.phys.Vec3;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.common.MinecraftForge;
@@ -35,9 +36,22 @@ public class NoteSound {
     public static final SoundSource INSTRUMENT_SOUND_SOURCE = SoundSource.RECORDS;
 
     /**
-     * The range at which players will start to hear Mono instead of Stereo.
+     * The range at which Stereo starts crossfading into Mono.
+     */
+    public static final double STEREO_FADE_START = 8;
+    /**
+     * The range at which players will only hear Mono instead of Stereo.
+     * Between {@link #STEREO_FADE_START} and this range, both are heard as a crossfade.
     */
     public static final double STEREO_RANGE = 16;
+    /**
+     * The distance at which Mono sounds fully fade out (their sounds.json attenuation distance)
+     */
+    public static final int MONO_DISTANCE = 64;
+    /**
+     * A volume multiplier for Stereo sounds, for balancing them against their Mono counterparts
+     */
+    public static final float STEREO_VOLUME = 1f;
     /**
      * The range from which players will hear instruments from their local sound output rather than the level's
      */
@@ -84,6 +98,15 @@ public class NoteSound {
     }
 
     /**
+     * @param playDistSqr The distance between this player and the position of the note's sound squared
+     * @return Whether this note should play as Stereo (crossfading into Mono with distance)
+     */
+    @OnlyIn(Dist.CLIENT)
+    public boolean usesStereo(final double playDistSqr) {
+        return hasStereo() && (playDistSqr <= Mth.square(STEREO_RANGE));
+    }
+
+    /**
      * Determines which sound type should play based on this player's distance from the instrument player.
      * Stereo is heard up close, and Mono further away, since only Mono sounds fade out with distance.
      * <p>This method is fired from the server.</p>
@@ -92,9 +115,40 @@ public class NoteSound {
      */
     @OnlyIn(Dist.CLIENT)
     public SoundEvent getByDistance(final double playDistSqr) {
-        return (hasStereo() && (playDistSqr <= Mth.square(STEREO_RANGE)))
-            ? getStereo()
-            : mono;
+        return usesStereo(playDistSqr) ? getStereo() : mono;
+    }
+
+    /**
+     * @return How much of the Stereo sound should be heard at the given distance, from 0 to 1.
+     * The Mono sound should be heard at the remainder.
+     */
+    public static float stereoMix(final double dist) {
+        return 1 - (float) Mth.clamp((dist - STEREO_FADE_START) / (STEREO_RANGE - STEREO_FADE_START), 0, 1);
+    }
+
+    /**
+     * Stereo sounds are not attenuated by OpenAL, so we mimic the linear attenuation Mono sounds get.
+     * @return The volume multiplier of a Stereo sound at the given distance
+     */
+    public static float stereoGain(final double dist) {
+        final float attenuation = Math.max(0, 1 - (float) dist / MONO_DISTANCE);
+        return stereoMix(dist) * attenuation * STEREO_VOLUME;
+    }
+
+    /**
+     * @return The volume multiplier of the crossfading Mono sound at the given distance.
+     * OpenAL attenuates it on its own.
+     */
+    public static float crossfadeMonoGain(final double dist) {
+        return 1 - stereoMix(dist);
+    }
+
+    /**
+     * @return The position sounds are heard from
+     */
+    @OnlyIn(Dist.CLIENT)
+    public static Vec3 listenerPos() {
+        return Minecraft.getInstance().gameRenderer.getMainCamera().getPosition();
     }
 
 
@@ -186,6 +240,7 @@ public class NoteSound {
         );
 
         minecraft.getSoundManager().play(instance);
+        instance.getMonoCrossfade().ifPresent(minecraft.getSoundManager()::play);
         NoteSoundInstances.add(instance);
     }
 
