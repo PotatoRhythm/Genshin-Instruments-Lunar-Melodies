@@ -41,14 +41,6 @@
 
 
 
-    "button.songcraft_instruments.audioChannels": "Instrument Audio Channel Type",
-    "button.songcraft_instruments.audioChannels.mono": "Mono",
-    "button.songcraft_instruments.audioChannels.stereo": "Stereo",
-    "button.songcraft_instruments.audioChannels.stereo.tooltip":
-    "NOTICE: Because of some annoying specification by OpenAL, all sounds produced on Stereo will be stuck on 100%.\nThis includes some instruments.",
-    "button.songcraft_instruments.audioChannels.mixed.tooltip":
-    "If the Instruments sound category is set to 100%, you will hear instruments on Stereo within %s blocks of range.\nOtherwise, you will hear Mono.",
-    "button.songcraft_instruments.audioChannels.mixed": "Mixed",
     "button.songcraft_instruments.stop_music_on_play.tooltip": "When you or other players within %s blocks of range play an instrument, Minecraft's background music will stop.",
     "button.songcraft_instruments.stop_music_on_play": "Stop Music On Play",
     "button.songcraft_instruments.shared_instrument.tooltip": "See what other notes players nearby are playing in your instrument's screen",
@@ -152,7 +144,7 @@
     "button.songcraft_instruments.trombone.soundType.westgate": "Trumpet",
 
     "button.songcraft_instruments.label.do_re_mi": "do re mi",
-    "button.songcraft_instruments.label.do_re_mi.description": "Labels will be of the musical notation \"do re mi.\"",
+    "button.songcraft_instruments.label.do_re_mi.description": "Labels will be of the musical notation \"do re mi,\" unaffected by custom transpositions (pitch)",
 
     "button.songcraft_instruments.control_mode.genshin": "Genshin",
     "button.songcraft_instruments.control_mode.heartopia": "Heartopia",
@@ -179,8 +171,6 @@
 
     "button.songcraft_instruments.label.fixed_abc": "Fixed ABC",
     "button.songcraft_instruments.label.fixed_abc.description": "ABC labels that are not affected by custom transpositions (pitch)",
-    "button.songcraft_instruments.label.fixed_do_re_mi": "Fixed do re mi",
-    "button.songcraft_instruments.label.fixed_do_re_mi.description": "do re mi labels that are not affected by custom transpositions (pitch)",
 
     "button.songcraft_instruments.label.none": "No Label",
     "button.songcraft_instruments.label.none.description": "",

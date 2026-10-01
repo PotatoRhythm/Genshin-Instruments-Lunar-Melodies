@@ -1,7 +1,6 @@
 package com.stump.songcraft_instruments.sound;
 
 import com.stump.songcraft_instruments.client.config.ModClientConfigs;
-import com.stump.songcraft_instruments.client.config.enumType.InstrumentChannelType;
 import com.stump.songcraft_instruments.client.util.ClientUtil;
 import com.stump.songcraft_instruments.event.NoteSoundPlayedEvent;
 import com.stump.songcraft_instruments.networking.buttonidentifier.NoteButtonIdentifier;
@@ -36,7 +35,7 @@ public class NoteSound {
     public static final SoundSource INSTRUMENT_SOUND_SOURCE = SoundSource.RECORDS;
 
     /**
-     * The range at which players with Mixed instrument sound type will start to hear Mono.
+     * The range at which players will start to hear Mono instead of Stereo.
     */
     public static final double STEREO_RANGE = 16;
     /**
@@ -86,40 +85,16 @@ public class NoteSound {
 
     /**
      * Determines which sound type should play based on this player's distance from the instrument player.
+     * Stereo is heard up close, and Mono further away, since only Mono sounds fade out with distance.
      * <p>This method is fired from the server.</p>
      * @param playDistSqr The distance between this player and the position of the note's sound squared
-     * @return Either the Mono or Stereo sound, based on the client's preference.
+     * @return Either the Mono or Stereo sound
      */
     @OnlyIn(Dist.CLIENT)
-    public SoundEvent getByPreference(final double playDistSqr) {
-        if (!hasStereo())
-            return mono;
-        
-        final InstrumentChannelType preference = ModClientConfigs.CHANNEL_TYPE.get();
-
-        return switch(preference) {
-            case MIXED -> (metInstrumentVolume() && (playDistSqr <= Mth.square(STEREO_RANGE))) ? getStereo() : mono;
-
-            case STEREO -> getStereo();
-            case MONO -> mono;
-        };
-    }
-    /**
-     * Returns the literal preference of the client. Defaults to Stereo.
-     * <p>This method is usually fired from the client.</p>
-     * <p>Shorthand for {@code getByPreference(0)}</p>
-     * @return Either the Mono or Stereo sound, based on the client's preference
-     */
-    @OnlyIn(Dist.CLIENT)
-    public SoundEvent getByPreference() {
-        return getByPreference(0);
-    }
-
-    /**
-     * @return True if the instrument volume is set to 100%
-     */
-    private static boolean metInstrumentVolume() {
-        return Minecraft.getInstance().options.getSoundSourceVolume(INSTRUMENT_SOUND_SOURCE) == 1;
+    public SoundEvent getByDistance(final double playDistSqr) {
+        return (hasStereo() && (playDistSqr <= Mth.square(STEREO_RANGE)))
+            ? getStereo()
+            : mono;
     }
 
 
@@ -196,7 +171,7 @@ public class NoteSound {
     public void playLocally(float pitch, NoteSoundMetadata meta, double playDistSqr,
             Optional<Integer> initiatorId, Optional<InitiatorID> oInitiatorId) {
         final Minecraft minecraft = Minecraft.getInstance();
-        final SoundEvent sound = getByPreference(playDistSqr);
+        final SoundEvent sound = getByDistance(playDistSqr);
 
         if (sound == null)
             return;

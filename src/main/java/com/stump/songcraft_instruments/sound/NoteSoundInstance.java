@@ -31,7 +31,7 @@ public class NoteSoundInstance extends AbstractTickableSoundInstance
             Optional<Integer> initiatorId, Optional<InitiatorID> oInitiatorId
     ) {
         super(
-                noteSound.getByPreference(playDistSqr),
+                noteSound.getByDistance(playDistSqr),
                 SoundSource.RECORDS,
                 SoundInstance.createUnseededRandom()
         );

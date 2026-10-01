@@ -54,7 +54,7 @@ public class HeldNoteSoundInstance extends AbstractTickableSoundInstance impleme
                                     InitiatorID initiatorId, ResourceLocation instrumentId,
                                     int timeAlive, boolean released) {
         super(
-            heldSoundContainer.getSound(phase).getByPreference(distFromSourceSqr(soundOrigin, initiator)),
+            heldSoundContainer.getSound(phase).getByDistance(distFromSourceSqr(soundOrigin, initiator)),
             NoteSound.INSTRUMENT_SOUND_SOURCE,
             SoundInstance.createUnseededRandom()
         );
