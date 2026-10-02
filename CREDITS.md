@@ -74,6 +74,11 @@ SongCraft Instruments is also licensed under [GPL-3.0](https://www.gnu.org/licen
 - **Not Teto** — Generated with the [Synthesizer V AI Kasane Teto](https://www.ah-soft.com/synth-v/teto/) voice database. Kasane Teto © TWINDRILL, voice database by AH-Software, Synthesizer V by Dreamtonics
 - **Not Teto (Whisper)** — Generated with the [Synthesizer V AI Kasane Teto](https://www.ah-soft.com/synth-v/teto/) voice database. Kasane Teto © TWINDRILL, voice database by AH-Software, Synthesizer V by Dreamtonics
 
+### Drumset
+
+- **Standard** — Made from the Standard Mix preset of the ["Real Drum" GM Mapped](https://musical-artifacts.com/artifacts/3330) soundfont by W. Duwindu Tharinda Perera on Musical Artifacts, licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). Rendered into individual hits with processed variations for this mod.
+- **Guild Wars 2** — See [Guild Wars 2](#guild-wars-2) under Game Sounds.
+
 ---
 
 ## Game Sounds

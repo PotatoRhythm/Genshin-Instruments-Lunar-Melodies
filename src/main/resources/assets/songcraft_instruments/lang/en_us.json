@@ -112,6 +112,7 @@
 
     "button.songcraft_instruments.drumset.soundType": "Sound",
     "button.songcraft_instruments.drumset.soundType.gw2": "Guild Wars 2",
+    "button.songcraft_instruments.drumset.soundType.standard": "Standard",
 
     "button.songcraft_instruments.electric_guitar.soundType": "Sound",
     "button.songcraft_instruments.electric_guitar.soundType.clean": "Clean",

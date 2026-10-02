@@ -93,6 +93,26 @@ public class SCSounds {
                 .chain(loc("drumset_hi-hat_closed")).stereo().add()
                 .chain(loc("drumset_hi-hat_open")).stereo().add()
                 .chain(loc("drumset_hi-hat_foot")).stereo().add()
+            .registerAll(),
+
+        DRUMSET_STANDARD = nsr(loc("drumset_standard"))
+                .chain(loc("drumset_standard_bass")).stereo().add()
+                .chain(loc("drumset_standard_snare")).stereo().add()
+                .chain(loc("drumset_standard_cross_stick")).stereo().add()
+                .chain(loc("drumset_standard_ghost")).stereo().add()
+                .chain(loc("drumset_standard_high_tom")).stereo().add()
+                .chain(loc("drumset_standard_low_tom")).stereo().add()
+
+                .chain(loc("drumset_standard_bass2")).stereo().add()
+                .chain(loc("drumset_standard_snare2")).stereo().add()
+                .chain(loc("drumset_standard_ghost2")).stereo().add()
+                .chain(loc("drumset_standard_mid_tom")).stereo().add()
+
+                .chain(loc("drumset_standard_crash_cymbal")).stereo().add()
+                .chain(loc("drumset_standard_ride_cymbal")).stereo().add()
+                .chain(loc("drumset_standard_hi-hat_closed")).stereo().add()
+                .chain(loc("drumset_standard_hi-hat_open")).stereo().add()
+                .chain(loc("drumset_standard_hi-hat_foot")).stereo().add()
             .registerAll()
     ;
     

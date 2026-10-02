@@ -9,7 +9,8 @@ import java.util.function.Supplier;
 
 @OnlyIn(Dist.CLIENT)
 public enum DrumsetSoundType implements SoundType {
-    GW2(() -> new SoundOption(SCSounds.DRUMSET_GW2));
+    GW2(() -> new SoundOption(SCSounds.DRUMSET_GW2)),
+    STANDARD(() -> new SoundOption(SCSounds.DRUMSET_STANDARD));
 
     private final Supplier<SoundOption> soundArr;
     private DrumsetSoundType(final Supplier<SoundOption> soundType) {

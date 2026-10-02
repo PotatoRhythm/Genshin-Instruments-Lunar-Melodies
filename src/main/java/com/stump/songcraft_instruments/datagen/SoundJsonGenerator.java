@@ -107,6 +107,23 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         addSoundVariants("drumset_hi-hat_closed", "songcraft_instruments:drumset_gw2/9", drumset_gw2_V, true);
         addSoundVariants("drumset_hi-hat_open", "songcraft_instruments:drumset_gw2/10", drumset_gw2_V, true);
         addSoundVariants("drumset_hi-hat_foot", "songcraft_instruments:drumset_gw2/11", drumset_gw2_V, true);
+
+        float drumset_standard_V = 0.7f;
+        addSoundVariants("drumset_standard_bass", "songcraft_instruments:drumset_standard/0", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_bass2", "songcraft_instruments:drumset_standard/0", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_snare", "songcraft_instruments:drumset_standard/1", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_snare2", "songcraft_instruments:drumset_standard/1", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_cross_stick", "songcraft_instruments:drumset_standard/2", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_ghost", "songcraft_instruments:drumset_standard/3", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_ghost2", "songcraft_instruments:drumset_standard/3", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_high_tom", "songcraft_instruments:drumset_standard/4", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_mid_tom", "songcraft_instruments:drumset_standard/5", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_low_tom", "songcraft_instruments:drumset_standard/6", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_crash_cymbal", "songcraft_instruments:drumset_standard/7", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_ride_cymbal", "songcraft_instruments:drumset_standard/8", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_hi-hat_closed", "songcraft_instruments:drumset_standard/9", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_hi-hat_open", "songcraft_instruments:drumset_standard/10", drumset_standard_V, true);
+        addSoundVariants("drumset_standard_hi-hat_foot", "songcraft_instruments:drumset_standard/11", drumset_standard_V, true);
     }
 
     private static final int MONO_DISTANCE = NoteSound.MONO_DISTANCE;
