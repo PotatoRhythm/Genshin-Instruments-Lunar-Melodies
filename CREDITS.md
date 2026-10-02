@@ -1,16 +1,5 @@
 # SongCraft Instruments — Credits
 
-## Contents
-
-- [Original Mods](#original-mods)
-- [Instrument Sounds](#instrument-sounds)
-  - [Shamisen](#shamisen) · [Koto](#koto) · [Pipa](#pipa) · [Keyboard](#keyboard) · [Trombone](#trombone) · [Saxophone](#saxophone)
-  - [Guitar](#guitar) · [Electric Guitar](#electric-guitar) · [Bass Guitar](#bass-guitar) · [Violin](#violin) · [Microphone](#microphone)
-- [Game Sounds](#game-sounds)
-  - [Genshin Impact](#genshin-impact) · [Guild Wars 2](#guild-wars-2) · [Heartopia](#heartopia)
-
----
-
 ## Original Mods
 
 SongCraft Instruments is a heavily modified continuation of two mods by StavWasPlayZ, and includes all of their content:
@@ -30,12 +19,12 @@ SongCraft Instruments is also licensed under [GPL-3.0](https://www.gnu.org/licen
 
 ### Koto
 
-- **Koto** — From the [Even More Instruments!](https://github.com/StavWasPlayZ/Even-More-Instruments) mod by StavWasPlayZ, licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html). Original samples from [DSK Asian DreamZ](https://www.dskmusic.com/dsk-asian-dreamz/) by DSK Music (free for private and commercial use).
+- **Koto** — From the [Even More Instruments!](https://github.com/StavWasPlayZ/Even-More-Instruments) mod by StavWasPlayZ, licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html). Original samples from [DSK Asian DreamZ](https://www.dskmusic.com/dsk-asian-dreamz/) by DSK Music.
 
 ### Pipa
 
-- **Regular** — From the [Even More Instruments!](https://github.com/StavWasPlayZ/Even-More-Instruments) mod by StavWasPlayZ, licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html). Original samples from [DSK Asian DreamZ](https://www.dskmusic.com/dsk-asian-dreamz/) by DSK Music (free for private and commercial use).
-- **Tremolo** — From the [Even More Instruments!](https://github.com/StavWasPlayZ/Even-More-Instruments) mod by StavWasPlayZ, licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html). Original samples from [DSK Asian DreamZ](https://www.dskmusic.com/dsk-asian-dreamz/) by DSK Music (free for private and commercial use).
+- **Regular** — From the [Even More Instruments!](https://github.com/StavWasPlayZ/Even-More-Instruments) mod by StavWasPlayZ, licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html). Original samples from [DSK Asian DreamZ](https://www.dskmusic.com/dsk-asian-dreamz/) by DSK Music.
+- **Tremolo** — From the [Even More Instruments!](https://github.com/StavWasPlayZ/Even-More-Instruments) mod by StavWasPlayZ, licensed under [GPL-3.0](https://www.gnu.org/licenses/gpl-3.0.html). Original samples from [DSK Asian DreamZ](https://www.dskmusic.com/dsk-asian-dreamz/) by DSK Music.
 
 ### Keyboard
 
