@@ -47,6 +47,8 @@ public class SCSounds {
         SAXOPHONE = nsr(loc("saxophone")).registerGrid(),
 
         GUITAR = nsr(loc("guitar")).registerGrid(),
+        GUITAR_NYLON = nsr(loc("guitar_nylon")).stereo().registerGrid(),
+        GUITAR_STEEL = nsr(loc("guitar_steel")).stereo().registerGrid(),
 
         GUITAR_CLEAN = nsr(loc("guitar_clean")).stereo().registerGrid(),
         GUITAR_HARMONICS = nsr(loc("guitar_harmonics")).stereo().registerGrid(),
@@ -54,6 +56,7 @@ public class SCSounds {
         BASS_ACOUSTIC = nsr(loc("bass_acoustic")).stereo().registerGrid(),
         BASS_FINGER = nsr(loc("bass_finger")).stereo().registerGrid(),
         BASS_SLAP = nsr(loc("bass_slap")).stereo().registerGrid(),
+        BASS_PICKED = nsr(loc("bass_picked")).stereo().registerGrid(),
 
         SHAMISEN = nsr(loc("shamisen")).stereo().registerGrid(),
         KOTO = nsr(loc("koto")).registerGrid(),

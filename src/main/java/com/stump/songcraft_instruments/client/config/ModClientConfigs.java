@@ -56,6 +56,7 @@ public class ModClientConfigs {
     public static final EnumValue<PipaSoundType> PIPA_SOUND_TYPE;
     public static final EnumValue<KeyboardSoundType> KEYBOARD_SOUND_TYPE;
     public static final EnumValue<DrumsetSoundType> DRUMSET_SOUND_TYPE;
+    public static final EnumValue<GuitarSoundType> GUITAR_SOUND_TYPE;
     public static final EnumValue<BassGuitarSoundType> BASS_GUITAR_SOUND_TYPE;
     public static final EnumValue<ElectricGuitarSoundType> ELECTRIC_GUITAR_SOUND_TYPE;
     public static final EnumValue<ViolinSoundType> VIOLIN_SOUND_TYPE;
@@ -104,6 +105,7 @@ public class ModClientConfigs {
         GW2_DRUMSET_LABEL_TYPE = configBuilder.defineEnum("gw2_drumset_label_type", Gw2DrumsetNoteLabel.KEYBOARD_LAYOUT);
         KEYBOARD_SOUND_TYPE = configBuilder.defineEnum("keyboard_sound_type", KeyboardSoundType.YAMAHA_C5);
         DRUMSET_SOUND_TYPE = configBuilder.defineEnum("drumset_sound_type", DrumsetSoundType.GW2);
+        GUITAR_SOUND_TYPE = configBuilder.defineEnum("guitar_sound_type", GuitarSoundType.EMI);
         BASS_GUITAR_SOUND_TYPE = configBuilder.defineEnum("bass_guitar_sound_type", BassGuitarSoundType.FINGER);
         ELECTRIC_GUITAR_SOUND_TYPE = configBuilder.defineEnum("electric_guitar_sound_type", ElectricGuitarSoundType.CLEAN);
         VIOLIN_SOUND_TYPE = configBuilder.defineEnum("violin_sound_type", ViolinSoundType.FAST);

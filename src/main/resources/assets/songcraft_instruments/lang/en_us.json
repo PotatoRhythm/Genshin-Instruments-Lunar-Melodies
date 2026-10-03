@@ -27,6 +27,7 @@
     "label.songcraft_instruments.ukulele_options": "Ukulele Options",
     "label.songcraft_instruments.keyboard_options": "Keyboard Options",
     "label.songcraft_instruments.drumset_options": "Drumset Options",
+    "label.songcraft_instruments.guitar_options": "Guitar Options",
     "label.songcraft_instruments.electric_guitar_options": "Electric Guitar Options",
     "label.songcraft_instruments.bass_guitar_options": "Bass Guitar Options",
     "label.songcraft_instruments.violin_options": "Violin Options",
@@ -117,6 +118,11 @@
     "button.songcraft_instruments.drumset.soundType.orchestral": "Orchestral",
     "button.songcraft_instruments.drumset.soundType.cozy": "Cozy",
 
+    "button.songcraft_instruments.guitar.soundType": "Sound",
+    "button.songcraft_instruments.guitar.soundType.emi": "EMI",
+    "button.songcraft_instruments.guitar.soundType.nylon": "Nylon",
+    "button.songcraft_instruments.guitar.soundType.steel": "Steel",
+
     "button.songcraft_instruments.electric_guitar.soundType": "Sound",
     "button.songcraft_instruments.electric_guitar.soundType.clean": "Clean",
     "button.songcraft_instruments.electric_guitar.soundType.distortion": "Distortion",
@@ -126,6 +132,7 @@
     "button.songcraft_instruments.bass_guitar.soundType.acoustic": "Acoustic Bass",
     "button.songcraft_instruments.bass_guitar.soundType.finger": "Finger Bass",
     "button.songcraft_instruments.bass_guitar.soundType.slap": "Slap Bass",
+    "button.songcraft_instruments.bass_guitar.soundType.picked": "Picked Bass",
 
     "button.songcraft_instruments.violin.soundType": "Sound",
     "button.songcraft_instruments.violin.soundType.slow": "Slow",
