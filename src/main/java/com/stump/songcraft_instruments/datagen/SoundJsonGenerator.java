@@ -58,6 +58,8 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         registerInstrument("guitar", 20, 0.9f, false, false);
 
         registerInstrument("guitar_clean", 20, 0.6f, false, true);
+        registerInstrument("guitar_distortion", 20, 0.8f, true, true);
+        registerInstrument("guitar_harmonics", 20, 0.7f, false, true);
 
         registerInstrument("bass_acoustic", 20, 1.0f, false, true);
         registerInstrument("bass_finger", 20, 1.0f, false, true);

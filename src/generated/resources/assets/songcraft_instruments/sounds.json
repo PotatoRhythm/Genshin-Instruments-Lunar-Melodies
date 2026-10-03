@@ -5962,6 +5962,1077 @@
       }
     ]
   },
+  "guitar_distortion_attack_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/0",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/0.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/1",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/10",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/10.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/11",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/11.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/12",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/12.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/13",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/13.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/14",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/14.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/15",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/15.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/16",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/16.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/17",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/17.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/18",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/18.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/19",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/19.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/1.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/2",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/20",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/20.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/2.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/3",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/3.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/4",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/5",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/5.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/6",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/6.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/7",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/7.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/8",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/8.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/attack/9",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_attack_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/attack/9.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/0",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/0.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/1",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/10",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/10.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/11",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/11.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/12",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/12.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/13",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/13.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/14",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/14.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/15",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/15.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/16",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/16.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/17",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/17.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/18",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/18.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/19",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/19.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/1.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/2",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/20",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/20.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/2.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/3",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/3.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/4",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/4.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/5",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/5.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/6",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/6.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/7",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/7.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/8",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/8.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_distortion/hold/9",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_distortion_hold_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_distortion/hold/9.stereo",
+        "volume": 0.8
+      }
+    ]
+  },
+  "guitar_harmonics_note_0": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/0",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_0_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/0.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_1": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/1",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_10": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/10",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_10_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/10.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_11": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/11",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_11_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/11.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_12": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/12",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_12_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/12.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_13": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/13",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_13_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/13.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_14": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/14",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_14_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/14.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_15": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/15",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_15_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/15.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_16": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/16",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_16_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/16.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_17": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/17",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_17_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/17.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_18": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/18",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_18_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/18.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_19": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/19",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_19_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/19.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_1_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/1.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/2",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_20": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/20",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_20_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/20.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/2.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_3": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/3",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_3_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/3.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_4": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_4_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_5": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/5",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_5_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/5.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_6": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/6",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_6_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/6.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_7": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/7",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_7_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/7.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_8": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/8",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_8_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/8.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_9": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:guitar_harmonics/9",
+        "volume": 0.7
+      }
+    ]
+  },
+  "guitar_harmonics_note_9_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:guitar_harmonics/9.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
   "guitar_note_0": {
     "sounds": [
       {

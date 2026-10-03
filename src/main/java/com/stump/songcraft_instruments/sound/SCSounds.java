@@ -49,6 +49,7 @@ public class SCSounds {
         GUITAR = nsr(loc("guitar")).registerGrid(),
 
         GUITAR_CLEAN = nsr(loc("guitar_clean")).stereo().registerGrid(),
+        GUITAR_HARMONICS = nsr(loc("guitar_harmonics")).stereo().registerGrid(),
 
         BASS_ACOUSTIC = nsr(loc("bass_acoustic")).stereo().registerGrid(),
         BASS_FINGER = nsr(loc("bass_finger")).stereo().registerGrid(),
@@ -346,9 +347,20 @@ public class SCSounds {
             .releaseFadeOut(FADE_TIME / 10)
             .fullHoldFadeoutTime(2)
             .decays(7)
+            .register(HOLD_DURATION),
+
+        GUITAR_DISTORTION = hnsr(loc("guitar_distortion"))
+            .holdBuilder(SCSounds::threeOctaveSoundBuilder)
+            .attackBuilder(SCSounds::threeOctaveSoundBuilder)
+            .holdDelay(.03f)
+            .chainedHoldDelay(-FADE_TIME * 2)
+            // About 1.5 s to fade out from full volume when released
+            .releaseFadeOut(FADE_TIME / 7.5f)
+            .fullHoldFadeoutTime(2)
+            .decays(7)
             .register(HOLD_DURATION)
     ;
-    
+
     private static NoteSound[] twoOctaveSoundBuilder(final NoteSoundRegistrar builder) {
         return builder.stereo().registerGrid(GridInstrumentScreen.DEF_ROWS, 2);
     }

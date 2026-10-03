@@ -119,6 +119,8 @@
 
     "button.songcraft_instruments.electric_guitar.soundType": "Sound",
     "button.songcraft_instruments.electric_guitar.soundType.clean": "Clean",
+    "button.songcraft_instruments.electric_guitar.soundType.distortion": "Distortion",
+    "button.songcraft_instruments.electric_guitar.soundType.harmonics": "Harmonics",
 
     "button.songcraft_instruments.bass_guitar.soundType": "Sound",
     "button.songcraft_instruments.bass_guitar.soundType.acoustic": "Acoustic Bass",

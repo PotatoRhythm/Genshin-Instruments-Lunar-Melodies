@@ -53,6 +53,8 @@ SongCraft Instruments is also licensed under [GPL-3.0](https://www.gnu.org/licen
 ### Electric Guitar
 
 - **Clean** — Made from the Jazz_guitar preset of [Alex's GM Soundfont version 1.3](https://musical-artifacts.com/artifacts/1390) by Alex Beneventi on Musical Artifacts, licensed under [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/). Rendered into individual notes for this mod.
+- **Distortion** — Made from the Distortion Guitar preset of the [GeneralUser GS](https://schristiancollins.com/generaluser.php) soundfont by S. Christian Collins, licensed under the [GeneralUser GS License v2.0](https://github.com/mrbumpy409/GeneralUser-GS/blob/main/documentation/LICENSE.txt). Rendered into notes for this mod.
+- **Harmonics** — Made from the Guitar Harmonics preset of the [FluidR3 GM](https://github.com/pianobooster/fluid-soundfont) soundfont by Frank Wen, licensed under the [MIT License](https://github.com/pianobooster/fluid-soundfont/blob/master/COPYING). Rendered into individual notes for this mod.
 
 ### Bass Guitar
 
