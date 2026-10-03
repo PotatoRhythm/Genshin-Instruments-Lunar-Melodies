@@ -113,6 +113,66 @@ public class SCSounds {
                 .chain(loc("drumset_standard_hi-hat_closed")).stereo().add()
                 .chain(loc("drumset_standard_hi-hat_open")).stereo().add()
                 .chain(loc("drumset_standard_hi-hat_foot")).stereo().add()
+            .registerAll(),
+
+        DRUMSET_POWER = nsr(loc("drumset_power"))
+                .chain(loc("drumset_power_bass")).stereo().add()
+                .chain(loc("drumset_power_snare")).stereo().add()
+                .chain(loc("drumset_power_cross_stick")).stereo().add()
+                .chain(loc("drumset_power_ghost")).stereo().add()
+                .chain(loc("drumset_power_high_tom")).stereo().add()
+                .chain(loc("drumset_power_low_tom")).stereo().add()
+
+                .chain(loc("drumset_power_bass2")).stereo().add()
+                .chain(loc("drumset_power_snare2")).stereo().add()
+                .chain(loc("drumset_power_ghost2")).stereo().add()
+                .chain(loc("drumset_power_mid_tom")).stereo().add()
+
+                .chain(loc("drumset_power_crash_cymbal")).stereo().add()
+                .chain(loc("drumset_power_ride_cymbal")).stereo().add()
+                .chain(loc("drumset_power_hi-hat_closed")).stereo().add()
+                .chain(loc("drumset_power_hi-hat_open")).stereo().add()
+                .chain(loc("drumset_power_hi-hat_foot")).stereo().add()
+            .registerAll(),
+
+        DRUMSET_ORCHESTRAL = nsr(loc("drumset_orchestral"))
+                .chain(loc("drumset_orchestral_bass")).stereo().add()
+                .chain(loc("drumset_orchestral_snare")).stereo().add()
+                .chain(loc("drumset_orchestral_cross_stick")).stereo().add()
+                .chain(loc("drumset_orchestral_ghost")).stereo().add()
+                .chain(loc("drumset_orchestral_high_tom")).stereo().add()
+                .chain(loc("drumset_orchestral_low_tom")).stereo().add()
+
+                .chain(loc("drumset_orchestral_bass2")).stereo().add()
+                .chain(loc("drumset_orchestral_snare2")).stereo().add()
+                .chain(loc("drumset_orchestral_ghost2")).stereo().add()
+                .chain(loc("drumset_orchestral_mid_tom")).stereo().add()
+
+                .chain(loc("drumset_orchestral_crash_cymbal")).stereo().add()
+                .chain(loc("drumset_orchestral_ride_cymbal")).stereo().add()
+                .chain(loc("drumset_orchestral_hi-hat_closed")).stereo().add()
+                .chain(loc("drumset_orchestral_hi-hat_open")).stereo().add()
+                .chain(loc("drumset_orchestral_hi-hat_foot")).stereo().add()
+            .registerAll(),
+
+        DRUMSET_COZY = nsr(loc("drumset_cozy"))
+                .chain(loc("drumset_cozy_bass")).stereo().add()
+                .chain(loc("drumset_cozy_snare")).stereo().add()
+                .chain(loc("drumset_cozy_cross_stick")).stereo().add()
+                .chain(loc("drumset_cozy_ghost")).stereo().add()
+                .chain(loc("drumset_cozy_high_tom")).stereo().add()
+                .chain(loc("drumset_cozy_low_tom")).stereo().add()
+
+                .chain(loc("drumset_cozy_bass2")).stereo().add()
+                .chain(loc("drumset_cozy_snare2")).stereo().add()
+                .chain(loc("drumset_cozy_ghost2")).stereo().add()
+                .chain(loc("drumset_cozy_mid_tom")).stereo().add()
+
+                .chain(loc("drumset_cozy_crash_cymbal")).stereo().add()
+                .chain(loc("drumset_cozy_ride_cymbal")).stereo().add()
+                .chain(loc("drumset_cozy_hi-hat_closed")).stereo().add()
+                .chain(loc("drumset_cozy_hi-hat_open")).stereo().add()
+                .chain(loc("drumset_cozy_hi-hat_foot")).stereo().add()
             .registerAll()
     ;
     

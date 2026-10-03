@@ -1852,6 +1852,2526 @@
       }
     ]
   },
+  "drumset_orchestral_bass": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/0/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/0/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/0/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/0/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/0/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_bass2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/0/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/0/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/0/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/0/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/0/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_bass2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/0/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/0/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/0/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/0/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/0/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_bass_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/0/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/0/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/0/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/0/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/0/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_crash_cymbal": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/7/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/7/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/7/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/7/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/7/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_crash_cymbal_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/7/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/7/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/7/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/7/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/7/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_cross_stick": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/2/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/2/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/2/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/2/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/2/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_cross_stick_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/2/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/2/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/2/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/2/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/2/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_ghost": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/3/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/3/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/3/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/3/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/3/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_ghost2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/3/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/3/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/3/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/3/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/3/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_ghost2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/3/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/3/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/3/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/3/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/3/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_ghost_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/3/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/3/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/3/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/3/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/3/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_hi-hat_closed": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/9/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/9/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/9/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/9/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/9/4",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/9/5",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/9/6",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/9/7",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/9/8",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/9/9",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_hi-hat_closed_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/9/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/9/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/9/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/9/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/9/4.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/9/5.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/9/6.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/9/7.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/9/8.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/9/9.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_hi-hat_foot": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/11/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/11/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/11/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/11/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/11/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_hi-hat_foot_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/11/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/11/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/11/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/11/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/11/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_hi-hat_open": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/10/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/10/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/10/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/10/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/10/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_hi-hat_open_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/10/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/10/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/10/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/10/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/10/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_high_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/4/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/4/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/4/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/4/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/4/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_high_tom_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/4/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/4/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/4/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/4/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/4/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_low_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/6/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/6/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/6/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/6/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/6/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_low_tom_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/6/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/6/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/6/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/6/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/6/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_mid_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/5/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/5/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/5/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/5/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/5/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_mid_tom_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/5/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/5/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/5/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/5/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/5/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_ride_cymbal": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/8/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/8/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/8/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/8/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/8/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_ride_cymbal_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/8/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/8/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/8/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/8/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/8/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_snare": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/1/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/1/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/1/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/1/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/1/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_snare2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/1/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/1/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/1/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/1/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_orchestral/1/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_snare2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/1/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/1/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/1/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/1/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/1/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_orchestral_snare_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_orchestral/1/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/1/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/1/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/1/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_orchestral/1/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_bass": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/0/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/0/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/0/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/0/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/0/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_bass2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/0/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/0/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/0/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/0/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/0/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_bass2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/0/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/0/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/0/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/0/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/0/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_bass_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/0/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/0/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/0/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/0/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/0/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_crash_cymbal": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/7/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/7/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/7/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/7/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/7/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_crash_cymbal_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/7/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/7/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/7/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/7/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/7/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_cross_stick": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/2/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/2/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/2/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/2/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/2/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_cross_stick_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/2/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/2/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/2/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/2/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/2/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_ghost": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/3/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/3/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/3/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/3/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/3/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_ghost2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/3/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/3/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/3/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/3/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/3/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_ghost2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/3/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/3/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/3/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/3/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/3/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_ghost_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/3/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/3/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/3/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/3/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/3/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_hi-hat_closed": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/9/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/9/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/9/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/9/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/9/4",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/9/5",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/9/6",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/9/7",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/9/8",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/9/9",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_hi-hat_closed_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/9/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/9/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/9/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/9/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/9/4.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/9/5.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/9/6.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/9/7.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/9/8.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/9/9.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_hi-hat_foot": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/11/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/11/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/11/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/11/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/11/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_hi-hat_foot_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/11/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/11/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/11/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/11/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/11/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_hi-hat_open": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/10/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/10/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/10/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/10/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/10/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_hi-hat_open_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/10/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/10/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/10/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/10/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/10/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_high_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/4/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/4/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/4/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/4/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/4/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_high_tom_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/4/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/4/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/4/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/4/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/4/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_low_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/6/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/6/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/6/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/6/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/6/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_low_tom_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/6/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/6/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/6/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/6/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/6/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_mid_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/5/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/5/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/5/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/5/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/5/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_mid_tom_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/5/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/5/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/5/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/5/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/5/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_ride_cymbal": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/8/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/8/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/8/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/8/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/8/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_ride_cymbal_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/8/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/8/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/8/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/8/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/8/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_snare": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/1/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/1/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/1/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/1/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/1/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_snare2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/1/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/1/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/1/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/1/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_cozy/1/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_snare2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/1/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/1/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/1/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/1/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/1/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_cozy_snare_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_cozy/1/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/1/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/1/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/1/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_cozy/1/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_bass": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/0/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/0/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/0/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/0/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/0/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_bass2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/0/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/0/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/0/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/0/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/0/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_bass2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/0/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/0/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/0/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/0/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/0/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_bass_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/0/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/0/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/0/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/0/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/0/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_crash_cymbal": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/7/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/7/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/7/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/7/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/7/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_crash_cymbal_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/7/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/7/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/7/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/7/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/7/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_cross_stick": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/2/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/2/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/2/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/2/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/2/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_cross_stick_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/2/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/2/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/2/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/2/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/2/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_ghost": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/3/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/3/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/3/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/3/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/3/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_ghost2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/3/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/3/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/3/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/3/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/3/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_ghost2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/3/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/3/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/3/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/3/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/3/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_ghost_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/3/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/3/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/3/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/3/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/3/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_hi-hat_closed": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/9/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/9/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/9/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/9/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/9/4",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/9/5",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/9/6",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/9/7",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/9/8",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/9/9",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_hi-hat_closed_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/9/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/9/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/9/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/9/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/9/4.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/9/5.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/9/6.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/9/7.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/9/8.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/9/9.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_hi-hat_foot": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/11/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/11/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/11/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/11/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/11/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_hi-hat_foot_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/11/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/11/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/11/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/11/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/11/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_hi-hat_open": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/10/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/10/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/10/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/10/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/10/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_hi-hat_open_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/10/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/10/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/10/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/10/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/10/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_high_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/4/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/4/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/4/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/4/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/4/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_high_tom_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/4/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/4/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/4/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/4/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/4/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_low_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/6/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/6/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/6/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/6/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/6/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_low_tom_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/6/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/6/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/6/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/6/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/6/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_mid_tom": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/5/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/5/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/5/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/5/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/5/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_mid_tom_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/5/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/5/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/5/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/5/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/5/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_ride_cymbal": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/8/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/8/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/8/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/8/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/8/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_ride_cymbal_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/8/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/8/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/8/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/8/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/8/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_snare": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/1/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/1/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/1/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/1/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/1/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_snare2": {
+    "sounds": [
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/1/0",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/1/1",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/1/2",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/1/3",
+        "volume": 0.7
+      },
+      {
+        "attenuation_distance": 64,
+        "name": "songcraft_instruments:drumset_power/1/4",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_snare2_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/1/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/1/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/1/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/1/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/1/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
+  "drumset_power_snare_stereo": {
+    "sounds": [
+      {
+        "name": "songcraft_instruments:drumset_power/1/0.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/1/1.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/1/2.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/1/3.stereo",
+        "volume": 0.7
+      },
+      {
+        "name": "songcraft_instruments:drumset_power/1/4.stereo",
+        "volume": 0.7
+      }
+    ]
+  },
   "drumset_standard_bass": {
     "sounds": [
       {

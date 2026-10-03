@@ -124,6 +124,57 @@ public class SoundJsonGenerator extends SoundDefinitionsProvider {
         addSoundVariants("drumset_standard_hi-hat_closed", "songcraft_instruments:drumset_standard/9", drumset_standard_V, true);
         addSoundVariants("drumset_standard_hi-hat_open", "songcraft_instruments:drumset_standard/10", drumset_standard_V, true);
         addSoundVariants("drumset_standard_hi-hat_foot", "songcraft_instruments:drumset_standard/11", drumset_standard_V, true);
+
+        float drumset_power_V = 0.7f;
+        addSoundVariants("drumset_power_bass", "songcraft_instruments:drumset_power/0", drumset_power_V, true);
+        addSoundVariants("drumset_power_bass2", "songcraft_instruments:drumset_power/0", drumset_power_V, true);
+        addSoundVariants("drumset_power_snare", "songcraft_instruments:drumset_power/1", drumset_power_V, true);
+        addSoundVariants("drumset_power_snare2", "songcraft_instruments:drumset_power/1", drumset_power_V, true);
+        addSoundVariants("drumset_power_cross_stick", "songcraft_instruments:drumset_power/2", drumset_power_V, true);
+        addSoundVariants("drumset_power_ghost", "songcraft_instruments:drumset_power/3", drumset_power_V, true);
+        addSoundVariants("drumset_power_ghost2", "songcraft_instruments:drumset_power/3", drumset_power_V, true);
+        addSoundVariants("drumset_power_high_tom", "songcraft_instruments:drumset_power/4", drumset_power_V, true);
+        addSoundVariants("drumset_power_mid_tom", "songcraft_instruments:drumset_power/5", drumset_power_V, true);
+        addSoundVariants("drumset_power_low_tom", "songcraft_instruments:drumset_power/6", drumset_power_V, true);
+        addSoundVariants("drumset_power_crash_cymbal", "songcraft_instruments:drumset_power/7", drumset_power_V, true);
+        addSoundVariants("drumset_power_ride_cymbal", "songcraft_instruments:drumset_power/8", drumset_power_V, true);
+        addSoundVariants("drumset_power_hi-hat_closed", "songcraft_instruments:drumset_power/9", drumset_power_V, true);
+        addSoundVariants("drumset_power_hi-hat_open", "songcraft_instruments:drumset_power/10", drumset_power_V, true);
+        addSoundVariants("drumset_power_hi-hat_foot", "songcraft_instruments:drumset_power/11", drumset_power_V, true);
+
+        float drumset_orchestral_V = 0.7f;
+        addSoundVariants("drumset_orchestral_bass", "songcraft_instruments:drumset_orchestral/0", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_bass2", "songcraft_instruments:drumset_orchestral/0", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_snare", "songcraft_instruments:drumset_orchestral/1", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_snare2", "songcraft_instruments:drumset_orchestral/1", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_cross_stick", "songcraft_instruments:drumset_orchestral/2", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_ghost", "songcraft_instruments:drumset_orchestral/3", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_ghost2", "songcraft_instruments:drumset_orchestral/3", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_high_tom", "songcraft_instruments:drumset_orchestral/4", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_mid_tom", "songcraft_instruments:drumset_orchestral/5", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_low_tom", "songcraft_instruments:drumset_orchestral/6", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_crash_cymbal", "songcraft_instruments:drumset_orchestral/7", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_ride_cymbal", "songcraft_instruments:drumset_orchestral/8", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_hi-hat_closed", "songcraft_instruments:drumset_orchestral/9", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_hi-hat_open", "songcraft_instruments:drumset_orchestral/10", drumset_orchestral_V, true);
+        addSoundVariants("drumset_orchestral_hi-hat_foot", "songcraft_instruments:drumset_orchestral/11", drumset_orchestral_V, true);
+
+        float drumset_cozy_V = 0.7f;
+        addSoundVariants("drumset_cozy_bass", "songcraft_instruments:drumset_cozy/0", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_bass2", "songcraft_instruments:drumset_cozy/0", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_snare", "songcraft_instruments:drumset_cozy/1", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_snare2", "songcraft_instruments:drumset_cozy/1", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_cross_stick", "songcraft_instruments:drumset_cozy/2", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_ghost", "songcraft_instruments:drumset_cozy/3", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_ghost2", "songcraft_instruments:drumset_cozy/3", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_high_tom", "songcraft_instruments:drumset_cozy/4", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_mid_tom", "songcraft_instruments:drumset_cozy/5", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_low_tom", "songcraft_instruments:drumset_cozy/6", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_crash_cymbal", "songcraft_instruments:drumset_cozy/7", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_ride_cymbal", "songcraft_instruments:drumset_cozy/8", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_hi-hat_closed", "songcraft_instruments:drumset_cozy/9", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_hi-hat_open", "songcraft_instruments:drumset_cozy/10", drumset_cozy_V, true);
+        addSoundVariants("drumset_cozy_hi-hat_foot", "songcraft_instruments:drumset_cozy/11", drumset_cozy_V, true);
     }
 
     private static final int MONO_DISTANCE = NoteSound.MONO_DISTANCE;
